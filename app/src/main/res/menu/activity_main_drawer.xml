@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/home"
+
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_completed"
+            android:icon="@drawable/rd"
+            android:title="Report A Disaster" />
+
+        <item
+            android:id="@+id/nav_RNA"
+            android:icon="@drawable/rna"
+            android:title="Rapid Need Assessment" />
+        <item
+            android:id="@+id/nav_DNA"
+            android:icon="@drawable/dna"
+            android:title="Damage Need Assessment" />
+
+
+    </group>
+
+    <item android:title="Explore">
+        <menu>
+            <item
+                android:id="@+id/nav_notifi"
+                android:icon="@drawable/ew"
+                android:title="Early Warnings" />
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ds"
+                android:title="Daily Situation" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ar"
+                android:title="Assessment Results" />
+        </menu>
+    </item>
+
+
+    <item android:title="Dashbord">
+        <menu>
+            <item
+                android:id="@+id/nav_lang_e"
+                android:icon="@drawable/cou"
+                android:title="Community Outreach" />
+            <item
+                android:id="@+id/nav_lang_u"
+                android:icon="@drawable/ee"
+                android:title="Near Evacuation Center" />
+            <item
+                android:id="@+id/nav_VM"
+                android:icon="@drawable/vm"
+                android:title="Volunteer Mapping" />
+            <item
+                android:id="@+id/nav_lang_s"
+                android:icon="@drawable/ec"
+                android:title="Emergency Contacts" />
+        </menu>
+    </item>
+    <item android:title="MIRA">
+        <menu>
+            <item
+                android:id="@+id/nav_AT"
+                android:icon="@drawable/t"
+                android:title="Assessment Tool1" />
+            <item
+                android:id="@+id/nav_ATT"
+                android:icon="@drawable/tt"
+                android:title="Assessment Tool2" />
+
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        >
+        <ImageView style="@style/TopBack_img"
+            />
+        <TextView style="@style/TopHeader_text"
+
+            android:text="Report Disaster"
+            />
+
+
+    </LinearLayout>
+
+    <View  style="@style/TopLine_View"/>
+
+    <ScrollView style="@style/ScrollView">
+        <!-- Parent layout starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/rd1" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/rd1LV"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/rd1"
+                        android:layout_weight="100"
+                        android:id="@+id/rd1Tv"
+
+                        />
+                    <ImageView style="@style/DownImageView"/>
+
+                </LinearLayout>
+                <View style="@style/nView"
+                />
+
+                </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/rd2" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/rd2LV"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/rd2"
+                        android:layout_weight="100"
+                        android:id="@+id/rd2Tv"
+
+                        />
+
+                    <ImageView
+                        style="@style/DownImageView" />
+
+                </LinearLayout>
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/rd3"
+
+                    />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/rd3"
+                    android:lines="4" />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/rd4" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/rd4LV"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/rd4"
+                        android:layout_weight="100"
+                        android:id="@+id/rd4Tv"
+
+                        />
+
+                    <ImageView
+                        style="@style/DownImageView" />
+
+                </LinearLayout>
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/rd5"
+
+                    />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/rd5"
+                    android:lines="4" />
+                <View style="@style/nView" />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/rd6"
+
+                    />
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/rd6LV"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/rd6"
+                        android:layout_weight="100"
+                        android:id="@+id/rd6Tv"
+
+                        />
+
+                    <ImageView
+                        style="@style/DownImageView"
+                        android:background="@drawable/camera"
+                        />
+
+                </LinearLayout>
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="Undertaking"
+
+                        />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+                <CheckBox style="@style/Undertaking"
+
+                    />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="Note:"
+
+                    />
+
+                <TextView
+                    style="@style/note"
+                    android:text="@string/note"
+
+                    />
+                <Button style="@style/SubmiteButt"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
+</layout>

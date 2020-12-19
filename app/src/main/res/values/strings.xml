@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+
+    <string name="rd1">Select District</string>
+    <string name="rd2">Select Tehsil</string>
+    <string name="rd3">Enter Complete Address</string>
+    <string name="rd4">Type of Disaster</string>
+    <string name="rd5">Detail of Disaster</string>
+    <string name="rd6">Upload Picture</string>
+    <string name="rd6a">from Gallery</string>
+    <string name="rd6b">Camera</string>
+    <string name="rd7">Your Location</string>
+    <string name="note">In case of false reporting the concerned authority can impose punishment as per national disaster authority management NDAM Act-2010 </string>
+    <string name="undertaking">I herby Certify that all of the above information are authentic I   further declare that I am not reporting false data to provisional disaster management authority</string>
+
+
+</resources>

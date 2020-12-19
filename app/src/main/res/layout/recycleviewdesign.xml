@@ -1,0 +1,11 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/nLinerLayout">
+        <TextView
+            style="@style/SResponce"
+            android:id="@+id/txtrcv" />
+        <View style="@style/nView" />
+    </LinearLayout>
+
+
+
+
