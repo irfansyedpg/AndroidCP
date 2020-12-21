@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -22,15 +24,70 @@
     </com.google.android.material.appbar.AppBarLayout>
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_margin="@dimen/fab_margin"-->
+<!--        app:backgroundTint="@color/colorPrimary"-->
+<!--        app:srcCompat="@drawable/plus" />-->
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        fab:fab_addButtonColorNormal="@color/white"
+        fab:fab_addButtonColorPressed="@color/white_pressed"
+        fab:fab_addButtonPlusIconColor="@color/colorPrimary"
 
-        />
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        fab:fab_labelStyle="@style/menu_labels_style"
+
+        >
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_dna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#776d8a"
+            fab:fab_title="Demage Need Assesment"
+            fab:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_icon="@drawable/ic_report"
+
+            />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_rna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#ffaa71"
+            fab:fab_title="Rapid Need Assessment"
+
+            fab:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_icon="@drawable/ic_time"
+
+            />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_rd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="#fbd46d"
+            fab:fab_title="Report Disaster"
+
+            fab:fab_colorPressed="@color/colorPrimaryDark"
+            app:fab_icon="@drawable/ic_desertification"
+
+            />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
