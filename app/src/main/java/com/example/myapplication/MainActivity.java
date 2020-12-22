@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this,"this",Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainActivity.this, ReportDisaster.class);
+                startActivity(intent);
+
 
             }
         });
@@ -79,12 +81,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
+    Intent intent = null;
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         int id = menuItem.getItemId();
-        Intent intent = null;
+
 
 
 /*

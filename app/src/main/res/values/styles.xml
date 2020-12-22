@@ -101,12 +101,12 @@
         <item name="android:focusable">true</item>
     </style>
     <style name="DownImageView">
-        <item name="android:layout_width">18dp</item>
-        <item name="android:layout_height">18dp</item>
-        <item name="android:background">@drawable/down</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_expand_more_black_24dp</item>
         <item name="android:layout_marginRight">10dp</item>
 
-    </style>\
+    </style>
 
     <style name="SubmiteButt">
         <item name="android:layout_width">match_parent</item>
@@ -121,11 +121,13 @@
 
 
     <style name="TopBack_img">
-        <item name="android:layout_width">18dp</item>
-        <item name="android:layout_height">18dp</item>
-        <item name="android:background">@drawable/back</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ic_chevron_left_black_24dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginLeft">@dimen/TopBack_MarginLeft</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="TopHeader_text">
@@ -154,6 +156,18 @@
         <item name="android:fillViewport">true</item>
         <item name="android:padding">5dp</item>
         <item name="android:scrollbarSize">2dip</item>
+
+    </style>
+
+
+    <style name="UploadImageLV">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_weight">20</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:background">@color/white_pressed</item>
 
     </style>
 

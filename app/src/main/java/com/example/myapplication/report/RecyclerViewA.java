@@ -46,6 +46,13 @@ public class RecyclerViewA extends AppCompatActivity {
         sHeader=getIntent().getStringExtra("header");
         binding.header.setText(sHeader);
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Activity) RecyclerViewA.this).finish();
+            }
+        });
+
 
         Collections.sort(list);
 
