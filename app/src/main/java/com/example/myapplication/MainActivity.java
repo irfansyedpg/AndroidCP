@@ -3,6 +3,8 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.myapplication.report.DemageNeedAssesment;
+import com.example.myapplication.report.RapidNeedAssessment;
 import com.example.myapplication.report.RecyclerViewA;
 import com.example.myapplication.report.ReportDisaster;
 
@@ -40,11 +42,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.action_rd);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton action_rd = findViewById(R.id.action_rd);
+        action_rd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent = new Intent(MainActivity.this, ReportDisaster.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        FloatingActionButton action_rna = findViewById(R.id.action_rna);
+        action_rna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+        FloatingActionButton action_dna = findViewById(R.id.action_dna);
+        action_dna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
                 startActivity(intent);
 
 
@@ -86,19 +110,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         int id = menuItem.getItemId();
-
-
-
-/*
-        if (id == R.id.nav_uploaded) {
-            intent = new Intent(this, SurveyUploadedActivity.class);
-        } else */
-        if (id == R.id.nav_completed) {
+        if (id == R.id.nav_RD) {
        intent = new Intent(this, ReportDisaster.class);
-//            intent = new Intent(this, RecyclerViewA.class);
-
         }
-        if (intent != null)
+        else if (id == R.id.nav_RNA) {
+            intent = new Intent(this, RapidNeedAssessment.class);
+        }
+        else if (id == R.id.nav_DNA) {
+            intent = new Intent(this, DemageNeedAssesment.class);
+        }
+        else
             startActivity(intent);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

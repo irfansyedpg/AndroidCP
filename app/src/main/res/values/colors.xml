@@ -8,6 +8,7 @@
     <color name="hitnscolor">#AFB3B5</color>
     <color name="black_overlay">#AFB3B5</color>
     <color name="hintoverly">#e5e7e7</color>
+    <color name="hintoverlyverylight">#f2f3f3</color>
     <color name="Lable">#3D9AE5</color>
     <color name="Responce">#828282</color>
     <color name="red">#DD5347</color>

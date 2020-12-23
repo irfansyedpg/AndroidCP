@@ -77,8 +77,17 @@
         <item name="android:layout_marginTop">11dp</item>
         <item name="android:layout_marginBottom">15dp</item>
         <item name="android:background">@color/hintoverly</item>
-
     </style>
+    <style name="EView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:background">@color/hintoverlyverylight</item>
+    </style>
+
     <style name="StaricTextview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

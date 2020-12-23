@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical">
+<!--    just testing commit -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:id="@+id/lvback"
+            android:focusable="true"
+            android:clickable="true">
+        <ImageView style="@style/TopBack_img"
+            />       </LinearLayout>
+        <TextView
+            android:layout_weight="80"
+            style="@style/TopHeader_text"  android:text="Demage Need Assessment "
+            />
+
+
+    </LinearLayout>
+
+    <View  style="@style/TopLine_View"/>
+
+    <ScrollView style="@style/ScrollView">
+        <!-- Parent layout starts -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna1" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/dna1LV"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/dna1"
+                        android:layout_weight="100"
+                        android:id="@+id/dna1Tv"
+
+                        />
+                    <ImageView style="@style/DownImageView"/>
+
+                </LinearLayout>
+                <View style="@style/nView"
+                />
+
+                </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna2" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+                    android:id="@+id/dna2LV"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:text="@string/dna2"
+                        android:layout_weight="100"
+                        android:id="@+id/dna2Tv"
+
+                        />
+
+                    <ImageView
+                        style="@style/DownImageView" />
+
+                </LinearLayout>
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/dna3"
+
+                    />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna3"
+                    android:lines="4" />
+                <View style="@style/nView" />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna4" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna4" />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna5" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna5" />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna6" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna6" />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna7" />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna7" />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/dna8"
+
+                    />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna8a" />
+                <View style="@style/EView" />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna8b" />
+                <View style="@style/EView"
+                    />
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/dna9L"
+                    android:textColor="@color/black"
+
+                    />
+
+            </LinearLayout>
+
+<!--demage to property  starts -->
+            <LinearLayout
+                style="@style/nLinerLayout">
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/dna9"
+
+                    />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <RadioButton style="@style/SResponce"
+                    android:text="@string/dna9a" />
+                <RadioButton style="@style/SResponce"
+                    android:text="@string/dna9b" />
+                <RadioButton style="@style/SResponce"
+                    android:text="@string/dna9c" />
+
+                </RadioGroup>
+
+
+
+
+            </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna10"
+
+                        />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton style="@style/SResponce"
+                            android:text="@string/dna10a" />
+                        <RadioButton style="@style/SResponce"
+                            android:text="@string/dna10b" />
+
+                    </RadioGroup>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna11"
+
+                        />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton style="@style/SResponce"
+                            android:text="@string/dna11a" />
+
+                        <RadioButton
+                            style="@style/SResponce"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dna11b" />
+
+                    </RadioGroup>
+
+                    <View style="@style/nView" />
+
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna12"
+
+                        />
+
+
+                        <CheckBox style="@style/SResponce"
+                            android:text="@string/dna12a" />
+                        <CheckBox style="@style/SResponce"
+                            android:text="@string/dna12b" />
+                    <CheckBox style="@style/SResponce"
+                        android:text="@string/dna12c" />
+                    <CheckBox style="@style/SResponce"
+                        android:text="@string/dna12d" />
+
+
+
+
+                    <View style="@style/nView" />
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna13"
+
+                        />
+
+
+                        <CheckBox style="@style/SResponce"
+                            android:text="@string/dna13a" />
+
+                        <CheckBox
+                            style="@style/SResponce"
+                            android:text="@string/dna13b" />
+                    <CheckBox
+                        style="@style/SResponce"
+                        android:text="@string/dna13c" />
+
+
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna14"
+
+                        />
+
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+                    <RadioButton style="@style/SResponce"
+                        android:text="@string/dna14a" />
+
+                    <RadioButton
+                        style="@style/SResponce"
+                        android:text="@string/dna14b" />
+                    <RadioButton
+                        style="@style/SResponce"
+                        android:text="@string/dna14c" />
+
+
+</RadioGroup>
+
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView style="@style/SLable"
+                        android:text="@string/dna15"
+
+                        />
+
+                    <EditText style="@style/SResponce"
+                        android:hint="@string/dna15a" />
+                    <View style="@style/EView" />
+                    <EditText style="@style/SResponce"
+                        android:hint="@string/dna15b" />
+                    <View style="@style/EView" />
+                    <EditText style="@style/SResponce"
+                        android:hint="@string/dna15c" />
+                    <View style="@style/EView" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="@string/dna16"
+
+                    />
+
+                <EditText style="@style/SResponce"
+                    android:hint="@string/dna16"
+                    android:lines="3"
+                    />
+<View
+  style="@style/nView"/>
+
+            </LinearLayout>
+            <!--demage to property  ends -->
+
+
+            <LinearLayout style="@style/nLinerLayout">
+
+
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="Undertaking"
+
+                        />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+                <CheckBox style="@style/Undertaking"
+
+                    />
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/nLinerLayout">
+
+                <TextView style="@style/SLable"
+                    android:text="Note:"
+
+                    />
+
+                <TextView
+                    style="@style/note"
+                    android:text="@string/note"
+
+                    />
+                <Button style="@style/SubmiteButt"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
+</layout>
