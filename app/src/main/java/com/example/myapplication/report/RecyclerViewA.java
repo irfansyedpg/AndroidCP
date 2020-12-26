@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +36,7 @@ public class RecyclerViewA extends AppCompatActivity {
 
     RecycleviewBinding binding ;
 
-   RecyclerView.Adapter mAdapter;
+    RecyclerViewCustomAdapter mAdapter;
    androidx.recyclerview.widget.RecyclerView.LayoutManager mLayoutManager;
     ArrayList<String> list;
     String sHeader;
@@ -64,6 +67,43 @@ public class RecyclerViewA extends AppCompatActivity {
 
 
 
+        // RecycleView Text Search View Filter
+
+        ((EditText) findViewById(R.id.ed_search)).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+
+    }
+
+    // filter method
+
+    private void filter(String text) {
+        //new array list that will hold the filtered data
+        ArrayList<String> filterdNames = new ArrayList<>();
+
+        //looping through existing elements
+        for (String s : list) {
+            //if the existing elements contains the search input
+            if (s.toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                filterdNames.add(s);
+            }
+        }
+
+        //calling a method of the adapter class and passing the filtered list
+        mAdapter.filterList(filterdNames);
     }
 
 
@@ -80,6 +120,12 @@ class  RecyclerViewCustomAdapter extends RecyclerView.Adapter {
         mList = list;
     }
 
+    // filter
+
+    public void filterList(ArrayList<String> filterdNames) {
+        this.mList = filterdNames;
+        notifyDataSetChanged();
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
