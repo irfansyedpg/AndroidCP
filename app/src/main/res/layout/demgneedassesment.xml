@@ -27,7 +27,8 @@
             />       </LinearLayout>
         <TextView
             android:layout_weight="80"
-            style="@style/TopHeader_text"  android:text="Demage Need Assessment "
+            style="@style/TopHeader_text"
+            android:text="Demage Need Assessment "
             />
 
 

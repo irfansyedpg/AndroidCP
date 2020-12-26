@@ -26,7 +26,8 @@
             />       </LinearLayout>
         <TextView
             android:layout_weight="80"
-            style="@style/TopHeader_text"  android:text="Report Disaster"
+            style="@style/TopHeader_text"
+            android:text="Report Disaster"
             />
 
 
