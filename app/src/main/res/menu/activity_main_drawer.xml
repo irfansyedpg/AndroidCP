@@ -3,11 +3,6 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_new"
-            android:icon="@drawable/home"
-
-            android:title="Home" />
 
         <item
             android:id="@+id/nav_RD"
@@ -15,65 +10,74 @@
             android:title="Report A Disaster" />
 
         <item
-            android:id="@+id/nav_RNA"
+
             android:icon="@drawable/rna"
-            android:title="Rapid Need Assessment" />
+            android:title="Early Warnings" />
         <item
-            android:id="@+id/nav_DNA"
+
             android:icon="@drawable/dna"
-            android:title="Damage Need Assessment" />
+            android:title="Daily Situation Report" />
 
 
     </group>
 
-    <item android:title="Explore">
+    <item android:title="Assessment">
         <menu>
             <item
-                android:id="@+id/nav_notifi"
+
                 android:icon="@drawable/ew"
-                android:title="Early Warnings" />
+                android:id="@+id/nav_RNA"
+                android:title="Rapid Need Assessment " />
             <item
-                android:id="@+id/nav_login"
+                android:id="@+id/nav_DNA"
                 android:icon="@drawable/ds"
-                android:title="Daily Situation" />
+                android:title="Demage Need Assessment " />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ar"
-                android:title="Assessment Results" />
+                android:title="Risk Assessment Results" />
         </menu>
     </item>
 
 
-    <item android:title="Dashbord">
+    <item android:title="Public Services">
         <menu>
+            <item
+                android:id="@+id/nav_lang_u"
+                android:icon="@drawable/ee"
+                android:title="Evacuation Center" />
             <item
                 android:id="@+id/nav_lang_e"
                 android:icon="@drawable/cou"
                 android:title="Community Outreach" />
             <item
-                android:id="@+id/nav_lang_u"
-                android:icon="@drawable/ee"
-                android:title="Near Evacuation Center" />
-            <item
-                android:id="@+id/nav_VM"
-                android:icon="@drawable/vm"
-                android:title="Volunteer Mapping" />
-            <item
                 android:id="@+id/nav_lang_s"
                 android:icon="@drawable/ec"
                 android:title="Emergency Contacts" />
+
+
+
         </menu>
     </item>
-    <item android:title="MIRA">
+    <item android:title="Volunteer Registration">
+        <menu>
+            <item
+                android:id="@+id/nav_VM"
+                android:icon="@drawable/vm"
+                android:title="Register Volunteer" />
+
+        </menu>
+    </item>
+    <item android:title="MIRA Tool (Restricted Access)">
         <menu>
             <item
                 android:id="@+id/nav_AT"
                 android:icon="@drawable/t"
-                android:title="Assessment Tool1" />
+                android:title="MIRA-Key Informant Interviews" />
             <item
                 android:id="@+id/nav_ATT"
                 android:icon="@drawable/tt"
-                android:title="Assessment Tool2" />
+                android:title="MIRA-Direct Observation Checklist" />
 
         </menu>
     </item>

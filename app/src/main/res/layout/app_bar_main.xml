@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
-            fab:fab_title="Demage Need Assesment"
+            fab:fab_title="Daily Situation Report"
             fab:fab_colorPressed="@color/colorPrimaryDark"
             app:fab_icon="@drawable/ic_report"
 
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
-            fab:fab_title="Rapid Need Assessment"
+            fab:fab_title="Early Warnings"
 
             fab:fab_colorPressed="@color/colorPrimaryDark"
             app:fab_icon="@drawable/ic_time"

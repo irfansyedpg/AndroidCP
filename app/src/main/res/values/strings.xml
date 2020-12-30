@@ -75,16 +75,15 @@
     <string name="dna12b">Horticulture </string>
     <string name="dna12c">Communal Forest</string>
     <string name="dna12d">Livestock </string>
+    <string name="dna12e">Any Other </string>
 
     <string name="dna13">Property</string>
-    <string name="dna13a">Business </string>
-    <string name="dna13b">Shop</string>
+    <string name="dna13a">Shop </string>
+    <string name="dna13b">Hotel</string>
     <string name="dna13c">Petrol Pump</string>
+    <string name="dna13d">Any Other</string>
 
-    <string name="dna14">Ownership Status of Property</string>
-    <string name="dna14a">Owen</string>
-    <string name="dna14b">Rented</string>
-    <string name="dna14c">Lease</string>
+
 
     <string name="dna15">Estimated Damages in Rupees</string>
     <string name="dna15a">Repair </string>

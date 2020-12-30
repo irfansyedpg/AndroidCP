@@ -311,6 +311,8 @@
                         android:text="@string/dna12c" />
                     <CheckBox style="@style/SResponce"
                         android:text="@string/dna12d" />
+                    <EditText style="@style/SResponce"
+                        android:text="@string/dna12e" />
 
 
 
@@ -339,6 +341,10 @@
                     <CheckBox
                         style="@style/SResponce"
                         android:text="@string/dna13c" />
+                    <EditText
+                        style="@style/SResponce"
+                        android:hint="@string/dna13d" />
+
 
 
 
@@ -348,33 +354,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout style="@style/nLinerLayout">
 
-                    <TextView style="@style/SLable"
-                        android:text="@string/dna14"
-
-                        />
-
-<RadioGroup
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-                    <RadioButton style="@style/SResponce"
-                        android:text="@string/dna14a" />
-
-                    <RadioButton
-                        style="@style/SResponce"
-                        android:text="@string/dna14b" />
-                    <RadioButton
-                        style="@style/SResponce"
-                        android:text="@string/dna14c" />
-
-
-</RadioGroup>
-
-
-
-
-                </LinearLayout>
 
 
                 <LinearLayout style="@style/nLinerLayout">
@@ -402,7 +382,7 @@
             <LinearLayout style="@style/nLinerLayout">
 
                 <TextView style="@style/SLable"
-                    android:text="@string/dna16"
+                    android:hint="@string/dna16"
 
                     />
 
