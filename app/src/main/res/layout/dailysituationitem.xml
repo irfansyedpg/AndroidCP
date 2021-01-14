@@ -1,0 +1,34 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/nLinerLayout"
+
+     >
+     <LinearLayout
+         style="@style/nLinerLayout"
+         android:orientation="horizontal"
+         android:weightSum="100"
+         android:padding="2dp"
+         >
+        <TextView
+            style="@style/SResponce"
+            android:id="@+id/txtdate"
+            android:text="ddd"
+
+            android:layout_weight="30"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+     <TextView
+         style="@style/SResponce"
+         android:id="@+id/txtshift"
+         android:text="dd"
+         android:layout_weight="70"
+         android:textColor="@color/half_black"
+         android:textStyle="bold"
+         />
+     </LinearLayout>
+        <View style="@style/nView" />
+    </LinearLayout>
+
+
+
+

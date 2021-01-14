@@ -35,9 +35,8 @@ import java.util.List;
 public class RecyclerViewA extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-
     RecyclerViewCustomAdapter mAdapter;
-   androidx.recyclerview.widget.RecyclerView.LayoutManager mLayoutManager;
+    androidx.recyclerview.widget.RecyclerView.LayoutManager mLayoutManager;
     ArrayList<String> list;
     String sHeader;
 

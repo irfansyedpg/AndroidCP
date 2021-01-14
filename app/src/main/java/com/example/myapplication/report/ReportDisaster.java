@@ -90,7 +90,7 @@ public class ReportDisaster extends AppCompatActivity  {
             //@Override
             public void onClick(View v) {
                 ImgView=binding.rd6Imgv1;
-               selectImage(ReportDisaster.this);
+                selectImage(ReportDisaster.this);
 
             }
         });
@@ -108,6 +108,13 @@ public class ReportDisaster extends AppCompatActivity  {
                 ImgView=binding.rd6Imgv3;
                 selectImage(ReportDisaster.this);
 
+            }
+        });
+
+        binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Activity) ReportDisaster.this).finish();
             }
         });
     }
@@ -174,36 +181,36 @@ public class ReportDisaster extends AppCompatActivity  {
     }
 
 
-// upload image
-private void selectImage(Context context) {
-    final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
+    // upload image
+    private void selectImage(Context context) {
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-    builder.setTitle("Choose your picture");
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your picture");
 
-    builder.setItems(options, new DialogInterface.OnClickListener() {
+        builder.setItems(options, new DialogInterface.OnClickListener() {
 
-        @Override
-        public void onClick(DialogInterface dialog, int item) {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
 
-            if (options[item].equals("Take Photo")) {
-                Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takePicture, 0);
+                if (options[item].equals("Take Photo")) {
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
 
-            } else if (options[item].equals("Choose from Gallery")) {
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto , 1);
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickPhoto , 1);
 
-            } else if (options[item].equals("Cancel")) {
-                dialog.dismiss();
-            }else
-            {
-                ImgView.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }else
+                {
+                    ImgView.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                }
             }
-        }
-    });
-    builder.show();
-}
+        });
+        builder.show();
+    }
 
 
 }

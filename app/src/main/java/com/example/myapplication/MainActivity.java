@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.myapplication.report.DailySituationReport;
 import com.example.myapplication.report.DemageNeedAssesment;
 import com.example.myapplication.report.RapidNeedAssessment;
 import com.example.myapplication.report.RecyclerViewA;
@@ -64,11 +65,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        FloatingActionButton action_dna = findViewById(R.id.action_dna);
+        FloatingActionButton action_dna = findViewById(R.id.action_dsr);
         action_dna.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
+                intent = new Intent(MainActivity.this, DailySituationReport.class);
                 startActivity(intent);
 
 
@@ -111,15 +112,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = menuItem.getItemId();
         if (id == R.id.nav_RD) {
        intent = new Intent(this, ReportDisaster.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_RNA) {
             intent = new Intent(this, RapidNeedAssessment.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_DNA) {
             intent = new Intent(this, DemageNeedAssesment.class);
-        }
-        else
             startActivity(intent);
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

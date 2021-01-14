@@ -10,7 +10,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/lvback"
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:weightSum="100"
@@ -28,7 +28,8 @@
             android:clickable="true"
             android:focusable="true">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/lvback"
                 style="@style/TopBack_img"
                 android:layout_height="match_parent" />
         </LinearLayout>

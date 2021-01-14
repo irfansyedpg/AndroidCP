@@ -19,10 +19,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="20"
-            android:id="@+id/lvback"
+
             android:focusable="true"
             android:clickable="true">
-        <ImageView style="@style/TopBack_img"
+        <ImageButton
+
+            android:id="@+id/lvback"
+            style="@style/TopBack_img"
             />       </LinearLayout>
         <TextView
             android:layout_weight="80"
@@ -269,7 +272,10 @@
                     android:text="@string/note"
 
                     />
-                <Button style="@style/SubmiteButt"
+                <Button
+
+                    android:id="@+id/btnsubmit"
+                    style="@style/SubmiteButt"
                     />
 
             </LinearLayout>
