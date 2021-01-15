@@ -209,9 +209,28 @@ class  GetDataServer extends AsyncTask {
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
                 String shift = c.getString("shift");
+                if(shift.equals("M"))
+                {
+                    shift="Morning";
+                }
+                else if(shift.equals("E"))
+                {
+                    shift="Evening";
+                }
+
                 String adddate = c.getString("addedDate");
-                listShift.add(shift);
-                listDate.add(adddate);
+
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date date = dateFormat.parse(adddate);
+                dateFormat.applyPattern("dd-MM-yyyy");
+               adddate=dateFormat.format(date);
+
+
+//                String[] date=adddate.split("T");
+//                listDate.add(date[0]);
+                 listDate.add(adddate);
+                 listShift.add(shift);
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
@@ -243,7 +262,9 @@ class  GetDataServer extends AsyncTask {
             mUserMsg = e.getMessage();
         } catch (JSONException e) {
             e.printStackTrace();
-        }  finally {
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } finally {
             if (mUserMsg != null)
                 Toast.makeText(mContext, mUserMsg, Toast.LENGTH_SHORT).show();
         }
@@ -288,14 +309,27 @@ class  ViewCustomAdapter extends RecyclerView.Adapter {
         vh.txtShift.setText(mListShift.get(position));
 
 
-        vh.itemView.setOnClickListener(new View.OnClickListener() {
+        vh.txtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txtdate = vh.txtdate.getText().toString();
+                String txtshift = vh.txtShift.getText().toString();
+
+                if(txtshift.equals("Morning"))
+                {
+                    txtshift="M";
+                }
+                else
+                {
+                    txtshift="E";
+                }
 
             //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://175.107.63.39/DSRs/DSR%2014-01-2021%20(M).pdf"));
+                String url="http://175.107.63.39/DSRs/DSR%20";
+                url=url+txtdate+"%20("+txtshift+").pdf";
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 mContext.startActivity(browserIntent);
 
             }
@@ -312,11 +346,13 @@ class  ViewCustomAdapter extends RecyclerView.Adapter {
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtdate;
         public TextView txtShift;
+        public TextView txtView;
 
         public ViewHolder(View v) {
             super(v);
             txtdate = (TextView) v.findViewById(R.id.txtdate);
             txtShift = (TextView) v.findViewById(R.id.txtshift);
+            txtView = (TextView) v.findViewById(R.id.txtView);
         }
     }
 

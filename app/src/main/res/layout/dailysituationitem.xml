@@ -21,10 +21,19 @@
          style="@style/SResponce"
          android:id="@+id/txtshift"
          android:text="dd"
-         android:layout_weight="70"
+         android:layout_weight="30"
          android:textColor="@color/half_black"
          android:textStyle="bold"
          />
+         <TextView
+             style="@style/SResponce"
+             android:id="@+id/txtView"
+             android:text="@string/UnderlineView"
+             android:layout_weight="40"
+             android:textColor="@color/Lable"
+             android:gravity="center"
+             android:textStyle="normal"
+             />
      </LinearLayout>
         <View style="@style/nView" />
     </LinearLayout>

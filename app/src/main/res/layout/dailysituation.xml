@@ -43,6 +43,8 @@
 
         android:orientation="horizontal"
         android:weightSum="100"
+        android:background="@color/white_pressed"
+        android:layout_marginTop="10dp"
         >
 
 
@@ -52,12 +54,14 @@
             android:layout_weight="30"
             android:layout_margin="3dp"
             android:textColor="@color/Lable"
+            android:background="@color/white"
            />
         <TextView style="@style/SResponce"
 
             android:text="To"
             android:layout_weight="40"
             android:gravity="center"
+
 
             />
         <Button style="@style/SResponce"
@@ -66,6 +70,7 @@
             android:layout_weight="30"
             android:layout_margin="3dp"
             android:textColor="@color/Lable"
+            android:background="@color/white"
             />
 
 
