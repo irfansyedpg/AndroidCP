@@ -64,7 +64,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rna1"
+                        android:hint="@string/rna1"
                         android:layout_weight="100"
                         android:id="@+id/rna1Tv"
 
@@ -95,7 +95,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rna2"
+                        android:hint="@string/rna2"
                         android:layout_weight="100"
                         android:id="@+id/rna2Tv"
 
@@ -119,7 +119,10 @@
 
                 <EditText style="@style/SResponce"
                     android:hint="@string/rna3"
-                    android:lines="4" />
+                    android:lines="4"
+                    android:id="@+id/rna3Tv"
+
+                    />
                 <View style="@style/nView"
                     />
 
@@ -143,7 +146,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rna4"
+                        android:hint="@string/rna4"
                         android:layout_weight="100"
                         android:id="@+id/rna4Tv"
 
@@ -208,6 +211,7 @@
                     <TextView style="@style/StaricTextview" />
                 </LinearLayout>
                 <CheckBox style="@style/Undertaking"
+                    android:id="@+id/checkbox"
 
                     />
                 <View style="@style/nView"
