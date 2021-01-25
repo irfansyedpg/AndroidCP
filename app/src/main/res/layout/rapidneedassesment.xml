@@ -175,6 +175,9 @@
                     android:id="@+id/rna5c"
                     android:text="@string/rna5c" />
                 <CheckBox style="@style/SResponce"
+                    android:id="@+id/rna5d"
+                    android:text="@string/rna5d" />
+                <CheckBox style="@style/SResponce"
                     android:id="@+id/rna5e"
                     android:text="@string/rna5e" />
                 <CheckBox style="@style/SResponce"

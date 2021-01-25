@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplication.R;
+import com.example.myapplication.data.LocalDataManager;
 import com.example.myapplication.databinding.ReportdisasterBinding;
 import com.example.myapplication.global.District;
 import com.example.myapplication.global.Tehsil;
@@ -26,6 +27,7 @@ import com.example.myapplication.global.TypeDisaster;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ReportDisaster extends AppCompatActivity  {
@@ -114,7 +116,9 @@ public class ReportDisaster extends AppCompatActivity  {
         binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) ReportDisaster.this).finish();
+
+                insertDb();
+               // ((Activity) ReportDisaster.this).finish();
             }
         });
     }
@@ -211,6 +215,64 @@ public class ReportDisaster extends AppCompatActivity  {
         });
         builder.show();
     }
+
+
+    HashMap<String,String> HashData=new HashMap<>();
+    public  void insertDb()
+    {
+        if(datavalidation()==false)
+        {
+            return;
+        }
+        HashData.put("rd1",binding.rd1Tv.getText().toString().trim());
+        HashData.put("rd2",binding.rd2Tv.getText().toString().trim());
+        HashData.put("rd3",binding.rd3Tv.getText().toString().trim());
+        HashData.put("rd4",binding.rd4Tv.getText().toString().trim());
+        HashData.put("rd5",binding.rd5Tv.getText().toString().trim());
+        HashData.put("rd6a","rd6a");
+        HashData.put("rd6b","rd6b");
+        HashData.put("rd6c","rd6c");
+
+        new LocalDataManager(this).InsertRespnoseTable(1,HashData,"ReportDisaster");
+        ((Activity) ReportDisaster.this).finish();
+
+    }
+    public  boolean  datavalidation()
+    {
+        if(binding.rd1Tv.getText().equals(""))
+        {
+            Toast.makeText(this,"Please select District",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        if(binding.rd2Tv.getText().equals("Select Tehsil"))
+        {      Toast.makeText(this,"Please Enter Select Tehsil",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        if(binding.rd3Tv.getText().toString().trim().equals("") || binding.rd3Tv.getText().toString().trim().isEmpty())
+        {
+            Toast.makeText(this,"Please Enter Complete Address",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        if(binding.rd4Tv.getText().equals(""))
+        {
+            Toast.makeText(this,"Please Select Type of Disaster",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        if(binding.rd5Tv.getText().toString().trim().equals("") || binding.rd5Tv.getText().toString().trim().isEmpty())
+        {
+            Toast.makeText(this,"Please Enter Detail of Disaster",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        if(!binding.checkbox.isChecked())
+        {
+            Toast.makeText(this,"Please check the Undertaking",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+
+
+        return  true;
+    }
+
 
 
 }

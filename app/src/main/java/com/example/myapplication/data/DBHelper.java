@@ -25,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.beginTransaction();
 
-        db.execSQL(RDTableS.getCreateQuery());
+        db.execSQL(LocalDataManager.getCreateQueryResponseTable());
         db.setTransactionSuccessful();
         db.endTransaction();
     }
@@ -37,7 +37,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.beginTransaction();
 
 
-        query = "DROP TABLE IF EXISTS " + RDTableS.TABLE_NAME;
+        query = "DROP TABLE IF EXISTS " + LocalDataManager.Table2;
         db.execSQL(query);
 
         db.setTransactionSuccessful();

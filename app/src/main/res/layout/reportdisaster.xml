@@ -65,7 +65,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rd1"
+                        android:hint="@string/rd1"
                         android:layout_weight="100"
                         android:id="@+id/rd1Tv"
 
@@ -96,7 +96,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rd2"
+                        android:hint="@string/rd2"
                         android:layout_weight="100"
                         android:id="@+id/rd2Tv"
 
@@ -120,7 +120,10 @@
 
                 <EditText style="@style/SResponce"
                     android:hint="@string/rd3"
-                    android:lines="4" />
+                    android:lines="4"
+                    android:id="@+id/rd3Tv"
+
+                    />
                 <View style="@style/nView"
                     />
 
@@ -144,7 +147,7 @@
 
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:text="@string/rd4"
+                        android:hint="@string/rd4"
                         android:layout_weight="100"
                         android:id="@+id/rd4Tv"
 
@@ -168,7 +171,9 @@
 
                 <EditText style="@style/SResponce"
                     android:hint="@string/rd5"
-                    android:lines="4" />
+                    android:lines="4"
+                    android:id="@+id/rd5Tv"
+                    />
                 <View style="@style/nView" />
 
             </LinearLayout>
@@ -200,6 +205,7 @@
                             android:id="@+id/rd6Imgv1"
                             style="@style/DownImageView"
                             android:src="@drawable/ic_add_black_24dp"
+
 
                             />
                     </LinearLayout>
@@ -253,6 +259,8 @@
                     <TextView style="@style/StaricTextview" />
                 </LinearLayout>
                 <CheckBox style="@style/Undertaking"
+
+                    android:id="@+id/checkbox"
 
                     />
                 <View style="@style/nView"

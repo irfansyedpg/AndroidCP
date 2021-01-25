@@ -362,18 +362,18 @@
                 <LinearLayout style="@style/nLinerLayout">
 
                     <TextView style="@style/SLable"
-                        android:text="@string/dna15"
+                        android:text="@string/dna14"
 
                         />
 
                     <EditText style="@style/SResponce"
-                        android:hint="@string/dna15a" />
+                        android:hint="@string/dna14a" />
                     <View style="@style/EView" />
                     <EditText style="@style/SResponce"
-                        android:hint="@string/dna15b" />
+                        android:hint="@string/dna14b" />
                     <View style="@style/EView" />
                     <EditText style="@style/SResponce"
-                        android:hint="@string/dna15c" />
+                        android:hint="@string/dna14c" />
                     <View style="@style/EView" />
 
 
@@ -384,12 +384,12 @@
             <LinearLayout style="@style/nLinerLayout">
 
                 <TextView style="@style/SLable"
-                    android:hint="@string/dna16"
+                    android:hint="@string/dna15"
 
                     />
 
                 <EditText style="@style/SResponce"
-                    android:hint="@string/dna16"
+                    android:hint="@string/dna15"
                     android:lines="3"
                     />
 <View

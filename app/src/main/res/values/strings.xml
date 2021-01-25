@@ -26,7 +26,7 @@
     <string name="rd6">Upload Picture</string>
     <string name="rd6a">from Gallery</string>
     <string name="rd6b">Camera</string>
-    <string name="rd7">Your Location</string>
+
     <string name="note">In case of false reporting the concerned authority can impose punishment as per national disaster authority management NDAM Act-2010 </string>
     <string name="undertaking">I herby Certify that all of the above information are authentic I   further declare that I am not reporting false data to provisional disaster management authority</string>
 
@@ -70,7 +70,7 @@
     <string name="dna11">Ownership Status of House</string>
     <string name="dna11a">Owen</string>
     <string name="dna11b">Rented</string>
-    <string name="dna11c">Lease</string>
+
 
     <string name="dna12">Livelihood </string>
     <string name="dna12a">Damages to Agriculture Crops</string>
@@ -87,11 +87,11 @@
 
 
 
-    <string name="dna15">Estimated Damages in Rupees</string>
-    <string name="dna15a">Repair </string>
-    <string name="dna15b">Content</string>
-    <string name="dna15c">Total</string>
+    <string name="dna14">Estimated Damages in Rupees</string>
+    <string name="dna14a">Repair </string>
+    <string name="dna14b">Content</string>
+    <string name="dna14c">Total</string>
 
-    <string name="dna16">Any other comments</string>
+    <string name="dna15">Any other comments</string>
 
 </resources>
