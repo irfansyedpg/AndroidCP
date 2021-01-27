@@ -78,7 +78,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) DemageNeedAssesment.this).finish();
+                insertDb();
             }
         });
 
@@ -225,19 +225,19 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 Toast.makeText(this,"Please Enter Number of People Died",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(!binding.dna9a.isChecked() || !binding.dna9b.isChecked() || !binding.dna9c.isChecked() )
+            if(!binding.dna9a.isChecked() && !binding.dna9b.isChecked() && !binding.dna9c.isChecked() )
             {
                 Toast.makeText(this,"Please Select House Demage",Toast.LENGTH_SHORT).show();
                 return  false;
             }
 
-            if(!binding.dna10a.isChecked() || !binding.dna10b.isChecked()  )
+            if(!binding.dna10a.isChecked() && !binding.dna10b.isChecked()  )
             {
                 Toast.makeText(this,"Please Select Construction type of house",Toast.LENGTH_SHORT).show();
                 return  false;
             }
 
-            if(!binding.dna11a.isChecked() || !binding.dna11b.isChecked()  )
+            if(!binding.dna11a.isChecked() && !binding.dna11b.isChecked()  )
             {
                 Toast.makeText(this,"Please Select Ownership Status of Housee",Toast.LENGTH_SHORT).show();
                 return  false;

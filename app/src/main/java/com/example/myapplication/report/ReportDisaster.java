@@ -21,8 +21,12 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.LocalDataManager;
 import com.example.myapplication.databinding.ReportdisasterBinding;
 import com.example.myapplication.global.District;
+import com.example.myapplication.global.GlobalResponseData;
 import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
+
+import com.example.myapplication.global.UploadData;
+import com.example.myapplication.tables.ResponseTable;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -234,7 +238,22 @@ public class ReportDisaster extends AppCompatActivity  {
         HashData.put("rd6c","rd6c");
 
         new LocalDataManager(this).InsertRespnoseTable(1,HashData,"ReportDisaster");
-        ((Activity) ReportDisaster.this).finish();
+
+
+        GlobalResponseData gdata=LocalDataManager.GetData();
+
+        HashMap<String,List<String>> MpUplod=new HashMap<>();
+
+        MpUplod.put(ResponseTable.FK,gdata.FK);
+        MpUplod.put(ResponseTable.VarName,gdata.VarName);
+        MpUplod.put(ResponseTable.Response,gdata.Response);
+        MpUplod.put(ResponseTable.Section,gdata.Section);
+
+
+        new UploadData(ReportDisaster.this, "http://175.107.63.137/PEOCMIS/api/values/InsertResponse",MpUplod).execute();
+
+
+        //((Activity) ReportDisaster.this).finish();
 
     }
     public  boolean  datavalidation()

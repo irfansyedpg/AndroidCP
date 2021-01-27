@@ -86,7 +86,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
         binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RapidNeedAssessment.this).finish();
+              insertDb();
             }
         });
     }
@@ -183,7 +183,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             Toast.makeText(this,"Please Select Type of Disaster",Toast.LENGTH_SHORT).show();
             return  false;
         }
-        if(!binding.rna5a.isChecked() || !binding.rna5b.isChecked() || !binding.rna5c.isChecked()|| !binding.rna5d.isChecked()|| !binding.rna5e.isChecked() || !binding.rna5f.isChecked()|| !binding.rna5g.isChecked() )
+        if(!binding.rna5a.isChecked() && !binding.rna5b.isChecked() && !binding.rna5c.isChecked() && !binding.rna5d.isChecked() && !binding.rna5e.isChecked() && !binding.rna5f.isChecked() && !binding.rna5g.isChecked() )
         {
             Toast.makeText(this,"Please Select Immediate Needs",Toast.LENGTH_SHORT).show();
             return  false;

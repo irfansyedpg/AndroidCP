@@ -1,13 +1,14 @@
 package com.example.myapplication.utilities;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by SamirKHan on 10/3/2016.
- */
+
 public class PostRequestData {
 
     public static String getData(HashMap<String, String> params) throws UnsupportedEncodingException {
@@ -28,3 +29,5 @@ public class PostRequestData {
         return result.toString();
     }
 }
+
+

@@ -1,8 +1,10 @@
 package com.example.myapplication.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.myapplication.global.GlobalResponseData;
 import com.example.myapplication.tables.ResponseTable;
 
 import java.util.ArrayList;
@@ -51,4 +53,26 @@ public class LocalDataManager {
 
 
     }
+
+    public  static GlobalResponseData GetData()
+    {
+        String  query = "SELECT "+ResponseTable.FK+","+ResponseTable.VarName+","+ResponseTable.Response+","+ResponseTable.Section+" from "+ Table2;
+
+        Cursor c = database.rawQuery(query, null);
+
+        GlobalResponseData Gdata=new GlobalResponseData();
+        if (c != null) {
+            while (c.moveToNext()) {
+
+                Gdata.FK.add(c.getString(0));
+                Gdata.VarName.add(c.getString(1));
+                Gdata.Response.add(c.getString(2));
+                Gdata.Section.add(c.getString(3));
+
+            }
+        }
+
+        return  Gdata;
+    }
+
 }
