@@ -9,6 +9,7 @@ import com.example.myapplication.report.RapidNeedAssessment;
 import com.example.myapplication.report.RecyclerViewA;
 import com.example.myapplication.report.ReportDisaster;
 
+import com.example.myapplication.report.ShowLocationActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 intent = new Intent(MainActivity.this, ReportDisaster.class);
+              //  intent = new Intent(MainActivity.this, ShowLocationActivity.class);
                 startActivity(intent);
 
 

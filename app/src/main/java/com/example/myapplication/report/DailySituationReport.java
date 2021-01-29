@@ -67,7 +67,7 @@ public class DailySituationReport extends AppCompatActivity  {
 
 
         new GetDataServer(DailySituationReport.this, "http://175.107.63.137/PEOCMIS/api/values/getDSR",binding.recycleviewR).execute();
-        binding.btnfrome.setOnClickListener(new View.OnClickListener() {
+        binding.btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -82,42 +82,35 @@ public class DailySituationReport extends AppCompatActivity  {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                binding.btnfrome.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                binding.btnDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                String url="http://175.107.63.137/PEOCMIS/api/values/getDSR?Cdate="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
+
+
+                                new GetDataServer(DailySituationReport.this, url,binding.recycleviewR).execute();
+
                             }
                         }, year, month, day);
+
+
+
                 picker.show();
+
+
 
             }
         });
 
-        binding.btnto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-                final  Calendar cldr = Calendar.getInstance();
-                int day = cldr.get(Calendar.DAY_OF_MONTH);
-                int month = cldr.get(Calendar.MONTH);
-                int year = cldr.get(Calendar.YEAR);
-                // date picker dialog
-                DatePickerDialog picker;
-                picker = new DatePickerDialog(DailySituationReport.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                binding.btnto.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                            }
-                        }, year, month, day);
-                picker.show();
-
-            }
-        });
 
 
 
     }
 
-
+    public void clearData() {
+        listshift.clear(); // clear list
+        listsDate.clear(); // clear list
+       // mAdapter.notifyDataSetChanged(); // let your adapter know about the changes and reload view.
+    }
 }
 
 // get data from server
@@ -134,6 +127,8 @@ class  GetDataServer extends AsyncTask {
         this.URL = URL;
         this.recycleviewR=RV;
         mDialog = new ProgressDialog(context);
+
+
     }
 
     @Override

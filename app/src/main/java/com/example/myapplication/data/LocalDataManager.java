@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.myapplication.global.GlobalResponseData;
+import com.example.myapplication.tables.LogTable;
 import com.example.myapplication.tables.ResponseTable;
 
 import java.util.ArrayList;
@@ -13,7 +14,9 @@ import java.util.HashMap;
 
 public class LocalDataManager {
    public static SQLiteDatabase database;
+    public  static  String Table1="LogTable";
     public  static  String Table2="ResponseTable";
+
     Context mContext;
 
 
@@ -24,11 +27,24 @@ public class LocalDataManager {
 
     public static String getCreateQueryResponseTable() {
         String query;
-        query = "CREATE TABLE '" + Table2 + "' ("+ ResponseTable.AppPk+" INTEGER PRIMARY KEY AUTOINCREMENT, "+                "A2 TEXT, B1 TEXT, B2 TEXT, C1 TEXT," +
+        query = "CREATE TABLE '" + Table2 + "' ("+ ResponseTable.AppPk+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
               ResponseTable.FK+"  INTEGER,"+
               ResponseTable.VarName+"  TEXT,"+
               ResponseTable.Response+"  TEXT,"+
               ResponseTable.Section+"  TEXT "+
+                ")";
+        return query;
+    }
+    public static String getCreateQueryLogTable() {
+        String query;
+        query = "CREATE TABLE '" + Table1 + "' ("+ LogTable.LogPk+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                LogTable.UserId+"  TEXT,"+
+                LogTable.Datee+"  TEXT,"+
+                LogTable.Timee+"  TEXT,"+
+                LogTable.Lat+"  TEXT,"+
+                LogTable.Long+"  TEXT,"+
+                LogTable.Section+"  TEXT,"+
+                LogTable.Status+"  TEXT "+
                 ")";
         return query;
     }

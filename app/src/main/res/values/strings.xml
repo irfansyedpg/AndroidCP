@@ -15,6 +15,9 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="LocationHeader">Your Current Location</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
 
 
 <!--    Report Disaster Strings-->

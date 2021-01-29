@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +27,10 @@
 
         <activity
             android:name=".report.ReportDisaster"
+            android:label="Report A Disaster"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".report.ShowLocationActivity"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 

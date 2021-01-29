@@ -84,7 +84,7 @@ public class  UploadData extends AsyncTask {
                 String data = "", line;
                 while ((line = br.readLine()) != null) {
                     data += line;
-                } 
+                }
 
                 return data;
             } else {

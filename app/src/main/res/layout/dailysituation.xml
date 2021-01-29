@@ -49,29 +49,15 @@
 
 
         <Button style="@style/SResponce"
-            android:id="@+id/btnfrome"
-            android:text="date from "
+            android:id="@+id/btnDate"
+            android:text="Select Date "
             android:layout_weight="30"
             android:layout_margin="3dp"
             android:textColor="@color/Lable"
             android:background="@color/white"
            />
-        <TextView style="@style/SResponce"
-
-            android:text="To"
-            android:layout_weight="40"
-            android:gravity="center"
 
 
-            />
-        <Button style="@style/SResponce"
-            android:id="@+id/btnto"
-            android:text="Date to "
-            android:layout_weight="30"
-            android:layout_margin="3dp"
-            android:textColor="@color/Lable"
-            android:background="@color/white"
-            />
 
 
     </LinearLayout>

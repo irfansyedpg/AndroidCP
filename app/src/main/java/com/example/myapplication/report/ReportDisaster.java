@@ -3,12 +3,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -49,6 +49,9 @@ public class ReportDisaster extends AppCompatActivity  {
         listDistrict= District.getDistricts();
         listDisaster= TypeDisaster.getDisaster();
 
+
+        Intent  intentt = new Intent(ReportDisaster.this, ShowLocationActivity.class);
+        startActivityForResult(intentt,22);
 
 
         // when clicked on District will open new Activity for District Selection
@@ -121,8 +124,13 @@ public class ReportDisaster extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                insertDb();
+              //  insertDb();
                // ((Activity) ReportDisaster.this).finish();
+
+               // turnGPSOn(ReportDisaster.this);
+
+
+
             }
         });
     }
@@ -150,6 +158,16 @@ public class ReportDisaster extends AppCompatActivity  {
             if (resultCode == Activity.RESULT_OK) {
                 sDisasterType = data.getStringExtra("data");
                 binding.rd4Tv.setText(sDisasterType);
+
+            }
+        }
+        else if(requestCode == 22 ) {
+            if (resultCode == Activity.RESULT_OK) {
+                String Lat = data.getStringExtra("Lat");
+                String Long = data.getStringExtra("Long");
+
+                binding.latitude.setText(Lat);
+                binding.longitude.setText(Long);
 
             }
         }
@@ -293,5 +311,10 @@ public class ReportDisaster extends AppCompatActivity  {
     }
 
 
+    // get GPS
 
-}
+    }
+
+
+
+

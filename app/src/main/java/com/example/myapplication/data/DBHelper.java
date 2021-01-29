@@ -11,7 +11,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "cpapp.db";
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     Context mContext;
 
@@ -28,6 +28,13 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(LocalDataManager.getCreateQueryResponseTable());
         db.setTransactionSuccessful();
         db.endTransaction();
+
+
+        db.beginTransaction();
+
+        db.execSQL(LocalDataManager.getCreateQueryLogTable());
+        db.setTransactionSuccessful();
+        db.endTransaction();
     }
 
     @Override
@@ -38,6 +45,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         query = "DROP TABLE IF EXISTS " + LocalDataManager.Table2;
+        db.execSQL(query);
+
+        query = "DROP TABLE IF EXISTS " + LocalDataManager.Table1;
         db.execSQL(query);
 
         db.setTransactionSuccessful();
