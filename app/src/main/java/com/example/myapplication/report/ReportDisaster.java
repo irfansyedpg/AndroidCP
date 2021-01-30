@@ -5,11 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -26,6 +25,9 @@ import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
 
 import com.example.myapplication.global.UploadData;
+import com.example.myapplication.gps.ShowLocationActivity;
+import com.example.myapplication.gps.ShowLocationActivity2;
+import com.example.myapplication.gps.TurnOnGPS;
 import com.example.myapplication.tables.ResponseTable;
 
 import java.io.FileNotFoundException;
@@ -50,8 +52,8 @@ public class ReportDisaster extends AppCompatActivity  {
         listDisaster= TypeDisaster.getDisaster();
 
 
-        Intent  intentt = new Intent(ReportDisaster.this, ShowLocationActivity.class);
-        startActivityForResult(intentt,22);
+        TurnOnGPS.turnGPSOn(this);
+
 
 
         // when clicked on District will open new Activity for District Selection
@@ -130,6 +132,33 @@ public class ReportDisaster extends AppCompatActivity  {
                // turnGPSOn(ReportDisaster.this);
 
 
+
+            }
+        });
+
+        binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //is chkIos checked?
+                if (((CheckBox) v).isChecked()) {
+                    //Case 1
+
+                   if(TurnOnGPS.CheckGPS(ReportDisaster.this)==false)
+                   {
+                       TurnOnGPS.turnGPSOn(ReportDisaster.this);
+                       ((CheckBox) v).setChecked(false);
+                       return;
+                   }
+                    Intent  intentt = new Intent(ReportDisaster.this, ShowLocationActivity2.class);
+                    startActivityForResult(intentt,22);
+
+                }
+                else
+                {
+
+                }
+                //case 2
 
             }
         });

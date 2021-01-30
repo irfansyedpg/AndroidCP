@@ -6,12 +6,9 @@ import android.os.Bundle;
 import com.example.myapplication.report.DailySituationReport;
 import com.example.myapplication.report.DemageNeedAssesment;
 import com.example.myapplication.report.RapidNeedAssessment;
-import com.example.myapplication.report.RecyclerViewA;
 import com.example.myapplication.report.ReportDisaster;
 
-import com.example.myapplication.report.ShowLocationActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -31,7 +28,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

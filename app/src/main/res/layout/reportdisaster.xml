@@ -248,14 +248,27 @@
 
             </LinearLayout>
 
+
+
             <LinearLayout style="@style/nLinerLayout">
+
+
 
                 <LinearLayout style="@style/StaricLinLayout">
                     <TextView style="@style/SLable"
-                        android:text="@string/LocationHeader" />
+                        android:text="@string/LocationHeader"
+
+                        />
 
                     <TextView style="@style/StaricTextview" />
                 </LinearLayout>
+                <CheckBox style="@style/Undertaking"
+
+                    android:text="@string/undertakingGPS"
+                    android:id="@+id/checkboxGps"
+
+                    />
+
 
                 <LinearLayout
                     style="@style/IconLinLayout"
@@ -304,6 +317,7 @@
                     />
 
             </LinearLayout>
+
             <LinearLayout style="@style/nLinerLayout">
 
 

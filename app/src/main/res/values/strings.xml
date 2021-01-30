@@ -32,6 +32,7 @@
 
     <string name="note">In case of false reporting the concerned authority can impose punishment as per national disaster authority management NDAM Act-2010 </string>
     <string name="undertaking">I herby Certify that all of the above information are authentic I   further declare that I am not reporting false data to provisional disaster management authority</string>
+    <string name="undertakingGPS">Undertaking for taking gps undertaking for taking gps undertaking for taking gps</string>
 
     <!--    Rapid Need Asssesment-->
     <string name="rna1">Select District</string>

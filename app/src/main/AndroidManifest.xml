@@ -30,7 +30,11 @@
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".report.ShowLocationActivity"
+            android:name=".gps.ShowLocationActivity"
+            android:label="Report A Disaster"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".gps.ShowLocationActivity2"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
