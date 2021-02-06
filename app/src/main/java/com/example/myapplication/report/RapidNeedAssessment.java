@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,9 @@ import com.example.myapplication.databinding.RapidneedassesmentBinding;
 import com.example.myapplication.global.District;
 import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
+import com.example.myapplication.gps.ShowLocationActivity2;
+import com.example.myapplication.gps.TurnOnGPS;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,10 +32,13 @@ public class RapidNeedAssessment extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.rapidneedassesment);
+        listDisaster=new ArrayList<>();
+        listDistrict=new ArrayList<>();
         listDistrict= District.getDistricts();
         listDisaster= TypeDisaster.getDisaster();
 
 
+        TurnOnGPS.turnGPSOn(this);
 
         // when clicked on District will open new Activity for District Selection
         binding.rna1LV.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +90,34 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             }
         });
 
+
+        binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //is chkIos checked?
+                if (((CheckBox) v).isChecked()) {
+                    //Case 1
+
+                    if(TurnOnGPS.CheckGPS(RapidNeedAssessment.this)==false)
+                    {
+                        TurnOnGPS.turnGPSOn(RapidNeedAssessment.this);
+                        ((CheckBox) v).setChecked(false);
+                        return;
+                    }
+                    Intent  intentt = new Intent(RapidNeedAssessment.this, ShowLocationActivity2.class);
+                    startActivityForResult(intentt,22);
+
+                }
+                else
+                {
+
+                }
+                //case 2
+
+            }
+        });
+
         binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +149,16 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             if (resultCode == Activity.RESULT_OK) {
                 sDisasterType = data.getStringExtra("data");
                 binding.rna4Tv.setText(sDisasterType);
+
+            }
+        }
+        else if(requestCode == 22 ) {
+            if (resultCode == Activity.RESULT_OK) {
+                String Lat = data.getStringExtra("Lat");
+                String Long = data.getStringExtra("Long");
+
+                binding.latitude.setText(Lat);
+                binding.longitude.setText(Long);
 
             }
         }
@@ -194,9 +239,22 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             return  false;
         }
 
+        if(!binding.checkboxGps.isChecked())
+        {
+            Toast.makeText(this,"Please check the GPS",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
 
         return  true;
     }
+
+    @Override
+    public  void onBackPressed()
+    {
+
+        TurnOnGPS.CloseActivityalerd(this);
+    }
+
 
 
 

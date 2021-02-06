@@ -457,6 +457,75 @@
             <!--demage to property  ends -->
 
 
+
+            <LinearLayout style="@style/nLinerLayout">
+
+
+
+                <LinearLayout style="@style/StaricLinLayout">
+                    <TextView style="@style/SLable"
+                        android:text="@string/LocationHeader"
+
+                        />
+
+                    <TextView style="@style/StaricTextview" />
+                </LinearLayout>
+                <CheckBox style="@style/Undertaking"
+
+                    android:text="@string/undertakingGPS"
+                    android:id="@+id/checkboxGps"
+
+                    />
+
+
+                <LinearLayout
+                    style="@style/IconLinLayout"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:hint="@string/latitude"
+                        android:layout_weight="30"
+                        />
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:hint="@string/latitude"
+                        android:id="@+id/latitude"
+                        android:layout_weight="70"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/IconLinLayout"
+
+                    >
+
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:hint="@string/longitude"
+                        android:layout_weight="30"
+
+                        />
+                    <TextView style="@style/SResponce"
+                        android:layout_width="0dp"
+                        android:hint="@string/longitude"
+                        android:id="@+id/longitude"
+                        android:layout_weight="70"
+                        android:layout_gravity="left"
+                        />
+
+
+
+
+                </LinearLayout>
+                <View style="@style/nView"
+                    />
+
+            </LinearLayout>
+
             <LinearLayout style="@style/nLinerLayout">
 
 

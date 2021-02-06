@@ -5,9 +5,10 @@ import java.util.List;
 
 public class  District {
 
-     static  ArrayList<String> listDistrict=new  ArrayList<String>();
+
 
     public static ArrayList<String> getDistricts() {
+          ArrayList<String> listDistrict=new  ArrayList<String>();
         listDistrict.add("CHITRAL");
         listDistrict.add("UPPER DIR");
         listDistrict.add("LOWER DIR");

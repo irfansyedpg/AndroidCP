@@ -1,11 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="CustomCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -109,6 +113,7 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
+
     <style name="DownImageView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -116,6 +121,18 @@
         <item name="android:layout_marginRight">10dp</item>
 
     </style>
+
+    <style name="TopBack_img">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ic_arrow_back_black_24dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/TopBack_MarginLeft</item>
+<!--        <item name="android:clickable">true</item>-->
+<!--        <item name="android:focusable">true</item>-->
+    </style>
+
+
     <style name="LocationImage">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -136,15 +153,7 @@
     </style>
 
 
-    <style name="TopBack_img">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/ic_arrow_back_black_24dp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/TopBack_MarginLeft</item>
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-    </style>
+
 
     <style name="TopHeader_text">
         <item name="android:layout_width">wrap_content</item>

@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class TypeDisaster {
 
-     static  ArrayList<String> listDisaster=new  ArrayList<String>();
+
 
     public static ArrayList<String> getDisaster() {
 
-
+        ArrayList<String> listDisaster=new  ArrayList<String>();
         listDisaster.add("Flood");
         listDisaster.add("Earthquakes");
         listDisaster.add("Extreme Temperatures");

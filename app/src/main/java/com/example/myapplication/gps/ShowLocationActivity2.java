@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.myapplication.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -27,13 +28,14 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class ShowLocationActivity2 extends AppCompatActivity
         implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener{
 
     private Location location;
-
+    LottieAnimationView LotAview;
     private GoogleApiClient googleApiClient;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private LocationRequest locationRequest;
@@ -50,6 +52,9 @@ public class ShowLocationActivity2 extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gpss);
+
+        LotAview=findViewById(R.id.gps);
+     //   LotAview.setMinAndMaxFrame(10,100);
 
         // we add permissions we need to request location of the users
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
@@ -156,6 +161,12 @@ public class ShowLocationActivity2 extends AppCompatActivity
             data.putExtra("Lat", location.getLatitude()+"");
             data.putExtra("Long", location.getLongitude()+"");
 
+
+            try {
+                TimeUnit.SECONDS.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             ((Activity) this).setResult(Activity.RESULT_OK, data);
             ((Activity) this).finish();
         }
@@ -195,6 +206,11 @@ public class ShowLocationActivity2 extends AppCompatActivity
             data.putExtra("Lat", location.getLatitude()+"");
             data.putExtra("Long", location.getLongitude()+"");
 
+            try {
+                TimeUnit.SECONDS.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             ((Activity) this).setResult(Activity.RESULT_OK, data);
             ((Activity) this).finish();
         }

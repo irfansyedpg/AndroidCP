@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,6 +18,8 @@ import com.example.myapplication.databinding.DemgneedassesmentBinding;
 import com.example.myapplication.global.District;
 import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
+import com.example.myapplication.gps.ShowLocationActivity2;
+import com.example.myapplication.gps.TurnOnGPS;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +37,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         binding = DataBindingUtil.setContentView(this, R.layout.demgneedassesment );
         listDistrict= District.getDistricts();
 
+        TurnOnGPS.turnGPSOn(this);
 
 
 
@@ -83,6 +87,34 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         });
 
 
+        binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //is chkIos checked?
+                if (((CheckBox) v).isChecked()) {
+                    //Case 1
+
+                    if(TurnOnGPS.CheckGPS(DemageNeedAssesment.this)==false)
+                    {
+                        TurnOnGPS.turnGPSOn(DemageNeedAssesment.this);
+                        ((CheckBox) v).setChecked(false);
+                        return;
+                    }
+                    Intent  intentt = new Intent(DemageNeedAssesment.this, ShowLocationActivity2.class);
+                    startActivityForResult(intentt,22);
+
+                }
+                else
+                {
+
+                }
+                //case 2
+
+            }
+        });
+
+
     }
 
     ImageView ImgView;
@@ -100,6 +132,16 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             if (resultCode == Activity.RESULT_OK) {
                 sTehsil = data.getStringExtra("data");
                 binding.dna2Tv.setText(sTehsil);
+
+            }
+        }
+        else if(requestCode == 22 ) {
+            if (resultCode == Activity.RESULT_OK) {
+                String Lat = data.getStringExtra("Lat");
+                String Long = data.getStringExtra("Long");
+
+                binding.latitude.setText(Lat);
+                binding.longitude.setText(Long);
 
             }
         }
@@ -193,34 +235,34 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 Toast.makeText(this,"Please Enter Complete Address",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(binding.dna4Tv.getText().equals(""))
+            if(binding.dna4Tv.getText().equals("") || binding.dna4Tv.getText().toString().trim().isEmpty())
             {
-                Toast.makeText(this,"Please Select Type of Disaster",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Please Enter Name",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(binding.dna5Tv.getText().equals(""))
+            if(binding.dna5Tv.getText().equals("") || binding.dna5Tv.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Father Name",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(binding.dna6Tv.getText().equals(""))
+            if(binding.dna6Tv.getText().equals("") || binding.dna6Tv.getText().toString().trim().isEmpty())
         {
             Toast.makeText(this,"Please Enter CNIC ",Toast.LENGTH_SHORT).show();
             return  false;
         }
 
-            if(binding.dna7Tv.getText().equals(""))
+            if(binding.dna7Tv.getText().equals("") || binding.dna7Tv.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Phone Number",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(binding.dna8aTv.getText().equals(""))
+            if(binding.dna8aTv.getText().equals("") || binding.dna8aTv.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Number of People Injured",Toast.LENGTH_SHORT).show();
                 return  false;
             }
 
-            if(binding.dna8bTv.getText().equals(""))
+            if(binding.dna8bTv.getText().equals("") || binding.dna8bTv.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Number of People Died",Toast.LENGTH_SHORT).show();
                 return  false;
@@ -243,18 +285,18 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 return  false;
             }
 
-            if(binding.dna14a.getText().equals(""))
+            if(binding.dna14a.getText().equals("") || binding.dna14a.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Cost Repair",Toast.LENGTH_SHORT).show();
                 return  false;
             }
-            if(binding.dna14b.getText().equals(""))
+            if(binding.dna14b.getText().equals("")   || binding.dna14b.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Cost content",Toast.LENGTH_SHORT).show();
                 return  false;
             }
 
-            if(binding.dna14c.getText().equals(""))
+            if(binding.dna14c.getText().equals("")  || binding.dna14c.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Cost Total",Toast.LENGTH_SHORT).show();
                 return  false;
@@ -268,11 +310,22 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 return  false;
             }
 
-
+            if(!binding.checkboxGps.isChecked())
+            {
+                Toast.makeText(this,"Please check the GPS",Toast.LENGTH_SHORT).show();
+                return  false;
+            }
             return  true;
         }
 
 
+
+    @Override
+    public  void onBackPressed()
+    {
+
+        TurnOnGPS.CloseActivityalerd(this);
+    }
 
     }
 

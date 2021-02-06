@@ -48,6 +48,8 @@ public class ReportDisaster extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.reportdisaster);
+        listDisaster=new ArrayList<>();
+        listDistrict=new ArrayList<>();
         listDistrict= District.getDistricts();
         listDisaster= TypeDisaster.getDisaster();
 
@@ -55,6 +57,12 @@ public class ReportDisaster extends AppCompatActivity  {
         TurnOnGPS.turnGPSOn(this);
 
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((Activity) ReportDisaster.this).finish();
+            }
+        });
 
         // when clicked on District will open new Activity for District Selection
         binding.rd1LV.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +91,7 @@ public class ReportDisaster extends AppCompatActivity  {
                 intent.putExtra("mylist",listTehsil);
                 intent.putExtra("header","Select Tehsil");
                 startActivityForResult(intent,12);
+
 
             }
         });
@@ -126,7 +135,7 @@ public class ReportDisaster extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-              //  insertDb();
+                insertDb();
                // ((Activity) ReportDisaster.this).finish();
 
                // turnGPSOn(ReportDisaster.this);
@@ -300,7 +309,7 @@ public class ReportDisaster extends AppCompatActivity  {
         new UploadData(ReportDisaster.this, "http://175.107.63.137/PEOCMIS/api/values/InsertResponse",MpUplod).execute();
 
 
-        //((Activity) ReportDisaster.this).finish();
+        ((Activity) ReportDisaster.this).finish();
 
     }
     public  boolean  datavalidation()
@@ -334,9 +343,20 @@ public class ReportDisaster extends AppCompatActivity  {
             Toast.makeText(this,"Please check the Undertaking",Toast.LENGTH_SHORT).show();
             return  false;
         }
-
+        if(!binding.checkboxGps.isChecked())
+        {
+            Toast.makeText(this,"Please check the GPS",Toast.LENGTH_SHORT).show();
+            return  false;
+        }
 
         return  true;
+    }
+
+  @Override
+    public  void onBackPressed()
+    {
+
+       TurnOnGPS.CloseActivityalerd(this);
     }
 
 

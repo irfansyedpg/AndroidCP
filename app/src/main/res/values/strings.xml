@@ -20,7 +20,7 @@
     <string name="longitude">longitude</string>
 
 
-<!--    Report Disaster Strings-->
+    <!--    Report Disaster Strings-->
     <string name="rd1">Select District</string>
     <string name="rd2">Select Tehsil</string>
     <string name="rd3">Enter Complete Address</string>
@@ -50,7 +50,7 @@
     <string name="rnanote">This section is Practically dedicated to immediate needs of survivors following an emergency situation. Please make sure to share accurate demands as per the need of the affected communities.</string>
 
 
-<!--    Demage Need Assesment -->
+    <!--    Demage Need Assesment -->
 
     <string name="dna1">Select District</string>
     <string name="dna2">Select Tehsil</string>
@@ -88,7 +88,6 @@
     <string name="dna13b">Hotel</string>
     <string name="dna13c">Petrol Pump</string>
     <string name="dna13d">Any Other</string>
-
 
 
     <string name="dna14">Estimated Damages in Rupees</string>

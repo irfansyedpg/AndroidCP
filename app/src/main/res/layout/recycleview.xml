@@ -26,7 +26,9 @@
             android:layout_height="match_parent"
             android:layout_weight="20"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+
+            >
 
             <ImageButton
                 android:id="@+id/lvback"

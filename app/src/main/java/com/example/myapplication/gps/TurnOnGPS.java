@@ -59,4 +59,41 @@ public class TurnOnGPS {
         return true;
     }
 
+
+    public static void CloseActivityalerd(final Context mContex){
+
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
+            builder1.setMessage("Do you want to Go back.");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                             ((Activity) mContex).finish();
+
+
+
+
+                            dialog.cancel();
+                        }
+                    });
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+
+                            dialog.cancel();
+                        }
+                    });
+
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show(   );
+
+
+
+    }
+
 }

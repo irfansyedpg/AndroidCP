@@ -21,7 +21,9 @@
             android:layout_weight="20"
 
             android:focusable="true"
-            android:clickable="true">
+            android:clickable="true"
+
+            >
         <ImageButton
 
             android:id="@+id/lvback"
@@ -72,7 +74,10 @@
                         android:id="@+id/rd1Tv"
 
                         />
-                    <ImageView style="@style/DownImageView"/>
+
+                    <ImageView
+                        style="@style/DownImageView"
+                        android:layout_height="13dp" />
 
                 </LinearLayout>
                 <View style="@style/nView"
