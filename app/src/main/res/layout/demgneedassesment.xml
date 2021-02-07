@@ -140,6 +140,7 @@
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna4"
                     android:id="@+id/dna4Tv"
+                    android:inputType="textPersonName"
                     />
                 <View style="@style/nView"
                     />
@@ -158,6 +159,7 @@
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna5"
                     android:id="@+id/dna5Tv"
+                    android:inputType="textPersonName"
                     />
                 <View style="@style/nView"
                     />
@@ -177,6 +179,7 @@
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna6"
                     android:id="@+id/dna6Tv"
+                    android:inputType="number"
                     />
                 <View style="@style/nView"
                     />
@@ -194,6 +197,7 @@
 
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna7"
+                    android:inputType="phone"
                     android:id="@+id/dna7Tv"
                     />
                 <View style="@style/nView"
@@ -211,12 +215,14 @@
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna8a"
                     android:id="@+id/dna8aTv"
+                    android:inputType="number"
                     />
                 <View style="@style/EView" />
 
                 <EditText style="@style/SResponce"
                     android:hint="@string/dna8b"
                     android:id="@+id/dna8bTv"
+                    android:inputType="number"
                     />
                 <View style="@style/EView"
                     />
@@ -417,16 +423,18 @@
                     <EditText style="@style/SResponce"
                         android:hint="@string/dna14a"
                         android:id="@+id/dna14a"
+                        android:inputType="number"
                         />
                     <View style="@style/EView" />
                     <EditText style="@style/SResponce"
                         android:hint="@string/dna14b"
                         android:id="@+id/dna14b"
+                        android:inputType="number"
                         />
                     <View style="@style/EView" />
                     <EditText style="@style/SResponce"
                         android:hint="@string/dna14c"
-
+                        android:inputType="number"
                         android:id="@+id/dna14c"
                         />
                     <View style="@style/EView" />
@@ -449,6 +457,7 @@
                     android:hint="@string/dna15"
                     android:lines="3"
                     android:id="@+id/dna15"
+                    android:inputType="text"
                     />
 <View
   style="@style/nView"/>
