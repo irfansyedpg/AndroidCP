@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             }
-        });
+        }
+        );
 
         FloatingActionButton action_rna = findViewById(R.id.action_rna);
         action_rna.setOnClickListener(new View.OnClickListener() {

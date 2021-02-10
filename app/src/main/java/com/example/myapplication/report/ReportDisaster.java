@@ -16,6 +16,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.myapplication.R;
 import com.example.myapplication.data.LocalDataManager;
 import com.example.myapplication.databinding.ReportdisasterBinding;
@@ -24,17 +30,20 @@ import com.example.myapplication.global.GlobalResponseData;
 import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
 
-import com.example.myapplication.global.UploadData;
-import com.example.myapplication.gps.ShowLocationActivity;
+import com.example.myapplication.global.UploadData2;
 import com.example.myapplication.gps.ShowLocationActivity2;
 import com.example.myapplication.gps.TurnOnGPS;
-import com.example.myapplication.tables.ResponseTable;
+import com.google.gson.JsonObject;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class ReportDisaster extends AppCompatActivity  {
     ReportdisasterBinding binding ;
@@ -289,27 +298,22 @@ public class ReportDisaster extends AppCompatActivity  {
         HashData.put("rd3",binding.rd3Tv.getText().toString().trim());
         HashData.put("rd4",binding.rd4Tv.getText().toString().trim());
         HashData.put("rd5",binding.rd5Tv.getText().toString().trim());
-        HashData.put("rd6a","rd6a");
-        HashData.put("rd6b","rd6b");
-        HashData.put("rd6c","rd6c");
-
-        new LocalDataManager(this).InsertRespnoseTable(1,HashData,"ReportDisaster");
+        HashData.put("rd6a","Pic1");
+        HashData.put("rd6b","Pic2");
+        HashData.put("rd6c","Pic3");
 
 
-        GlobalResponseData gdata=LocalDataManager.GetData();
+        String Logpk=LocalDataManager.InsertLogTable("1",binding.latitude.getText().toString(),binding.longitude.getText().toString(),"RD");
 
-        HashMap<String,List<String>> MpUplod=new HashMap<>();
-
-        MpUplod.put(ResponseTable.FK,gdata.FK);
-        MpUplod.put(ResponseTable.VarName,gdata.VarName);
-        MpUplod.put(ResponseTable.Response,gdata.Response);
-        MpUplod.put(ResponseTable.Section,gdata.Section);
+        new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk),HashData,"ReportDisaster");
 
 
-        new UploadData(ReportDisaster.this, "http://175.107.63.137/PEOCMIS/api/values/InsertResponse",MpUplod).execute();
+//        HashMap<String,List<String>> MpUplod=new HashMap<>();
+
+       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData());
 
 
-        ((Activity) ReportDisaster.this).finish();
+       // ((Activity) ReportDisaster.this).finish();
 
     }
     public  boolean  datavalidation()
@@ -360,7 +364,69 @@ public class ReportDisaster extends AppCompatActivity  {
     }
 
 
-    // get GPS
+
+//    public JSONObject getJsonResponse(){
+//
+//        JSONObject Log = new JSONObject();
+//        Log=getlog(1,"date","time","lat","long","section");
+//
+//        JSONArray Resp = new JSONArray();
+//        Resp.put(getResponce("Resp1","Varname1","Section1"));
+//        Resp.put(getResponce("Resp2","Varname2","Section2"));
+//        Resp.put(getResponce("Resp3","Varname3","Section3"));
+//
+//
+//        JSONObject response= new JSONObject();
+//
+//        try {
+//            response.put("logs", Log );
+//            response.put("responseTables", Resp );
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return response;
+//    }
+//
+//
+//    JSONObject  getlog(int UserID, String Datee,String Timee,String Lat,String Long,String Section){
+//
+//        JSONObject log = new JSONObject();
+//        try {
+//            log .put("UserID", UserID);
+//            log .put("Datee", Datee);
+//            log .put("Timee", Timee);
+//            log .put("Lat", Lat);
+//            log .put("Long", Long);
+//            log .put("Section", Section);
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return log ;
+//    }
+//    JSONObject  getResponce(String Response, String VarName,String Section){
+//
+//        JSONObject Resp = new JSONObject();
+//        try {
+//            Resp .put("Response", Response);
+//            Resp .put("VarName", VarName);
+//            Resp .put("Section", Section);
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return Resp ;
+//    }
+
+
+
+
+
 
     }
 
