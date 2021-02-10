@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -31,6 +32,7 @@ import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
 
 import com.example.myapplication.global.UploadData2;
+import com.example.myapplication.gps.ShowLocationActivity;
 import com.example.myapplication.gps.ShowLocationActivity2;
 import com.example.myapplication.gps.TurnOnGPS;
 import com.google.gson.JsonObject;
@@ -53,6 +55,7 @@ public class ReportDisaster extends AppCompatActivity  {
     String sDistrict="";
     String sTehsil="";
     String sDisasterType="";
+    String Logpk="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,7 @@ public class ReportDisaster extends AppCompatActivity  {
         listDistrict= District.getDistricts();
         listDisaster= TypeDisaster.getDisaster();
 
-
+        UploadFailur=false;
         TurnOnGPS.turnGPSOn(this);
 
 
@@ -287,6 +290,7 @@ public class ReportDisaster extends AppCompatActivity  {
 
 
     HashMap<String,String> HashData=new HashMap<>();
+    Boolean UploadFailur=false;
     public  void insertDb()
     {
         if(datavalidation()==false)
@@ -303,17 +307,34 @@ public class ReportDisaster extends AppCompatActivity  {
         HashData.put("rd6c","Pic3");
 
 
-        String Logpk=LocalDataManager.InsertLogTable("1",binding.latitude.getText().toString(),binding.longitude.getText().toString(),"RD");
-
-        new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk),HashData,"ReportDisaster");
-
+        if (UploadFailur==false) {
+             Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RD", this);
+            new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "ReportDisaster");
+        }
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData());
+       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk));
+
+       if(uploadStatus==true)
+       {
+           LocalDataManager.UpdateLOgtable(Logpk);
+           ((Activity) ReportDisaster.this).finish();
+       }
+       else
+       {
+           UploadFailur=true;
+           new AlertDialog.Builder(this).
+                   setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
+                   setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialogInterface, int i) {
+                           ((Activity) ReportDisaster.this).finish();
+                       }
+                   }).setNegativeButton("Try Again", null).create().show();
+       }
 
 
-       // ((Activity) ReportDisaster.this).finish();
 
     }
     public  boolean  datavalidation()

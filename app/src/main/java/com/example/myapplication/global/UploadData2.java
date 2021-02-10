@@ -53,6 +53,7 @@ public class UploadData2
             public void onResponse(JSONObject response) {
                 pd.cancel();
                 System.out.println(response);
+                UploadData2.status=true;
 
 
 

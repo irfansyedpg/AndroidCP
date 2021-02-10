@@ -78,14 +78,15 @@ public class LocalDataManager {
 
 
     }
-    public  static  String  InsertLogTable(String Userid,String Lat,String Long,String secion )
+    public  static  String  InsertLogTable(String Userid,String Lat,String Long,String secion,Context context )
     {
+        database = new DBHelper(context).getWritableDatabase();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
-        System.out.println(dateFormat.format(cal.getTime()));
+
 
         Date date = new Date();
-        System.out.println(dateFormat.format(date));
+
 
         String Datee=dateFormat.format(date);
         String Timee= dateFormat.format(cal.getTime());
@@ -121,7 +122,16 @@ public class LocalDataManager {
 return  "0";
     }
 
-    public  static JSONObject GetData()
+    public  static  void  UpdateLOgtable(String PK )
+    {
+            String query="update "+Table1+" set "+LogTable.Status+"='1'"+" where "+LogTable.LogPk+"="+PK;
+            query = String.format(query);
+            database.execSQL(query);
+
+
+    }
+
+    public  static JSONObject GetData(String logpk)
     {
         JSONArray Resp = new JSONArray();
         JSONObject Log = new JSONObject();
@@ -131,17 +141,17 @@ return  "0";
 
 
         String  query1 = "SELECT "+LogTable.UserId+","+LogTable.Datee+","+LogTable.Timee+","+LogTable.Lat
-                +","+LogTable.Long+","+LogTable.Section+","+LogTable.LogPk +" from "+ Table1+" where "+LogTable.Status+"='0' ORDER BY "+LogTable.LogPk+" DESC LIMIT 1 ";
+                +","+LogTable.Long+","+LogTable.Section+","+LogTable.LogPk +" from "+ Table1+" where "+LogTable.Status+"='0' and "+LogTable.LogPk+" = "+logpk;
         Cursor c1 = database.rawQuery(query1, null);
         if (c1 != null) {
             while (c1.moveToNext()) {
-                Resp.put(getResponce(c1.getString(2),c1.getString(1),c1.getString(3)));
+
 
                 Log=getlog(c1.getInt(0),c1.getString(1),c1.getString(2),c1.getString(3),c1.getString(4),c1.getString(5));
 
-               Logpk= c1.getString(0);
 
-                String  query = "SELECT "+ResponseTable.FK+","+ResponseTable.VarName+","+ResponseTable.Response+","+ResponseTable.Section+" from "+ Table2 +" where "+ResponseTable.FK+"="+Logpk;
+
+                String  query = "SELECT "+ResponseTable.FK+","+ResponseTable.VarName+","+ResponseTable.Response+","+ResponseTable.Section+" from "+ Table2 +" where "+ResponseTable.FK+"="+logpk;
                 Cursor c = database.rawQuery(query, null);
                 if (c != null) {
                     while (c.moveToNext()) {
