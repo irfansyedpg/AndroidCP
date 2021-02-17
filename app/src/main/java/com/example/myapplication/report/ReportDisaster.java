@@ -309,7 +309,7 @@ public class ReportDisaster extends AppCompatActivity  {
 
         if (UploadFailur==false) {
              Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RD", this);
-            new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "ReportDisaster");
+            new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "RD");
         }
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
@@ -383,69 +383,6 @@ public class ReportDisaster extends AppCompatActivity  {
 
        TurnOnGPS.CloseActivityalerd(this);
     }
-
-
-
-//    public JSONObject getJsonResponse(){
-//
-//        JSONObject Log = new JSONObject();
-//        Log=getlog(1,"date","time","lat","long","section");
-//
-//        JSONArray Resp = new JSONArray();
-//        Resp.put(getResponce("Resp1","Varname1","Section1"));
-//        Resp.put(getResponce("Resp2","Varname2","Section2"));
-//        Resp.put(getResponce("Resp3","Varname3","Section3"));
-//
-//
-//        JSONObject response= new JSONObject();
-//
-//        try {
-//            response.put("logs", Log );
-//            response.put("responseTables", Resp );
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return response;
-//    }
-//
-//
-//    JSONObject  getlog(int UserID, String Datee,String Timee,String Lat,String Long,String Section){
-//
-//        JSONObject log = new JSONObject();
-//        try {
-//            log .put("UserID", UserID);
-//            log .put("Datee", Datee);
-//            log .put("Timee", Timee);
-//            log .put("Lat", Lat);
-//            log .put("Long", Long);
-//            log .put("Section", Section);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return log ;
-//    }
-//    JSONObject  getResponce(String Response, String VarName,String Section){
-//
-//        JSONObject Resp = new JSONObject();
-//        try {
-//            Resp .put("Response", Response);
-//            Resp .put("VarName", VarName);
-//            Resp .put("Section", Section);
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return Resp ;
-//    }
-
-
-
 
 
 

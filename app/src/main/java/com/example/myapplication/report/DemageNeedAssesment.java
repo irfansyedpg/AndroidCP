@@ -1,6 +1,7 @@
 package com.example.myapplication.report;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -18,6 +20,7 @@ import com.example.myapplication.databinding.DemgneedassesmentBinding;
 import com.example.myapplication.global.District;
 import com.example.myapplication.global.Tehsil;
 import com.example.myapplication.global.TypeDisaster;
+import com.example.myapplication.global.UploadData2;
 import com.example.myapplication.gps.ShowLocationActivity2;
 import com.example.myapplication.gps.TurnOnGPS;
 
@@ -31,6 +34,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
     String sDistrict="";
     String sTehsil="";
+    String Logpk="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
         TurnOnGPS.turnGPSOn(this);
 
-
+        UploadFailur=false;
 
         // when clicked on District will open new Activity for District Selection
         binding.dna1LV.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +154,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         }
 
     HashMap<String,String> HashData=new HashMap<>();
-
+    Boolean UploadFailur=false;
     public  void insertDb()
     {
         if(datavalidation()==false)
@@ -213,8 +217,35 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         HashData.put("dna15",binding.dna15.getText().toString().trim());
 
 
-        new LocalDataManager(this).InsertRespnoseTable(1,HashData,"ReportDisaster");
-        ((Activity) DemageNeedAssesment.this).finish();
+
+
+
+        if (UploadFailur==false) {
+            Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "DNA", this);
+            new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "DNA");
+        }
+
+//        HashMap<String,List<String>> MpUplod=new HashMap<>();
+
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk));
+
+        if(uploadStatus==true)
+        {
+            LocalDataManager.UpdateLOgtable(Logpk);
+            ((Activity) DemageNeedAssesment.this).finish();
+        }
+        else
+        {
+            UploadFailur=true;
+            new AlertDialog.Builder(this).
+                    setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
+                    setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ((Activity) DemageNeedAssesment.this).finish();
+                        }
+                    }).setNegativeButton("Try Again", null).create().show();
+        }
 
     }
         
