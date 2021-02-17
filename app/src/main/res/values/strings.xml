@@ -30,9 +30,9 @@
     <string name="rd6a">from Gallery</string>
     <string name="rd6b">Camera</string>
 
-    <string name="note">In case of false reporting the concerned authority can impose punishment as per national disaster authority management NDAM Act-2010 </string>
-    <string name="undertaking">I herby Certify that all of the above information are authentic I   further declare that I am not reporting false data to provisional disaster management authority</string>
-    <string name="undertakingGPS">Undertaking for taking gps undertaking for taking gps undertaking for taking gps</string>
+    <string name="note">In case of false reporting,  the concerned authority can impose punishment as per National Disaster Management Act-2010 </string>
+    <string name="undertaking">I herby undertake that all of the above information are authentic. I further declare that I am not reporting false data to the Provisional Disaster Management Authority, KP</string>
+    <string name="undertakingGPS"></string>
 
     <!--    Rapid Need Asssesment-->
     <string name="rna1">Select District</string>
@@ -62,7 +62,7 @@
     <string name="dna8">Casualties </string>
     <string name="dna8a">Number of People Injured</string>
     <string name="dna8b">Number of People Died</string>
-    <string name="dna9L">Damages to Properties</string>
+    <string name="dna9L">Damages to Property</string>
     <string name="dna9">House</string>
     <string name="dna9a">No damage</string>
     <string name="dna9b">Partially </string>
@@ -83,7 +83,7 @@
     <string name="dna12d">Livestock </string>
     <string name="dna12e">Any Other </string>
 
-    <string name="dna13">Property</string>
+    <string name="dna13">Business </string>
     <string name="dna13a">Shop </string>
     <string name="dna13b">Hotel</string>
     <string name="dna13c">Petrol Pump</string>

@@ -58,6 +58,10 @@
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".report.EarlyWarning"
+            android:label="EarlyWarnings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".report.DailySituationReport"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />

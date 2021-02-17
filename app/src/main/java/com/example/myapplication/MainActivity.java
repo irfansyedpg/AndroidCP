@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.myapplication.report.DailySituationReport;
 import com.example.myapplication.report.DemageNeedAssesment;
+import com.example.myapplication.report.EarlyWarning;
 import com.example.myapplication.report.RapidNeedAssessment;
 import com.example.myapplication.report.ReportDisaster;
 
@@ -53,11 +54,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         );
 
-        FloatingActionButton action_rna = findViewById(R.id.action_rna);
-        action_rna.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton action_erw = findViewById(R.id.action_erw);
+        action_erw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
+                intent = new Intent(MainActivity.this, EarlyWarning.class);
                 startActivity(intent);
 
 

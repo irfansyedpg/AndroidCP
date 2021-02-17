@@ -2,6 +2,7 @@ package com.example.myapplication.report;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -56,7 +59,7 @@ public class RecyclerViewA extends AppCompatActivity {
         });
 
 
-        Collections.sort(list);
+     //   Collections.sort(list);
 
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -132,7 +135,7 @@ class  RecyclerViewCustomAdapter extends RecyclerView.Adapter {
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
-
+    Intent data = new Intent();
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
@@ -145,12 +148,22 @@ class  RecyclerViewCustomAdapter extends RecyclerView.Adapter {
             public void onClick(View view) {
                 String txtrcv = vh.txtrcv.getText().toString();
 
-                Intent data = new Intent();
 
-                data.putExtra("data",txtrcv);
 
-                ((Activity) mContext).setResult(Activity.RESULT_OK, data);
-                ((Activity) mContext).finish();
+
+
+                if(txtrcv.equals("Any Other"))
+                {
+                    alerdailog();
+
+                }
+
+                else {
+                    data.putExtra("data", txtrcv);
+
+                    ((Activity) mContext).setResult(Activity.RESULT_OK, data);
+                    ((Activity) mContext).finish();
+                }
 
             }
         });
@@ -171,6 +184,57 @@ class  RecyclerViewCustomAdapter extends RecyclerView.Adapter {
             txtrcv = (TextView) v.findViewById(R.id.txtrcv);
         }
     }
+
+    public void alerdailog()
+    {
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+        alertDialog.setTitle("Disaster Type");
+        alertDialog.setMessage("Enter Type of Disaster");
+
+        final EditText input = new EditText(mContext);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input);
+
+
+        alertDialog.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    String    password = input.getText().toString();
+
+                    if(password.length()>4)
+                    {
+                        data.putExtra("data", password);
+
+                        ((Activity) mContext).setResult(Activity.RESULT_OK, data);
+                        ((Activity) mContext).finish();
+                    }
+                    else
+                    {
+                        Toast.makeText(mContext,"Please Enter Correct Disaster Type",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    }
+                });
+
+        alertDialog.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
+    }
+
+
+
+
+
 
 
 }
