@@ -10,11 +10,11 @@
             android:title="Report A Disaster" />
 
         <item
-
+            android:id="@+id/nav_ew"
             android:icon="@drawable/rna"
             android:title="Early Warnings" />
         <item
-
+            android:id="@+id/nav_ds"
             android:icon="@drawable/dna"
             android:title="Daily Situation Report" />
 

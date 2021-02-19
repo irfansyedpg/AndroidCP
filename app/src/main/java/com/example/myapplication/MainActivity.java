@@ -116,6 +116,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        intent = new Intent(this, ReportDisaster.class);
             startActivity(intent);
         }
+        else if (id == R.id.nav_ew) {
+            intent = new Intent(this, EarlyWarning.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_ds) {
+            intent = new Intent(this, DailySituationReport.class);
+            startActivity(intent);
+        }
         else if (id == R.id.nav_RNA) {
             intent = new Intent(this, RapidNeedAssessment.class);
             startActivity(intent);

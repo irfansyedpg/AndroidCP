@@ -58,7 +58,7 @@
             fab:fab_title="Early Warnings"
 
             fab:fab_colorPressed="@color/colorPrimaryDark"
-            app:fab_icon="@drawable/ic_time"
+            app:fab_icon="@drawable/ic_loud_speaker_fb"
 
             />
 
