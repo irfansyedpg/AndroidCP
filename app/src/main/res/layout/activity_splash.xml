@@ -40,7 +40,7 @@
 
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="PDMA Civil Protection"
+        android:text="Civil Protection Application"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="26sp"

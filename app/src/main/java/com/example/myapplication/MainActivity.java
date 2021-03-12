@@ -3,12 +3,14 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.myapplication.global.MyPref;
 import com.example.myapplication.report.DailySituationReport;
 import com.example.myapplication.report.DemageNeedAssesment;
 import com.example.myapplication.report.EarlyWarning;
 import com.example.myapplication.report.RapidNeedAssessment;
 import com.example.myapplication.report.ReportDisaster;
 
+import com.example.myapplication.signup.LogIn;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
@@ -132,7 +134,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, DemageNeedAssesment.class);
             startActivity(intent);
         }
+        else if (id == R.id.nav_logout) {
 
+            MyPref prefs = new MyPref(this);
+
+            prefs.setUserId(Integer.parseInt("0"));
+            intent = new Intent(this, LogIn.class);
+            startActivity(intent);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

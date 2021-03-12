@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+        <!--    just testing commit -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageButton
+                    android:id="@+id/lvback"
+                    style="@style/TopBack_img" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            style="@style/TopLine_View"
+            android:background="@color/white"
+
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                style="@style/TopHeader_text"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Create Account"
+                android:textSize="24dp"
+                android:textStyle="bold"
+
+                />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            style="@style/ScrollView"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp">
+            <!-- Parent layout starts -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="@string/rd1" />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rd1LV"
+                        style="@style/IconLinLayout"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/rd1Tv"
+                            style="@style/SResponce"
+                            android:layout_width="0dp"
+                            android:layout_weight="100"
+                            android:hint="@string/rd1"
+
+                            />
+
+                        <ImageView style="@style/DownImageView" />
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="@string/rd2" />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/rd2LV"
+                        style="@style/IconLinLayout"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/rd2Tv"
+                            style="@style/SResponce"
+                            android:layout_width="0dp"
+                            android:layout_weight="100"
+                            android:hint="@string/rd2"
+
+                            />
+
+                        <ImageView style="@style/DownImageView" />
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView
+                        style="@style/SLablelogin"
+                        android:text="@string/rd3"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/rd3Tv"
+                        style="@style/SResponce"
+                        android:hint="@string/rd3"
+                        android:lines="4"
+
+                        />
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="Name" />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Enter Name"
+                            android:inputType="textPersonName"
+                            android:id="@+id/name" />
+
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="CNIC" />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Enter Your CNIC with out Dashes"
+                            android:inputType="number"
+                            android:id="@+id/cnic" />
+
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="Mobile Number" />
+
+                        <TextView
+                            style="@style/StaricTextview"
+
+
+                            android:text="*" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Enter Mobile Number"
+
+                            android:inputType="number"
+                            android:id="@+id/mobileno" />
+                    </LinearLayout>
+
+
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="Email " />
+
+                        <TextView
+                            style="@style/StaricTextview"
+
+
+                            android:text="*" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Enter Email id"
+
+                            android:inputType="textWebEmailAddress"
+                            android:id="@+id/email" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/StaricTextview"
+                        android:layout_marginTop="5dp"
+                        android:text="this will be your user name"
+                        android:textSize="13dp"
+                        android:textStyle="italic" />
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="Password" />
+
+                        <TextView
+                            style="@style/StaricTextview"
+
+
+                            android:text="*" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Enter Password"
+
+                            android:inputType="textPassword"
+                            android:id="@+id/pass1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/IconLinLayout"
+
+
+                        >
+
+                        <EditText
+                            style="@style/SResponce"
+                            android:hint="Confirm Password"
+
+                            android:inputType="textPassword"
+                            android:id="@+id/pass2" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/StaricTextview"
+                        android:layout_marginTop="5dp"
+                        android:text="this will be your Password"
+                        android:textSize="13dp"
+                        android:textStyle="italic" />
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/nLinerLayout">
+
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="Register AS"
+
+                            />
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/rd1"
+                                style="@style/SResponce"
+                                android:text="Citizen" />
+
+                            <RadioButton
+                                android:id="@+id/rd2"
+                                style="@style/SResponce"
+                                android:text="Volunteer" />
+
+                            <RadioButton
+                                android:id="@+id/rd3"
+                                style="@style/SResponce"
+                                android:text="PDMA Staff" />
+
+                        </RadioGroup>
+
+
+                        <View style="@style/nView" />
+
+                    </LinearLayout>
+
+
+                    <Button
+                        style="@style/SubmiteButt"
+                        android:text="Sign-Up"
+                        android:id="@+id/signup_btn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+
+                        android:textSize="16sp"
+                        android:background="@drawable/cricl_lb"
+                        android:textColor="@color/white"
+                        android:stateListAnimator="@null" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</layout>

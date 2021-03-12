@@ -141,21 +141,21 @@ public class ReportDisaster extends AppCompatActivity  {
                 selectImage(ReportDisaster.this);
 
             }
-        });
-
-        binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
+        });      binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 insertDb();
-               // ((Activity) ReportDisaster.this).finish();
+                // ((Activity) ReportDisaster.this).finish();
 
-               // turnGPSOn(ReportDisaster.this);
+                // turnGPSOn(ReportDisaster.this);
 
 
 
             }
         });
+
+
 
         binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
 

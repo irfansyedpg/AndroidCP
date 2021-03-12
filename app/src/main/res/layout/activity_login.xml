@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+
+    android:weightSum="5"
+    android:background="@color/colorPrimary"
+
+    >
+
+               <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+
+                android:orientation="vertical"
+                   android:layout_weight="3"
+                   >
+
+                   <ImageView
+                       android:layout_width="165dp"
+                       android:layout_height="140dp"
+                       android:src="@drawable/awhite_app_name"
+                       android:layout_centerHorizontal="true"
+                       android:layout_alignParentBottom="true"
+                       android:layout_marginBottom="0dp"
+
+                       />
+
+
+
+
+            </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:padding="50dp"
+        android:layout_weight="2"
+
+        android:orientation="vertical">
+
+
+
+            <EditText
+                android:id="@+id/login_username"
+                style="@style/SResponce"
+                android:hint="Email"
+                android:inputType="text|textEmailAddress"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="25dp"
+
+                  />
+
+
+
+
+            <EditText
+                android:id="@+id/login_password"
+                style="@style/SResponce"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:layout_marginTop="5dp"
+
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/hitnscolor"
+                android:textSize="17sp"
+               />
+
+
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Login"
+            android:textSize="16sp"
+            android:background="@drawable/cricl_lb"
+            android:textColor="@color/white"
+           android:stateListAnimator="@null"
+       />
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="SignUP"
+            android:textSize="16sp"
+            android:background="@drawable/cricl_lb"
+            android:textColor="@color/white"
+            android:stateListAnimator="@null"
+            />
+
+
+</LinearLayout>
+
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+
+  >
+<TextView
+  style="@style/SLable"
+
+  android:text=""
+  android:layout_width="wrap_content"
+
+  android:textColor="@color/hitnscolor"
+  android:textSize="16sp"
+  android:layout_marginLeft="40dp"
+  android:layout_marginBottom="3dp"
+
+  />
+  <TextView
+      style="@style/SLable"
+      android:id="@+id/txt_logut"
+
+
+      android:layout_width="wrap_content"
+      android:text="All Right Reserved Mobilise Project Pakistan"
+
+      android:textColor="@color/white"
+      android:textSize="14sp"
+      android:layout_marginRight="10dp"
+      android:layout_marginBottom="3dp"
+      android:layout_gravity="right"
+      android:clickable="true"
+      android:layout_alignParentRight="true"
+      android:textStyle="normal"
+      />
+
+</RelativeLayout>
+
+</LinearLayout>
+
+</layout>

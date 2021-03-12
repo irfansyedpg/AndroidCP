@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.myapplication.global.MyPref;
+import com.example.myapplication.signup.LogIn;
+import com.example.myapplication.signup.SignUp;
 
 public class Splash extends AppCompatActivity {
 
@@ -37,7 +40,23 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent mainIntent=new Intent(Splash.this,MainActivity.class);
+                Intent mainIntent;
+                final MyPref preferences = new MyPref(Splash.this);
+                int preff=preferences.getUserId();
+                if(preff==0)
+                {
+                    mainIntent=new Intent(Splash.this, LogIn.class);
+
+                }
+                else
+                {
+                    mainIntent=new Intent(Splash.this,MainActivity.class);
+
+
+                }
+
+             //   mainIntent=new Intent(Splash.this, LogIn.class);
+
 
                 Splash.this.startActivity(mainIntent);
                 Splash.this.finish();

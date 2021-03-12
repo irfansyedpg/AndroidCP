@@ -1,9 +1,9 @@
-package com.example.myapplication.global;
+package com.example.myapplication.signup;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -12,31 +12,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication.utilities.PostRequestData2;
+import com.example.myapplication.MainActivity;
+import com.example.myapplication.global.MyPref;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
 
-
-public class UploadData2
+public class SignUpServer
 {
    public static  boolean status;
+   public static  String ServerUserID ;
 
-    public static  boolean volleyPost(Context contx, JSONObject Jobj){
+    public static  boolean SignUpServer(Context contx, JSONObject Jobj){
 
 
-        String postUrl = "http://175.107.63.137/PEOCMIS/api/values/InsertResponse";
+        String postUrl = "http://175.107.63.137/PEOCMIS/api/values/Signup";
         final Context mContext=contx;
+        SignUpServer.status=false;
+        SignUpServer.ServerUserID="0";
+
         final   ProgressDialog pd;
         pd = new ProgressDialog(mContext);
         pd.setTitle("Please Wait...");
@@ -53,10 +48,28 @@ public class UploadData2
             public void onResponse(JSONObject response) {
                 pd.cancel();
                 System.out.println(response);
-                UploadData2.status=true;
+                SignUpServer.status=true;
+                String Userid="0";
+                try {
+                     Userid=response.getString("lastId");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
+                if(!Userid.equals("0")) {
 
+                    MyPref prefs = new MyPref(mContext);
 
+                    prefs.setUserId(Integer.parseInt(Userid));
+
+                    Intent mainIntent = new Intent(mContext, MainActivity.class);
+                    mContext.startActivity(mainIntent);
+                    ((Activity) mContext).finish();
+                }
+                else
+                {
+                    Toast.makeText(mContext,"This user already Registerd, Please enter diffrent Contact Number",Toast.LENGTH_LONG).show();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -64,7 +77,7 @@ public class UploadData2
                 error.printStackTrace();
                 pd.cancel();
                 Toast.makeText(mContext,"ERRoR Unable to upload the Data Please turn on your internet",Toast.LENGTH_LONG).show();
-                UploadData2.status=false;
+                SignUpServer.status=false;
             }
         });
 
@@ -72,4 +85,8 @@ public class UploadData2
 
         return  status;
     }
+
+
+
+
 }
