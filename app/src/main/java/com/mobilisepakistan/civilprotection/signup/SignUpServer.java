@@ -1,0 +1,92 @@
+package com.mobilisepakistan.civilprotection.signup;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.mobilisepakistan.civilprotection.MainActivity;
+import com.mobilisepakistan.civilprotection.global.MyPref;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+public class SignUpServer
+{
+   public static  boolean status;
+   public static  String ServerUserID ;
+
+    public static  boolean SignUpServer(Context contx, JSONObject Jobj){
+
+
+        String postUrl = "http://175.107.63.137/PEOCMIS/api/values/Signup";
+        final Context mContext=contx;
+        SignUpServer.status=false;
+        SignUpServer.ServerUserID="0";
+
+        final   ProgressDialog pd;
+        pd = new ProgressDialog(mContext);
+        pd.setTitle("Please Wait...");
+        pd.setMessage("Uploading Data...");
+        pd.setCancelable(false);
+        pd.show();
+
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+
+        JSONObject postData =Jobj;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, postUrl, postData, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                pd.cancel();
+                System.out.println(response);
+                SignUpServer.status=true;
+                String Userid="0";
+                try {
+                     Userid=response.getString("lastId");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                if(!Userid.equals("0")) {
+
+                    MyPref prefs = new MyPref(mContext);
+
+                    prefs.setUserId(Integer.parseInt(Userid));
+
+                    Intent mainIntent = new Intent(mContext, MainActivity.class);
+                    mContext.startActivity(mainIntent);
+                    ((Activity) mContext).finish();
+                }
+                else
+                {
+                    Toast.makeText(mContext,"This user already Registerd, Please enter diffrent Contact Number",Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                pd.cancel();
+                Toast.makeText(mContext,"ERRoR Unable to upload the Data Please turn on your internet",Toast.LENGTH_LONG).show();
+                SignUpServer.status=false;
+            }
+        });
+
+        requestQueue.add(jsonObjectRequest);
+
+        return  status;
+    }
+
+
+
+
+}

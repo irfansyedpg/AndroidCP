@@ -22,18 +22,17 @@
 
     </View>
 
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:id="@+id/lottie"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logowhite"
 
-        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintVertical_bias=".2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/splash"
     />
 
     <TextView
@@ -46,7 +45,7 @@
         android:textSize="26sp"
         android:textColor="@color/white"
         app:layout_constraintVertical_bias="0"
-
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 

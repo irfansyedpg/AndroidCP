@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication">
+    package="com.mobilisepakistan.civilprotection">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signup.LogIn"></activity>
+        <activity android:name="com.mobilisepakistan.civilprotection.signup.LogIn"></activity>
         <activity
-            android:name=".Splash"
+            android:name="com.mobilisepakistan.civilprotection.Splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,43 +25,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.mobilisepakistan.civilprotection.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.ReportDisaster"
+            android:name="com.mobilisepakistan.civilprotection.report.ReportDisaster"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".gps.ShowLocationActivity"
+            android:name="com.mobilisepakistan.civilprotection.weather.getweather"
+            android:label="Get weather"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.mobilisepakistan.civilprotection.gps.ShowLocationActivity"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".gps.ShowLocationActivity2"
+            android:name="com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.RecyclerViewA"
+            android:name="com.mobilisepakistan.civilprotection.report.RecyclerViewA"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.RapidNeedAssessment"
+            android:name="com.mobilisepakistan.civilprotection.report.RapidNeedAssessment"
             android:label="Rapid Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.DemageNeedAssesment"
+            android:name="com.mobilisepakistan.civilprotection.report.DemageNeedAssesment"
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.EarlyWarning"
+            android:name="com.mobilisepakistan.civilprotection.report.EarlyWarning"
             android:label="EarlyWarnings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".report.DailySituationReport"
+            android:name="com.mobilisepakistan.civilprotection.report.DailySituationReport"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".signup.SignUp"
+            android:name="com.mobilisepakistan.civilprotection.signup.SignUp"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

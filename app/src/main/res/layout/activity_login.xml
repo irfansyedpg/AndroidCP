@@ -25,9 +25,9 @@
                    >
 
                    <ImageView
-                       android:layout_width="165dp"
-                       android:layout_height="140dp"
-                       android:src="@drawable/awhite_app_name"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/logowhite"
                        android:layout_centerHorizontal="true"
                        android:layout_alignParentBottom="true"
                        android:layout_marginBottom="0dp"
