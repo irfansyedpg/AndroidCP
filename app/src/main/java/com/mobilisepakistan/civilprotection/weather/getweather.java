@@ -39,7 +39,7 @@ public class getweather extends AppCompatActivity {
 
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
 
-    ImageView search;
+
 
     EditText etCity;
 
@@ -57,9 +57,9 @@ public class getweather extends AppCompatActivity {
 
 
 
-        etCity = (EditText) findViewById(R.id.Your_city);
 
-        search = (ImageView) findViewById(R.id.search);
+
+
 
 
         city = (TextView) findViewById(R.id.city);
@@ -82,50 +82,54 @@ public class getweather extends AppCompatActivity {
 
         sunsets = (TextView) findViewById(R.id.sunsets);
 
-        LocationManager locationManager ;
-        boolean GpsStatus ;
-        locationManager = (LocationManager)this.getSystemService(this.LOCATION_SERVICE);
-        assert locationManager != null;
-        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if(GpsStatus == false) {
-            TurnOnGPS.turnGPSOn(this);
+
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
         }
-        else {
-            Intent intentt = new Intent(getweather.this, ShowLocationActivity2.class);
-            startActivityForResult(intentt, 22);
-        }
-
-//        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-//
-//
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//        fusedLocationClient.getLastLocation()
-//                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-//                    @Override
-//                    public void onSuccess(Location location) {
-//                        // Got last known location. In some rare situations this can be null.
-//                        if (location != null) {
-//                            // Logic to handle location object
-//                             lat=location.getLatitude()+"";
-//                             lon=location.getLongitude()+"";
-//                            new weatherTask().execute();
-//                        }
-//                    }
-//                });
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+                        if (location != null) {
+                            // Logic to handle location object
+                             lat=location.getLatitude()+"";
+                             lon=location.getLongitude()+"";
+                            new weatherTask().execute();
+                        }
+                        else
+                        {
+                            LocationManager locationManager ;
+                            boolean GpsStatus ;
+                            locationManager = (LocationManager)getweather.this.getSystemService(getweather.this.LOCATION_SERVICE);
+                            assert locationManager != null;
+                            GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+                            if(GpsStatus == false) {
+                                TurnOnGPS.turnGPSOn(getweather.this);
+                            }
+                            else {
+                                Intent intentt = new Intent(getweather.this, ShowLocationActivity2.class);
+                                startActivityForResult(intentt, 22);
+                            }
+                        }
+                    }
+                });
 
 
 
 
-       // CITY = "Peshawar";
+        CITY = "Peshawar";
 
 
        }

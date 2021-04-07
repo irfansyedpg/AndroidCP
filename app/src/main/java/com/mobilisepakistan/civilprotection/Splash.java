@@ -55,8 +55,8 @@ public class Splash extends AppCompatActivity {
 
                 }
 
-             mainIntent=new Intent(Splash.this, getweather.class);
-              // mainIntent=new Intent(Splash.this, MainActivity.class);
+            // mainIntent=new Intent(Splash.this, getweather.class);
+              mainIntent=new Intent(Splash.this, MainActivity.class);
 
 
                 Splash.this.startActivity(mainIntent);

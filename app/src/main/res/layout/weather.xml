@@ -23,64 +23,7 @@
 
         android:orientation="vertical">
 
-        <RelativeLayout
 
-            android:id="@+id/first"
-
-            android:layout_width="match_parent"
-
-            android:layout_height="40dp"
-
-            android:layout_marginStart="20dp"
-
-            android:layout_marginTop="30dp"
-
-            android:layout_marginEnd="20dp"
-
-
-            android:gravity="center_horizontal"
-
-            android:padding="2dp">
-
-            <EditText
-
-                android:id="@+id/Your_city"
-
-                android:layout_width="wrap_content"
-
-                android:layout_height="match_parent"
-
-
-                android:layout_centerVertical="true"
-
-                android:ems="10"
-
-                android:hint="city name"
-
-                android:inputType="text"
-
-                android:textColor="#ffffff"
-
-                android:textColorHint="#939393"
-
-                android:textSize="15sp" />
-
-            <ImageView
-
-                android:id="@+id/search"
-
-                android:layout_width="35dp"
-
-                android:layout_height="35dp"
-
-                android:layout_centerVertical="true"
-
-
-                android:background="?android:attr/selectableItemBackground"
-
-                />
-
-        </RelativeLayout>
 
         <LinearLayout
 
@@ -89,6 +32,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="20dp"
+            android:background="@color/background"
 
             android:orientation="vertical">
 
@@ -153,9 +97,10 @@
 
             android:layout_height="wrap_content"
 
-            android:layout_marginTop="210dp"
+
 
             android:gravity="center_horizontal"
+            android:background="@color/colorPrimaryDark"
 
             android:orientation="vertical">
 
@@ -210,6 +155,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="5dp"
+            android:background="@color/white"
 
             android:orientation="vertical">
 
@@ -392,6 +338,7 @@
 
         <LinearLayout
 
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
