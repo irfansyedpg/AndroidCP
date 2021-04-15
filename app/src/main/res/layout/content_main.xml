@@ -90,7 +90,15 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/sunset"
                             android:text="Sunset 03:49 PM"
+                            android:layout_marginTop="2dp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/humidity"
+                            android:text="humidity 38"
                             android:layout_marginTop="5dp"
+
                             />
 
                     </LinearLayout>
@@ -110,15 +118,26 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_hot"
+                            android:id="@+id/img"
                             >
 
                         </ImageView>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/humidity"
-                            android:text="humidity 38"
+                            android:id="@+id/discp"
+                            android:text="discpition"
                             android:layout_marginTop="20dp"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/main"
+                            android:text="main"
+                            android:layout_marginTop="5dp"
+
                             />
                         <TextView
                             android:layout_width="wrap_content"

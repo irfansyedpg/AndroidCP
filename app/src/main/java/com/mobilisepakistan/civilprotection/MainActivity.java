@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -38,6 +40,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mobilisepakistan.civilprotection.weather.getweather;
+import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -45,11 +48,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -62,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String lon;
     private FusedLocationProviderClient fusedLocationClient;
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
-    TextView tMin,tTemp,tSunset,tSunris,tHuminty,tLocaiton;
+    TextView tMin,tTemp,tSunset,tSunris,tHuminty,tLocaiton,tMain,tDisciption;
+    ImageView img;
 
 
     @Override
@@ -135,6 +147,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tSunset=findViewById(R.id.sunset);
         tHuminty=findViewById(R.id.humidity);
         tLocaiton=findViewById(R.id.city);
+        tMain=findViewById(R.id.main);
+        tDisciption=findViewById(R.id.discp);
+        img=findViewById(R.id.img);
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -298,6 +313,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String temperature = main.getString("temp");
 
                 String cast = weather.getString("description");
+                String icon = weather.getString("icon");
+                String mainn = weather.getString("main");
 
                 String humi_dity = main.getString("humidity");
 
@@ -334,6 +351,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 tSunset.setText("Sunset "+sunset);
 
+                tMain.setText(mainn.toUpperCase());
+                tDisciption.setText(cast.toUpperCase());
+
+
+
+
+                String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
+
+                Picasso.get().load(img_url).into(img);
+
+
             } catch (Exception e) {
 
                 Toast.makeText(MainActivity.this, "Error:" + e.toString(), Toast.LENGTH_SHORT).show();
@@ -343,4 +371,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
     }
+
+
+
 }
