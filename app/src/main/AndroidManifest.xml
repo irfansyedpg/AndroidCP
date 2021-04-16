@@ -69,6 +69,10 @@
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="com.mobilisepakistan.civilprotection.report.WeatherForecast"
+            android:label="Daily Situation Report "
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistan.civilprotection.signup.SignUp"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />

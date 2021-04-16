@@ -25,6 +25,7 @@ import com.mobilisepakistan.civilprotection.report.EarlyWarning;
 import com.mobilisepakistan.civilprotection.report.RapidNeedAssessment;
 import com.mobilisepakistan.civilprotection.report.ReportDisaster;
 
+import com.mobilisepakistan.civilprotection.report.WeatherForecast;
 import com.mobilisepakistan.civilprotection.signup.LogIn;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
@@ -227,6 +228,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_ds) {
             intent = new Intent(this, DailySituationReport.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_wf) {
+            intent = new Intent(this, WeatherForecast.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_RNA) {
