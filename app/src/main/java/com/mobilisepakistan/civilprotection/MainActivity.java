@@ -20,6 +20,7 @@ import com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2;
 import com.mobilisepakistan.civilprotection.gps.TurnOnGPS;
 import com.mobilisepakistan.civilprotection.report.DailySituationReport;
 import com.mobilisepakistan.civilprotection.report.DemageNeedAssesment;
+import com.mobilisepakistan.civilprotection.report.DemagesLosses;
 import com.mobilisepakistan.civilprotection.report.EarlyWarning;
 import com.mobilisepakistan.civilprotection.report.RapidNeedAssessment;
 import com.mobilisepakistan.civilprotection.report.ReportDisaster;
@@ -234,6 +235,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_DNA) {
             intent = new Intent(this, DemageNeedAssesment.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_LD) {
+            intent = new Intent(this, DemagesLosses.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_logout) {

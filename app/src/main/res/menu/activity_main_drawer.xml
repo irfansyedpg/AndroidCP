@@ -33,6 +33,10 @@
                 android:icon="@drawable/ds"
                 android:title="Demage Need Assessment " />
             <item
+                android:id="@+id/nav_LD"
+                android:icon="@drawable/ds"
+                android:title="Losses Demages " />
+            <item
                 android:id="@+id/nav_risk"
                 android:icon="@drawable/ar"
                 android:title="Risk Assessment Results" />

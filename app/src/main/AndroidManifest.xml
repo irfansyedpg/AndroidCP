@@ -57,6 +57,10 @@
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="com.mobilisepakistan.civilprotection.report.DemagesLosses"
+            android:label="Demage Need Assessment "
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistan.civilprotection.report.EarlyWarning"
             android:label="EarlyWarnings"
             android:theme="@style/AppTheme.NoActionBar" />

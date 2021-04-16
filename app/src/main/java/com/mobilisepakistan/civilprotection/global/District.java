@@ -8,6 +8,7 @@ public class  District {
 
     public static ArrayList<String> getDistricts() {
           ArrayList<String> listDistrict=new  ArrayList<String>();
+
         listDistrict	.add("Peshawar");
         listDistrict	.add("Charsadda");
         listDistrict	.add("Nowshera");
@@ -46,6 +47,49 @@ public class  District {
         return listDistrict;
 
     }
+    public static ArrayList<String> getDistrictsPDMA() {
 
+        ArrayList<String> listDistrictPDMA=new  ArrayList<String>();
+
+        listDistrictPDMA.add("Mardan");
+        listDistrictPDMA.add("Swabi");
+        listDistrictPDMA.add("Peshawar");
+        listDistrictPDMA.add("Charsadda");
+        listDistrictPDMA.add("Nowshera");
+        listDistrictPDMA.add("Khyber");
+        listDistrictPDMA.add("Mohmand");
+        listDistrictPDMA.add("Bajaur");
+        listDistrictPDMA.add("Buner");
+        listDistrictPDMA.add("Lower-Chitral");
+        listDistrictPDMA.add("Upper-Chitral");
+        listDistrictPDMA.add("Malakand");
+        listDistrictPDMA.add("Lower Dir");
+        listDistrictPDMA.add("Shangla");
+        listDistrictPDMA.add("Swat");
+        listDistrictPDMA.add("Upper Dir");
+        listDistrictPDMA.add("Abbottabad");
+        listDistrictPDMA.add("Battagram");
+        listDistrictPDMA.add("Kolai Pallas");
+        listDistrictPDMA.add("Lower Kohistan");
+        listDistrictPDMA.add("Haripur");
+        listDistrictPDMA.add("Mansehra");
+        listDistrictPDMA.add("Torghar");
+        listDistrictPDMA.add("Upper Kohistan");
+        listDistrictPDMA.add("Bannu");
+        listDistrictPDMA.add("Lakki Marwat");
+        listDistrictPDMA.add("North Waziristan");
+        listDistrictPDMA.add("Dera Ismail Khan");
+        listDistrictPDMA.add("South Waziristan");
+        listDistrictPDMA.add("Tank");
+        listDistrictPDMA.add("Hangu");
+        listDistrictPDMA.add("Karak");
+        listDistrictPDMA.add("Kohat");
+        listDistrictPDMA.add("Kurram");
+        listDistrictPDMA.add("Orakzai");
+        listDistrictPDMA.add("Kohistan Koli Palas");
+
+        return listDistrictPDMA;
+
+    }
 
 }
