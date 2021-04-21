@@ -68,7 +68,7 @@ public class WeatherForecast extends AppCompatActivity  {
         });
 
 
-        new GetDataServerWF(WeatherForecast.this, "http://175.107.63.137/PEOCMIS/api/values/getDSR",binding.recycleviewR).execute();
+        new GetDataServerWF(WeatherForecast.this, "http://175.107.63.137/PEOCMIS/api/values/DWRGet",binding.recycleviewR).execute();
         binding.btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +85,8 @@ public class WeatherForecast extends AppCompatActivity  {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 binding.btnDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                                String url="175.107.63.39/DWRs/DWR%20="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
+                               // String url="http://175.107.63.137/PEOCMIS/api/values/DWRGetbyDate?date="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
+                                String url="http://175.107.63.137/PEOCMIS/api/values/DWRGetbyDate?date="+year+"-"+(monthOfYear + 1)+"-"+dayOfMonth;
 
 
                                 new GetDataServerWF(WeatherForecast.this, url,binding.recycleviewR).execute();
@@ -202,23 +203,15 @@ class  GetDataServerWF extends AsyncTask {
             JSONObject jsonObj = new JSONObject(resp);
 
             // Getting JSON Array node
-            JSONArray contacts = jsonObj.getJSONArray("contacts");
+            JSONArray contacts = jsonObj.getJSONArray("message");
             ArrayList<String> listDate=new ArrayList<String>();
             ArrayList<String> listShift=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
-                String shift = c.getString("shift");
-                if(shift.equals("M"))
-                {
-                    shift="Morning";
-                }
-                else if(shift.equals("E"))
-                {
-                    shift="Evening";
-                }
+                String shift ="-";
 
-                String adddate = c.getString("addedDate");
+                String adddate = c.getString("added_Date");
 
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
