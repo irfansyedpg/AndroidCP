@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.mobilisepakistan.civilprotection.global.MyPref;
+import com.mobilisepakistan.civilprotection.report.ReportDisaster;
+import com.mobilisepakistan.civilprotection.report.UploadToServer;
 import com.mobilisepakistan.civilprotection.signup.LogIn;
 import com.mobilisepakistan.civilprotection.weather.getweather;
 
@@ -54,8 +56,8 @@ public class Splash extends AppCompatActivity {
 
 
                 }
-
-            // mainIntent=new Intent(Splash.this, getweather.class);
+         //       mainIntent=new Intent(Splash.this, UploadToServer.class);
+           // mainIntent=new Intent(Splash.this, ReportDisaster.class);
               mainIntent=new Intent(Splash.this, MainActivity.class);
 
 

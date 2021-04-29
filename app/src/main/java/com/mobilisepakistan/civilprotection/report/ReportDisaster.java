@@ -3,10 +3,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -223,6 +225,8 @@ public class ReportDisaster extends AppCompatActivity  {
                     if (resultCode == RESULT_OK && data != null) {
                         try {
                             final Uri imageUri = data.getData();
+                            String Pathtesting=getRealPathFromURI(imageUri);
+
                             final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                             final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                             ImgView.setImageBitmap(selectedImage);
@@ -261,6 +265,7 @@ public class ReportDisaster extends AppCompatActivity  {
 
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                //    String filpath=android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                     startActivityForResult(pickPhoto , 1);
 
                 } else if (options[item].equals("Cancel")) {
@@ -323,6 +328,7 @@ public class ReportDisaster extends AppCompatActivity  {
 
 
     }
+
     public  boolean  datavalidation()
     {
         if(binding.rd1Tv.getText().equals(""))
@@ -371,6 +377,23 @@ public class ReportDisaster extends AppCompatActivity  {
     }
 
 
+
+    // testing to get real path
+
+    public String getRealPathFromURI(Uri contentUri) {
+
+        // can post image
+        String [] proj={MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery( contentUri,
+                proj, // Which columns to return
+                null,       // WHERE clause; which rows to return (all rows)
+                null,       // WHERE clause selection arguments (none)
+                null); // Order-by clause (ascending by name)
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+
+        return cursor.getString(column_index);
+    }
 
     }
 

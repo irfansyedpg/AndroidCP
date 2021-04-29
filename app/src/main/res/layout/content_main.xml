@@ -22,20 +22,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/white2"
         android:orientation="vertical"
-        android:weightSum="100"
-
-        >
+        android:weightSum="100"        >
 
 
 
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:id="@+id/top"
                 android:orientation="vertical"
-                android:layout_weight="50"
+                android:layout_weight="60"
                 android:padding="20dp"
                 android:layout_marginTop="20dp"
 
@@ -46,7 +44,7 @@
                     android:layout_height="0dp"
                     android:id="@+id/topup"
                     android:orientation="horizontal"
-                    android:layout_weight="70"
+                    android:layout_weight="50"
 
 
                     >
@@ -54,88 +52,46 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="60"
+                        android:layout_weight="50"
 
-                        android:padding="10dp"
+                        android:layout_margin="3dp"
                         android:orientation="vertical"
                         android:gravity="center"
+
+                        android:background="@drawable/liner_round"
+
                         >
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tempmin"
-                            android:text="Min 26 Max 28"
+                            android:text="Weather Advisory"
 
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/temp"
-                            android:text="26 C"
+
                             android:textStyle="bold"
-                            android:textSize="46sp"
+                            android:textSize="36sp"
                             />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/sunrise"
-                            android:text="Sunrise 03:49 AM"
-                            android:layout_marginTop="5dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/sunset"
-                            android:text="Sunset 03:49 PM"
-                            android:layout_marginTop="2dp"
-                            />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/humidity"
-                            android:text="humidity 38"
-                            android:layout_marginTop="5dp"
-
-                            />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="50"
-                        android:padding="10dp"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        >
-
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_hot"
-                            android:id="@+id/img"
-                            >
-
-                        </ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/discp"
-                            android:text="discpition"
-                            android:layout_marginTop="20dp"
+
+
 
                             />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/main"
-                            android:text="main"
+                            android:id="@+id/humidity"
+
                             android:layout_marginTop="5dp"
 
                             />
@@ -143,8 +99,46 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/city"
-                            android:text="Peshawar,PK"
+
                             android:layout_marginTop="5dp"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:id="@+id/img"
+                            >
+
+                        </ImageView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50"
+
+                        android:layout_margin="3dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+
+                        android:background="@drawable/liner_round"
+
+                        >
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Early Warnings"
+
+                            />
+
+                        <ImageView
+                            android:layout_marginTop="20dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/ic_loud_speaker_fb"
                             />
 
 
@@ -155,27 +149,121 @@
                     </LinearLayout>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:id="@+id/topdown"
-                    android:orientation="vertical"
-                    android:layout_weight="30"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="50"
 
+
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+
+                    android:layout_margin="3dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+
+                    android:background="@drawable/liner_round"
 
                     >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily Situation Report"
+
+                        />
+
+                    <ImageView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_report"
+                        />
+
+
+
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+
+                    android:layout_margin="3dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+
+                    android:background="@drawable/liner_round"
+
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Report Disaster"
+
+                        />
+
+                    <ImageView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_desertification"
+                        />
+
+
+
+
+
+
                 </LinearLayout>
 
+            </LinearLayout>
+
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:id="@+id/bottomm"
             android:orientation="vertical"
-            android:layout_weight="50"
+            android:layout_weight="40"
 
             >
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="0dp"
+              android:layout_weight="67"
+
+              />
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/kpk"
+                android:layout_weight="30"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="@color/colorPrimary"
+
+                />
 
         </LinearLayout>
 

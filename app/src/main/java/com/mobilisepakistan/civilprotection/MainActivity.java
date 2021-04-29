@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String lon;
     private FusedLocationProviderClient fusedLocationClient;
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
-    TextView tMin,tTemp,tSunset,tSunris,tHuminty,tLocaiton,tMain,tDisciption;
+    TextView tTemp,tHuminty,tLocaiton,tDisciption;
     ImageView img;
 
 
@@ -85,44 +85,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton action_rd = findViewById(R.id.action_rd);
-
-
-        action_rd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(MainActivity.this, ReportDisaster.class);
-              //  intent = new Intent(MainActivity.this, ShowLocationActivity.class);
-                startActivity(intent);
-
-
-            }
-        }
-        );
-
-        FloatingActionButton action_erw = findViewById(R.id.action_erw);
-        action_erw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(MainActivity.this, EarlyWarning.class);
-                startActivity(intent);
-
-
-            }
-        });
-
-        FloatingActionButton action_dna = findViewById(R.id.action_dsr);
-        action_dna.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(MainActivity.this, DailySituationReport.class);
-                startActivity(intent);
-
-
-            }
-        });
-
+//
+//        FloatingActionButton action_rd = findViewById(R.id.action_rd);
+//
+//
+//        action_rd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent = new Intent(MainActivity.this, ReportDisaster.class);
+//              //  intent = new Intent(MainActivity.this, ShowLocationActivity.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        }
+//        );
+//
+//        FloatingActionButton action_erw = findViewById(R.id.action_erw);
+//        action_erw.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent = new Intent(MainActivity.this, EarlyWarning.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        });
+//
+//        FloatingActionButton action_dna = findViewById(R.id.action_dsr);
+//        action_dna.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent = new Intent(MainActivity.this, DailySituationReport.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        });
+//
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -143,13 +143,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // weather info
 
-        tMin=findViewById(R.id.tempmin);
+
         tTemp=findViewById(R.id.temp);
-        tSunris=findViewById(R.id.sunrise);
-        tSunset=findViewById(R.id.sunset);
+
+
         tHuminty=findViewById(R.id.humidity);
         tLocaiton=findViewById(R.id.city);
-        tMain=findViewById(R.id.main);
+
         tDisciption=findViewById(R.id.discp);
         img=findViewById(R.id.img);
 
@@ -353,15 +353,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 tHuminty.setText("Humidity "+humi_dity);
 
-                tMin.setText("Min "+temp_min+" Max "+temp_max);
 
-
-
-                tSunris.setText("Sunrise "+sunrise);
-
-                tSunset.setText("Sunset "+sunset);
-
-                tMain.setText(mainn.toUpperCase());
                 tDisciption.setText(cast.toUpperCase());
 
 
