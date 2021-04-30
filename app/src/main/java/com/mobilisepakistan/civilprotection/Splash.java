@@ -20,7 +20,7 @@ public class Splash extends AppCompatActivity {
 
     TextView appnam;
     View splashImage;
-    ImageView LotAview;
+    ImageView LotAview,pdma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +29,14 @@ public class Splash extends AppCompatActivity {
 
         appnam=findViewById(R.id.appname);
         splashImage=findViewById(R.id.img);
+        pdma=findViewById(R.id.pdma);
         LotAview=findViewById(R.id.lottie);
 
         splashImage.animate().translationY(-2700).setDuration(1000).setStartDelay(4200);
 
         appnam.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
         LotAview.animate().translationY(2000).setDuration(1000).setStartDelay(4000);
+        pdma.animate().translationY(2000).setDuration(1000).setStartDelay(4000);
 
 
 

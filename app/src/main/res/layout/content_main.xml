@@ -59,6 +59,7 @@
                         android:gravity="center"
 
                         android:background="@drawable/liner_round"
+                        android:id="@+id/lnwa"
 
                         >
 
@@ -66,7 +67,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Weather Advisory"
+                            android:text="Weather Forcast"
 
                             />
                         <TextView
@@ -123,6 +124,7 @@
                         android:gravity="center"
 
                         android:background="@drawable/liner_round"
+                        android:id="@+id/lnew"
 
                         >
 
@@ -139,6 +141,8 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:background="@drawable/ic_loud_speaker_fb"
+                            android:scaleType="fitCenter"
+                            android:adjustViewBounds="true"
                             />
 
 
@@ -170,6 +174,7 @@
                     android:gravity="center"
 
                     android:background="@drawable/liner_round"
+                    android:id="@+id/lnds"
 
                     >
 
@@ -204,6 +209,7 @@
                     android:gravity="center"
 
                     android:background="@drawable/liner_round"
+                    android:id="@+id/lnrd"
 
                     >
 
@@ -255,6 +261,8 @@
                 android:layout_height="0dp"
                 android:background="@drawable/kpk"
                 android:layout_weight="30"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
 
                 />
             <LinearLayout
