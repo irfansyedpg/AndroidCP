@@ -191,6 +191,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/ic_report"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
                         />
 
 
@@ -226,6 +228,8 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/ic_desertification"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
                         />
 
 

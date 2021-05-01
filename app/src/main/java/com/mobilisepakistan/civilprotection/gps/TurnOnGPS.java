@@ -101,4 +101,44 @@ public class TurnOnGPS {
 
     }
 
+    public static void LoginActivityalert(final Context mContex){
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
+        builder1.setMessage("To avail this feature you need to login or create your account if not registerd." +
+                "     Do you want to login or create your account ");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+
+
+                        Intent intt=new Intent(mContex,LogIn.class);
+                        ((Activity) mContex).startActivity(intt);
+
+                        ((Activity) mContex).finish();
+
+
+                        dialog.cancel();
+                    }
+                });
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show(   );
+
+
+
+    }
+
 }

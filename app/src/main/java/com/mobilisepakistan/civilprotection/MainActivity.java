@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView tTemp,tHuminty,tLocaiton,tDisciption;
     ImageView img;
     LinearLayout lnwa,lnew,lnds,lnrd;
-
+    int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        MyPref preferences = new MyPref(MainActivity.this);
+        userId=preferences.getUserId();
 
         lnwa=findViewById(R.id.lnwa);
         lnew=findViewById(R.id.lnew);
@@ -131,51 +135,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                intent = new Intent(MainActivity.this, ReportDisaster.class);
-                startActivity(intent);
+                if(userId==0)
+                {
+                   //mainIntent=new Intent(Splash.this, LogIn.class);
+
+                    TurnOnGPS.LoginActivityalert(MainActivity.this);
+
+                }
+                else
+                {
+                  //  mainIntent=new Intent(Splash.this,MainActivity.class);
+
+                    intent = new Intent(MainActivity.this, ReportDisaster.class);
+                    startActivity(intent);
+
+
+                }
+
+
 
 
             }
         });
 
 
-//        FloatingActionButton action_rd = findViewById(R.id.action_rd);
-//
-//
-//        action_rd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(MainActivity.this, ReportDisaster.class);
-//              //  intent = new Intent(MainActivity.this, ShowLocationActivity.class);
-//                startActivity(intent);
-//
-//
-//            }
-//        }
-//        );
-//
-//        FloatingActionButton action_erw = findViewById(R.id.action_erw);
-//        action_erw.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(MainActivity.this, EarlyWarning.class);
-//                startActivity(intent);
-//
-//
-//            }
-//        });
-//
-//        FloatingActionButton action_dna = findViewById(R.id.action_dsr);
-//        action_dna.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                intent = new Intent(MainActivity.this, DailySituationReport.class);
-//                startActivity(intent);
-//
-//
-//            }
-//        });
-//
+
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -272,8 +256,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int id = menuItem.getItemId();
         if (id == R.id.nav_RD) {
-       intent = new Intent(this, ReportDisaster.class);
-            startActivity(intent);
+            if(userId==0)
+            {
+                TurnOnGPS.LoginActivityalert(MainActivity.this);
+
+            }
+            else
+            {
+                //  mainIntent=new Intent(Splash.this,MainActivity.class);
+
+                intent = new Intent(MainActivity.this, ReportDisaster.class);
+                startActivity(intent);
+
+
+            }
         }
         else if (id == R.id.nav_ew) {
             intent = new Intent(this, EarlyWarning.class);
@@ -288,12 +284,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
         else if (id == R.id.nav_RNA) {
-            intent = new Intent(this, RapidNeedAssessment.class);
-            startActivity(intent);
+
+
+            if(userId==0)
+            {
+                TurnOnGPS.LoginActivityalert(MainActivity.this);
+
+            }
+            else
+            {
+                //  mainIntent=new Intent(Splash.this,MainActivity.class);
+
+                intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
+                startActivity(intent);
+
+
+            }
         }
         else if (id == R.id.nav_DNA) {
-            intent = new Intent(this, DemageNeedAssesment.class);
-            startActivity(intent);
+
+            if(userId==0)
+            {
+                TurnOnGPS.LoginActivityalert(MainActivity.this);
+
+            }
+            else
+            {
+                //  mainIntent=new Intent(Splash.this,MainActivity.class);
+
+                intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
+                startActivity(intent);
+
+
+            }
         }
         else if (id == R.id.nav_LD) {
             intent = new Intent(this, DemagesLosses.class);
@@ -303,10 +326,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             MyPref prefs = new MyPref(this);
 
-            prefs.setUserId(Integer.parseInt("0"));
+            prefs.setUserId(0);
             intent = new Intent(this, LogIn.class);
             startActivity(intent);
+            this.finish();
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

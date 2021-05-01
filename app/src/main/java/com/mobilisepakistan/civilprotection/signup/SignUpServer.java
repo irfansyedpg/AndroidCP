@@ -68,7 +68,7 @@ public class SignUpServer
                 }
                 else
                 {
-                    Toast.makeText(mContext,"This user already Registerd, Please enter diffrent Contact Number",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext,"This user already Registerd, Please enter diffrent Email",Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

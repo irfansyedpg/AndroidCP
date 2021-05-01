@@ -45,19 +45,19 @@ public class Splash extends AppCompatActivity {
             public void run() {
 
                 Intent mainIntent;
-                final MyPref preferences = new MyPref(Splash.this);
-                int preff=preferences.getUserId();
-                if(preff==0)
-                {
-                    mainIntent=new Intent(Splash.this, LogIn.class);
-
-                }
-                else
-                {
-                    mainIntent=new Intent(Splash.this,MainActivity.class);
-
-
-                }
+//                final MyPref preferences = new MyPref(Splash.this);
+//                int preff=preferences.getUserId();
+//                if(preff==0)
+//                {
+//                    mainIntent=new Intent(Splash.this, LogIn.class);
+//
+//                }
+//                else
+//                {
+//                    mainIntent=new Intent(Splash.this,MainActivity.class);
+//
+//
+//                }
          //       mainIntent=new Intent(Splash.this, UploadToServer.class);
            // mainIntent=new Intent(Splash.this, ReportDisaster.class);
               mainIntent=new Intent(Splash.this, MainActivity.class);

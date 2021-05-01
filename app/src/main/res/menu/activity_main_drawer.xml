@@ -6,7 +6,7 @@
 
         <item
             android:id="@+id/nav_RD"
-            android:icon="@drawable/rd"
+            android:icon="@drawable/nd"
             android:title="Report A Disaster" />
 
         <item
@@ -19,7 +19,7 @@
             android:title="Daily Situation Report" />
         <item
             android:id="@+id/nav_wf"
-            android:icon="@drawable/dna"
+            android:icon="@drawable/wf"
             android:title="Weather Forcast" />
 
     </group>
@@ -28,20 +28,20 @@
         <menu>
             <item
 
-                android:icon="@drawable/ew"
+                android:icon="@drawable/need"
                 android:id="@+id/nav_RNA"
                 android:title="Rapid Need Assessment " />
             <item
                 android:id="@+id/nav_DNA"
-                android:icon="@drawable/ds"
+                android:icon="@drawable/damageneed"
                 android:title="Demage Need Assessment " />
             <item
                 android:id="@+id/nav_LD"
-                android:icon="@drawable/ds"
+                android:icon="@drawable/damage"
                 android:title="Losses Demages " />
             <item
                 android:id="@+id/nav_risk"
-                android:icon="@drawable/ar"
+                android:icon="@drawable/risk"
                 android:title="Risk Assessment Results" />
         </menu>
     </item>
@@ -66,34 +66,38 @@
 
         </menu>
     </item>
-    <item android:title="Volunteer Registration">
-        <menu>
-            <item
-                android:id="@+id/nav_VM"
-                android:icon="@drawable/vm"
-                android:title="Register Volunteer" />
+<!--    <item android:title="Volunteer Registration">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_VM"-->
+<!--                android:icon="@drawable/vm"-->
+<!--                android:title="Register Volunteer" />-->
 
-        </menu>
-    </item>
-    <item android:title="MIRA Tool (Restricted Access)">
-        <menu>
-            <item
-                android:id="@+id/nav_AT"
-                android:icon="@drawable/t"
-                android:title="MIRA-Key Informant Interviews" />
-            <item
-                android:id="@+id/nav_ATT"
-                android:icon="@drawable/tt"
-                android:title="MIRA-Direct Observation Checklist" />
+<!--        </menu>-->
+<!--    </item>-->
+<!--    <item android:title="MIRA Tool (Restricted Access)">-->
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_AT"-->
+<!--                android:icon="@drawable/t"-->
+<!--                android:title="MIRA-Key Informant Interviews" />-->
+<!--            <item-->
+<!--                android:id="@+id/nav_ATT"-->
+<!--                android:icon="@drawable/tt"-->
+<!--                android:title="MIRA-Direct Observation Checklist" />-->
 
-        </menu>
-    </item>
+<!--        </menu>-->
+<!--    </item>-->
     <item android:title="Setting">
         <menu>
             <item
                 android:id="@+id/nav_logout"
-                android:icon="@drawable/exit"
+                android:icon="@drawable/logout"
                 android:title="Logout" />
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/enter"
+                android:title="Login" />
 
 
         </menu>
