@@ -2,12 +2,13 @@ package com.mobilisepakistan.civilprotection;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -16,6 +17,9 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.mobilisepakistan.civilprotection.global.MyPref;
+
+import com.mobilisepakistan.civilprotection.global.MyReceiver;
+import com.mobilisepakistan.civilprotection.gps.LatLongGPS;
 import com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2;
 import com.mobilisepakistan.civilprotection.gps.TurnOnGPS;
 import com.mobilisepakistan.civilprotection.report.DailySituationReport;
@@ -27,7 +31,6 @@ import com.mobilisepakistan.civilprotection.report.ReportDisaster;
 
 import com.mobilisepakistan.civilprotection.report.WeatherForecast;
 import com.mobilisepakistan.civilprotection.signup.LogIn;
-import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -41,7 +44,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mobilisepakistan.civilprotection.weather.getweather;
 import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -57,13 +59,6 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -81,12 +76,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout lnwa,lnew,lnds,lnrd;
     int userId;
 
+    private BroadcastReceiver MyReceiver = null;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // call intenet check
+        MyReceiver = new MyReceiver();
+        broadcastIntent();
+
+        // new way to check GPS
+
 
 
         MyPref preferences = new MyPref(MainActivity.this);
@@ -213,6 +218,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             // Logic to handle location object
                             lat=location.getLatitude()+"";
                             lon=location.getLongitude()+"";
+
+                            LatLongGPS.Lat=lat;
+                            LatLongGPS.Long=lon;
                             new weatherTask().execute();
                         }
                         else
@@ -236,6 +244,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+    // get location new
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -331,6 +343,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             this.finish();
         }
+        else if (id == R.id.nav_login) {
+
+
+            intent = new Intent(this, LogIn.class);
+            startActivity(intent);
+            this.finish();
+        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -349,6 +368,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 lat=Lat;
                 lon=Long;
+                LatLongGPS.Lat=lat;
+                LatLongGPS.Long=lon;
                 new weatherTask().execute();
 
             }
@@ -369,6 +390,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
             String url="https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=" + API;
             String response = HttpRequest.excuteGet(url);
+
+
 
             return response;
         }
@@ -453,5 +476,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    // check internet connection
+
+    public void broadcastIntent() {
+        registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(MyReceiver);
+    }
 
 }

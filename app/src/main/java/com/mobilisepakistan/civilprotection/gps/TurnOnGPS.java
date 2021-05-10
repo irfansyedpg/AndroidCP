@@ -9,7 +9,10 @@ import android.provider.Settings;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.mobilisepakistan.civilprotection.MainActivity;
 import com.mobilisepakistan.civilprotection.signup.LogIn;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class TurnOnGPS {
 
@@ -36,7 +39,9 @@ public class TurnOnGPS {
 
                             dialog.cancel();
 
-                            ((Activity) mContex).finish();
+                           ((Activity) mContex).finish();
+
+
 
                         }
                     });

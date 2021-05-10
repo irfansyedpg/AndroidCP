@@ -20,6 +20,7 @@ import com.mobilisepakistan.civilprotection.databinding.DemgneedassesmentBinding
 import com.mobilisepakistan.civilprotection.global.District;
 import com.mobilisepakistan.civilprotection.global.Tehsil;
 import com.mobilisepakistan.civilprotection.global.UploadData2;
+import com.mobilisepakistan.civilprotection.gps.LatLongGPS;
 import com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2;
 import com.mobilisepakistan.civilprotection.gps.TurnOnGPS;
 
@@ -98,14 +99,20 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 if (((CheckBox) v).isChecked()) {
                     //Case 1
 
-                    if(TurnOnGPS.CheckGPS(DemageNeedAssesment.this)==false)
-                    {
-                        TurnOnGPS.turnGPSOn(DemageNeedAssesment.this);
-                        ((CheckBox) v).setChecked(false);
-                        return;
+                    if(LatLongGPS.Long.equals("")) {
+                        if (TurnOnGPS.CheckGPS(DemageNeedAssesment.this) == false) {
+                            TurnOnGPS.turnGPSOn(DemageNeedAssesment.this);
+                            ((CheckBox) v).setChecked(false);
+                            return;
+                        }
+                        Intent intentt = new Intent(DemageNeedAssesment.this, ShowLocationActivity2.class);
+                        startActivityForResult(intentt, 22);
                     }
-                    Intent  intentt = new Intent(DemageNeedAssesment.this, ShowLocationActivity2.class);
-                    startActivityForResult(intentt,22);
+                    else
+                    {
+                        binding.latitude.setText(LatLongGPS.Lat);
+                        binding.longitude.setText(LatLongGPS.Long);
+                    }
 
                 }
                 else

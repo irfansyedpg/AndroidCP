@@ -26,6 +26,7 @@ import com.mobilisepakistan.civilprotection.global.Tehsil;
 import com.mobilisepakistan.civilprotection.global.TypeDisaster;
 
 import com.mobilisepakistan.civilprotection.global.UploadData2;
+import com.mobilisepakistan.civilprotection.gps.LatLongGPS;
 import com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2;
 import com.mobilisepakistan.civilprotection.gps.TurnOnGPS;
 
@@ -54,7 +55,7 @@ public class ReportDisaster extends AppCompatActivity  {
         listDisaster= TypeDisaster.getDisaster();
 
         UploadFailur=false;
-        TurnOnGPS.turnGPSOn(this);
+       // TurnOnGPS.turnGPSOn(this);
 
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
@@ -153,14 +154,23 @@ public class ReportDisaster extends AppCompatActivity  {
                 if (((CheckBox) v).isChecked()) {
                     //Case 1
 
-                   if(TurnOnGPS.CheckGPS(ReportDisaster.this)==false)
-                   {
-                       TurnOnGPS.turnGPSOn(ReportDisaster.this);
-                       ((CheckBox) v).setChecked(false);
-                       return;
-                   }
-                    Intent  intentt = new Intent(ReportDisaster.this, ShowLocationActivity2.class);
-                    startActivityForResult(intentt,22);
+                    if(LatLongGPS.Long.equals("")) {
+
+                        if (TurnOnGPS.CheckGPS(ReportDisaster.this) == false) {
+                            TurnOnGPS.turnGPSOn(ReportDisaster.this);
+                            ((CheckBox) v).setChecked(false);
+                            return;
+                        }
+                        Intent intentt = new Intent(ReportDisaster.this, ShowLocationActivity2.class);
+                        startActivityForResult(intentt, 22);
+                    }
+                    else
+                    {
+                        binding.latitude.setText(LatLongGPS.Lat);
+                        binding.longitude.setText(LatLongGPS.Long);
+
+                    }
+
 
                 }
                 else
