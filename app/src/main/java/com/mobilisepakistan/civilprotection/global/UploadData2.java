@@ -49,7 +49,7 @@ public class UploadData2
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 pd.cancel();
-                Toast.makeText(mContext,"ERRoR Unable to upload the Data Please turn on your internet",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,"Error, please check your network connection. Currently unable to brows the app due to net conncectivity",Toast.LENGTH_LONG).show();
                 UploadData2.status=false;
             }
         });

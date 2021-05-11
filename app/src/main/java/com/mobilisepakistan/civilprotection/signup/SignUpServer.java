@@ -68,7 +68,7 @@ public class SignUpServer
                 }
                 else
                 {
-                    Toast.makeText(mContext,"This user already Registerd, Please enter diffrent Email",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext,"An account is already registered with this email address. Please sign in or use different email",Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -76,7 +76,7 @@ public class SignUpServer
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 pd.cancel();
-                Toast.makeText(mContext,"ERRoR Unable to upload the Data Please turn on your internet",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,"Error, please check your network connection. Currently unable to brows the app due to net conncectivity",Toast.LENGTH_LONG).show();
                 SignUpServer.status=false;
             }
         });

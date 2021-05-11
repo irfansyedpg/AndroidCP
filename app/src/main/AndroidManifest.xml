@@ -34,10 +34,6 @@
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.weather.getweather"
-            android:label="Get weather"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.mobilisepakistan.civilprotection.gps.ShowLocationActivity"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />

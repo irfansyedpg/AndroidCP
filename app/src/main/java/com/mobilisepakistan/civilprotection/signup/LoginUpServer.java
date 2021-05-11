@@ -68,7 +68,7 @@ public class LoginUpServer
                 }
                 else
                 {
-                    Toast.makeText(mContext,"User Name or Password Incorrect",Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext,"Sign in Error, your user name or passward is incorrect",Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {

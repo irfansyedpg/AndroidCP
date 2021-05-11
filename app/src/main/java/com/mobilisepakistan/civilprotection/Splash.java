@@ -14,7 +14,7 @@ import com.mobilisepakistan.civilprotection.global.MyPref;
 import com.mobilisepakistan.civilprotection.report.ReportDisaster;
 import com.mobilisepakistan.civilprotection.report.UploadToServer;
 import com.mobilisepakistan.civilprotection.signup.LogIn;
-import com.mobilisepakistan.civilprotection.weather.getweather;
+
 
 public class Splash extends AppCompatActivity {
 

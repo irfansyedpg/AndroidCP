@@ -26,7 +26,7 @@ public class TurnOnGPS {
         if(GpsStatus == false) {
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
-            builder1.setMessage("Your Mobile GPS is disabled Please Turn on and run the applicaiton again.");
+            builder1.setMessage("Enable the Device GPS Location and run the App again.");
             builder1.setCancelable(false);
 
             builder1.setPositiveButton(
@@ -73,7 +73,7 @@ public class TurnOnGPS {
     public static void CloseActivityalerd(final Context mContex){
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
-            builder1.setMessage("Do you want to Go back.");
+            builder1.setMessage("Do you want to quit this page and return to previous page.");
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
@@ -109,8 +109,7 @@ public class TurnOnGPS {
     public static void LoginActivityalert(final Context mContex){
 
         AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
-        builder1.setMessage("To avail this feature you need to login or create your account if not registerd." +
-                "     Do you want to login or create your account ");
+        builder1.setMessage("To use this feature, please longin if you have an account or create an account");
         builder1.setCancelable(true);
 
         builder1.setPositiveButton(
