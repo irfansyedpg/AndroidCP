@@ -34,11 +34,11 @@
             <item
                 android:id="@+id/nav_DNA"
                 android:icon="@drawable/damageneed"
-                android:title="Demage Need Assessment " />
+                android:title="Damage Need Assessment " />
             <item
                 android:id="@+id/nav_LD"
                 android:icon="@drawable/damage"
-                android:title="Losses Demages " />
+                android:title="Damages inventory" />
             <item
                 android:id="@+id/nav_risk"
                 android:icon="@drawable/risk"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobilisepakistan.civilprotection">
+    package="com.mobilisepakistan.pdma">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,9 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.mobilisepakistan.civilprotection.signup.LogIn"></activity>
         <activity
-            android:name="com.mobilisepakistan.civilprotection.Splash"
+
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.signup.LogIn"></activity>
+        <activity
+            android:name="com.mobilisepakistan.pdma.Splash"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,57 +30,74 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mobilisepakistan.civilprotection.MainActivity"
+            android:name="com.mobilisepakistan.pdma.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.ReportDisaster"
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.ReportDisaster"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.gps.ShowLocationActivity"
+            android:name="com.mobilisepakistan.pdma.gps.ShowLocationActivity2"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.gps.ShowLocationActivity2"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.gps.ShowlocaitonActivityNew"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.RecyclerViewA"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.RecyclerViewA"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.RapidNeedAssessment"
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.RapidNeedAssessment"
             android:label="Rapid Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.DemageNeedAssesment"
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.DemageNeedAssesment"
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.DemagesLosses"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.DemagesLosses"
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.EarlyWarning"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.EarlyWarning"
             android:label="EarlyWarnings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.DailySituationReport"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.DailySituationReport"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.WeatherForecast"
+            android:name="com.mobilisepakistan.pdma.report.WeatherForecast"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.civilprotection.signup.SignUp"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.signup.SignUp"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.mobilisepakistan.civilprotection.report.UploadToServer"
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.UploadToServer"
             android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.newgps"
+            android:label="newgps"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name = "MyReceiver">
