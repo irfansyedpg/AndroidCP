@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -82,8 +83,14 @@
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:noHistory="true"
+            android:noHistory="false"
             android:name="com.mobilisepakistan.pdma.signup.SignUp"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.RecyclerViewEC"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
