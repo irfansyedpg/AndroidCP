@@ -94,6 +94,13 @@
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
+
+        <activity
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.RecyclerViewCC"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:noHistory="true"
             android:name="com.mobilisepakistan.pdma.report.UploadToServer"

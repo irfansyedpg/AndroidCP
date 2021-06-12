@@ -20,11 +20,11 @@
         <item
             android:id="@+id/nav_wf"
             android:icon="@drawable/wf"
-            android:title="Weather Forcast" />
+            android:title="Daily Weather" />
 
     </group>
 
-    <item android:title="Assessment">
+    <item android:title="Assessments">
         <menu>
             <item
 
@@ -38,7 +38,7 @@
             <item
                 android:id="@+id/nav_LD"
                 android:icon="@drawable/damage"
-                android:title="Damages inventory" />
+                android:title="Damages Inventory" />
             <item
                 android:id="@+id/nav_risk"
                 android:icon="@drawable/risk"
@@ -50,9 +50,9 @@
     <item android:title="Public Services">
         <menu>
             <item
-                android:id="@+id/nav_lang_u"
+                android:id="@+id/evactioncenter"
                 android:icon="@drawable/ee"
-                android:title="Evacuation Center" />
+                android:title="Locate Evacuation Center" />
             <item
                 android:id="@+id/nav_lang_e"
                 android:icon="@drawable/cou"

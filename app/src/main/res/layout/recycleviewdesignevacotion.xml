@@ -12,38 +12,55 @@
          android:layout_width="0dp"
          android:layout_height="wrap_content"
          android:orientation="vertical"
-         android:layout_weight="80"
+         android:layout_weight="90"
          >
      <TextView
          style="@style/SResponce"
-         android:id="@+id/txthdr"
+         android:id="@+id/txthdist"
 
-         android:text="DDMOS"
-         android:textStyle="bold"
+         android:text="District"
+
          />
         <TextView
             style="@style/SResponce"
-            android:id="@+id/txtrcv"
+            android:id="@+id/txtteshil"
 
-            android:text="district"
-            android:textColor="@color/blacklight"
+            android:text="Tehsil"
+
             />
 
      <TextView
          style="@style/SResponce"
-         android:id="@+id/txtrcvconact"
+         android:id="@+id/txtlocation"
          android:padding="5dp"
-         android:text="03432436919"
+         android:text="location"
 
          />
+
+         <TextView
+             style="@style/SResponce"
+             android:id="@+id/txtname"
+             android:padding="5dp"
+             android:text="Name"
+
+             />
+
+         <TextView
+             style="@style/SResponce"
+             android:id="@+id/txtgps"
+             android:padding="5dp"
+             android:text="GPS"
+
+             />
      </LinearLayout>
 
 
      <LinearLayout
          android:layout_width="0dp"
          android:layout_height="match_parent"
-         android:layout_weight="20"
+         android:layout_weight="10"
          android:id="@+id/phone"
+
 
          >
          <ImageButton
@@ -51,7 +68,7 @@
              android:layout_width="22dp"
              android:layout_height="22dp"
              android:layout_gravity="center"
-             android:background="@drawable/phone"
+             android:background="@drawable/placeholder"
 
              />
 

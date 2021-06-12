@@ -2,7 +2,6 @@ package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,13 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,46 +23,56 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.emrConacts;
+import com.mobilisepakistan.pdma.global.evacCenters;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewEC extends AppCompatActivity {
+public class RecyclerViewCC extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    RecyclerViewCustomAdapterEC mAdapter;
+    RecyclerViewCustomAdapterCC mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<String> list;
-    ArrayList<String> listheader;
-    ArrayList<String> listconacts;
+
+    ArrayList<String> district;
+    ArrayList<String> tehsil;
+    ArrayList<String> centername;
+    ArrayList<String> location;
+    ArrayList<String> gps;
     String sHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
-        //list=(ArrayList<String>) getIntent().getSerializableExtra("mylist");
-        list= emrConacts.getDistricts();
-        listconacts=emrConacts.getcontacts();
-        listheader=emrConacts.getheaders();
-        sHeader=getIntent().getStringExtra("header");
+        //location=(ArrayList<String>) getIntent().getSerializableExtra("mylist");
+        location= evacCenters.getlocaiton();
+        centername=evacCenters.getname();
+        district=evacCenters.getdistrict();
+        tehsil=evacCenters.gettehsil();
+        gps=evacCenters.getGPS();
+
+
+        sHeader="Community Evacuation Center";
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RecyclerViewEC.this).finish();
+                ((Activity) RecyclerViewCC.this).finish();
             }
         });
 
 
-     //   Collections.sort(list);
+     //   Collections.sort(location);
 
 
         mLayoutManager = new LinearLayoutManager(this);
         binding.recycleview.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewCustomAdapterEC(this, list,listconacts,listheader);
+
+
+        mAdapter = new RecyclerViewCustomAdapterCC(this, district,tehsil,location,centername,gps);
         binding.recycleview.setAdapter(mAdapter);
 
 
@@ -95,19 +100,19 @@ public class RecyclerViewEC extends AppCompatActivity {
     // filter method
 
     private void filter(String text) {
-        //new array list that will hold the filtered data
+        //new array location that will hold the filtered data
         ArrayList<String> filterdNames = new ArrayList<>();
 
         //looping through existing elements
-        for (String s : list) {
+        for (String s : location) {
             //if the existing elements contains the search input
             if (s.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered list
+                //adding the element to filtered location
                 filterdNames.add(s);
             }
         }
 
-        //calling a method of the adapter class and passing the filtered list
+        //calling a method of the adapter class and passing the filtered location
         mAdapter.filterList(filterdNames);
     }
 
@@ -116,24 +121,33 @@ public class RecyclerViewEC extends AppCompatActivity {
 
 }
 
-class  RecyclerViewCustomAdapterEC extends RecyclerView.Adapter {
+class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
 
     Context mContext;
-    List<String> mList;
-    List<String> cList;
-    List<String> hList;
-    public RecyclerViewCustomAdapterEC(Context context, List<String> list,List<String> contactlist,List<String> headerlist){
+    List<String> mDistrict;
+    List<String> mTehsil;
+    List<String> mLocation;
+    List<String> mName;
+    List<String> mGPS;
+
+    public RecyclerViewCustomAdapterCC(Context context, List<String> lstDistrict,List<String> lstTehsil,List<String> listlocation , List<String> listName, List<String> listGPS  ){
         mContext = context;
-        mList = list;
-        cList = contactlist;
-        hList = headerlist;
+
+      mDistrict=lstDistrict;
+      lstTehsil=mTehsil;
+      mLocation=listlocation;
+      mName=listName;
+      mGPS=listGPS;
+
+
+
     }
 
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-        this.mList = filterdNames;
-        notifyDataSetChanged();
+      //  this.mDistrict = filterdNames;
+      //  notifyDataSetChanged();
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -147,21 +161,20 @@ class  RecyclerViewCustomAdapterEC extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
-        vh.txtrcv.setText(mList.get(position));
-        vh.txtconcat.setText(cList.get(position));
-        vh.txtheader.setText(hList.get(position));
+        vh.txtdistic.setText(mDistrict.get(position));
+        vh.txttehsil.setText(mTehsil.get(position));
+        vh.txtlocaiton.setText(mLocation.get(position));
+        vh.txtname.setText(mName.get(position));
+        vh.txtgps.setText(mGPS.get(position));
 
 
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txtrcv = vh.txtconcat.getText().toString();
+                String gps = vh.txtgps.getText().toString();
 
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+txtrcv));
-            //    callIntent.setData(Uri.parse(txtrcv));
-                mContext.startActivity(intent);
+
 
 
 
@@ -173,21 +186,25 @@ class  RecyclerViewCustomAdapterEC extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return mDistrict.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtrcv;
-        public TextView txtconcat;
-        public TextView txtheader;
+        public TextView txtdistic;
+        public TextView txttehsil;
+        public TextView txtlocaiton;
+        public TextView txtname;
+        public TextView txtgps;
         public ImageButton lv;
 
         public ViewHolder(View v) {
             super(v);
-            txtrcv = (TextView) v.findViewById(R.id.txtrcv);
-            txtconcat = (TextView) v.findViewById(R.id.txtrcvconact);
-            txtheader = (TextView) v.findViewById(R.id.txthdr);
-            lv = (ImageButton) v.findViewById(R.id.img);
+            txtdistic = (TextView) v.findViewById(R.id.txthdist);
+            txttehsil = (TextView) v.findViewById(R.id.txtteshil);
+            txtlocaiton = (TextView) v.findViewById(R.id.txtlocation);
+            txtname = (TextView) v.findViewById(R.id.txtname);
+            txtgps = (TextView) v.findViewById(R.id.txtgps);
+
         }
     }
 

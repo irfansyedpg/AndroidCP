@@ -9,40 +9,44 @@ public class emrConacts {
     public static ArrayList<String> getheaders() {
           ArrayList<String> listHeadrs=new  ArrayList<String>();
 
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
-        listHeadrs  .add("DDMOS");
+        listHeadrs  .add("PDMA");
+        listHeadrs  .add("Rescue");
+
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
+        listHeadrs  .add("DDMO");
 
 
 
@@ -53,6 +57,9 @@ public class emrConacts {
 
     public static ArrayList<String> getDistricts() {
         ArrayList<String> listHeadrs=new  ArrayList<String>();
+        listHeadrs  .add("PDMA KPK");
+        listHeadrs  .add("Rescue KPK");
+
         listHeadrs  .add("Abbottabad");
         listHeadrs  .add("Bannu");
         listHeadrs  .add("Battagram");
@@ -95,40 +102,43 @@ public class emrConacts {
 
     public static ArrayList<String> getcontacts() {
         ArrayList<String> listHeadrs=new  ArrayList<String>();
-        listHeadrs  .add("9929310203");
-        listHeadrs  .add("9289270039");
-        listHeadrs  .add("997310391");
-        listHeadrs  .add("939511444");
-        listHeadrs  .add("919220137");
-        listHeadrs  .add("943413686");
-        listHeadrs  .add("943470025");
-        listHeadrs  .add("9669280117");
-        listHeadrs  .add("9459250029");
-        listHeadrs  .add("944880506");
-        listHeadrs  .add("925622682");
-        listHeadrs  .add("995610455");
-        listHeadrs  .add("927210710");
-        listHeadrs  .add("9229260046");
-        listHeadrs  .add("998405091");
-        listHeadrs  .add("998407029");
-        listHeadrs  .add("969510548");
-        listHeadrs  .add("932412254");
-        listHeadrs  .add("997300751");
-        listHeadrs  .add("9379230701");
-        listHeadrs  .add("9239220104");
-        listHeadrs  .add("919212304");
-        listHeadrs  .add("938221401");
-        listHeadrs  .add("996850007");
-        listHeadrs  .add("9469240341");
-        listHeadrs  .add("963512290");
-        listHeadrs  .add("3469708912");
-        listHeadrs  .add("919211905");
-        listHeadrs  .add("942220558");
-        listHeadrs  .add("924290004");
-        listHeadrs  .add("926520399");
-        listHeadrs  .add("0963 512224");
-        listHeadrs  .add("92821414");
-        listHeadrs  .add("925690005");
+        listHeadrs  .add("1700");
+        listHeadrs  .add("1122");
+
+        listHeadrs  .add("09929310203");
+        listHeadrs  .add("09289270039");
+        listHeadrs  .add("0997310391");
+        listHeadrs  .add("0939511444");
+        listHeadrs  .add("0919220137");
+        listHeadrs  .add("0943413686");
+        listHeadrs  .add("0943470025");
+        listHeadrs  .add("09669280117");
+        listHeadrs  .add("09459250029");
+        listHeadrs  .add("0944880506");
+        listHeadrs  .add("0925622682");
+        listHeadrs  .add("0995610455");
+        listHeadrs  .add("0927210710");
+        listHeadrs  .add("09229260046");
+        listHeadrs  .add("0998405091");
+        listHeadrs  .add("0998407029");
+        listHeadrs  .add("0969510548");
+        listHeadrs  .add("0932412254");
+        listHeadrs  .add("0997300751");
+        listHeadrs  .add("09379230701");
+        listHeadrs  .add("09239220104");
+        listHeadrs  .add("0919212304");
+        listHeadrs  .add("0938221401");
+        listHeadrs  .add("0996850007");
+        listHeadrs  .add("09469240341");
+        listHeadrs  .add("0963512290");
+        listHeadrs  .add("03469708912");
+        listHeadrs  .add("0919211905");
+        listHeadrs  .add("0942220558");
+        listHeadrs  .add("0924290004");
+        listHeadrs  .add("0926520399");
+        listHeadrs  .add("00963 512224");
+        listHeadrs  .add("092821414");
+        listHeadrs  .add("0925690005");
 
         return listHeadrs;
 

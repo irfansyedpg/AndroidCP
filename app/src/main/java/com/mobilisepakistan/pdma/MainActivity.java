@@ -27,6 +27,7 @@ import com.mobilisepakistan.pdma.report.DemageNeedAssesment;
 import com.mobilisepakistan.pdma.report.DemagesLosses;
 import com.mobilisepakistan.pdma.report.EarlyWarning;
 import com.mobilisepakistan.pdma.report.RapidNeedAssessment;
+import com.mobilisepakistan.pdma.report.RecyclerViewCC;
 import com.mobilisepakistan.pdma.report.RecyclerViewEC;
 import com.mobilisepakistan.pdma.report.ReportDisaster;
 
@@ -311,6 +312,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, RecyclerViewEC.class);
             startActivity(intent);
         }
+
+        else if (id == R.id.evactioncenter) {
+            intent = new Intent(this, RecyclerViewCC.class);
+            startActivity(intent);
+        }
+
         else if (id == R.id.nav_wf) {
             intent = new Intent(this, WeatherForecast.class);
             startActivity(intent);
