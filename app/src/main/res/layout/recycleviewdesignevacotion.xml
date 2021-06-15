@@ -12,13 +12,14 @@
          android:layout_width="0dp"
          android:layout_height="wrap_content"
          android:orientation="vertical"
-         android:layout_weight="90"
+         android:layout_weight="85"
          >
      <TextView
          style="@style/SResponce"
          android:id="@+id/txthdist"
 
          android:text="District"
+         android:textStyle="bold"
 
          />
         <TextView
@@ -58,16 +59,18 @@
      <LinearLayout
          android:layout_width="0dp"
          android:layout_height="match_parent"
-         android:layout_weight="10"
+         android:layout_weight="15"
          android:id="@+id/phone"
+
 
 
          >
          <ImageButton
              android:id="@+id/img"
-             android:layout_width="22dp"
-             android:layout_height="22dp"
+             android:layout_width="30dp"
+             android:layout_height="30dp"
              android:layout_gravity="center"
+             android:layout_marginLeft="10dp"
              android:background="@drawable/placeholder"
 
              />

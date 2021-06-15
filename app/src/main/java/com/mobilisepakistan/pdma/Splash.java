@@ -60,6 +60,7 @@ public class Splash extends AppCompatActivity {
             mainIntent=new Intent(Splash.this, MainActivity.class);
               // mainIntent=new Intent(Splash.this, ShowlocaitonActivityNew.class);
                 // mainIntent=new Intent(Splash.this, newgps.class);
+            //     mainIntent=new Intent(Splash.this, newgpsuen.class);
 
 
                 Splash.this.startActivity(mainIntent);

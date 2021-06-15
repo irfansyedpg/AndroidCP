@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
     TextView tTemp,tHuminty,tLocaiton,tDisciption;
     ImageView img;
-    LinearLayout lnwa,lnew,lnds,lnrd;
+    LinearLayout lnwa,lnew,lnds,lnrd,lnqlinks,lnercon;
     int userId;
 
     private BroadcastReceiver MyReceiver = null;
@@ -107,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         lnew=findViewById(R.id.lnew);
         lnds=findViewById(R.id.lnds);
         lnrd=findViewById(R.id.lnrd);
+        lnqlinks=findViewById(R.id.lnqlinks);
+        lnercon=findViewById(R.id.lnercon);
         lnwa.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -135,6 +137,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
 
                 intent = new Intent(MainActivity.this, DailySituationReport.class);
+                startActivity(intent);
+
+
+
+            }
+        });
+
+
+        lnercon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent = new Intent(MainActivity.this, RecyclerViewEC.class);
                 startActivity(intent);
 
 
@@ -357,10 +372,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         }
-        else if (id == R.id.nav_LD) {
-            intent = new Intent(this, DemagesLosses.class);
-            startActivity(intent);
-        }
+//        else if (id == R.id.nav_LD) {
+//            intent = new Intent(this, DemagesLosses.class);
+//            startActivity(intent);
+//        }
         else if (id == R.id.nav_logout) {
 
             MyPref prefs = new MyPref(this);

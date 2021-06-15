@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white2"
+        android:background="@color/white3"
         android:orientation="vertical"
         android:weightSum="100"        >
 
@@ -147,8 +147,8 @@
 
                         <ImageView
                             android:layout_marginTop="20dp"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:background="@drawable/ic_storm"
                             android:scaleType="fitCenter"
                             android:adjustViewBounds="true"
@@ -186,8 +186,8 @@
 
                         <ImageView
                             android:layout_marginTop="20dp"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:background="@drawable/ic_loud_speaker_fb"
                             android:scaleType="fitCenter"
                             android:adjustViewBounds="true"
@@ -237,8 +237,8 @@
 
                     <ImageView
                         android:layout_marginTop="20dp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:background="@drawable/ic_report"
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
@@ -275,8 +275,8 @@
 
                     <ImageView
                         android:layout_marginTop="20dp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
                         android:background="@drawable/ic_desertification"
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
@@ -310,7 +310,7 @@
                     android:layout_margin="3dp"
                     android:orientation="vertical"
                     android:gravity="center"
-
+                    android:id="@+id/lnqlinks"
                     android:background="@drawable/liner_round"
 
 
@@ -327,9 +327,9 @@
 
                     <ImageView
                         android:layout_marginTop="20dp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/ic_report"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/ic_quick"
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         />
@@ -348,6 +348,7 @@
                     android:layout_margin="3dp"
                     android:orientation="vertical"
                     android:gravity="center"
+                    android:id="@+id/lnercon"
 
                     android:background="@drawable/liner_round"
 
@@ -365,9 +366,9 @@
 
                     <ImageView
                         android:layout_marginTop="20dp"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/ic_desertification"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/ic_call"
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         />

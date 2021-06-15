@@ -20,6 +20,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mobilisepakistan.pdma.MapsMarkerActivity;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.emrConacts;
@@ -104,18 +105,23 @@ public class RecyclerViewCC extends AppCompatActivity {
         ArrayList<String> filterdNames = new ArrayList<>();
 
         //looping through existing elements
-        for (String s : location) {
+        for (String s : district) {
             //if the existing elements contains the search input
             if (s.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered location
+                //adding the element to filtered district
                 filterdNames.add(s);
             }
         }
 
-        //calling a method of the adapter class and passing the filtered location
+        //calling a method of the adapter class and passing the filtered district
         mAdapter.filterList(filterdNames);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
 
 
 
@@ -134,7 +140,7 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
         mContext = context;
 
       mDistrict=lstDistrict;
-      lstTehsil=mTehsil;
+      mTehsil=lstTehsil;
       mLocation=listlocation;
       mName=listName;
       mGPS=listGPS;
@@ -146,13 +152,13 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-      //  this.mDistrict = filterdNames;
-      //  notifyDataSetChanged();
+//        this.mDistrict = filterdNames;
+//        notifyDataSetChanged();
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycleviewdesignec, parent, false);
+                .inflate(R.layout.recycleviewdesignevacotion, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -161,10 +167,10 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
-        vh.txtdistic.setText(mDistrict.get(position));
-        vh.txttehsil.setText(mTehsil.get(position));
-        vh.txtlocaiton.setText(mLocation.get(position));
-        vh.txtname.setText(mName.get(position));
+        vh.txtdistic.setText("DISTRICT: "+mDistrict.get(position));
+        vh.txttehsil.setText("TEHSIL: "+mTehsil.get(position));
+        vh.txtlocaiton.setText("LOC: "+mLocation.get(position));
+        vh.txtname.setText("CENTER: "+mName.get(position));
         vh.txtgps.setText(mGPS.get(position));
 
 
@@ -172,6 +178,18 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
                 String gps = vh.txtgps.getText().toString();
+                String centername=vh.txtname.getText().toString();
+
+                String[]gpslst=gps.split(",");
+                String latt=gpslst[0];
+                String longg=gpslst[1];
+
+
+                Intent intt=new Intent(mContext, MapsMarkerActivity.class);
+                intt.putExtra("latt",latt);
+                intt.putExtra("longg",longg);
+                intt.putExtra("title",centername);
+                mContext.startActivity(intt);
 
 
 
@@ -204,6 +222,7 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
             txtlocaiton = (TextView) v.findViewById(R.id.txtlocation);
             txtname = (TextView) v.findViewById(R.id.txtname);
             txtgps = (TextView) v.findViewById(R.id.txtgps);
+            lv=(ImageButton)v.findViewById(R.id.img);
 
         }
     }
