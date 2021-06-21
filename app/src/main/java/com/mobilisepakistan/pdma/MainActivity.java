@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
     TextView tTemp,tHuminty,tLocaiton,tDisciption;
     ImageView img;
-    LinearLayout lnwa,lnew,lnds,lnrd,lnqlinks,lnercon;
+    LinearLayout lnwa,lnew,lnds,lnrd,lnercon,lnqevc;
     int userId;
 
     private BroadcastReceiver MyReceiver = null;
@@ -107,8 +107,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         lnew=findViewById(R.id.lnew);
         lnds=findViewById(R.id.lnds);
         lnrd=findViewById(R.id.lnrd);
-        lnqlinks=findViewById(R.id.lnqlinks);
+
         lnercon=findViewById(R.id.lnercon);
+        lnqevc=findViewById(R.id.lnqevc);
         lnwa.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -150,6 +151,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
 
                 intent = new Intent(MainActivity.this, RecyclerViewEC.class);
+                startActivity(intent);
+
+
+
+            }
+        });
+        lnqevc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                intent = new Intent(MainActivity.this, RecyclerViewCC.class);
                 startActivity(intent);
 
 

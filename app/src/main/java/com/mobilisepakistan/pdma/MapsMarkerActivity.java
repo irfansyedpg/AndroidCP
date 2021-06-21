@@ -26,7 +26,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
+import com.google.common.collect.RowSortedTable;
+import com.google.common.collect.TreeBasedTable;
 
 
 public class MapsMarkerActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -65,6 +66,14 @@ public class MapsMarkerActivity extends FragmentActivity implements OnMapReadyCa
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+
+
+        RowSortedTable<String, String, String> weightedGraph = TreeBasedTable.create();
+        weightedGraph.put("Swat", "matta", "Chupiral");
+        weightedGraph.put("Swat", "matta", "Sinpora");
+
+
         mMap = googleMap;
         // Add a marker in Sydney and move the camera
 

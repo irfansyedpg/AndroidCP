@@ -37,6 +37,7 @@ public class RecyclerViewCC extends AppCompatActivity {
     RecyclerView.LayoutManager mLayoutManager;
 
     ArrayList<String> district;
+    ArrayList<String> arrayListall;
     ArrayList<String> tehsil;
     ArrayList<String> centername;
     ArrayList<String> location;
@@ -53,6 +54,18 @@ public class RecyclerViewCC extends AppCompatActivity {
         district=evacCenters.getdistrict();
         tehsil=evacCenters.gettehsil();
         gps=evacCenters.getGPS();
+
+        arrayListall=new ArrayList<String>();
+
+     for(int position=0;position<district.size();position++)
+     {
+         arrayListall.add("DISTRICT: "+district.get(position) + "\n"+ "\n"
+                 + " TEHSIL: "+tehsil.get(position) + "\n"+ "\n"
+                 + " LOC: "+location.get(position) + "\n"+ "\n"
+                 + " CENTER: "+centername.get(position) + "\n"+ "\n"
+                 + "GPS"+gps.get(position) );
+
+     }
 
 
         sHeader="Community Evacuation Center";
@@ -73,7 +86,7 @@ public class RecyclerViewCC extends AppCompatActivity {
         binding.recycleview.setLayoutManager(mLayoutManager);
 
 
-        mAdapter = new RecyclerViewCustomAdapterCC(this, district,tehsil,location,centername,gps);
+        mAdapter = new RecyclerViewCustomAdapterCC(this, district,tehsil,location,centername,gps,arrayListall);
         binding.recycleview.setAdapter(mAdapter);
 
 
@@ -105,7 +118,7 @@ public class RecyclerViewCC extends AppCompatActivity {
         ArrayList<String> filterdNames = new ArrayList<>();
 
         //looping through existing elements
-        for (String s : district) {
+        for (String s : arrayListall) {
             //if the existing elements contains the search input
             if (s.toLowerCase().contains(text.toLowerCase())) {
                 //adding the element to filtered district
@@ -131,12 +144,13 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> mDistrict;
+    List<String> arylistall;
     List<String> mTehsil;
     List<String> mLocation;
     List<String> mName;
     List<String> mGPS;
 
-    public RecyclerViewCustomAdapterCC(Context context, List<String> lstDistrict,List<String> lstTehsil,List<String> listlocation , List<String> listName, List<String> listGPS  ){
+    public RecyclerViewCustomAdapterCC(Context context, List<String> lstDistrict,List<String> lstTehsil,List<String> listlocation , List<String> listName, List<String> listGPS,List<String> alllist  ){
         mContext = context;
 
       mDistrict=lstDistrict;
@@ -144,6 +158,7 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
       mLocation=listlocation;
       mName=listName;
       mGPS=listGPS;
+        arylistall=alllist;
 
 
 
@@ -152,8 +167,8 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-//        this.mDistrict = filterdNames;
-//        notifyDataSetChanged();
+     this.mDistrict = filterdNames;
+        notifyDataSetChanged();
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -167,20 +182,34 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
-        vh.txtdistic.setText("DISTRICT: "+mDistrict.get(position));
-        vh.txttehsil.setText("TEHSIL: "+mTehsil.get(position));
-        vh.txtlocaiton.setText("LOC: "+mLocation.get(position));
-        vh.txtname.setText("CENTER: "+mName.get(position));
-        vh.txtgps.setText(mGPS.get(position));
+//        vh.txtdistic.setText("DISTRICT: "+mDistrict.get(position) + "\n"+ "\n"
+//               + " TEHSIL: "+mTehsil.get(position) + "\n"+ "\n"
+//               + " LOC: "+mLocation.get(position) + "\n"+ "\n"
+//               + " CENTER: "+mName.get(position) + "\n"+ "\n"
+//               + "GPS"+mGPS.get(position) );
+
+        vh.txtdistic.setText(arylistall.get(position));
+
+
+
+
+
+
+//        vh.txttehsil.setText("TEHSIL: "+mTehsil.get(position));
+//        vh.txtlocaiton.setText("LOC: "+mLocation.get(position));
+//        vh.txtname.setText("CENTER: "+mName.get(position));
+//        vh.txtgps.setText(mGPS.get(position));
 
 
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String gps = vh.txtgps.getText().toString();
-                String centername=vh.txtname.getText().toString();
+                String gps = vh.txtdistic.getText().toString();
+                String centername=vh.txtdistic.getText().toString();
 
-                String[]gpslst=gps.split(",");
+                String[] all =gps.split("GPS");
+                String neww=all[1];
+                String[]gpslst=neww.split(",");
                 String latt=gpslst[0];
                 String longg=gpslst[1];
 
@@ -209,19 +238,19 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtdistic;
-        public TextView txttehsil;
-        public TextView txtlocaiton;
-        public TextView txtname;
-        public TextView txtgps;
+//        public TextView txttehsil;
+//        public TextView txtlocaiton;
+//        public TextView txtname;
+//        public TextView txtgps;
         public ImageButton lv;
 
         public ViewHolder(View v) {
             super(v);
             txtdistic = (TextView) v.findViewById(R.id.txthdist);
-            txttehsil = (TextView) v.findViewById(R.id.txtteshil);
-            txtlocaiton = (TextView) v.findViewById(R.id.txtlocation);
-            txtname = (TextView) v.findViewById(R.id.txtname);
-            txtgps = (TextView) v.findViewById(R.id.txtgps);
+//            txttehsil = (TextView) v.findViewById(R.id.txtteshil);
+//            txtlocaiton = (TextView) v.findViewById(R.id.txtlocation);
+//            txtname = (TextView) v.findViewById(R.id.txtname);
+//            txtgps = (TextView) v.findViewById(R.id.txtgps);
             lv=(ImageButton)v.findViewById(R.id.img);
 
         }
