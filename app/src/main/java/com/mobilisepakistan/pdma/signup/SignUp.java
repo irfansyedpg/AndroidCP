@@ -175,12 +175,15 @@ public class SignUp extends AppCompatActivity {
         else
         {
             String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+            String emailPattern2 = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
+
+            String emailPattern3 = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+\\.+[a-z]+";
 
 
-            if (!binding.email.getText().toString().matches(emailPattern))
+            if (!binding.email.getText().toString().matches(emailPattern) ||  !binding.email.getText().toString().matches(emailPattern2) ||  !binding.email.getText().toString().matches(emailPattern3))
             {
-                Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
-                return  false;
+//                Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+//                return  false;
             }
 
         }

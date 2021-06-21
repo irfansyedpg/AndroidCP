@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mobilisepakistan.newgps;
-import com.mobilisepakistan.pdma.gps.ShowlocaitonActivityNew;
-
 
 public class Splash extends AppCompatActivity {
 

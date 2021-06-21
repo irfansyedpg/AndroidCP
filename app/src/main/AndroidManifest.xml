@@ -128,17 +128,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-        <activity
-            android:noHistory="true"
-            android:name="com.mobilisepakistan.newgps"
-            android:label="newgps"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.newgpsuen"
-            android:label="newgps"
-            android:theme="@style/AppTheme.NoActionBar" />
         <receiver android:name = "MyReceiver">
             <intent-filter>
                 <action android:name = "android.net.conn.CONNECTIVITY_CHANGE" />

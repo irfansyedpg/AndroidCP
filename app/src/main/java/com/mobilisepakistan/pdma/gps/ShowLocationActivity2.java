@@ -160,12 +160,12 @@ public class ShowLocationActivity2 extends AppCompatActivity
             data.putExtra("Lat", location.getLatitude()+"");
             data.putExtra("Long", location.getLongitude()+"");
 
-
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//
+//            try {
+//                TimeUnit.SECONDS.sleep(4);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             ((Activity) this).setResult(Activity.RESULT_OK, data);
             ((Activity) this).finish();
         }
@@ -205,11 +205,12 @@ public class ShowLocationActivity2 extends AppCompatActivity
             data.putExtra("Lat", location.getLatitude()+"");
             data.putExtra("Long", location.getLongitude()+"");
 
-            try {
-                TimeUnit.SECONDS.sleep(4);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            // irfan updation
+//            try {
+//                TimeUnit.SECONDS.sleep(4);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             ((Activity) this).setResult(Activity.RESULT_OK, data);
             ((Activity) this).finish();
         }
