@@ -60,15 +60,17 @@ public class RecyclerViewCC extends AppCompatActivity {
      for(int position=0;position<district.size();position++)
      {
          arrayListall.add("DISTRICT: "+district.get(position) + "\n"+ "\n"
-                 + " TEHSIL: "+tehsil.get(position) + "\n"+ "\n"
-                 + " LOC: "+location.get(position) + "\n"+ "\n"
-                 + " CENTER: "+centername.get(position) + "\n"+ "\n"
+                 + "TEHSIL: "+tehsil.get(position) + "\n"+ "\n"
+                 + "LOC: "+location.get(position) + "\n"+ "\n"
+                 + "CENTER: "+centername.get(position) + "\n"+ "\n"
                  + "GPS"+gps.get(position) );
+
+       //  arrayListall.add(district.get(position) );
 
      }
 
 
-        sHeader="Community Evacuation Center";
+        sHeader="COMMUNITY EVACUATION CENTERS";
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +169,7 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-     this.mDistrict = filterdNames;
+     this.arylistall = filterdNames;
         notifyDataSetChanged();
     }
     @Override
@@ -188,7 +190,17 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
 //               + " CENTER: "+mName.get(position) + "\n"+ "\n"
 //               + "GPS"+mGPS.get(position) );
 
-        vh.txtdistic.setText(arylistall.get(position));
+
+        try {
+            vh.txtdistic.setText(arylistall.get(position));
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+
+
+
+            String a="hiii";
+        }
 
 
 
@@ -206,6 +218,11 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
             public void onClick(View view) {
                 String gps = vh.txtdistic.getText().toString();
                 String centername=vh.txtdistic.getText().toString();
+
+                String[] ccnamear=centername.split("CENTER: ");
+                String[] cc2name=ccnamear[1].split("GPS");
+                centername=cc2name[0];
+
 
                 String[] all =gps.split("GPS");
                 String neww=all[1];
