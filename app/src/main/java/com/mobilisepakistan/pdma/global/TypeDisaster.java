@@ -9,12 +9,12 @@ public class TypeDisaster {
     public static ArrayList<String> getDisaster() {
 
         ArrayList<String> listDisaster=new  ArrayList<String>();
-        listDisaster.add("Earthquakes");
+        listDisaster.add("Earthquake");
         listDisaster.add("Riverine Flood");
-        listDisaster.add("Flash Floods");
+        listDisaster.add("Flash Flood");
         listDisaster.add("Urban Flood");
-        listDisaster.add("Glacial Lake Outburst Floods");
-        listDisaster.add("Landslides");
+        listDisaster.add("Glacial Lake Outburst Flood");
+        listDisaster.add("Landsliding");
         listDisaster.add("Drought");
         listDisaster.add("Storm");
         listDisaster.add("Desertification");
@@ -23,12 +23,12 @@ public class TypeDisaster {
         listDisaster.add("Forest Fire");
         listDisaster.add("Torrential Rainfall");
         listDisaster.add("Lightening");
-        listDisaster.add("Hailstones");
+        listDisaster.add("Hail Storm");
         listDisaster.add("Cloud Bursting");
 
         listDisaster.add("Soil Erosion");
         listDisaster.add("Heavy Snowfall");
-        listDisaster.add("Bomb Blast/Explosion");
+        listDisaster.add("Bomb Blast Explosion");
         listDisaster.add("Epidemic Diseases");
         listDisaster.add("Heat Wave");
 

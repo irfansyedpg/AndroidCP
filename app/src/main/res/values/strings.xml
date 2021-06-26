@@ -31,7 +31,7 @@
     <string name="rd6b">Camera</string>
 
     <string name="note">In case of false reporting,  the concerned authority can impose punishment as per National Disaster Management Act-2010 </string>
-    <string name="undertaking">I herby undertake that all of the above information are authentic. I further declare that I am not reporting false data to the Provisional Disaster Management Authority, KP</string>
+    <string name="undertaking">I herby undertake that all of the above information are authentic. I further declare that I am not reporting false data to the Provisional Disaster Management Authority, KP.</string>
     <string name="undertakingGPS"></string>
 
     <!--    Rapid Need Asssesment-->
@@ -41,12 +41,12 @@
     <string name="rna4">Type of Disaster</string>
     <string name="rna5">Immediate Needs</string>
     <string name="rna5a">Emergency Evacuation</string>
-    <string name="rna5b">Shelter/tents</string>
+    <string name="rna5b">Shelter/Tents</string>
     <string name="rna5c">Medical First Aid</string>
-    <string name="rna5d">Food item</string>
+    <string name="rna5d">Food Item</string>
     <string name="rna5e">Water and Sanitation</string>
     <string name="rna5f">Bridge Repair</string>
-    <string name="rna5g">Roads Rehabilitation</string>
+    <string name="rna5g">Road Rehabilitation</string>
     <string name="rnanote">This section is Practically dedicated to immediate needs of survivors following an emergency situation. Please make sure to share accurate demands as per the need of the affected communities.</string>
 
 
@@ -95,6 +95,6 @@
     <string name="dna14b">Content</string>
     <string name="dna14c">Total</string>
 
-    <string name="dna15">Any other comments</string>
+    <string name="dna15">Comments</string>
 
 </resources>

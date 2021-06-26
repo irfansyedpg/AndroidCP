@@ -287,7 +287,7 @@
                         />
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:hint="@string/latitude"
+
                         android:id="@+id/latitude"
                         android:layout_weight="70"
                         />
@@ -308,7 +308,7 @@
                         />
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:hint="@string/longitude"
+
                         android:id="@+id/longitude"
                         android:layout_weight="70"
                         android:layout_gravity="left"

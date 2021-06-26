@@ -1,8 +1,12 @@
 package com.mobilisepakistan.pdma.global;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,12 +17,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class UploadData2
 {
    public static  boolean status;
 
-    public static  boolean volleyPost(Context contx, JSONObject Jobj){
+    public static  boolean volleyPost(Context contx, JSONObject Jobj, final String type){
 
 
         String postUrl = "http://175.107.63.137/PEOCMIS/api/values/InsertResponse";
@@ -40,6 +46,39 @@ public class UploadData2
                 pd.cancel();
                 System.out.println(response);
                 UploadData2.status=true;
+
+                String Dilogtext ="";
+
+                // RD uploading close the mian activity then
+                if(type=="RD") {
+                    Dilogtext = "Information about reported disaster recieved at PDMA Emergency Operation Center. Action will be initiated soon";
+
+                }
+                else if(type=="RNA" )
+                {
+                    Dilogtext = "Rapid Need Assessment report successfully submitted to PDMA Emergency Operation Centre";
+
+                }
+                else
+                {
+                    Dilogtext = "Damage Need Assessment Report successfully submitted to PDMA Emergency Operation Centre";
+
+                }
+
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle("Confirmation").setMessage(Dilogtext);
+
+               dialog.setCancelable(false);
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        ((Activity) mContext).finish();
+                    }
+                });
+                dialog.create().show();
+
+
+
 
 
 

@@ -299,14 +299,14 @@ public class ReportDisaster extends AppCompatActivity  {
         {
             return;
         }
-        HashData.put("rd1",binding.rd1Tv.getText().toString().trim());
-        HashData.put("rd2",binding.rd2Tv.getText().toString().trim());
-        HashData.put("rd3",binding.rd3Tv.getText().toString().trim());
-        HashData.put("rd4",binding.rd4Tv.getText().toString().trim());
-        HashData.put("rd5",binding.rd5Tv.getText().toString().trim());
-        HashData.put("rd6a","Pic1");
-        HashData.put("rd6b","Pic2");
-        HashData.put("rd6c","Pic3");
+        HashData.put("District",binding.rd1Tv.getText().toString().trim());
+        HashData.put("Tehsil",binding.rd2Tv.getText().toString().trim());
+        HashData.put("Address",binding.rd3Tv.getText().toString().trim());
+        HashData.put("Disaster Type",binding.rd4Tv.getText().toString().trim());
+        HashData.put("Disaster Detail",binding.rd5Tv.getText().toString().trim());
+        HashData.put("Pic1","Pic1");
+        HashData.put("Pic2","Pic2");
+        HashData.put("Pic3","Pic3");
 
 
         if (UploadFailur==false) {
@@ -316,27 +316,31 @@ public class ReportDisaster extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk));
-
-       if(uploadStatus==true)
-       {
-           LocalDataManager.UpdateLOgtable(Logpk);
-           ((Activity) ReportDisaster.this).finish();
-       }
-       else
-       {
-           UploadFailur=true;
-           new AlertDialog.Builder(this).
-                   setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
-                   setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialogInterface, int i) {
-                           ((Activity) ReportDisaster.this).finish();
-                       }
-                   }).setNegativeButton("Try Again", null).create().show();
-       }
+       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk),"RNA");
 
 
+
+        // from here
+
+//       if(uploadStatus==true)
+//       {
+//           LocalDataManager.UpdateLOgtable(Logpk);
+//          // ((Activity) ReportDisaster.this).finish();
+//       }
+//       else
+//       {
+//           UploadFailur=true;
+//           new AlertDialog.Builder(this).
+//                   setMessage("Unable to Upload Data to Server Due to Internet Connection Would you like to try again or you will upload it latter .").
+//                   setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
+//                       @Override
+//                       public void onClick(DialogInterface dialogInterface, int i) {
+//                           ((Activity) ReportDisaster.this).finish();
+//                       }
+//                   }).setNegativeButton("Try Again", null).create().show();
+//       }
+
+// to here
 
     }
 

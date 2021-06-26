@@ -57,8 +57,8 @@ public class emrConacts {
 
     public static ArrayList<String> getDistricts() {
         ArrayList<String> listHeadrs=new  ArrayList<String>();
-        listHeadrs  .add("PDMA KPK");
-        listHeadrs  .add("Rescue KPK");
+        listHeadrs  .add("Khyber Pakhtunkhwa");
+        listHeadrs  .add("Khyber Pakhtunkhwa");
 
         listHeadrs  .add("Abbottabad");
         listHeadrs  .add("Bannu");

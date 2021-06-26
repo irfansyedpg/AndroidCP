@@ -191,31 +191,31 @@ public class RapidNeedAssessment extends AppCompatActivity  {
         {
             return;
         }
-        HashData.put("rna1",binding.rna1Tv.getText().toString().trim());
-        HashData.put("rna2",binding.rna2Tv.getText().toString().trim());
-        HashData.put("rna3",binding.rna3Tv.getText().toString().trim());
-        HashData.put("rna4",binding.rna4Tv.getText().toString().trim());
+        HashData.put("District",binding.rna1Tv.getText().toString().trim());
+        HashData.put("Tehsil",binding.rna2Tv.getText().toString().trim());
+        HashData.put("Address",binding.rna3Tv.getText().toString().trim());
+        HashData.put("Disaster Type",binding.rna4Tv.getText().toString().trim());
 
-        if(binding.rna5a.isChecked()) HashData.put("rna5a","1");
-        else HashData.put("rna5a","0");
+        if(binding.rna5a.isChecked()) HashData.put("Emergency Evacuation","1");
+        else HashData.put("Emergency Evacuation","0");
 
-        if(binding.rna5b.isChecked()) HashData.put("rna5b","1");
-        else HashData.put("rna5b","0");
+        if(binding.rna5b.isChecked()) HashData.put("Shelter tents","1");
+        else HashData.put("Shelter tents","0");
 
-        if(binding.rna5c.isChecked()) HashData.put("rna5c","1");
-        else HashData.put("rna5c","0");
+        if(binding.rna5c.isChecked()) HashData.put("Medical First Aid","1");
+        else HashData.put("Medical First Aid","0");
 
-        if(binding.rna5d.isChecked()) HashData.put("rna5d","1");
-        else HashData.put("rna5d","0");
+        if(binding.rna5d.isChecked()) HashData.put("Food item","1");
+        else HashData.put("Food item","0");
 
-        if(binding.rna5e.isChecked()) HashData.put("rna5e","1");
-        else HashData.put("rna5e","0");
+        if(binding.rna5e.isChecked()) HashData.put("Water and Sanitation","1");
+        else HashData.put("Water and Sanitation","0");
 
-        if(binding.rna5f.isChecked()) HashData.put("rna5f","1");
-        else HashData.put("rna5f","0");
+        if(binding.rna5f.isChecked()) HashData.put("Bridge Repair","1");
+        else HashData.put("Bridge Repair","0");
 
-        if(binding.rna5g.isChecked()) HashData.put("rna5g","1");
-        else HashData.put("rna5g","0");
+        if(binding.rna5g.isChecked()) HashData.put("Roads Rehabilitation","1");
+        else HashData.put("Roads Rehabilitation","0");
 
       //  new LocalDataManager(this).InsertRespnoseTable(1,HashData,"ReportDisaster");
 
@@ -229,25 +229,25 @@ public class RapidNeedAssessment extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk));
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk),"RNA");
 
-        if(uploadStatus==true)
-        {
-            LocalDataManager.UpdateLOgtable(Logpk);
-            ((Activity) this).finish();
-        }
-        else
-        {
-            UploadFailur=true;
-            new AlertDialog.Builder(this).
-                    setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
-                    setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ((Activity) RapidNeedAssessment.this).finish();
-                        }
-                    }).setNegativeButton("Try Again", null).create().show();
-        }
+//        if(uploadStatus==true)
+//        {
+//            LocalDataManager.UpdateLOgtable(Logpk);
+//            ((Activity) this).finish();
+//        }
+//        else
+//        {
+//            UploadFailur=true;
+//            new AlertDialog.Builder(this).
+//                    setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
+//                    setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            ((Activity) RapidNeedAssessment.this).finish();
+//                        }
+//                    }).setNegativeButton("Try Again", null).create().show();
+//        }
 
 
     }

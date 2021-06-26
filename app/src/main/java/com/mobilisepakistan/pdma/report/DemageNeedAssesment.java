@@ -173,60 +173,60 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         {
             return;
         }
-        HashData.put("dna1",binding.dna1Tv.getText().toString().trim());
-        HashData.put("dna2",binding.dna2Tv.getText().toString().trim());
-        HashData.put("dna3",binding.dna3Tv.getText().toString().trim());
-        HashData.put("dna4",binding.dna4Tv.getText().toString().trim());
-        HashData.put("dna5",binding.dna5Tv.getText().toString().trim());
-        HashData.put("dna6",binding.dna6Tv.getText().toString().trim());
-        HashData.put("dna7",binding.dna7Tv.getText().toString().trim());
+        HashData.put("District",binding.dna1Tv.getText().toString().trim());
+        HashData.put("Tehsil",binding.dna2Tv.getText().toString().trim());
+        HashData.put("Address",binding.dna3Tv.getText().toString().trim());
+        HashData.put("Name",binding.dna4Tv.getText().toString().trim());
+        HashData.put("Father Name",binding.dna5Tv.getText().toString().trim());
+        HashData.put("CNIC",binding.dna6Tv.getText().toString().trim());
+        HashData.put("Phone Number",binding.dna7Tv.getText().toString().trim());
 
-        HashData.put("dna8a",binding.dna8aTv.getText().toString().trim());
-        HashData.put("dna8b",binding.dna8bTv.getText().toString().trim());
+        HashData.put("Number of People Injured",binding.dna8aTv.getText().toString().trim());
+        HashData.put("Number of People Died",binding.dna8bTv.getText().toString().trim());
 
-        if(binding.dna9a.isChecked()) HashData.put("dna9","1");
-        else if(binding.dna9a.isChecked()) HashData.put("dna9","2");
-        else if(binding.dna9a.isChecked()) HashData.put("dna9","3");
-        else  HashData.put("dna9","0");
+        if(binding.dna9a.isChecked()) HashData.put("House","No damage");
+        else if(binding.dna9a.isChecked()) HashData.put("House","Partially");
+        else if(binding.dna9a.isChecked()) HashData.put("House","Fully");
+        else  HashData.put("House","0");
 
-        if(binding.dna10a.isChecked()) HashData.put("dna10","1");
-        else if(binding.dna10b.isChecked()) HashData.put("dna10","2");
-        else  HashData.put("dna10","0");
+        if(binding.dna10a.isChecked()) HashData.put("type of house","Kacha House");
+        else if(binding.dna10b.isChecked()) HashData.put("type of house","Pakha");
+        else  HashData.put("type of house","0");
 
-        if(binding.dna11a.isChecked()) HashData.put("dna11","1");
-        else if(binding.dna11b.isChecked()) HashData.put("dna11","2");
-        else  HashData.put("dna11","0");
-
-
-        if(binding.dna12a.isChecked()) HashData.put("dna12a","1");
-        else HashData.put("dna12a","0");
-        if(binding.dna12b.isChecked()) HashData.put("dna12b","1");
-        else HashData.put("dna12b","0");
-
-        if(binding.dna12c.isChecked()) HashData.put("dna12c","1");
-        else HashData.put("dna12c","0");
-
-        if(binding.dna12d.isChecked()) HashData.put("dna12d","1");
-        else HashData.put("dna12d","0");
-
-        HashData.put("dna12e",binding.dna12e.getText().toString().trim());
+        if(binding.dna11a.isChecked()) HashData.put("Ownership Status of House","Owen");
+        else if(binding.dna11b.isChecked()) HashData.put("Ownership Status of House","Rented");
+        else  HashData.put("Ownership Status of House","0");
 
 
-        if(binding.dna13a.isChecked()) HashData.put("dna13a","1");
-        else HashData.put("dna13a","0");
-        if(binding.dna13b.isChecked()) HashData.put("dna13b","1");
-        else HashData.put("dna13b","0");
+        if(binding.dna12a.isChecked()) HashData.put("Damages to Agriculture Crops","1");
+        else HashData.put("Damages to Agriculture Crops","0");
+        if(binding.dna12b.isChecked()) HashData.put("Horticulture","1");
+        else HashData.put("Horticulture","0");
 
-        if(binding.dna13c.isChecked()) HashData.put("dna13c","1");
-        else HashData.put("dna13c","0");
+        if(binding.dna12c.isChecked()) HashData.put("Communal Forest","1");
+        else HashData.put("Communal Forest","0");
 
-        HashData.put("dna13d",binding.dna13d.getText().toString().trim());
+        if(binding.dna12d.isChecked()) HashData.put("Livestock","1");
+        else HashData.put("Livestock","0");
 
-        HashData.put("dna14a",binding.dna14a.getText().toString().trim());
-        HashData.put("dna14b",binding.dna14b.getText().toString().trim());
-        HashData.put("dna14c",binding.dna14c.getText().toString().trim());
+        HashData.put("Any Other Damages Livelihood",binding.dna12e.getText().toString().trim());
 
-        HashData.put("dna15",binding.dna15.getText().toString().trim());
+
+        if(binding.dna13a.isChecked()) HashData.put("Shop","1");
+        else HashData.put("Shop","0");
+        if(binding.dna13b.isChecked()) HashData.put("Hotel","1");
+        else HashData.put("Hotel","0");
+
+        if(binding.dna13c.isChecked()) HashData.put("Petrol Pump","1");
+        else HashData.put("Petrol Pump","0");
+
+        HashData.put("Other Damages Property ",binding.dna13d.getText().toString().trim());
+
+       // HashData.put("dna14a",binding.dna14a.getText().toString().trim());
+      //  HashData.put("dna14b",binding.dna14b.getText().toString().trim());
+       // HashData.put("dna14c",binding.dna14c.getText().toString().trim());
+
+        HashData.put("Comments",binding.dna15.getText().toString().trim());
 
 
 
@@ -239,25 +239,25 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk));
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk),"DNA");
 
-        if(uploadStatus==true)
-        {
-            LocalDataManager.UpdateLOgtable(Logpk);
-            ((Activity) DemageNeedAssesment.this).finish();
-        }
-        else
-        {
-            UploadFailur=true;
-            new AlertDialog.Builder(this).
-                    setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
-                    setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            ((Activity) DemageNeedAssesment.this).finish();
-                        }
-                    }).setNegativeButton("Try Again", null).create().show();
-        }
+//        if(uploadStatus==true)
+//        {
+//            LocalDataManager.UpdateLOgtable(Logpk);
+//            ((Activity) DemageNeedAssesment.this).finish();
+//        }
+//        else
+//        {
+//            UploadFailur=true;
+//            new AlertDialog.Builder(this).
+//                    setMessage("Unable to Upload Data to Server Due to Internet Would you like to try again or you will upload it latter .").
+//                    setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            ((Activity) DemageNeedAssesment.this).finish();
+//                        }
+//                    }).setNegativeButton("Try Again", null).create().show();
+//        }
 
     }
         
@@ -330,19 +330,19 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
             if(binding.dna14a.getText().equals("") || binding.dna14a.getText().toString().trim().isEmpty())
             {
-                Toast.makeText(this,"Please Enter Cost Repair",Toast.LENGTH_SHORT).show();
-                return  false;
+              //  Toast.makeText(this,"Please Enter Cost Repair",Toast.LENGTH_SHORT).show();
+             //   return  false;
             }
             if(binding.dna14b.getText().equals("")   || binding.dna14b.getText().toString().trim().isEmpty())
             {
-                Toast.makeText(this,"Please Enter Cost content",Toast.LENGTH_SHORT).show();
-                return  false;
+               // Toast.makeText(this,"Please Enter Cost content",Toast.LENGTH_SHORT).show();
+              //  return  false;
             }
 
             if(binding.dna14c.getText().equals("")  || binding.dna14c.getText().toString().trim().isEmpty())
             {
-                Toast.makeText(this,"Please Enter Cost Total",Toast.LENGTH_SHORT).show();
-                return  false;
+               // Toast.makeText(this,"Please Enter Cost Total",Toast.LENGTH_SHORT).show();
+                //return  false;
             }
 
 

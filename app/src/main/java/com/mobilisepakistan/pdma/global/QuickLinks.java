@@ -19,7 +19,7 @@ public class QuickLinks {
         listHeadrs  .add("National Drought Monitoring Centre, Islamabad");
         listHeadrs  .add("National Seismic Monitoring Centre, Islamabad");
         listHeadrs  .add("Flood Forecasting Division, Lahore");
-        listHeadrs  .add("DAMS FLOWS DATA");
+        listHeadrs  .add("Dams Flow Data");
         listHeadrs  .add("Latest 03 Hourly Temperatures (C)");
         listHeadrs  .add("Met Eye-Pakistan");
         listHeadrs  .add("SUPARCO Pakistan");

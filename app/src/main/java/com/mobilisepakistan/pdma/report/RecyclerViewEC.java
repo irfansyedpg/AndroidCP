@@ -66,8 +66,8 @@ public class RecyclerViewEC extends AppCompatActivity {
 
         for(int position=0;position<list.size();position++)
         {
-            arrayListall.add(list.get(position) + "\n"+ "\n"
-                    +listheader.get(position) + "\n"+ "\n"
+            arrayListall.add(listheader.get(position) + "\n"+ "\n"
+                    +list.get(position) + "\n"+ "\n"
                     + listconacts.get(position) );
 
             //  arrayListall.add(district.get(position) );

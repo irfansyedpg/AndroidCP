@@ -357,9 +357,21 @@
                         android:text="@string/dna12d"
                         android:id="@+id/dna12d"
                         />
-                    <EditText style="@style/SResponce"
-                        android:text="@string/dna12e"
+                    <EditText style="@style/EResponce"
+                        android:hint="@string/dna12e"
+
                         android:id="@+id/dna12e"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        />
+                    <View style="@style/nView"
+
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+
                         />
 
 
@@ -396,11 +408,22 @@
                         android:id="@+id/dna13c"
                         />
                     <EditText
-                        style="@style/SResponce"
+                        style="@style/EResponce"
                         android:hint="@string/dna13d"
                         android:id="@+id/dna13d"
-                        />
 
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+                        />
+                    <View style="@style/nView"
+
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+
+
+                        />
 
 
 
@@ -413,7 +436,9 @@
 
 
 
-                <LinearLayout style="@style/nLinerLayout">
+                <LinearLayout style="@style/nLinerLayout"
+                    android:visibility="gone"
+                    >
 
                     <TextView style="@style/SLable"
                         android:text="@string/dna14"
@@ -437,6 +462,8 @@
                         android:inputType="number"
                         android:id="@+id/dna14c"
                         />
+
+
                     <View style="@style/EView" />
 
 
@@ -453,12 +480,25 @@
 
                     />
 
-                <EditText style="@style/SResponce"
+                <EditText style="@style/EResponce"
                     android:hint="@string/dna15"
                     android:lines="3"
                     android:id="@+id/dna15"
                     android:inputType="text"
+
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
                     />
+                <View style="@style/nView"
+
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
+
+                    />
+
 <View
   style="@style/nView"/>
 
@@ -499,7 +539,7 @@
                         />
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:hint="@string/latitude"
+
                         android:id="@+id/latitude"
                         android:layout_weight="70"
                         />
@@ -520,7 +560,7 @@
                         />
                     <TextView style="@style/SResponce"
                         android:layout_width="0dp"
-                        android:hint="@string/longitude"
+
                         android:id="@+id/longitude"
                         android:layout_weight="70"
                         android:layout_gravity="left"

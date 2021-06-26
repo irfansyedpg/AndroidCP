@@ -57,6 +57,20 @@
         <item name="android:padding">3dp</item>
         <item name="android:layout_marginTop">3dp</item>
     </style>
+
+
+    <style name="EResponce">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/Responce</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">@android:color/transparent</item>
+
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
     <style name="note">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
