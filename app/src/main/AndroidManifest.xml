@@ -120,7 +120,11 @@
             android:name="com.mobilisepakistan.pdma.MapsMarkerActivity"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.CommunityOutreach"
+            android:label="CommunityOutreach"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"

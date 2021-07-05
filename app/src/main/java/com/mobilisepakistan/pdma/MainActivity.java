@@ -298,6 +298,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id == R.id.emgncyContact) {
             intent = new Intent(this, RecyclerViewEC.class);
             startActivity(intent);
+        }     else if (id == R.id.nav_co) {
+            intent = new Intent(this, CommunityOutreach.class);
+            startActivity(intent);
         }
 
         else if (id == R.id.evactioncenter) {
