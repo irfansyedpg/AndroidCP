@@ -1,77 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
-<LinearLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="8dp"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="100"
-        android:orientation="horizontal"
-        android:layout_marginTop="2dp"
-        android:clickable="true"
-        android:focusable="true"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
         <LinearLayout
 
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
             android:clickable="true"
-            android:focusable="true"
+            android:focusable="true">
+
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:clickable="true"
+                android:focusable="true"
+
+                >
+
+                <ImageButton
+                    android:id="@+id/lvback"
+                    style="@style/TopBack_img"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_weight="80"
+                android:id="@+id/header"
+                style="@style/TopHeader_text" />
+
+
+        </LinearLayout>
+
+        <View style="@style/TopLine_View" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/roundedtxview"
+            android:drawableLeft="@drawable/ic_search_black_21dp"
+            android:hint=" Search"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:id="@+id/ed_search"
 
             >
 
-            <ImageButton
-                android:id="@+id/lvback"
-                style="@style/TopBack_img"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+        </EditText>
 
-        <TextView
-            android:layout_weight="80"
-            android:id="@+id/header"
-            style="@style/TopHeader_text"  />
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="5dp"
+            android:id="@+id/recycleview"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>
-
-    <View  style="@style/TopLine_View"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="12dp"
-        android:background="@drawable/roundedtxview"
-        android:drawableLeft="@drawable/ic_search_black_21dp"
-        android:hint=" Search"
-        android:padding="10dp"
-        android:textSize="15sp"
-        android:id="@+id/ed_search"
-
-        >
-
-    </EditText>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:padding="5dp"
-        android:id="@+id/recycleview"
-        android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-
-</LinearLayout>
 </layout>

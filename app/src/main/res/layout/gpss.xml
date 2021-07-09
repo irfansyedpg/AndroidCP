@@ -9,82 +9,74 @@
     android:orientation="vertical">
 
 
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
-                                    android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
 
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="60"
-                                        android:padding="10dp"
-
-                                        android:gravity="center"
-
-                                        android:orientation="vertical">
+            android:orientation="horizontal">
 
 
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="Please Wait "
-                                                android:textSize="28sp"
-                                                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="60"
+                android:padding="10dp"
 
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="we are capturing your GPS Location" />
+                android:gravity="center"
+
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Please Wait "
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:layout_width="0dp"
-                                        android:layout_height="match_parent"
-                                        android:layout_weight="40"
-
-                                        android:gravity="center"
-
-
-                                        android:orientation="vertical">
-
-
-                                        <com.airbnb.lottie.LottieAnimationView
-                                            android:id="@+id/gps"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:lottie_autoPlay="true"
-
-                                            app:lottie_rawRes="@raw/satelite" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="we are capturing your GPS Location" />
 
 
-                                    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+
+                android:gravity="center"
 
 
-
-                            </LinearLayout>
-
+                android:orientation="vertical">
 
 
-                        </LinearLayout>
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/gps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:lottie_autoPlay="true"
+
+                    app:lottie_rawRes="@raw/satelite" />
 
 
+            </LinearLayout>
 
 
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -248,7 +248,6 @@
                     </LinearLayout>
 
 
-
                     <View style="@style/nView" />
 
                 </LinearLayout>

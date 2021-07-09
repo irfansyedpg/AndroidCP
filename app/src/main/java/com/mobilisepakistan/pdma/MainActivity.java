@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -85,6 +86,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Locale locale = new Locale("ur","PK");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -92,6 +103,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // call intenet check
         MyReceiver = new MyReceiver();
         broadcastIntent();
+
+
+        // test
+
+
+
+
 
 
         preferences = new MyPref(MainActivity.this);
@@ -247,6 +265,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 //        }
 
+
+
+
     }
     // get location new
 
@@ -371,6 +392,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
             this.finish();
         }
+
+
+        // change langue
+
+        else if (id == R.id.nav_urdu) {
+
+            Locale locale = new Locale("ur");
+            Configuration config = getBaseContext().getResources().getConfiguration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        }
+
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

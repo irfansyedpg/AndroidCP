@@ -7,103 +7,119 @@
         <item
             android:id="@+id/nav_RD"
             android:icon="@drawable/nd"
-            android:title="Report A Disaster" />
+            android:title="@string/s_rd" />
 
         <item
             android:id="@+id/nav_ew"
             android:icon="@drawable/rna"
-            android:title="Early Warnings" />
+            android:title="@string/s_ew" />
         <item
             android:id="@+id/nav_ds"
             android:icon="@drawable/dna"
-            android:title="Daily Situation Report" />
+            android:title="@string/s_dsr" />
         <item
             android:id="@+id/nav_wf"
             android:icon="@drawable/wf"
-            android:title="Daily Weather" />
+            android:title="@string/S_dw" />
 
     </group>
 
-    <item android:title="Assessments">
+    <item android:title="@string/s_h_ass">
         <menu>
             <item
 
                 android:icon="@drawable/need"
                 android:id="@+id/nav_RNA"
-                android:title="Rapid Need Assessment " />
+                android:title="@string/s_rna" />
             <item
                 android:id="@+id/nav_DNA"
                 android:icon="@drawable/damageneed"
-                android:title="Damage Need Assessment " />
-<!--            <item-->
-<!--                android:id="@+id/nav_LD"-->
-<!--                android:icon="@drawable/damage"-->
-<!--                android:title="Damages Inventory" />-->
+                android:title="@string/s_dna" />
+            <!--            <item-->
+            <!--                android:id="@+id/nav_LD"-->
+            <!--                android:icon="@drawable/damage"-->
+            <!--                android:title="Damages Inventory" />-->
             <item
                 android:id="@+id/nav_risk"
                 android:icon="@drawable/risk"
-                android:title="Risk Assessment Results" />
+                android:title="@string/s_rar" />
         </menu>
     </item>
 
 
-    <item android:title="Public Services">
+    <item android:title="@string/s_h_ps">
         <menu>
             <item
                 android:id="@+id/emgncyContact"
                 android:icon="@drawable/ec"
-                android:title="Emergency Contacts" />
+                android:title="@string/s_erc" />
             <item
                 android:id="@+id/evactioncenter"
                 android:icon="@drawable/ee"
-                android:title="Locate Evacuation Center" />
+                android:title="@string/s_lec" />
             <item
                 android:id="@+id/nav_co"
                 android:icon="@drawable/cou"
-                android:title="Community Outreach" />
+                android:title="@string/s_co" />
 
             <item
                 android:id="@+id/nav_quick_links"
                 android:icon="@drawable/link"
-                android:title="Quick Links" />
-
-
+                android:title="@string/s_ql" />
 
 
         </menu>
     </item>
-<!--    <item android:title="Volunteer Registration">-->
-<!--        <menu>-->
-<!--            <item-->
-<!--                android:id="@+id/nav_VM"-->
-<!--                android:icon="@drawable/vm"-->
-<!--                android:title="Register Volunteer" />-->
+    <!--    <item android:title="Volunteer Registration">-->
+    <!--        <menu>-->
+    <!--            <item-->
+    <!--                android:id="@+id/nav_VM"-->
+    <!--                android:icon="@drawable/vm"-->
+    <!--                android:title="Register Volunteer" />-->
 
-<!--        </menu>-->
-<!--    </item>-->
-<!--    <item android:title="MIRA Tool (Restricted Access)">-->
-<!--        <menu>-->
-<!--            <item-->
-<!--                android:id="@+id/nav_AT"-->
-<!--                android:icon="@drawable/t"-->
-<!--                android:title="MIRA-Key Informant Interviews" />-->
-<!--            <item-->
-<!--                android:id="@+id/nav_ATT"-->
-<!--                android:icon="@drawable/tt"-->
-<!--                android:title="MIRA-Direct Observation Checklist" />-->
+    <!--        </menu>-->
+    <!--    </item>-->
+    <!--    <item android:title="MIRA Tool (Restricted Access)">-->
+    <!--        <menu>-->
+    <!--            <item-->
+    <!--                android:id="@+id/nav_AT"-->
+    <!--                android:icon="@drawable/t"-->
+    <!--                android:title="MIRA-Key Informant Interviews" />-->
+    <!--            <item-->
+    <!--                android:id="@+id/nav_ATT"-->
+    <!--                android:icon="@drawable/tt"-->
+    <!--                android:title="MIRA-Direct Observation Checklist" />-->
 
-<!--        </menu>-->
-<!--    </item>-->
-    <item android:title="Setting">
+    <!--        </menu>-->
+    <!--    </item>-->
+
+
+    <item android:title="@string/s_h_lang">
+        <menu>
+            <item
+                android:id="@+id/nav_urdu"
+                android:icon="@drawable/urdu"
+                android:title="@string/s_urdu" />
+            <item
+                android:id="@+id/nav_english"
+                android:icon="@drawable/english"
+                android:title="@string/s_english" />
+
+
+        </menu>
+    </item>
+
+
+    <item android:title="@string/s_h_set">
         <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/logout"
-                android:title="Logout" />
+                android:title="@string/s_logout" />
             <item
                 android:id="@+id/nav_login"
                 android:icon="@drawable/enter"
-                android:title="Login" />
+                android:title="@string/s_login" />
 
 
         </menu>

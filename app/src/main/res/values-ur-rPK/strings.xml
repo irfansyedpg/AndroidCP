@@ -1,0 +1,45 @@
+<resources>
+
+
+
+<!--    report Disaster-->
+
+
+    <string name="rd1">	ضلع منتخب کریں	</string>
+    <string name="rd2">	تحصیل  منتخب کریں	</string>
+    <string name="rd3">	مکمل پتہ درج کریں	</string>
+    <string name="rd4">	آفت کی قسم	</string>
+    <string name="rd5">	آفت کی تفصیل	</string>
+    <string name="rd6">تصویر اپ لوڈ کریں</string>
+    <string name="rd6a">گیلری سے</string>
+    <string name="rd6b">کیمرا سے</string>
+
+
+
+    <!--    Menue Drawwer-->
+
+    <string name="menu_home">ہوم ڈیش بورڈ</string>
+    <string name="S_dw">	 آج کا موسم	</string>
+    <string name="s_ew">	 ارلی وارننگ /پیشگی اطلاع	</string>
+    <string name="s_dsr">	رزمرہ صورتحال کی رپورٹ	</string>
+    <string name="s_rd">	آفت کے بارے میں رپورٹ کریں	</string>
+    <string name="s_ec">	محفوظ پناگاہیں	</string>
+    <string name="s_rna">	آفت کے پوری بعد بنیادی ضروریات کا تعین	</string>
+    <string name="s_dna">	نقصانات کا تعین اور تخمینہ	</string>
+    <string name="s_rar">	رسک اسسمنٹ کے نتایج	</string>
+    <string name="s_erc">	ايمرجنسی رابطہ نمبر	</string>
+    <string name="s_lec">	محفوظ پناگاہ  تلاش کریں	</string>
+    <string name="s_co">	کمیونٹی آوٹریچ	</string>
+    <string name="s_ql">	کارآمد لنک	</string>
+    <string name="s_logout">	لاگ آوٹ کریں	</string>
+    <string name="s_login">	لاگ ان کریں	</string>
+    <string name="s_urdu">	اردو	</string>
+    <string name="s_english">	انگریزی	</string>
+    <string name="s_h_ass">	اسسمنٹ 	</string>
+    <string name="s_h_ps">	عوامی خدمات	</string>
+    <string name="s_h_set">	ترتیبات	</string>
+    <string name="s_h_lang">	زبان منتخب کریں	</string>
+
+
+
+</resources>

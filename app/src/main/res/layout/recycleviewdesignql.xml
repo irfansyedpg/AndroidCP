@@ -1,64 +1,64 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/nLinerLayout">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/nLinerLayout">
 
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-         android:weightSum="100"
-         >
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:orientation="vertical"
-         android:layout_weight="80"
-         >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
 
-        <TextView
-            style="@style/SResponce"
-            android:id="@+id/txtrcv"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="80">
 
-            android:text="Name"
-            android:textColor="@color/blacklight"
-            />
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtrcv"
 
-         <TextView
-             style="@style/SResponce"
-             android:id="@+id/txtlink"
+                android:text="Name"
+                android:textColor="@color/blacklight" />
 
-             android:text="link"
-             android:textColor="@color/Lable"
-             android:textSize="15sp"
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtlink"
+
+                android:text="link"
+                android:textColor="@color/Lable"
+                android:textSize="15sp"
 
 
-             />
+                />
 
-     </LinearLayout>
-
-
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="match_parent"
-         android:layout_weight="20"
-         android:id="@+id/phone"
-
-         >
-         <ImageButton
-             android:id="@+id/img"
-             android:layout_width="25dp"
-             android:layout_height="25dp"
-             android:layout_gravity="center"
-             android:background="@drawable/ic_tap"
-
-             />
-
-     </LinearLayout>
+        </LinearLayout>
 
 
-     </LinearLayout>
-        <View style="@style/nView" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:id="@+id/phone"
+
+            >
+
+            <ImageButton
+                android:id="@+id/img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_tap"
+
+                />
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
+    <View style="@style/nView" />
+</LinearLayout>
 
 
 

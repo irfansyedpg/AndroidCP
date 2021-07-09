@@ -10,7 +10,6 @@ public class QuickLinks {
           ArrayList<String> listHeadrs=new  ArrayList<String>();
 
         listHeadrs  .add("National Disaster Management Authority (NDMA), Islamabad");
-        listHeadrs  .add("PDMA Khyber Pakhtunkhwa");
         listHeadrs  .add("PDMA Khyber Pakhtunkhwa Publications");
         listHeadrs  .add("PDMA-KP Complex Emergencies Wing");
         listHeadrs  .add("PDMA-KP Contact Directory");
@@ -42,7 +41,6 @@ public class QuickLinks {
         ArrayList<String> listHeadrs=new  ArrayList<String>();
 
         listHeadrs  .add("www.ndma.gov.pk");
-        listHeadrs  .add("www.pdma.gov.pk");
         listHeadrs  .add("https://pdma.gov.pk/Downloads");
         listHeadrs  .add("https://cewpdma.gkp.pk/");
         listHeadrs  .add("https://pdma.gov.pk/CONTACT");

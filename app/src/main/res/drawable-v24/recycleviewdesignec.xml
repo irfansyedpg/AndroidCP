@@ -1,66 +1,62 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/nLinerLayout">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/nLinerLayout">
 
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-         android:weightSum="100"
-         >
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:orientation="vertical"
-         android:layout_weight="80"
-         >
-     <TextView
-         style="@style/SResponce"
-         android:id="@+id/txthdr"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="80">
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txthdr"
 
-         android:text="DDMOS"
-         android:textStyle="bold"
-         />
-        <TextView
-            style="@style/SResponce"
-            android:id="@+id/txtrcv"
+                android:text="DDMOS"
+                android:textStyle="bold" />
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtrcv"
 
-            android:text="district"
-            android:textColor="@color/blacklight"
-            />
+                android:text="district"
+                android:textColor="@color/blacklight" />
 
-     <TextView
-         style="@style/SResponce"
-         android:id="@+id/txtrcvconact"
-         android:padding="5dp"
-         android:text="03432436919"
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtrcvconact"
+                android:padding="5dp"
+                android:text="03432436919"
 
-         />
-     </LinearLayout>
+                />
+        </LinearLayout>
 
 
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="match_parent"
-         android:layout_weight="20"
-         android:id="@+id/phone"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:id="@+id/phone"
 
-         >
-         <ImageButton
-             android:id="@+id/img"
-             android:layout_width="22dp"
-             android:layout_height="22dp"
-             android:layout_gravity="center"
-             android:background="@drawable/placeholder"
+            >
+            <ImageButton
+                android:id="@+id/img"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:background="@drawable/placeholder"
 
-             />
+                />
 
-     </LinearLayout>
+        </LinearLayout>
 
 
-     </LinearLayout>
-        <View style="@style/nView" />
     </LinearLayout>
+    <View style="@style/nView" />
+</LinearLayout>
 
 
 

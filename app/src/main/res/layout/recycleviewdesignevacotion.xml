@@ -1,86 +1,87 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/nLinerLayout">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/nLinerLayout">
 
 
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-         android:weightSum="100"
-         >
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="wrap_content"
-         android:orientation="vertical"
-         android:layout_weight="85"
-         >
-     <TextView
-         style="@style/SResponce"
-         android:id="@+id/txthdist"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
 
-         android:text="District"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="85">
 
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txthdist"
 
-         />
-<!--        <TextView-->
-<!--            style="@style/SResponce"-->
-<!--            android:id="@+id/txtteshil"-->
-
-<!--            android:text="Tehsil"-->
-
-<!--            />-->
-
-<!--     <TextView-->
-<!--         style="@style/SResponce"-->
-<!--         android:id="@+id/txtlocation"-->
-<!--         android:padding="5dp"-->
-<!--         android:text="location"-->
-
-<!--         />-->
-
-<!--         <TextView-->
-<!--             style="@style/SResponce"-->
-<!--             android:id="@+id/txtname"-->
-<!--             android:padding="5dp"-->
-<!--             android:text="Name"-->
-
-<!--             />-->
-
-<!--         <TextView-->
-<!--             style="@style/SResponce"-->
-<!--             android:id="@+id/txtgps"-->
-<!--             android:padding="5dp"-->
-<!--             android:text="GPS"-->
-
-<!--             />-->
-     </LinearLayout>
+                android:text="District"
 
 
-     <LinearLayout
-         android:layout_width="0dp"
-         android:layout_height="match_parent"
-         android:layout_weight="15"
-         android:id="@+id/phone"
+                />
+            <!--        <TextView-->
+            <!--            style="@style/SResponce"-->
+            <!--            android:id="@+id/txtteshil"-->
+
+            <!--            android:text="Tehsil"-->
+
+            <!--            />-->
+
+            <!--     <TextView-->
+            <!--         style="@style/SResponce"-->
+            <!--         android:id="@+id/txtlocation"-->
+            <!--         android:padding="5dp"-->
+            <!--         android:text="location"-->
+
+            <!--         />-->
+
+            <!--         <TextView-->
+            <!--             style="@style/SResponce"-->
+            <!--             android:id="@+id/txtname"-->
+            <!--             android:padding="5dp"-->
+            <!--             android:text="Name"-->
+
+            <!--             />-->
+
+            <!--         <TextView-->
+            <!--             style="@style/SResponce"-->
+            <!--             android:id="@+id/txtgps"-->
+            <!--             android:padding="5dp"-->
+            <!--             android:text="GPS"-->
+
+            <!--             />-->
+        </LinearLayout>
 
 
-
-         >
-         <ImageButton
-             android:id="@+id/img"
-             android:layout_width="25dp"
-             android:layout_height="25dp"
-             android:layout_gravity="center"
-             android:layout_marginLeft="10dp"
-             android:background="@drawable/ic_location"
-
-             />
-
-     </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:id="@+id/phone"
 
 
-     </LinearLayout>
-        <View style="@style/nView" />
+            >
+
+            <ImageButton
+                android:id="@+id/img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_location"
+
+                />
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
+    <View style="@style/nView" />
+</LinearLayout>
 
 
 

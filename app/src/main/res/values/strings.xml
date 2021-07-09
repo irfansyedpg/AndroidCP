@@ -30,6 +30,8 @@
     <string name="rd6a">from Gallery</string>
     <string name="rd6b">Camera</string>
 
+
+
     <string name="note">In case of false reporting,  the concerned authority can impose punishment as per National Disaster Management Act-2010 </string>
     <string name="undertaking">I herby undertake that all of the above information are authentic. I further declare that I am not reporting false data to the Provisional Disaster Management Authority, KP.</string>
     <string name="undertakingGPS"></string>
@@ -94,7 +96,32 @@
     <string name="dna14a">Repair </string>
     <string name="dna14b">Content</string>
     <string name="dna14c">Total</string>
-
     <string name="dna15">Comments</string>
+
+
+    <!--    Menue Drawwer-->
+
+
+    <string name="S_dw">	Daily Weather 	</string>
+    <string name="s_ew">	Early Warning 	</string>
+    <string name="s_dsr">	Daily Situation Report	</string>
+    <string name="s_rd">	Report Disaster 	</string>
+    <string name="s_ec">	Evacuation Centre 	</string>
+    <string name="s_rna">	Rapid Need Assessment 	</string>
+    <string name="s_dna">	Damage Need Assessment 	</string>
+    <string name="s_rar">	Risk Assessment Results 	</string>
+    <string name="s_erc">	Emergency Contacts 	</string>
+    <string name="s_lec">	Locate Evacuation Centre 	</string>
+    <string name="s_co">	Community Outreach 	</string>
+    <string name="s_ql">	Qucik Links 	</string>
+    <string name="s_logout">	Logout 	</string>
+    <string name="s_login">	Login 	</string>
+    <string name="s_urdu">	Urdu	</string>
+    <string name="s_english">	Enlgish	</string>
+    <string name="s_h_ass">	Assessments	</string>
+    <string name="s_h_ps">	Public Services	</string>
+    <string name="s_h_set">	Settings	</string>
+    <string name="s_h_lang">	Select Language 	</string>
+
 
 </resources>
