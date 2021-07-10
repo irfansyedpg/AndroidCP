@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.mobilisepakistan.pdma.R;
 
 import org.json.JSONObject;
 
@@ -47,29 +48,29 @@ public class UploadData2
                 System.out.println(response);
                 UploadData2.status=true;
 
-                String Dilogtext ="";
+                String Dilogtext = mContext.getString(R.string.s_g_subnote);
 
-                // RD uploading close the mian activity then
-                if(type=="RD") {
-                    Dilogtext = "Information about reported disaster recieved at PDMA Emergency Operation Center. Action will be initiated soon";
+//                // RD uploading close the mian activity then
+//                if(type=="RD") {
+//                    Dilogtext = "Information about reported disaster recieved at PDMA Emergency Operation Center. Action will be initiated soon";
+//
+//                }
+//                else if(type=="RNA" )
+//                {
+//                    Dilogtext = "Rapid Need Assessment report successfully submitted to PDMA Emergency Operation Centre";
+//
+//                }
+//                else
+//                {
+//                    Dilogtext = "Damage Need Assessment Report successfully submitted to PDMA Emergency Operation Centre";
+//
+//                }
 
-                }
-                else if(type=="RNA" )
-                {
-                    Dilogtext = "Rapid Need Assessment report successfully submitted to PDMA Emergency Operation Centre";
 
-                }
-                else
-                {
-                    Dilogtext = "Damage Need Assessment Report successfully submitted to PDMA Emergency Operation Centre";
-
-                }
-
-
-                AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle("Confirmation").setMessage(Dilogtext);
+                AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.s_g_h_subnote)).setMessage(Dilogtext);
 
                dialog.setCancelable(false);
-                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
                         ((Activity) mContext).finish();

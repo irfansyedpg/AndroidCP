@@ -272,7 +272,7 @@
 
                         <TextView
                             style="@style/SLable"
-                            android:text="@string/LocationHeader"
+                            android:text="@string/s_g_crnt_loc"
 
                             />
 
@@ -295,7 +295,7 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/latitude"
+                            android:hint="@string/s_g_lat"
                             android:layout_weight="30" />
 
                         <TextView
@@ -315,7 +315,7 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/longitude"
+                            android:hint="@string/s_g_lon"
                             android:layout_weight="30"
 
                             />
@@ -342,7 +342,7 @@
 
                         <TextView
                             style="@style/SLable"
-                            android:text="Undertaking"
+                            android:text="@string/s_g_h_dec"
 
                             />
 
@@ -364,13 +364,13 @@
 
                     <TextView
                         style="@style/SLable"
-                        android:text="Note:"
+                        android:text="@string/s_g_h_note"
 
                         />
 
                     <TextView
                         style="@style/note"
-                        android:text="@string/note"
+                        android:text="@string/s_g_note"
 
                         />
 

@@ -55,7 +55,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent  intent = new Intent(DemageNeedAssesment.this, RecyclerViewA.class);
                 intent.putExtra("mylist",listDistrict);
-                intent.putExtra("header","Select District");
+                intent.putExtra("header",getString(R.string.s_g_h_select_dist));
                 startActivityForResult(intent,11);
 
             }
@@ -74,7 +74,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 Intent  intent = new Intent(DemageNeedAssesment.this, RecyclerViewA.class);
                 listTehsil= Tehsil.get(sDistrict);
                 intent.putExtra("mylist",listTehsil);
-                intent.putExtra("header","Select Tehsil");
+                intent.putExtra("header",getString(R.string.s_g_h_select_tesh));
                 startActivityForResult(intent,12);
 
             }

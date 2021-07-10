@@ -42,4 +42,70 @@
 
 
 
+    
+<!--    Popups messaged and genral notes -->
+
+
+    <string name="s_g_dec">	 میں حلفیہ اقرار کرتا​​/کرتی ہوں کہ مندرجہ معلومات مستند معلومات ہیں- میں مزید اقرار کرتا​​/کرتی ہوں کہ میں صوبائی ڈیزاسٹر مینجمنٹ اتھارٹی  خیبر پختونخواہ کو غلط معلومات رپورٹ   نہیں کر رہا-	</string>
+    <string name="s_g_note">	غلط رپورٹنگ کی صورت میں متعلقہ اتھارٹی نیشنل ڈیزاسٹر مینجمنٹ ایکٹ2010  کے تحت آپ پر سزا عائد کرسکتی ہے-	</string>
+    <string name="s_g_rna">	یہ حصہ عملی طور پر آفات کے پوری بعد بنیادی ضروریات کی تعین کے لئے وقف ہے۔ براہ کرم متاثرہ لوگوں کی ضرورت کے مطابق درست مطالبات مہیا کرنا یقینی بنائیں۔	</string>
+    <string name="s_g_subnote">	آپ کی رپورٹ  پی ڈی ایم اے ایمرجنسی آپریشن سنٹر کو موصول ہویی- شکریہ	</string>
+    <string name="s_g_h_subnote">	تصدیق	</string>
+    <string name="s_g_h_subnote_ok">	ٹھیک ہے	</string>
+
+    <string name="s_g_crnt_loc">	موجودہ لوکیشن کیلیے کلک کریں-	</string>
+    <string name="s_g_lat">	طول	</string>
+    <string name="s_g_lon">	طول البلد	</string>
+    <string name="s_g_h_dec">	اعلامیہ	</string>
+    <string name="s_g_h_note">	نوٹ	</string>
+
+    <string name="s_g_h_select_dist">	ضلع منتخب کریں	</string>
+    <string name="s_g_h_select_tesh">	تحصیل کو منتخب کریں	</string>
+
+    <string name="s_g_submite"> جمع کرائیں	</string>
+    
+    
+<!--    demage need assesment -->
+
+
+
+    <string name="dna1">	ضلع منتخب کریں	</string>
+    <string name="dna2">	تحصیل  منتخب کریں	</string>
+    <string name="dna3">	مکمل پتہ درج کریں	</string>
+    <string name="dna4">	نام	</string>
+    <string name="dna5">	والد کا نام	</string>
+    <string name="dna6">	شناختی کارڈ نمبر	</string>
+    <string name="dna7">	فون نمبر</string>
+    <string name="dna8a">	زخمی افراد کی تعداد	</string>
+    <string name="dna8b">	مرنے والوں کی تعداد 	</string>
+    <string name="dna9">	مکان	</string>
+    <string name="dna9a">	کوئی نقصان نہیں	</string>
+    <string name="dna9b">	جزوی نقصان 	</string>
+    <string name="dna10">	مکان کی تعمیر کی قسم	</string>
+    <string name="dna10a">	کچا مکان 	</string>
+    <string name="dna11">	مکان کی ملکیت	</string>
+    <string name="dna11a">	   ذاتی ملکیت	</string>
+    <string name="dna12a">	زراعتی فصلوں کو نقصان	</string>
+    <string name="dna12b">	باغات	</string>
+    <string name="dna12c">	مشترکہ جنگل	</string>
+    <string name="dna12d">	مال مویشی	</string>
+    <string name="dna12e">	 دیگر (درج کریں)	</string>
+    <string name="dna13a">	دکان/دکانات	</string>
+    <string name="dna13b">	ہوٹل	</string>
+    <string name="dna13c">	پٹرول پمپ	</string>
+    <string name="dna13d">	 دیگر (درج کریں)	</string>
+    <string name="dna14a">	مرمت	</string>
+    <string name="dna14b">	گھریلوں سامان	</string>
+    <string name="dna14c">	ٹوٹل	</string>
+    <string name="dna15">	کوئی اور تبصرہ​​ یاکمنٹس	</string>
+    <string name="dna8">حادثات</string>
+    <string name="dna9L">املاک کو نقصانات</string>
+    <string name="dna9c">مکمل طور پر</string>
+    <string name="dna10b">معمار / پاکھا</string>
+    <string name="dna11b">کرائے پر لیا</string>
+    <string name="dna12">روزی</string>
+    <string name="dna13">کاروبار</string>
+    <string name="dna14">روپے میں تخمینی نقصانات</string>
+
+
 </resources>

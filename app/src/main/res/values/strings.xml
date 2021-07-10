@@ -123,5 +123,29 @@
     <string name="s_h_set">	Settings	</string>
     <string name="s_h_lang">	Select Language 	</string>
 
+    
+    
+    
+    
+<!--    Genreal notes and popups messaged-->
+
+
+    <string name="s_g_dec">	I hereby undertake that all of the above information are authentic. I further declare that i am not reporting false data to the Provincial Disaster Management Authority, KP	</string>
+    <string name="s_g_note">	In case of false reporting, the concerned authority can impose punishment as per National Disaster Management Act-2010	</string>
+    <string name="s_g_rna">	This section is practically dedicated to immediate needs of the survivors following an emergency situation. Please make sure to share accurate demands as per the need of the affected communities. 	</string>
+    <string name="s_g_subnote">	Your report successfully submitted to PDMA Emergency Operation Centre. Thanks  	</string>
+    <string name="s_g_h_subnote">	Confirmation	</string>
+    <string name="s_g_h_subnote_ok">	OK	</string>
+    <string name="s_g_crnt_loc">	Current Location 	</string>
+    <string name="s_g_lat">	Latitude	</string>
+    <string name="s_g_lon">	Longitude	</string>
+    <string name="s_g_h_dec">	Declaration 	</string>
+    <string name="s_g_h_note">	Note	</string>
+    <string name="s_g_h_select_dist">	Select District	</string>
+    <string name="s_g_h_select_tesh">	Select Tehsil	</string>
+    <string name="s_g_submite"> Submite		</string>
+
+
+
 
 </resources>
