@@ -63,7 +63,12 @@
     <string name="s_g_h_select_tesh">	تحصیل کو منتخب کریں	</string>
 
     <string name="s_g_submite"> جمع کرائیں	</string>
-    
+
+    <string name="s_h_type_disaster">	آفات کی قسم منتخب کریں 	</string>
+    <string name="activyt_close">کیا آپ اس سرگرمی کو بند کرنا چاہتے ہیں؟</string>
+    <string name="yes">جی ہاں</string>
+    <string name="no">نہیں</string>
+
     
 <!--    demage need assesment -->
 
@@ -106,6 +111,40 @@
     <string name="dna12">روزی</string>
     <string name="dna13">کاروبار</string>
     <string name="dna14">روپے میں تخمینی نقصانات</string>
+
+    
+<!--    Rapid Need Assesment -->
+
+    <string name="rna1">	ضلع منتخب کریں	</string>
+    <string name="rna2">	تحصیل  منتخب کریں	</string>
+    <string name="rna3">	مکمل پتہ درج کریں	</string>
+    <string name="rna4">	آفت کی قسم	</string>
+    <string name="rna5a">	ہنگامی انخلا	</string>
+    <string name="rna5b">	پناہ گاہ /خیمہ	</string>
+    <string name="rna5c">	ابتدائی طبی امداد	</string>
+    <string name="rna5d">	کھانے کے اشیا	</string>
+    <string name="rna5e">	پانی اور صفائی	</string>
+    <string name="rna5f">	پل کی مرمت	</string>
+    <string name="rna5g">	سڑکوں کی بحالی	</string>
+    <string name="rna5">ابتدائی ضروریات</string>
+
+
+    <!--    Weather Forcast -->
+
+
+    <string name="wfheader"> موسم کا حال 	</string>
+
+    <string name="wfdate"> تاریخ منتخب کریں	</string>
+    <string name="UnderlineView"><u>دیکھیں</u></string>
+
+    <string name="Search">تلاش کریں</string>
+
+    <string name="pdma_official_facebook_page">پی ڈی ایم اے آفیشل فیس بک پیج</string>
+
+    <string name="pdma_official_twitter_page">پی ڈی ایم اے آفیشل ٹویٹر اکاؤنٹ</string>
+    <string name="pdma_official_youtube_page">پی ڈی ایم اے آفیشل یوٹیوب چینل</string>
+    <string name="pdma_official_linkdin_page">پی ڈی ایم اے آفیشل لنکڈن اکاؤنٹ</string>
+    <string name="pdma_official_website_page"> پی ڈی ایم اے آفیشل ویب سائٹ</string>
 
 
 </resources>

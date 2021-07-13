@@ -67,6 +67,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -83,12 +85,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BroadcastReceiver MyReceiver = null;
 
     MyPref preferences;
+    String language;
+    String country;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        preferences = new MyPref(MainActivity.this);
 
-        Locale locale = new Locale("ur","PK");
+
+        country=preferences.getCountry();
+        language=preferences.getLanguage();
+
+        Locale locale = new Locale(language,country);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
@@ -112,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        preferences = new MyPref(MainActivity.this);
+
 
 
         // new way to check GPS
@@ -121,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         userId=preferences.getUserId();
+
+
 
         lnwa=findViewById(R.id.lnwa);
         lnew=findViewById(R.id.lnew);
@@ -398,10 +409,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.nav_urdu) {
 
-            Locale locale = new Locale("ur");
-            Configuration config = getBaseContext().getResources().getConfiguration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+            preferences.setlanguage("ur");
+            preferences.setcountry("PK");
+
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+
+
+
+            this.startActivity(intent);
+            if (this instanceof Activity) {
+                ((Activity) this).finish();
+            }
+        }
+        else if (id == R.id.nav_english) {
+
+            preferences.setlanguage("en");
+            preferences.setcountry("US");
+
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+
+
+
+            this.startActivity(intent);
+            if (this instanceof Activity) {
+                ((Activity) this).finish();
+            }
         }
 
 

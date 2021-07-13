@@ -60,7 +60,7 @@ public class DemagesLosses extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent  intent = new Intent(DemagesLosses.this, RecyclerViewA.class);
                 intent.putExtra("mylist",listDisaster);
-                intent.putExtra("header","Select Type of Disaster");
+                intent.putExtra("header",getString(R.string.s_h_type_disaster));
                 startActivityForResult(intent,13);
 
             }

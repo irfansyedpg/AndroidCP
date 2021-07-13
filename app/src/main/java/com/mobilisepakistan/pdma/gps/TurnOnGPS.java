@@ -9,6 +9,7 @@ import android.provider.Settings;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.signup.LogIn;
 
 public class TurnOnGPS {
@@ -70,11 +71,11 @@ public class TurnOnGPS {
     public static void CloseActivityalerd(final Context mContex){
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
-            builder1.setMessage("Do you want to close this activity");
+            builder1.setMessage(mContex.getString(R.string.activyt_close));
             builder1.setCancelable(true);
 
             builder1.setPositiveButton(
-                    "Yes",
+                    mContex.getString(R.string.yes),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 
@@ -87,7 +88,7 @@ public class TurnOnGPS {
                         }
                     });
             builder1.setNegativeButton(
-                    "No",
+                    mContex.getString(R.string.no),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 

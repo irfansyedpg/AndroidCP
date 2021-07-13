@@ -35,7 +35,7 @@
             <TextView
                 android:layout_weight="80"
                 style="@style/TopHeader_text"
-                android:text="Community Outreach" />
+                android:text="@string/s_co" />
 
 
         </LinearLayout>
@@ -64,8 +64,8 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="PDMA Official Facebook Page"
+                        android:text="@string/pdma_official_facebook_page"
                         android:textSize="17sp"
 
                         android:layout_marginTop="5dp" />
@@ -97,8 +97,8 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
@@ -114,7 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="PDMA Official Twitter Account"
+                        android:text="@string/pdma_official_twitter_page"
                         android:textSize="17sp"
 
                         android:layout_marginTop="5dp" />
@@ -131,8 +131,8 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
@@ -150,7 +150,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/temp"
-                        android:text="PDMA Official Youtube Channel"
+                        android:text="@string/pdma_official_youtube_page"
                         android:textSize="17sp"
                         android:layout_marginTop="5dp"
 
@@ -170,8 +170,8 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
@@ -187,7 +187,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="PDMA Official linkedin Account"
+                        android:text="@string/pdma_official_linkdin_page"
                         android:textSize="17sp"
 
                         android:layout_marginTop="5dp" />
@@ -205,8 +205,8 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
@@ -222,7 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="PDMA Official Website"
+                        android:text="@string/pdma_official_website_page"
                         android:textSize="17sp"
 
                         android:layout_marginTop="5dp" />

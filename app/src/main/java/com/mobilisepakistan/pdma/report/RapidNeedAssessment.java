@@ -53,7 +53,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent  intent = new Intent(RapidNeedAssessment.this, RecyclerViewA.class);
                 intent.putExtra("mylist",listDistrict);
-                intent.putExtra("header","Select District");
+                intent.putExtra("header",getString(R.string.s_g_h_select_dist));
                 startActivityForResult(intent,11);
 
             }
@@ -72,7 +72,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
                 Intent  intent = new Intent(RapidNeedAssessment.this, RecyclerViewA.class);
                 listTehsil= Tehsil.get(sDistrict);
                 intent.putExtra("mylist",listTehsil);
-                intent.putExtra("header","Select Tehsil");
+                intent.putExtra("header",getString(R.string.s_g_h_select_tesh));
                 startActivityForResult(intent,12);
 
             }
@@ -83,7 +83,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent  intent = new Intent(RapidNeedAssessment.this, RecyclerViewA.class);
                 intent.putExtra("mylist",listDisaster);
-                intent.putExtra("header","Select Type of Disaster");
+                intent.putExtra("header",getString(R.string.s_h_type_disaster));
                 startActivityForResult(intent,13);
 
             }
@@ -269,7 +269,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
         }
         if(binding.rna4Tv.getText().equals(""))
         {
-            Toast.makeText(this,"Please Select Type of Disaster",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getString(R.string.s_h_type_disaster),Toast.LENGTH_SHORT).show();
             return  false;
         }
         if(!binding.rna5a.isChecked() && !binding.rna5b.isChecked() && !binding.rna5c.isChecked() && !binding.rna5d.isChecked() && !binding.rna5e.isChecked() && !binding.rna5f.isChecked() && !binding.rna5g.isChecked() )

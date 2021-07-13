@@ -70,7 +70,7 @@ public class RecyclerViewCC extends AppCompatActivity {
      }
 
 
-        sHeader="COMMUNITY EVACUATION CENTERS";
+        sHeader=getString(R.string.s_ec);
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {

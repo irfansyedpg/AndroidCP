@@ -190,7 +190,7 @@
                         <Button
                             android:id="@+id/btnsubmit"
                             style="@style/SubmiteButt"
-                            android:text="Search" />
+                            android:text="@string/Search" />
 
                     </LinearLayout>
 

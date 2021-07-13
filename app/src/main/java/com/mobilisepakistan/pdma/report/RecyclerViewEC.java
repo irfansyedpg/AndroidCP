@@ -52,7 +52,7 @@ public class RecyclerViewEC extends AppCompatActivity {
         list= emrConacts.getDistricts();
         listconacts=emrConacts.getcontacts();
         listheader=emrConacts.getheaders();
-        sHeader="EMERGENCY CONTACTS";
+        sHeader=getString(R.string.s_erc);
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {

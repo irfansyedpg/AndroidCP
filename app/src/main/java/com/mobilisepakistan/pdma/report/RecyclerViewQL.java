@@ -47,7 +47,7 @@ public class RecyclerViewQL extends AppCompatActivity {
         arrayListheader= QuickLinks.gettext();
         listlinks=QuickLinks.getlinks();
 
-        sHeader="IMPORTANT LINKS";
+        sHeader=getString(R.string.s_ql);
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {

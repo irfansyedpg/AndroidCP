@@ -391,8 +391,8 @@
                             android:hint="@string/dna12e"
 
                             android:id="@+id/dna12e"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
 
                             />
 
@@ -400,8 +400,8 @@
                             style="@style/nView"
 
                             android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
 
 
                             />
@@ -442,8 +442,8 @@
                             android:hint="@string/dna13d"
                             android:id="@+id/dna13d"
 
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
 
                             />
 
@@ -451,8 +451,8 @@
                             style="@style/nView"
 
                             android:layout_marginBottom="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
 
 
                             />
@@ -517,8 +517,8 @@
                         android:id="@+id/dna15"
                         android:inputType="text"
 
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
 
                         />
 
@@ -526,8 +526,8 @@
                         style="@style/nView"
 
                         android:layout_marginBottom="15dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
 
 
                         />
@@ -599,7 +599,7 @@
 
                             android:id="@+id/longitude"
                             android:layout_weight="70"
-                            android:layout_gravity="left" />
+                            android:layout_gravity="start" />
 
 
                     </LinearLayout>

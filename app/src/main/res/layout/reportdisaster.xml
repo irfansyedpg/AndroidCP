@@ -326,7 +326,7 @@
 
                             android:id="@+id/longitude"
                             android:layout_weight="70"
-                            android:layout_gravity="left" />
+                            android:layout_gravity="start" />
 
 
                     </LinearLayout>

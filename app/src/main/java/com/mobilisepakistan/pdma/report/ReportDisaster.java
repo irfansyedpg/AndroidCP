@@ -103,7 +103,7 @@ public class ReportDisaster extends AppCompatActivity  {
             public void onClick(View v) {
                 Intent  intent = new Intent(ReportDisaster.this, RecyclerViewA.class);
                 intent.putExtra("mylist",listDisaster);
-                intent.putExtra("header","Select Type of Disaster");
+                intent.putExtra("header",getString(R.string.s_h_type_disaster));
                 startActivityForResult(intent,13);
 
             }
@@ -362,7 +362,7 @@ public class ReportDisaster extends AppCompatActivity  {
         }
         if(binding.rd4Tv.getText().equals(""))
         {
-            Toast.makeText(this,"Please Select Type of Disaster",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getString(R.string.s_h_type_disaster),Toast.LENGTH_SHORT).show();
             return  false;
         }
         if(binding.rd5Tv.getText().toString().trim().equals("") || binding.rd5Tv.getText().toString().trim().isEmpty())

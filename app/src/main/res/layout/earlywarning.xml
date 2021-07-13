@@ -33,7 +33,7 @@
             <TextView
                 android:layout_weight="80"
                 style="@style/TopHeader_text"
-                android:text="Early Warning" />
+                android:text="@string/s_ew" />
 
 
         </LinearLayout>

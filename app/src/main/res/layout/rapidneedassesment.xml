@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="20"
+                android:layout_weight="30"
 
                 android:focusable="true"
                 android:clickable="true">
@@ -31,9 +31,9 @@
             </LinearLayout>
 
             <TextView
-                android:layout_weight="80"
+                android:layout_weight="70"
                 style="@style/TopHeader_text"
-                android:text="Rapid Need Assessment" />
+                android:text="@string/s_rna" />
 
 
         </LinearLayout>
@@ -229,7 +229,7 @@
 
                         <TextView
                             style="@style/SLable"
-                            android:text="@string/LocationHeader"
+                            android:text="@string/s_g_crnt_loc"
 
                             />
 
@@ -252,7 +252,7 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/latitude"
+                            android:hint="@string/s_g_lon"
                             android:layout_weight="30" />
 
                         <TextView
@@ -272,7 +272,7 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/longitude"
+                            android:hint="@string/s_g_lon"
                             android:layout_weight="30"
 
                             />
@@ -283,7 +283,7 @@
 
                             android:id="@+id/longitude"
                             android:layout_weight="70"
-                            android:layout_gravity="left" />
+                            android:layout_gravity="start" />
 
 
                     </LinearLayout>
@@ -299,7 +299,7 @@
 
                         <TextView
                             style="@style/SLable"
-                            android:text="Undertaking"
+                            android:text="@string/s_g_h_dec"
 
                             />
 
@@ -309,6 +309,7 @@
                     <CheckBox
                         style="@style/Undertaking"
                         android:id="@+id/checkbox"
+                        android:text="@string/s_g_rna"
 
                         />
 
@@ -320,11 +321,11 @@
 
                     <TextView
                         style="@style/SLable"
-                        android:text="Note:" />
+                        android:text="@string/s_g_h_note" />
 
                     <TextView
                         style="@style/note"
-                        android:text="@string/rnanote" />
+                        android:text="@string/s_g_note" />
 
                     <Button
                         android:id="@+id/btnsubmit"
