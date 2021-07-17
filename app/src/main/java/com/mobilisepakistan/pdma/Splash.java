@@ -3,11 +3,17 @@ package com.mobilisepakistan.pdma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mobilisepakistan.pdma.global.MyPref;
+import com.mobilisepakistan.pdma.gps.TurnOnGPS;
+
+import java.util.Locale;
 
 
 public class Splash extends AppCompatActivity {
@@ -15,9 +21,29 @@ public class Splash extends AppCompatActivity {
     TextView appnam;
     View splashImage;
     ImageView LotAview,pdma;
+
+    MyPref preferences;
+    String language;
+    String country;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        preferences = new MyPref(Splash.this);
+
+
+
+        country=preferences.getCountry();
+        language=preferences.getLanguage();
+
+        Locale locale = new Locale(language,country);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+
         setContentView(R.layout.activity_splash);
 
 
@@ -60,8 +86,11 @@ public class Splash extends AppCompatActivity {
             //     mainIntent=new Intent(Splash.this, newgpsuen.class);
 
 
-                Splash.this.startActivity(mainIntent);
-                Splash.this.finish();
+              //  Splash.this.startActivity(mainIntent);
+
+                TurnOnGPS.Languagealert(Splash.this);
+
+              //  Splash.this.finish();
             }
         }, 5300);
 

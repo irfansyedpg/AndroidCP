@@ -24,7 +24,7 @@
     <string name="s_dsr">	رزمرہ صورتحال کی رپورٹ	</string>
     <string name="s_rd">	آفت کے بارے میں رپورٹ کریں	</string>
     <string name="s_ec">	محفوظ پناگاہیں	</string>
-    <string name="s_rna">	آفت کے پوری بعد بنیادی ضروریات کا تعین	</string>
+    <string name="s_rna">	آفت کے فوری بعد بنیادی ضروریات کا تعین	</string>
     <string name="s_dna">	نقصانات کا تعین اور تخمینہ	</string>
     <string name="s_rar">	رسک اسسمنٹ کے نتایج	</string>
     <string name="s_erc">	ايمرجنسی رابطہ نمبر	</string>
@@ -146,5 +146,12 @@
     <string name="pdma_official_linkdin_page">پی ڈی ایم اے آفیشل لنکڈن اکاؤنٹ</string>
     <string name="pdma_official_website_page"> پی ڈی ایم اے آفیشل ویب سائٹ</string>
 
+
+    <!--    About app-->
+
+    <string name="about_App">اس ایپ کے بارے میں</string>
+
+
+    <string name="app_lang_header">براہ کرم ایپ کی زبان منتخب کریں</string>
 
 </resources>

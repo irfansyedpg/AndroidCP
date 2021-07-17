@@ -10,15 +10,21 @@ import java.util.Collection;
 public class Tehsil {
     private static Multimap<String, String> data = HashMultimap.create();
     public static ArrayList<String> get(String district) {
+
         data.put("Peshawar","Peshawar");
-        data.put("Charsadda","Charsadda");
-        data.put("Charsadda","Shabqadar");
-        data.put("Charsadda","Tangay");
+        data.put("Peshawar","Town-1");
+        data.put("Peshawar","Town-2");
+        data.put("Peshawar","Town-3");
+        data.put("Peshawar","Town-4");
+        data.put("Peshawar","Peshawar");
+        data.put("Charsadda ","Charsadda");
+        data.put("Charsadda ","Shabqadar");
+        data.put("Charsadda ","Tangay");
         data.put("Nowshera","Jahangira");
         data.put("Nowshera","Nowshera");
         data.put("Nowshera","Pabbi");
         data.put("Mohmand","Umber Utman Khel");
-        data.put("Mohmand","Kalimzai");
+        data.put("Mohmand","Halim Zai");
         data.put("Mohmand","Pindiali");
         data.put("Mohmand","Pran Ghar");
         data.put("Mohmand","Safi");
@@ -37,12 +43,12 @@ public class Tehsil {
         data.put("Swabi","Razar");
         data.put("Swabi","Swabi");
         data.put("Swabi","Topi");
-        data.put("Buner","Daggar");
-        data.put("Buner","Ghara");
-        data.put("Buner","Khudu Khel");
-        data.put("Buner","Mandanr");
-        data.put("Buner","Chagarzai");
-        data.put("Buner","Gadizee");
+        data.put("Buner ","Daggar");
+        data.put("Buner ","Ghara");
+        data.put("Buner ","Khudu Khel");
+        data.put("Buner ","Mandanr");
+        data.put("Buner ","Chagarzai");
+        data.put("Buner ","Gadizee");
         data.put("Upper Dir","Dir");
         data.put("Upper Dir","Sharingal");
         data.put("Upper Dir","Wari");
@@ -68,8 +74,8 @@ public class Tehsil {
         data.put("Bajaur","Bar Chamer Kand");
         data.put("Bajaur","Barang");
         data.put("Bajaur","Khar");
-        data.put("Bajaur","Loe Mohmand");
-        data.put("Bajaur","Wara Mohmand");
+        data.put("Bajaur","Loe Mamund");
+        data.put("Bajaur","Wara Mamund");
         data.put("Bajaur","Nawagai");
         data.put("Bajaur","Salarzai");
         data.put("Bajaur","Utman khel");
@@ -133,6 +139,10 @@ public class Tehsil {
         data.put("North Waziristan","Shawal");
         data.put("Lakki Marwat","Lakki Marwat");
         data.put("Lakki Marwat","Sarai Naurang");
+        data.put("Bannu","Bannu");
+        data.put("Bannu","Domel");
+        data.put("Bannu","Kaki");
+
 
 
 

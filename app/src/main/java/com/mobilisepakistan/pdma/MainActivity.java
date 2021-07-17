@@ -3,6 +3,8 @@ package com.mobilisepakistan.pdma;
 import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -40,6 +42,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
@@ -91,7 +94,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
+
         preferences = new MyPref(MainActivity.this);
+
 
 
         country=preferences.getCountry();
@@ -285,6 +293,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -404,6 +414,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             this.finish();
         }
 
+        else if (id == R.id.nav_about) {
+
+
+            intent = new Intent(this, AboutApp.class);
+            startActivity(intent);
+
+        }
 
         // change langue
 

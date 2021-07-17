@@ -112,6 +112,11 @@
 
     <item android:title="@string/s_h_set">
         <menu>
+
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/information"
+                android:title="@string/about_App" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/logout"

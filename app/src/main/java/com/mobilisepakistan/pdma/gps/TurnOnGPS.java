@@ -9,7 +9,9 @@ import android.provider.Settings;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.signup.LogIn;
 
 public class TurnOnGPS {
@@ -130,6 +132,60 @@ public class TurnOnGPS {
                 "No",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show(   );
+
+
+
+    }
+
+    public static void Languagealert(final Context mContex){
+
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
+        builder1.setTitle(mContex.getString(R.string.s_h_lang));
+        builder1.setMessage(mContex.getString(R.string.app_lang_header));
+        builder1.setCancelable(true);
+        final  MyPref preferences;
+
+        preferences = new MyPref(mContex);
+        builder1.setPositiveButton(
+                mContex.getString(R.string.s_english),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+
+
+                        preferences.setlanguage("en");
+                        preferences.setcountry("US");
+
+
+                        Intent intt=new Intent(mContex,MainActivity.class);
+                        ((Activity) mContex).startActivity(intt);
+
+                        ((Activity) mContex).finish();
+
+                        dialog.cancel();
+                    }
+                });
+        builder1.setNegativeButton(
+                mContex.getString(R.string.s_urdu),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        preferences.setlanguage("ur");
+                        preferences.setcountry("PK");
+
+
+                        Intent intt=new Intent(mContex,MainActivity.class);
+                        ((Activity) mContex).startActivity(intt);
+
+                        ((Activity) mContex).finish();
 
                         dialog.cancel();
                     }

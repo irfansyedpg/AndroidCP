@@ -36,7 +36,7 @@ public class DemagesLosses extends AppCompatActivity  {
         binding = DataBindingUtil.setContentView(this, R.layout.demagelose);
         listDisaster=new ArrayList<>();
         listDistrict=new ArrayList<>();
-        listDistrict= District.getDistrictsPDMA();
+        listDistrict= District.getDistricts();
         listDisaster= TypeDisaster.getDisaster();
 
 
