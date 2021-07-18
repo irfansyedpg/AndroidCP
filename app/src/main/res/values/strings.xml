@@ -209,4 +209,33 @@ PDMA, Khyber Pakhtunkhwa Madadgar App is an integrated system to enhance collabo
     <string name="app_lang_header">Please Select Application Language</string>
 
 
+
+
+<!--    Signup-->
+
+
+    <string name="lg_email">	Email	</string>
+    <string name="lg_pass">	Password 	</string>
+    <string name="lg_login">	Login	</string>
+    <string name="lg_sign">	Signup	</string>
+    <string name="lg_crp">	© Mobilise-CDPM, Pakistan	</string>
+    <string name="su_ca">	Create Account	</string>
+    <string name="su_name">	Name	</string>
+    <string name="su_cnic">	CNIC #	</string>
+    <string name="su_cnic_ins">	Enter your CNIC with our Dashes	</string>
+    <string name="su_mob">	Mobile Number 	</string>
+    <string name="su_email">	Email 	</string>
+    <string name="su_emal_in">	this will be your Username	</string>
+    <string name="su_pass">	Password 	</string>
+    <string name="su_cm_pass">Confirm Password 	</string>
+    <string name="su_pas_ins">	this will be your password 	</string>
+    <string name="su_regi">	regsiter as	</string>
+    <string name="su_citz">	citizen 	</string>
+    <string name="su_vol">	Volunteer	</string>
+    <string name="su_pdm">	PDMA Staff	</string>
+    <string name="su_su">	Signup	</string>
+
+
+
+
 </resources>

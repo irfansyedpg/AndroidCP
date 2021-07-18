@@ -51,6 +51,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.mobilisepakistan.pdma.signup.SignUp;
 import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -303,6 +304,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.st_login:
+
+                intent = new Intent(this, LogIn.class);
+                startActivity(intent);
+                this.finish();
+
+                return true;
+            case R.id.st_sigup:
+
+                intent = new Intent(this, SignUp.class);
+                startActivity(intent);
+                this.finish();
+
+                return true;
+
+            case R.id.st_logout:
+
+                MyPref prefs = new MyPref(this);
+
+            prefs.setUserId(0);
+            intent = new Intent(this, LogIn.class);
+            startActivity(intent);
+            this.finish();
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
@@ -397,22 +432,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            intent = new Intent(this, DemagesLosses.class);
 //            startActivity(intent);
 //        }
-        else if (id == R.id.nav_logout) {
-
-            MyPref prefs = new MyPref(this);
-
-            prefs.setUserId(0);
-            intent = new Intent(this, LogIn.class);
-            startActivity(intent);
-            this.finish();
-        }
-        else if (id == R.id.nav_login) {
-
-
-            intent = new Intent(this, LogIn.class);
-            startActivity(intent);
-            this.finish();
-        }
+//        else if (id == R.id.nav_logout) {
+//
+//            MyPref prefs = new MyPref(this);
+//
+//            prefs.setUserId(0);
+//            intent = new Intent(this, LogIn.class);
+//            startActivity(intent);
+//            this.finish();
+//        }
+//        else if (id == R.id.nav_login) {
+//
+//
+//            intent = new Intent(this, LogIn.class);
+//            startActivity(intent);
+//            this.finish();
+//        }
 
         else if (id == R.id.nav_about) {
 

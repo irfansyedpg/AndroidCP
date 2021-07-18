@@ -1,8 +1,10 @@
 <resources>
 
 
+    <string name="action_settings">ترتیبات</string>
 
-<!--    report Disaster-->
+
+    <!--    report Disaster-->
 
 
     <string name="rd1">	ضلع منتخب کریں	</string>
@@ -153,5 +155,32 @@
 
 
     <string name="app_lang_header">براہ کرم ایپ کی زبان منتخب کریں</string>
+
+    
+<!--    Sigup-->
+
+
+    <string name="lg_email">	ای میل	</string>
+    <string name="lg_pass">	پاس ورڈ	</string>
+    <string name="lg_login">	لاگ ان کریں	</string>
+    <string name="lg_sign">	سائن اپ	</string>
+    <string name="lg_crp">	جملہ حقوق بحق ڈویلپرز محفوظ ہیں	</string>
+    <string name="su_ca">	اکاؤنٹ بنائیں	</string>
+    <string name="su_name">	نام	</string>
+    <string name="su_cnic">	شناختی کارڈ نمبر	</string>
+    <string name="su_cnic_ins">	شناختی کارڈ نمبر (ڈیش کے بغیر) درج کریں	</string>
+    <string name="su_mob">	موبائل نمبر	</string>
+    <string name="su_email">	ای میل	</string>
+    <string name="su_emal_in">	یہ آپ کا صارف(یوزر) نام ہوگا	</string>
+    <string name="su_pass">	پاس ورڈ	</string>
+    <string name="su_cm_pass">پاس ورڈ کی تصدیق کریں 	</string>
+    <string name="su_pas_ins">	یہ آپ کا پاس ورڈ ہوگا	</string>
+    <string name="su_regi">	مندرجہ ذیل سے انتخاب کرکے رجسٹر کریں	</string>
+    <string name="su_citz">	عام شہری	</string>
+    <string name="su_vol">	رضا کار	</string>
+    <string name="su_pdm">	پی ڈی ایم اے سٹاف	</string>
+    <string name="su_su">	سائن اپ	</string>
+
+
 
 </resources>

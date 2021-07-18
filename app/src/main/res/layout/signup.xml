@@ -30,6 +30,17 @@
                     style="@style/TopBack_img" />
             </LinearLayout>
 
+            <TextView
+                style="@style/TopHeader_text"
+
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/su_ca"
+                android:textSize="24dp"
+                android:textStyle="bold"
+
+                />
+
 
         </LinearLayout>
 
@@ -45,16 +56,6 @@
             android:layout_marginTop="2dp"
             android:orientation="horizontal"
             android:weightSum="100">
-
-            <TextView
-                style="@style/TopHeader_text"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="Create Account"
-                android:textSize="24dp"
-                android:textStyle="bold"
-
-                />
 
 
         </LinearLayout>
@@ -167,7 +168,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="Name" />
+                            android:text="@string/su_name" />
 
                         <TextView style="@style/StaricTextview" />
                     </LinearLayout>
@@ -179,7 +180,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Enter Name"
+                            android:hint="@string/su_name"
                             android:inputType="textPersonName"
                             android:id="@+id/name" />
 
@@ -196,7 +197,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="CNIC" />
+                            android:text="@string/su_cnic" />
 
                         <TextView style="@style/StaricTextview" />
                     </LinearLayout>
@@ -208,7 +209,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Enter Your CNIC with out Dashes"
+                            android:hint="@string/su_cnic_ins"
                             android:inputType="number"
                             android:id="@+id/cnic" />
 
@@ -225,7 +226,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="Mobile Number" />
+                            android:text="@string/su_mob" />
 
                         <TextView
                             style="@style/StaricTextview"
@@ -241,7 +242,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Enter Mobile Number"
+                            android:hint="@string/su_mob"
 
                             android:inputType="number"
                             android:id="@+id/mobileno" />
@@ -258,7 +259,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="Email " />
+                            android:text="@string/su_email" />
 
                         <TextView
                             style="@style/StaricTextview"
@@ -274,7 +275,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Enter Email id"
+                            android:hint="@string/su_email"
 
                             android:inputType="textWebEmailAddress"
                             android:id="@+id/email" />
@@ -283,7 +284,7 @@
                     <TextView
                         style="@style/StaricTextview"
                         android:layout_marginTop="5dp"
-                        android:text="this will be your user name"
+                        android:text="@string/su_emal_in"
                         android:textSize="13dp"
                         android:textStyle="italic" />
 
@@ -297,7 +298,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="Password" />
+                            android:text="@string/su_pass" />
 
                         <TextView
                             style="@style/StaricTextview"
@@ -313,7 +314,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Enter Password"
+                            android:hint="@string/su_pass"
 
                             android:inputType="textPassword"
                             android:id="@+id/pass1" />
@@ -327,7 +328,7 @@
 
                         <EditText
                             style="@style/SResponce"
-                            android:hint="Confirm Password"
+                            android:hint="@string/su_cm_pass"
 
                             android:inputType="textPassword"
                             android:id="@+id/pass2" />
@@ -337,7 +338,7 @@
                     <TextView
                         style="@style/StaricTextview"
                         android:layout_marginTop="5dp"
-                        android:text="this will be your Password"
+                        android:text="@string/su_pas_ins"
                         android:textSize="13dp"
                         android:textStyle="italic" />
 
@@ -352,7 +353,7 @@
 
                         <TextView
                             style="@style/SLablelogin"
-                            android:text="Register AS"
+                            android:text="@string/su_regi"
 
                             />
 
@@ -363,17 +364,17 @@
                             <RadioButton
                                 android:id="@+id/rd1"
                                 style="@style/SResponce"
-                                android:text="Citizen" />
+                                android:text="@string/su_citz" />
 
                             <RadioButton
                                 android:id="@+id/rd2"
                                 style="@style/SResponce"
-                                android:text="Volunteer" />
+                                android:text="@string/su_vol" />
 
                             <RadioButton
                                 android:id="@+id/rd3"
                                 style="@style/SResponce"
-                                android:text="PDMA Staff" />
+                                android:text="@string/su_pdm" />
 
                         </RadioGroup>
 
@@ -385,7 +386,7 @@
 
                     <Button
                         style="@style/SubmiteButt"
-                        android:text="Sign-Up"
+                        android:text="@string/su_su"
                         android:id="@+id/signup_btn"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"

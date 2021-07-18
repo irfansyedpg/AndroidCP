@@ -50,11 +50,12 @@
             <EditText
                 android:id="@+id/login_username"
                 style="@style/SResponce"
-                android:hint="Email"
+                android:hint="@string/lg_email"
                 android:inputType="text|textEmailAddress"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/white"
+                android:textAlignment="center"
                 android:textSize="17sp"
                 android:layout_marginTop="25dp"
 
@@ -64,9 +65,10 @@
             <EditText
                 android:id="@+id/login_password"
                 style="@style/SResponce"
-                android:hint="Password"
+                android:hint="@string/lg_pass"
                 android:inputType="textPassword"
                 android:layout_marginTop="5dp"
+                android:textAlignment="center"
 
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
@@ -79,7 +81,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Login"
+                android:text="@string/lg_login"
                 android:textSize="16sp"
                 android:background="@drawable/cricl_lb"
                 android:textColor="@color/white"
@@ -90,7 +92,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="SignUP"
+                android:text="@string/lg_sign"
                 android:textSize="16sp"
                 android:background="@drawable/cricl_lb"
                 android:textColor="@color/white"
@@ -125,7 +127,7 @@
 
 
                 android:layout_width="wrap_content"
-                android:text="All Right Reserved Mobilise Project Pakistan"
+                android:text="@string/lg_crp"
 
                 android:textColor="@color/white"
                 android:textSize="14sp"
