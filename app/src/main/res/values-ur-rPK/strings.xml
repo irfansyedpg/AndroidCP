@@ -134,6 +134,10 @@
     <!--    Weather Forcast -->
 
 
+
+    <string name="wadvpdma"> ابتدائی انتباہ پی ڈی ایم اے </string>
+    <string name="wadvpmd"> ابتدائی انتباہ پی ایم ڈی	</string>
+
     <string name="wfheader"> موسم کا حال 	</string>
 
     <string name="wfdate"> تاریخ منتخب کریں	</string>

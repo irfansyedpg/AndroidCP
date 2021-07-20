@@ -19,6 +19,7 @@ import com.androdocs.httprequest.HttpRequest;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.mobilisepakistan.WeatherAdvisOption;
 import com.mobilisepakistan.pdma.global.MyPref;
 
 import com.mobilisepakistan.pdma.global.MyReceiver;
@@ -164,7 +165,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                intent = new Intent(MainActivity.this, EarlyWarning.class);
+//                intent = new Intent(MainActivity.this, EarlyWarning.class);
+            intent = new Intent(MainActivity.this, WeatherAdvisOption.class);
                 startActivity(intent);
 
 
@@ -365,7 +367,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
         else if (id == R.id.nav_ew) {
-            intent = new Intent(this, EarlyWarning.class);
+          //  intent = new Intent(this, EarlyWarning.class);
+            intent = new Intent(this, WeatherAdvisOption.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_ds) {

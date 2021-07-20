@@ -68,6 +68,18 @@
             android:name="com.mobilisepakistan.pdma.AboutApp"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.WeatherAdvisOption"
+            android:label="Report A Disaster"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.PMDwebView"
+            android:label="Report A Disaster"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
             android:name="com.mobilisepakistan.pdma.report.RecyclerViewA"

@@ -154,6 +154,10 @@
 <!--    Weather Forcast -->
 
 
+    <string name="wadvpdma">Early Warning from PDMA	</string>
+    <string name="wadvpmd"> Early Warning from PMD	</string>
+
+
     <string name="wfheader"> Weather Forecast	</string>
     <string name="wfdate"> Select Date	</string>
     <string name="Search">Search</string>
