@@ -35,6 +35,7 @@
             <TextView
                 android:layout_weight="80"
                 style="@style/TopHeader_text"
+                android:id="@+id/headertxt"
                 android:text="@string/wadvpmd" />
 
 

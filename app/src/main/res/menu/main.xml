@@ -1,20 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/st_logout"
-        android:orderInCategory="100"
-        android:title="@string/s_logout"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/st_login"
-        android:orderInCategory="100"
-        android:title="@string/lg_login"
-        app:showAsAction="never" />
+
+
+
+
+
+    <item android:title="@string/s_h_lang">
+        <menu>
+            <item
+                android:id="@+id/nav_urdu"
+
+                android:title="@string/s_urdu" />
+            <item
+                android:id="@+id/nav_english"
+
+                android:title="@string/s_english" />
+
+
+        </menu>
+    </item>
+
+
+
+            <item
+                android:id="@+id/st_sigup"
+                android:icon="@drawable/logout"
+                android:title="@string/lg_sign" />
+            <item
+                android:id="@+id/st_login"
+                android:icon="@drawable/enter"
+                android:title="@string/s_login" />
+
+
 
     <item
-        android:id="@+id/st_sigup"
-        android:orderInCategory="100"
-        android:title="@string/lg_sign"
-        app:showAsAction="never" />
+        android:id="@+id/st_logout"
+        android:icon="@drawable/information"
+        android:title="@string/s_logout" />
+
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@drawable/information"
+        android:title="@string/about_App" />
+
+
+
 </menu>

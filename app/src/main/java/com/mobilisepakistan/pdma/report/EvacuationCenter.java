@@ -30,10 +30,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewCC extends AppCompatActivity {
+public class EvacuationCenter extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    RecyclerViewCustomAdapterCC mAdapter;
+    EvacuationCenterCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
     ArrayList<String> district;
@@ -76,7 +76,7 @@ public class RecyclerViewCC extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RecyclerViewCC.this).finish();
+                ((Activity) EvacuationCenter.this).finish();
             }
         });
 
@@ -88,7 +88,7 @@ public class RecyclerViewCC extends AppCompatActivity {
         binding.recycleview.setLayoutManager(mLayoutManager);
 
 
-        mAdapter = new RecyclerViewCustomAdapterCC(this, district,tehsil,location,centername,gps,arrayListall);
+        mAdapter = new EvacuationCenterCustomAdapter(this, district,tehsil,location,centername,gps,arrayListall);
         binding.recycleview.setAdapter(mAdapter);
 
 
@@ -142,7 +142,7 @@ public class RecyclerViewCC extends AppCompatActivity {
 
 }
 
-class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
+class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> mDistrict;
@@ -152,7 +152,7 @@ class  RecyclerViewCustomAdapterCC extends RecyclerView.Adapter {
     List<String> mName;
     List<String> mGPS;
 
-    public RecyclerViewCustomAdapterCC(Context context, List<String> lstDistrict,List<String> lstTehsil,List<String> listlocation , List<String> listName, List<String> listGPS,List<String> alllist  ){
+    public EvacuationCenterCustomAdapter(Context context, List<String> lstDistrict,List<String> lstTehsil,List<String> listlocation , List<String> listName, List<String> listGPS,List<String> alllist  ){
         mContext = context;
 
       mDistrict=lstDistrict;

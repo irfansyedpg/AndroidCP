@@ -27,7 +27,7 @@ public class SignUpServer
     public static  boolean SignUpServer(Context contx, JSONObject Jobj){
 
 
-        String postUrl = "http://175.107.63.137/PEOCMIS/api/values/Signup";
+        String postUrl = "http://175.107.63.39/newm/api/values/Signup";
         final Context mContext=contx;
         SignUpServer.status=false;
         SignUpServer.ServerUserID="0";

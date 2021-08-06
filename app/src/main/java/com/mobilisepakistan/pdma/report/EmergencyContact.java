@@ -2,6 +2,7 @@ package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,9 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,21 +27,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
-import com.mobilisepakistan.pdma.global.QuickLinks;
 import com.mobilisepakistan.pdma.global.emrConacts;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewQL extends AppCompatActivity {
+public class EmergencyContact extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    RecyclerViewCustomAdapterQL mAdapter;
+    EmergencyContactCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-    
-    ArrayList<String> listlinks;
-    ArrayList<String> arrayListheader;
+    ArrayList<String> list;
+    ArrayList<String> listheader;
+    ArrayList<String> listconacts;
+    ArrayList<String> arrayListall;
     String sHeader;
 
     @Override
@@ -44,29 +49,42 @@ public class RecyclerViewQL extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
         //list=(ArrayList<String>) getIntent().getSerializableExtra("mylist");
-        arrayListheader= QuickLinks.gettext();
-        listlinks=QuickLinks.getlinks();
 
-        sHeader=getString(R.string.s_ql);
+
+
+
+
+        list= emrConacts.getDistricts();
+        listconacts=emrConacts.getcontacts();
+        listheader=emrConacts.getheaders();
+        sHeader=getString(R.string.s_erc);
         binding.header.setText(sHeader);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RecyclerViewQL.this).finish();
+                ((Activity) EmergencyContact.this).finish();
             }
         });
+        arrayListall=new ArrayList<String>();
 
 
+        for(int position=0;position<list.size();position++)
+        {
+            arrayListall.add(listheader.get(position) + "\n"+ "\n"
+                    +list.get(position) + "\n"+ "\n"
+                    + listconacts.get(position) );
 
+            //  arrayListall.add(district.get(position) );
 
+        }
      //   Collections.sort(list);
 
 
         mLayoutManager = new LinearLayoutManager(this);
         binding.recycleview.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecyclerViewCustomAdapterQL(this, listlinks,arrayListheader);
+        mAdapter = new EmergencyContactCustomAdapter(this, list,listconacts,listheader,arrayListall);
         binding.recycleview.setAdapter(mAdapter);
 
 
@@ -98,7 +116,7 @@ public class RecyclerViewQL extends AppCompatActivity {
         ArrayList<String> filterdNames = new ArrayList<>();
 
         //looping through existing elements
-        for (String s : arrayListheader) {
+        for (String s : arrayListall) {
             //if the existing elements contains the search input
             if (s.toLowerCase().contains(text.toLowerCase())) {
                 //adding the element to filtered list
@@ -115,29 +133,31 @@ public class RecyclerViewQL extends AppCompatActivity {
 
 }
 
-class  RecyclerViewCustomAdapterQL extends RecyclerView.Adapter {
+class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
-    List<String> mListlink;
-
-    List<String> arylistheade;
-    public RecyclerViewCustomAdapterQL(Context context, List<String> listlinks,List<String> listheader ){
+    List<String> mList;
+    List<String> cList;
+    List<String> hList;
+    List<String> arylistall;
+    public EmergencyContactCustomAdapter(Context context, List<String> list,List<String> contactlist,List<String> headerlist,List<String> alllist ){
         mContext = context;
-        mListlink = listlinks;
-
-        arylistheade=listheader;
+        mList = list;
+        cList = contactlist;
+        hList = headerlist;
+        arylistall=alllist;
     }
 
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-//        this.arylistheade = filterdNames;
-//        notifyDataSetChanged();
+        this.arylistall = filterdNames;
+        notifyDataSetChanged();
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycleviewdesignql, parent, false);
+                .inflate(R.layout.recycleviewdesignec, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -150,34 +170,28 @@ class  RecyclerViewCustomAdapterQL extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
-        vh.txtheader.setText(arylistheade.get(position));
-       vh.txtrcv.setText(mListlink.get(position));
-
+//        vh.txtrcv.setText(mList.get(position));
+//        vh.txtconcat.setText(cList.get(position));
 //        vh.txtheader.setText(hList.get(position));
 
-//
-//        try {
-//            vh.txtrcv.setText(arylistheade.get(position));
-//        }
-//        catch (IndexOutOfBoundsException e)
-//        {
-//            String a="hiii";
-//        }
+
+        try {
+            vh.txtrcv.setText(arylistall.get(position));
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            String a="hiii";
+        }
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txtrcv = vh.txtrcv.getText().toString();
 
 
-
-
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(txtrcv));
-                mContext.startActivity(browserIntent);
-
-//                Intent intent = new Intent(Intent.ACTION_DIAL);
-//                intent.setData(Uri.parse("tel:"+txtrcv));
-//            //    callIntent.setData(Uri.parse(txtrcv));
-//                mContext.startActivity(intent);
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+txtrcv));
+            //    callIntent.setData(Uri.parse(txtrcv));
+                mContext.startActivity(intent);
 
 
 
@@ -189,20 +203,17 @@ class  RecyclerViewCustomAdapterQL extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return mListlink.size();
+        return mList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txtrcv;
-        public TextView txtheader;
 
         public ImageButton lv;
 
         public ViewHolder(View v) {
             super(v);
-            txtrcv = (TextView) v.findViewById(R.id.txtlink);
-
-            txtheader = (TextView) v.findViewById(R.id.txtrcv);
+            txtrcv = (TextView) v.findViewById(R.id.txtrcv);
 
             lv = (ImageButton) v.findViewById(R.id.img);
         }

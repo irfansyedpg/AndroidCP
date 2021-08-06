@@ -30,10 +30,11 @@ import com.mobilisepakistan.pdma.report.DailySituationReport;
 import com.mobilisepakistan.pdma.report.DemageNeedAssesment;
 import com.mobilisepakistan.pdma.report.DemagesLosses;
 import com.mobilisepakistan.pdma.report.EarlyWarning;
+import com.mobilisepakistan.pdma.report.EmergencyContact;
+import com.mobilisepakistan.pdma.report.EvacuationCenter;
+import com.mobilisepakistan.pdma.report.QuickLink;
 import com.mobilisepakistan.pdma.report.RapidNeedAssessment;
-import com.mobilisepakistan.pdma.report.RecyclerViewCC;
-import com.mobilisepakistan.pdma.report.RecyclerViewEC;
-import com.mobilisepakistan.pdma.report.RecyclerViewQL;
+
 import com.mobilisepakistan.pdma.report.ReportDisaster;
 
 import com.mobilisepakistan.pdma.report.WeatherForecast;
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                intent = new Intent(MainActivity.this, RecyclerViewEC.class);
+                intent = new Intent(MainActivity.this, EmergencyContact.class);
                 startActivity(intent);
 
 
@@ -202,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                intent = new Intent(MainActivity.this, RecyclerViewCC.class);
+                intent = new Intent(MainActivity.this, EvacuationCenter.class);
                 startActivity(intent);
 
 
@@ -309,6 +310,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+
+
+            case R.id.nav_about:
+
+                intent = new Intent(this, AboutApp.class);
+                startActivity(intent);
+                this.finish();
+
+                return true;
+
+
+            case R.id.nav_english:
+
+                preferences.setlanguage("en");
+                preferences.setcountry("US");
+
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+
+
+
+                this.startActivity(intent);
+                if (this instanceof Activity) {
+                    ((Activity) this).finish();
+                }
+                return true;
+
+            case R.id.nav_urdu:
+
+                preferences.setlanguage("ur");
+                preferences.setcountry("PK");
+
+                 intent = new Intent(this, MainActivity.class);
+                intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+
+
+
+                this.startActivity(intent);
+                if (this instanceof Activity) {
+                    ((Activity) this).finish();
+                }
+
+
+                return true;
+
+
             case R.id.st_login:
 
                 intent = new Intent(this, LogIn.class);
@@ -376,7 +423,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         }
         else if (id == R.id.emgncyContact) {
-            intent = new Intent(this, RecyclerViewEC.class);
+            intent = new Intent(this, EmergencyContact.class);
             startActivity(intent);
         }     else if (id == R.id.nav_co) {
             intent = new Intent(this, CommunityOutreach.class);
@@ -384,12 +431,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if (id == R.id.evactioncenter) {
-            intent = new Intent(this, RecyclerViewCC.class);
+            intent = new Intent(this, EvacuationCenter.class);
             startActivity(intent);
         }
 
         else if (id == R.id.nav_quick_links) {
-            intent = new Intent(this, RecyclerViewQL.class);
+            intent = new Intent(this, QuickLink.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_wf) {
@@ -452,47 +499,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            this.finish();
 //        }
 
-        else if (id == R.id.nav_about) {
-
-
-            intent = new Intent(this, AboutApp.class);
-            startActivity(intent);
-
-        }
+//        else if (id == R.id.nav_about) {
+//
+//
+//            intent = new Intent(this, AboutApp.class);
+//            startActivity(intent);
+//
+//        }
 
         // change langue
-
-        else if (id == R.id.nav_urdu) {
-
-
-            preferences.setlanguage("ur");
-            preferences.setcountry("PK");
-
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
-
-
-
-            this.startActivity(intent);
-            if (this instanceof Activity) {
-                ((Activity) this).finish();
-            }
-        }
-        else if (id == R.id.nav_english) {
-
-            preferences.setlanguage("en");
-            preferences.setcountry("US");
-
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
-
-
-
-            this.startActivity(intent);
-            if (this instanceof Activity) {
-                ((Activity) this).finish();
-            }
-        }
+//
+//        else if (id == R.id.nav_urdu) {
+//
+//
+//            preferences.setlanguage("ur");
+//            preferences.setcountry("PK");
+//
+//            Intent intent = new Intent(this, MainActivity.class);
+//            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+//
+//
+//
+//            this.startActivity(intent);
+//            if (this instanceof Activity) {
+//                ((Activity) this).finish();
+//            }
+//        }
+//        else if (id == R.id.nav_english) {
+//
+//            preferences.setlanguage("en");
+//            preferences.setcountry("US");
+//
+//            Intent intent = new Intent(this, MainActivity.class);
+//            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+//
+//
+//
+//            this.startActivity(intent);
+//            if (this instanceof Activity) {
+//                ((Activity) this).finish();
+//            }
+//        }
 
 
 

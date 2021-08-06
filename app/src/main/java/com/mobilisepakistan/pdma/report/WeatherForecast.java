@@ -69,7 +69,7 @@ public class WeatherForecast extends AppCompatActivity  {
         });
 
 
-        new GetDataServerWF(WeatherForecast.this, "http://175.107.63.137/PEOCMIS/api/values/DWRGet",binding.recycleviewR).execute();
+        new GetDataServerWF(WeatherForecast.this, "http://175.107.63.39/newm/api/values/DWRGet",binding.recycleviewR).execute();
         binding.btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +87,7 @@ public class WeatherForecast extends AppCompatActivity  {
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 binding.btnDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                                // String url="http://175.107.63.137/PEOCMIS/api/values/DWRGetbyDate?date="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
-                                String url="http://175.107.63.137/PEOCMIS/api/values/DWRGetbyDate?date="+year+"-"+(monthOfYear + 1)+"-"+dayOfMonth;
+                                String url="http://175.107.63.39/newm/api/values/DWRGetbyDate?date="+year+"-"+(monthOfYear + 1)+"-"+dayOfMonth;
 
 
                                 new GetDataServerWF(WeatherForecast.this, url,binding.recycleviewR).execute();

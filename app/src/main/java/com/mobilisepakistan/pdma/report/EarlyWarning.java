@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobilisepakistan.pdma.R;
-import com.mobilisepakistan.pdma.databinding.DailysituationBinding;
 import com.mobilisepakistan.pdma.databinding.EarlywarningBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
@@ -67,7 +66,11 @@ public class EarlyWarning extends AppCompatActivity  {
         });
 
 
-        new GetDataServerB(EarlyWarning.this, "http://175.107.63.137/PEOCMIS/api/values/GetAdvisories",binding.recycleviewR).execute();
+
+
+
+
+        new GetDataServerB(EarlyWarning.this, "http://175.107.63.39/newm/api/values/GetAdvisories",binding.recycleviewR).execute();
 
     }
 

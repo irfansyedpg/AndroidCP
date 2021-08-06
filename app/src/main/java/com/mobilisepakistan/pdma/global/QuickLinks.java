@@ -40,7 +40,7 @@ public class QuickLinks {
     public static ArrayList<String> getlinks() {
         ArrayList<String> listHeadrs=new  ArrayList<String>();
 
-        listHeadrs  .add("www.ndma.gov.pk");
+        listHeadrs  .add("https://www.ndma.gov.pk");
         listHeadrs  .add("https://pdma.gov.pk/Downloads");
         listHeadrs  .add("https://cewpdma.gkp.pk/");
         listHeadrs  .add("https://pdma.gov.pk/CONTACT");

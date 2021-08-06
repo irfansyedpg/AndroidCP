@@ -135,8 +135,14 @@
 
 
 
-    <string name="wadvpdma"> ابتدائی انتباہ پی ڈی ایم اے </string>
-    <string name="wadvpmd"> ابتدائی انتباہ پی ایم ڈی	</string>
+
+
+
+
+    <string name="wadvpdma"> ابتدائی انتباہ ڈی ایم اے   </string>
+    <string name="wadvpmd">   پی ایم ڈی موسم کا حال</string>
+
+
 
     <string name="wfheader"> موسم کا حال 	</string>
 
@@ -155,7 +161,7 @@
 
     <!--    About app-->
 
-    <string name="about_App">اس ایپ کے بارے میں</string>
+
 
 
     <string name="app_lang_header">براہ کرم ایپ کی زبان منتخب کریں</string>
@@ -184,6 +190,54 @@
     <string name="su_vol">	رضا کار	</string>
     <string name="su_pdm">	پی ڈی ایم اے سٹاف	</string>
     <string name="su_su">	سائن اپ	</string>
+
+
+
+
+    <!--    About app-->
+
+    <string name="about_App">ایپ کے بارے میں</string>
+    <string name="about_App_text_h"> پی ڈی ایم اے مدد گار  ایپ</string>
+    <string name="about_App_text">
+      خیبر پختونخوا میں عوام کیلئے آفات کے ممکنہ خطرات میں کمی لانے کا اشتراکی نظام
+
+
+پی ڈی ایم اے ، مد د گار ایپ  خیبر پختونخواہ میں ڈیزاسٹر مینجمنٹ اتھاریٹیز اور عوام کے مابین باہمی تعاون بڑھانے کا ایک مربوط نظام ہےـ
+  ایپ کے  ذریعے مقامی آبادی آفات کے بارے میں  ارلی وارننگ/ پیشگی اطلاع، رزمرہ صورتحال کی رپورٹ اور  آفات کی صورت میں محفوظ پناگاہیں  تلاش کرنے جیسے معلومات تک رسائی حاصِل کرسکتے ہیں ـ  
+
+ -اسکے علاوہ ایپ کے ذریعے عوام مقامی سطح پر  انےوالے آفت کے بارے میں پی ڈی ایم کو رپورٹ کر سکتے ھیں.
+ضلعی  انتظامیہ اور عوام  آفت کے پوری بعد بنیادی ضروریات کا تعین اور نقصانات کا تعین اور تخمینہ پی ڈی ایم اے کو ایپ کے ذریعے بتاسکتی ہیں.
+
+  اس ایپ کو سنٹر فار ڈیزاسٹر پریڈرینیس اینڈ مینجمنٹ ، جامعہ پشاور کے موبلائز پروجیکٹ کے محققین اور صوبائی ڈیزاسٹر منیجمنٹ اتھارٹی ، خیبر پختونخوا کی تکنیکی ٹیم نے مشترکہ طور پر  تیار کیا ہے
+    </string>
+
+
+    <string name="contact_us"> ہم سے رابطہ کریں</string>
+
+
+
+    <string name="contact_us_uop"><u>پشاور یونیورسٹی کے رابطے</u></string>
+
+
+
+
+    <string name="contact_us_smj"> ڈاکٹر مشتاق احمد جان ، اسسٹنٹ پروفیسر ، سی ڈی پی ایم یونیورسٹی پشاور۔,  mushtaq@uop.edu.pk</string>
+
+
+
+    <string name="contact_us_irf"> عرفان سید ، سینئر سافٹ ویئر انجینئر ، موبلائز پروجیکٹ ، سی ڈی پی ایم ، پشاور یونیورسٹی۔, irfansyed.pg@gmail.com</string>
+
+
+    <string name="contact_us_pdma"><u>پی ڈی ایم اے ، خیبر پختونخوا رابطہ</u></string>
+
+
+
+
+
+
+    <string name="contact_us_peoc"> انچارج پی ای او سی پی ڈی ایم اے۔ (incharge.peoc@pdma.gov.pk)</string>
+    <string name="contact_us_tausf"> اسسٹنٹ ڈائریکٹر آئی ٹی اور ایم آئی ایس ، پی ڈی ایم اے۔ (tauseef@pdma.gov.pk) </string>
+    <string name="contact_us_mc">میڈیا کوآرڈینیٹر۔ (mc.parrsa@pdma.gov.pk)</string>
 
 
 

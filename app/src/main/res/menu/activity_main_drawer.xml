@@ -94,39 +94,39 @@
     <!--    </item>-->
 
 
-    <item android:title="@string/s_h_lang">
-        <menu>
-            <item
-                android:id="@+id/nav_urdu"
-                android:icon="@drawable/urdu"
-                android:title="@string/s_urdu" />
-            <item
-                android:id="@+id/nav_english"
-                android:icon="@drawable/english"
-                android:title="@string/s_english" />
-
-
-        </menu>
-    </item>
-
-
-    <item android:title="@string/s_h_set">
-        <menu>
-
-            <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/information"
-                android:title="@string/about_App" />
+<!--    <item android:title="@string/s_h_lang">-->
+<!--        <menu>-->
 <!--            <item-->
-<!--                android:id="@+id/nav_logout"-->
-<!--                android:icon="@drawable/logout"-->
-<!--                android:title="@string/s_logout" />-->
+<!--                android:id="@+id/nav_urdu"-->
+<!--                android:icon="@drawable/urdu"-->
+<!--                android:title="@string/s_urdu" />-->
 <!--            <item-->
-<!--                android:id="@+id/nav_login"-->
-<!--                android:icon="@drawable/enter"-->
-<!--                android:title="@string/s_login" />-->
+<!--                android:id="@+id/nav_english"-->
+<!--                android:icon="@drawable/english"-->
+<!--                android:title="@string/s_english" />-->
 
 
-        </menu>
-    </item>
+<!--        </menu>-->
+<!--    </item>-->
+
+
+<!--    <item android:title="@string/s_h_set">-->
+<!--        <menu>-->
+
+<!--            <item-->
+<!--                android:id="@+id/nav_about"-->
+<!--                android:icon="@drawable/information"-->
+<!--                android:title="@string/about_App" />-->
+<!--&lt;!&ndash;            <item&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/nav_logout"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:icon="@drawable/logout"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:title="@string/s_logout" />&ndash;&gt;-->
+<!--&lt;!&ndash;            <item&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/nav_login"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:icon="@drawable/enter"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:title="@string/s_login" />&ndash;&gt;-->
+
+
+<!--        </menu>-->
+<!--    </item>-->
 </menu>

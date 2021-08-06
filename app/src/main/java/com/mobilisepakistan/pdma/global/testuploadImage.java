@@ -21,7 +21,7 @@ public class testuploadImage
     public static  boolean volleyPost(Context contx, JSONObject Jobj){
 
 
-        String postUrl = "http://175.107.63.137/PEOCMIS/api/values/InsertResponseMedia";
+        String postUrl = "http://175.107.63.39/newm/api/values/InsertResponseMedia";
         final Context mContext=contx;
         final   ProgressDialog pd;
         pd = new ProgressDialog(mContext);

@@ -40,6 +40,8 @@ public class WeatherAdvisOption extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
+                intt.putExtra("header", getString(R.string.wadvpmd));
+                intt.putExtra("link", "https://nwfc.pmd.gov.pk/new/press-releases-urdu.php");
                 startActivity(intt);
             }
         });

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GlobalResponseData {
 
+
     public   List<String> AppPk;
     public   List<String> FK;
     public   List<String> VarName;

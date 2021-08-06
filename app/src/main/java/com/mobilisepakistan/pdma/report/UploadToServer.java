@@ -35,7 +35,7 @@ import java.util.Map;
 public class UploadToServer extends AppCompatActivity {
 
 
-    private static final String ROOT_URL = "http://175.107.63.137/PEOCMIS/api/values/InsertResponseMedia";
+    private static final String ROOT_URL = "http://175.107.63.39/newm/api/values/InsertResponseMedia";
 
     private static final int PICK_IMAGE_REQUEST =1 ;
     private Bitmap bitmap;
