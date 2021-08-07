@@ -48,8 +48,6 @@ import java.util.List;
 
 public class EarlyWarning extends AppCompatActivity  {
     EarlywarningBinding binding ;
- public static    ArrayList<String> listname=new ArrayList<String>();
- public static   ArrayList<String> listsDate=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +82,77 @@ public class EarlyWarning extends AppCompatActivity  {
 }
 
 // get data from server
+
+class  ViewCustomAdapterB extends RecyclerView.Adapter {
+
+    Context mContext;
+    List<String> mListDate;
+    List<String> mlistname;
+    public ViewCustomAdapterB(Context context, List<String> list,List<String> listname){
+        mContext = context;
+        mListDate = list;
+        mlistname = listname;
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.dailysituationitem, parent, false);
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        final ViewHolder vh = (ViewHolder) holder;
+
+        vh.txtdate.setText(mListDate.get(position));
+        vh.txtShift.setText(mlistname.get(position));
+
+
+        vh.txtView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txtdate = vh.txtdate.getText().toString();
+                String txtshift = vh.txtShift.getText().toString();
+
+
+
+                //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
+
+                String url="http://175.107.63.39/Advisories/";
+                url=url+txtshift;
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                mContext.startActivity(browserIntent);
+
+            }
+        });
+    }
+
+
+
+    @Override
+    public int getItemCount() {
+        return mListDate.size();
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView txtdate;
+        public TextView txtShift;
+        public TextView txtView;
+
+        public ViewHolder(View v) {
+            super(v);
+            txtdate = (TextView) v.findViewById(R.id.txtdate);
+            txtShift = (TextView) v.findViewById(R.id.txtshift);
+            txtView = (TextView) v.findViewById(R.id.txtView);
+        }
+    }
+
+
+}
+
 class  GetDataServerB extends AsyncTask {
     ViewCustomAdapterB mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -236,72 +305,3 @@ class  GetDataServerB extends AsyncTask {
 
 // Recycle View
 
-class  ViewCustomAdapterB extends RecyclerView.Adapter {
-
-    Context mContext;
-    List<String> mListDate;
-    List<String> mlistname;
-    public ViewCustomAdapterB(Context context, List<String> list,List<String> listname){
-        mContext = context;
-        mListDate = list;
-        mlistname = listname;
-    }
-
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.dailysituationitem, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        final ViewHolder vh = (ViewHolder) holder;
-
-        vh.txtdate.setText(mListDate.get(position));
-        vh.txtShift.setText(mlistname.get(position));
-
-
-        vh.txtView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String txtdate = vh.txtdate.getText().toString();
-                String txtshift = vh.txtShift.getText().toString();
-
-
-
-            //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
-
-                String url="http://175.107.63.39/Advisories/";
-                url=url+txtshift;
-
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                mContext.startActivity(browserIntent);
-
-            }
-        });
-    }
-
-
-
-    @Override
-    public int getItemCount() {
-        return mListDate.size();
-    }
-
-    class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtdate;
-        public TextView txtShift;
-        public TextView txtView;
-
-        public ViewHolder(View v) {
-            super(v);
-            txtdate = (TextView) v.findViewById(R.id.txtdate);
-            txtShift = (TextView) v.findViewById(R.id.txtshift);
-            txtView = (TextView) v.findViewById(R.id.txtView);
-        }
-    }
-
-
-}

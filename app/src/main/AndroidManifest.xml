@@ -122,14 +122,14 @@
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.RecyclerViewEC"
+            android:name="com.mobilisepakistan.pdma.report.EmergencyContact"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.RecyclerViewCC"
+            android:name="com.mobilisepakistan.pdma.report.EvacuationCenter"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -146,7 +146,7 @@
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.RecyclerViewQL"
+            android:name="com.mobilisepakistan.pdma.report.QuickLink"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 

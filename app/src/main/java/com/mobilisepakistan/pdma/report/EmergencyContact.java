@@ -1,10 +1,12 @@
 package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,9 +29,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
+import com.mobilisepakistan.pdma.global.JsonArray;
 import com.mobilisepakistan.pdma.global.emrConacts;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -38,27 +56,28 @@ public class EmergencyContact extends AppCompatActivity {
     RecycleviewBinding binding ;
     EmergencyContactCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
-    ArrayList<String> list;
-    ArrayList<String> listheader;
-    ArrayList<String> listconacts;
-    ArrayList<String> arrayListall;
+
     String sHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
-        //list=(ArrayList<String>) getIntent().getSerializableExtra("mylist");
 
 
 
 
 
-        list= emrConacts.getDistricts();
-        listconacts=emrConacts.getcontacts();
-        listheader=emrConacts.getheaders();
+
+
         sHeader=getString(R.string.s_erc);
         binding.header.setText(sHeader);
+
+        new GetDataServerEmrContact(EmergencyContact.this, "http://175.107.63.39/newm/api/values/GetEmergencyContact",binding.recycleview).execute();
+
+
+
+
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,26 +85,7 @@ public class EmergencyContact extends AppCompatActivity {
                 ((Activity) EmergencyContact.this).finish();
             }
         });
-        arrayListall=new ArrayList<String>();
 
-
-        for(int position=0;position<list.size();position++)
-        {
-            arrayListall.add(listheader.get(position) + "\n"+ "\n"
-                    +list.get(position) + "\n"+ "\n"
-                    + listconacts.get(position) );
-
-            //  arrayListall.add(district.get(position) );
-
-        }
-     //   Collections.sort(list);
-
-
-        mLayoutManager = new LinearLayoutManager(this);
-        binding.recycleview.setLayoutManager(mLayoutManager);
-
-        mAdapter = new EmergencyContactCustomAdapter(this, list,listconacts,listheader,arrayListall);
-        binding.recycleview.setAdapter(mAdapter);
 
 
 
@@ -116,16 +116,16 @@ public class EmergencyContact extends AppCompatActivity {
         ArrayList<String> filterdNames = new ArrayList<>();
 
         //looping through existing elements
-        for (String s : arrayListall) {
-            //if the existing elements contains the search input
-            if (s.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered list
-                filterdNames.add(s);
-            }
-        }
+//        for (String s : arrayListall) {
+//            //if the existing elements contains the search input
+//            if (s.toLowerCase().contains(text.toLowerCase())) {
+//                //adding the element to filtered list
+//                filterdNames.add(s);
+//            }
+     //   }
 
         //calling a method of the adapter class and passing the filtered list
-        mAdapter.filterList(filterdNames);
+   //     mAdapter.filterList(filterdNames);
     }
 
 
@@ -136,22 +136,22 @@ public class EmergencyContact extends AppCompatActivity {
 class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
-    List<String> mList;
-    List<String> cList;
-    List<String> hList;
-    List<String> arylistall;
-    public EmergencyContactCustomAdapter(Context context, List<String> list,List<String> contactlist,List<String> headerlist,List<String> alllist ){
+    List<String> ListDistrict;
+    List<String> ListDept;
+    List<String> ListCnt;
+
+    public EmergencyContactCustomAdapter(Context context,List<String> LDist,List<String> LDpt,List<String> LCnt ){
         mContext = context;
-        mList = list;
-        cList = contactlist;
-        hList = headerlist;
-        arylistall=alllist;
+        ListDistrict = LDist;
+        ListDept = LDpt;
+        ListCnt = LCnt;
+
     }
 
     // filter
 
     public void filterList(ArrayList<String> filterdNames) {
-        this.arylistall = filterdNames;
+       // this.arylistall = filterdNames;
         notifyDataSetChanged();
     }
     @Override
@@ -176,7 +176,9 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
 
         try {
-            vh.txtrcv.setText(arylistall.get(position));
+            vh.txtdst.setText(ListDistrict.get(position));
+            vh.txtdpt.setText(ListDept.get(position));
+            vh.txtcnt.setText(ListCnt.get(position));
         }
         catch (IndexOutOfBoundsException e)
         {
@@ -185,7 +187,7 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txtrcv = vh.txtrcv.getText().toString();
+                String txtrcv = vh.txtcnt.getText().toString();
 
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -203,17 +205,19 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return ListDistrict.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtrcv;
+        public TextView txtdst,txtdpt,txtcnt;
 
         public ImageButton lv;
 
         public ViewHolder(View v) {
             super(v);
-            txtrcv = (TextView) v.findViewById(R.id.txtrcv);
+            txtdst = (TextView) v.findViewById(R.id.txtdst);
+            txtdpt = (TextView) v.findViewById(R.id.txtdpt);
+            txtcnt = (TextView) v.findViewById(R.id.txtcnt);
 
             lv = (ImageButton) v.findViewById(R.id.img);
         }
@@ -226,4 +230,152 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
 
 
+}
+
+
+class  GetDataServerEmrContact extends AsyncTask {
+    EmergencyContactCustomAdapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView recycleviewR;
+    Context mContext;
+    ProgressDialog mDialog;
+    String mUserMsg, URL;
+
+    public GetDataServerEmrContact(Context context, String URL,RecyclerView RV) {
+        this.mContext = context;
+        this.URL = URL;
+        this.recycleviewR=RV;
+        mDialog = new ProgressDialog(context);
+
+
+    }
+
+    @Override
+    protected void onPreExecute() {
+        mDialog.setMessage("Loading Data...");
+        mDialog.setCancelable(false);
+        mDialog.show();
+
+        super.onPreExecute();
+    }
+
+    @Override
+    protected Object doInBackground(Object[] params) {
+        java.net.URL url;
+        HttpURLConnection connection;
+
+        String urlString = URL;
+
+
+        try {
+            url = new URL(urlString);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+
+
+
+            bw.flush();
+
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String data = "", line;
+                while ((line = br.readLine()) != null) {
+                    data += line;
+                }
+
+                return data;
+            } else {
+                mUserMsg = "Server Couldn't process the request";
+            }
+        } catch (IOException e) {
+            mUserMsg = "Please make sure that Internet connection is available," +
+                    " and server IP is inserted in settings";
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Object o) {
+        try {
+
+            //connection isn't available or something is wrong with server address
+            if(mUserMsg != null)
+                throw  new IOException();
+
+
+            String resp = (String)o;
+
+            JsonArray.ArrayString=resp;
+
+            JSONObject jsonObj = new JSONObject(resp);
+
+            // Getting JSON Array node
+            JSONArray contacts = jsonObj.getJSONArray("result");
+            ArrayList<String> listDpt=new ArrayList<String>();
+            ArrayList<String> listCnt=new ArrayList<String>();
+            ArrayList<String> listDst=new ArrayList<String>();
+
+            for (int i = 0; i < contacts.length(); i++) {
+                JSONObject c = contacts.getJSONObject(i);
+                String department = c.getString("department");
+
+                String contact = c.getString("contact");
+                String district = c.getString("district");
+
+
+
+
+                listDpt.add(department);
+                listCnt.add(contact);
+                listDst.add(district);
+            }
+
+            mLayoutManager = new LinearLayoutManager(mContext);
+            recycleviewR.setLayoutManager(mLayoutManager);
+            mAdapter = new EmergencyContactCustomAdapter(mContext,listDst,listDpt,listCnt);
+            recycleviewR.setAdapter(mAdapter);
+
+
+
+
+            if ( resp == null || resp.equals(""))
+                throw new NullPointerException("Server response is empty");
+            else if(resp.equals("-1")){
+                mUserMsg = "Incorrect username or password";
+            } else {
+                mUserMsg = null;
+
+
+            }
+
+        }  catch (IOException e) {
+            //if connection was available via connecting but
+            //we can't get data from server..
+            if(mUserMsg == null)
+                mUserMsg = "Please check connection";
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            mUserMsg = e.getMessage();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } finally {
+            if (mUserMsg != null)
+                Toast.makeText(mContext, mUserMsg, Toast.LENGTH_SHORT).show();
+        }
+        // hide the progressDialog
+        mDialog.hide();
+
+        super.onPostExecute(o);
+    }
+    private Date parseDate(String date, String format) throws ParseException
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.parse(date);
+    }
 }

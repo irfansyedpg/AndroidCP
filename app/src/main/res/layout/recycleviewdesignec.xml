@@ -16,9 +16,23 @@
 
             <TextView
                 style="@style/SResponce"
-                android:id="@+id/txtrcv"
+                android:id="@+id/txtdst"
 
                 android:text="district"
+                android:textColor="@color/blacklight" />
+
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtdpt"
+
+                android:text="dpt"
+                android:textColor="@color/blacklight" />
+
+            <TextView
+                style="@style/SResponce"
+                android:id="@+id/txtcnt"
+
+                android:text="cnt"
                 android:textColor="@color/blacklight" />
 
         </LinearLayout>
