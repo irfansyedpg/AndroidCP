@@ -19,40 +19,27 @@
                 android:id="@+id/txthdist"
 
                 android:text="District"
+                android:textStyle="bold"
 
 
                 />
-            <!--        <TextView-->
-            <!--            style="@style/SResponce"-->
-            <!--            android:id="@+id/txtteshil"-->
 
-            <!--            android:text="Tehsil"-->
+                 <TextView
+                     style="@style/SResponce"
+                     android:id="@+id/txtCntrName"
+                     android:padding="5dp"
+                     android:text="txtCntrName"
 
-            <!--            />-->
+                     />
 
-            <!--     <TextView-->
-            <!--         style="@style/SResponce"-->
-            <!--         android:id="@+id/txtlocation"-->
-            <!--         android:padding="5dp"-->
-            <!--         android:text="location"-->
 
-            <!--         />-->
+                     <TextView
+                         style="@style/SResponce"
+                         android:id="@+id/txtgps"
+                         android:padding="5dp"
+                         android:text="GPS"
 
-            <!--         <TextView-->
-            <!--             style="@style/SResponce"-->
-            <!--             android:id="@+id/txtname"-->
-            <!--             android:padding="5dp"-->
-            <!--             android:text="Name"-->
-
-            <!--             />-->
-
-            <!--         <TextView-->
-            <!--             style="@style/SResponce"-->
-            <!--             android:id="@+id/txtgps"-->
-            <!--             android:padding="5dp"-->
-            <!--             android:text="GPS"-->
-
-            <!--             />-->
+                         />
         </LinearLayout>
 
 
