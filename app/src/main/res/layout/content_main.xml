@@ -140,6 +140,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/S_dw"
                         android:textStyle="bold"
+                        android:gravity="center"
 
                         />
 
@@ -174,6 +175,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/s_ew"
                         android:textStyle="bold"
+                        android:gravity="center"
 
                         />
 
@@ -220,6 +222,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/s_dsr"
                         android:textStyle="bold"
+                        android:gravity="center"
 
                         />
 
@@ -254,6 +257,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/s_rd"
                         android:textStyle="bold"
+                        android:gravity="center"
 
                         />
 
@@ -300,7 +304,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/s_ec"
                         android:textStyle="bold"
-
+                        android:gravity="center"
                         />
 
                     <ImageView
@@ -335,6 +339,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/s_erc"
                         android:textStyle="bold"
+                        android:gravity="center"
 
                         />
 

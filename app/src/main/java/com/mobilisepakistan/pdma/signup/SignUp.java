@@ -139,18 +139,18 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(this,"Please Enter Full Name",Toast.LENGTH_SHORT).show();
             return  false;
         }
-        if(binding.cnic.getText().toString().trim().equals("") || binding.cnic.getText().toString().trim().isEmpty())
-        {
-            Toast.makeText(this,"Please Enter CNIC",Toast.LENGTH_SHORT).show();
-            return  false;
-        }
+//        if(binding.cnic.getText().toString().trim().equals("") || binding.cnic.getText().toString().trim().isEmpty())
+//        {
+//            Toast.makeText(this,"Please Enter CNIC",Toast.LENGTH_SHORT).show();
+//            return  false;
+//        }
         else
         {
-            if(binding.cnic.getText().toString().trim().length()!=13)
-            {
-                Toast.makeText(this,"Please Enter Correct CNIC with out dashes",Toast.LENGTH_SHORT).show();
-                return  false;
-            }
+//            if(binding.cnic.getText().toString().trim().length()!=13)
+//            {
+//                Toast.makeText(this,"Please Enter Correct CNIC with out dashes",Toast.LENGTH_SHORT).show();
+//                return  false;
+//            }
         }
         if(binding.mobileno.getText().toString().trim().equals("") || binding.mobileno.getText().toString().trim().isEmpty())
         {
@@ -249,7 +249,7 @@ public class SignUp extends AppCompatActivity {
             }
 
             log .put("Password", binding.pass1.getText().toString().trim());
-            log .put("CNIC", binding.cnic.getText().toString().trim());
+            log .put("CNIC", "00");
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,7 @@ public class MyPref {
     final public static String  USER_ID  = "userId";
     final public static String  Language  = "Language";
     final public static String  Country  = "Country";
+    final public static int  applunch  = 0;
 
 
 
@@ -74,5 +75,18 @@ public class MyPref {
         String longgg = sharedPreferences.getString(Longitudet, "0");
         return longgg;
     }
+
+
+
+    public void setappcount(int count) {
+        editor.putInt(String.valueOf(applunch), count);
+        editor.apply();
+    }
+
+    public int getappcount() {
+        int lattti = sharedPreferences.getInt(String.valueOf(applunch), 0);
+        return lattti;
+    }
+
 
 }

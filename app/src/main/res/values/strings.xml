@@ -157,8 +157,11 @@
 
 
 
-    <string name="wadvpdma"> Early Warning from PDMA  </string>
-    <string name="wadvpmd">  PMD Weather Forecast	</string>
+    <string name="wadvpdma"> Early Warning   </string>
+    <string name="wadvpdmaup">  PDMA khyber pakhtunkhwa </string>
+
+    <string name="wadvpmd">  Weather Forecast	</string>
+    <string name="wadvpmdup">  Pakistan Meteorological Department	</string>
 
     <string name="wfheader"> Weather Forecast	</string>
     <string name="wfdate"> Select Date	</string>

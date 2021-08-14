@@ -139,8 +139,10 @@
 
 
 
-    <string name="wadvpdma"> ابتدائی انتباہ ڈی ایم اے   </string>
-    <string name="wadvpmd">   پی ایم ڈی موسم کا حال</string>
+    <string name="wadvpdma"> ارلی وارننگ /پیشگی اطلاع    </string>
+    <string name="wadvpdmaup">  پی ڈی ایم اے  خیبر پختونخوا </string>
+    <string name="wadvpmd">    موسم کا حال</string>
+    <string name="wadvpmdup">  محکمہ موسمیات  پاکستان </string>
 
 
 

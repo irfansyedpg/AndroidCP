@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +26,6 @@ import com.mobilisepakistan.pdma.MapsMarkerActivity;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
-import com.mobilisepakistan.pdma.global.emrConacts;
-import com.mobilisepakistan.pdma.global.evacCenters;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,13 +46,14 @@ import java.util.Date;
 import java.util.List;
 
 
-public class EvacuationCenter extends AppCompatActivity {
+public class EvacuationCenterFurth extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    EvacuationCenterCustomAdapter mAdapter;
+    EvacuationCenterFurthCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
     String sHeader;
+    String mDistrict="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +61,8 @@ public class EvacuationCenter extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
 
 
+        Intent intent = getIntent();
+        mDistrict=intent.getStringExtra("distt");
 
 
 
@@ -72,13 +71,13 @@ public class EvacuationCenter extends AppCompatActivity {
         binding.header.setText(sHeader);
 
 
-        new GetDataServeEvaCenterContact(EvacuationCenter.this, "http://175.107.63.39/newm/api/values/GetEvacuationCenterAction",binding.recycleview).execute();
+        new GetDataServeEvaCenterContactFurth(EvacuationCenterFurth.this, "http://175.107.63.39/newm/api/values/GetEvacuationCenterAction",binding.recycleview,mDistrict).execute();
 
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) EvacuationCenter.this).finish();
+                ((Activity) EvacuationCenterFurth.this).finish();
             }
         });
 
@@ -140,7 +139,7 @@ public class EvacuationCenter extends AppCompatActivity {
 
 }
 
-class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
+class  EvacuationCenterFurthCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> mDistrict;
@@ -149,7 +148,7 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
     List<String> mLong;
 
 
-    public EvacuationCenterCustomAdapter(Context context,  List<String> listDistrict,  List<String> listCnterName, List<String> listLatitude,  List<String> listLongitude ){
+    public EvacuationCenterFurthCustomAdapter(Context context,  List<String> listDistrict,  List<String> listCnterName, List<String> listLatitude,  List<String> listLongitude ){
         mContext = context;
 
         mDistrict=listDistrict;
@@ -169,7 +168,7 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycleviewdesignevacotion, parent, false);
+                .inflate(R.layout.recycleviewdesignevacotioncenters, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -186,10 +185,9 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
 
 
         try {
-
             vh.txthdist.setText(mDistrict.get(position));
-       //     vh.txtCntrName.setText(nCenterName.get(position));
-         //   vh.txtgps.setText(mLat.get(position)+" "+ mLong.get(position));
+           vh.txtCntrName.setText(nCenterName.get(position));
+           vh.txtgps.setText(mLat.get(position)+" "+ mLong.get(position));
         }
         catch (IndexOutOfBoundsException e)
         {
@@ -201,31 +199,29 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
 
-                String dist=vh.txthdist.getText().toString();
-              //  String GPS=vh.txtgps.getText().toString();
+                String centername=vh.txtCntrName.getText().toString();
+                String GPS=vh.txtgps.getText().toString();
 
 
                 try {
 
-//                    String[] cc2name = GPS.split(" ");
-//
-//
-//                    String latt = cc2name[0];
-//                    String longg = cc2name[1];
-//
-//
-                    Intent intt = new Intent(mContext, EvacuationCenterFurth.class);
-                    intt.putExtra("distt", dist);
-//                    intt.putExtra("longg", longg);
-//                    intt.putExtra("title", centername);
-                   mContext.startActivity(intt);
+                    String[] cc2name = GPS.split(" ");
 
 
+                    String latt = cc2name[0];
+                    String longg = cc2name[1];
+
+
+                    Intent intt = new Intent(mContext, MapsMarkerActivity.class);
+                    intt.putExtra("latt", latt);
+                    intt.putExtra("longg", longg);
+                    intt.putExtra("title", centername);
+                    mContext.startActivity(intt);
 
                 }
                 catch (Exception ee)
                 {
-                 //   Toast.makeText(mContext,"Unable to Visit this site GPS="+GPS,Toast.LENGTH_LONG).show();
+                    Toast.makeText(mContext,"Unable to Visit this site GPS="+GPS,Toast.LENGTH_LONG).show();
                 }
 
 
@@ -245,8 +241,8 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView txthdist;
-    //    public TextView txtCntrName;
-    //    public TextView txtgps;
+        public TextView txtCntrName;
+        public TextView txtgps;
 
        // public ImageButton lv;
         public LinearLayout lv;
@@ -255,8 +251,8 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
             super(v);
 
             txthdist = (TextView) v.findViewById(R.id.txthdist);
-           // txtCntrName = (TextView) v.findViewById(R.id.txtCntrName);
-           // txtgps = (TextView) v.findViewById(R.id.txtgps);
+            txtCntrName = (TextView) v.findViewById(R.id.txtCntrName);
+            txtgps = (TextView) v.findViewById(R.id.txtgps);
             lv=(LinearLayout) v.findViewById(R.id.img2);
 
 
@@ -273,20 +269,20 @@ class  EvacuationCenterCustomAdapter extends RecyclerView.Adapter {
 }
 
 
-
-class  GetDataServeEvaCenterContact extends AsyncTask {
-    EvacuationCenterCustomAdapter mAdapter;
+class  GetDataServeEvaCenterContactFurth extends AsyncTask {
+    EvacuationCenterFurthCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView recycleviewR;
     Context mContext;
     ProgressDialog mDialog;
-    String mUserMsg, URL;
+    String mUserMsg, URL,mDistt;
 
-    public GetDataServeEvaCenterContact(Context context, String URL,RecyclerView RV) {
+    public GetDataServeEvaCenterContactFurth(Context context, String URL,RecyclerView RV,String Distt) {
         this.mContext = context;
         this.URL = URL;
         this.recycleviewR=RV;
         mDialog = new ProgressDialog(context);
+        mDistt=Distt;
 
 
     }
@@ -366,6 +362,8 @@ class  GetDataServeEvaCenterContact extends AsyncTask {
                 JSONObject c = contacts.getJSONObject(i);
 
 
+
+
                 String centerName = c.getString("centerName");
                 String latitude = c.getString("latitude");
                 String longitude = c.getString("longitude");
@@ -373,16 +371,17 @@ class  GetDataServeEvaCenterContact extends AsyncTask {
 
 
 
-
-                listCnterName.add(centerName);
-                listLatitude.add(latitude);
-                listLongitude.add(longitude);
-                listDistrict.add(district);
+                if(mDistt.equals(district)) {
+                    listCnterName.add(centerName);
+                    listLatitude.add(latitude);
+                    listLongitude.add(longitude);
+                    listDistrict.add(district);
+                }
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new EvacuationCenterCustomAdapter(mContext,listDistrict,listCnterName,listLatitude,listLongitude);
+            mAdapter = new EvacuationCenterFurthCustomAdapter(mContext,listDistrict,listCnterName,listLatitude,listLongitude);
             recycleviewR.setAdapter(mAdapter);
 
 

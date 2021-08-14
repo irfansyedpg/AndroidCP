@@ -191,34 +191,34 @@
 
                 </LinearLayout>
 
-                <LinearLayout style="@style/nLinerLayout">
+<!--                <LinearLayout style="@style/nLinerLayout">-->
 
-                    <LinearLayout style="@style/StaricLinLayout">
+<!--                    <LinearLayout style="@style/StaricLinLayout">-->
 
-                        <TextView
-                            style="@style/SLablelogin"
-                            android:text="@string/su_cnic" />
+<!--                        <TextView-->
+<!--                            style="@style/SLablelogin"-->
+<!--                            android:text="@string/su_cnic" />-->
 
-                        <TextView style="@style/StaricTextview" />
-                    </LinearLayout>
+<!--                        <TextView style="@style/StaricTextview" />-->
+<!--                    </LinearLayout>-->
 
-                    <LinearLayout style="@style/IconLinLayout"
-
-
-                        >
-
-                        <EditText
-                            style="@style/SResponce"
-                            android:hint="@string/su_cnic_ins"
-                            android:inputType="number"
-                            android:id="@+id/cnic" />
+<!--                    <LinearLayout style="@style/IconLinLayout"-->
 
 
-                    </LinearLayout>
+<!--                        >-->
 
-                    <View style="@style/nView" />
+<!--                        <EditText-->
+<!--                            style="@style/SResponce"-->
+<!--                            android:hint="@string/su_cnic_ins"-->
+<!--                            android:inputType="number"-->
+<!--                            android:id="@+id/cnic" />-->
 
-                </LinearLayout>
+
+<!--                    </LinearLayout>-->
+
+<!--                    <View style="@style/nView" />-->
+
+<!--                </LinearLayout>-->
 
                 <LinearLayout style="@style/nLinerLayout">
 

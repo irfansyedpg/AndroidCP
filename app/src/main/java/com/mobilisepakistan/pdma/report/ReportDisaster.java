@@ -316,7 +316,7 @@ public class ReportDisaster extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk),"RNA");
+       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,1111,binding.rd4Tv.getText().toString().trim()),"RD");
 
 
 

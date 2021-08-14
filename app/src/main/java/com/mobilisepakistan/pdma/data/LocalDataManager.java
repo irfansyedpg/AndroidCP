@@ -128,7 +128,7 @@ return  "0";
 
     }
 
-    public  static JSONObject GetData(String logpk)
+    public  static JSONObject GetData(String logpk,int DistrictId,String DisasterType)
     {
         JSONArray Resp = new JSONArray();
         JSONObject Log = new JSONObject();
@@ -144,7 +144,7 @@ return  "0";
             while (c1.moveToNext()) {
 
 
-                Log=getlog(c1.getInt(0),c1.getString(1),c1.getString(2),c1.getString(3),c1.getString(4),c1.getString(5));
+                Log=getlog(c1.getInt(0),c1.getString(1),c1.getString(2),c1.getString(3),c1.getString(4),c1.getString(5),DistrictId,DisasterType);
 
 
 
@@ -175,7 +175,7 @@ return  "0";
     }
 
 
-   public static   JSONObject   getlog(int UserID, String Datee,String Timee,String Lat,String Long,String Section){
+   public static   JSONObject   getlog(int UserID, String Datee,String Timee,String Lat,String Long,String Section,int DistrictId,String DisasterType ){
 
         JSONObject log = new JSONObject();
         try {
@@ -185,6 +185,8 @@ return  "0";
             log .put("Lat", Lat);
             log .put("Long", Long);
             log .put("Section", Section);
+            log .put("DistrictId", DistrictId);
+            log .put("DisasterType", DisasterType);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -18,29 +18,31 @@
             <TextView
                 style="@style/SResponce"
                 android:id="@+id/txthdist"
-
+android:visibility="gone"
                 android:text="District"
                 android:textStyle="bold"
 
 
                 />
 
-<!--                 <TextView-->
-<!--                     style="@style/SResponce"-->
-<!--                     android:id="@+id/txtCntrName"-->
-<!--                     android:padding="5dp"-->
-<!--                     android:text="txtCntrName"-->
+                 <TextView
+                     style="@style/SResponce"
+                     android:id="@+id/txtCntrName"
+                     android:padding="5dp"
+                     android:text="txtCntrName"
+                     android:gravity="center"
 
-<!--                     />-->
+                     />
 
 
-<!--                     <TextView-->
-<!--                         style="@style/SResponce"-->
-<!--                         android:id="@+id/txtgps"-->
-<!--                         android:padding="5dp"-->
-<!--                         android:text="GPS"-->
+                     <TextView
+                         style="@style/SResponce"
+                         android:id="@+id/txtgps"
+                         android:padding="5dp"
+                         android:text="GPS"
+                         android:gravity="center"
 
-<!--                         />-->
+                         />
         </LinearLayout>
 
 

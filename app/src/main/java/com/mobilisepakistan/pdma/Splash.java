@@ -2,6 +2,7 @@ package com.mobilisepakistan.pdma;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -88,7 +89,21 @@ public class Splash extends AppCompatActivity {
 
               //  Splash.this.startActivity(mainIntent);
 
-                TurnOnGPS.Languagealert(Splash.this);
+
+                if(preferences.getappcount()==0) {
+
+                    preferences.setappcount(preferences.getappcount()+1);
+                    TurnOnGPS.Languagealert(Splash.this);
+                }
+                else
+                {
+                    preferences.setappcount(preferences.getappcount()+1);
+
+                    Intent intt=new Intent(Splash.this,MainActivity.class);
+                     startActivity(intt);
+
+                    Splash.this.finish();
+                }
 
               //  Splash.this.finish();
             }

@@ -239,7 +239,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk),"DNA");
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,1111,"DNA"),"DNA");
 
 //        if(uploadStatus==true)
 //        {

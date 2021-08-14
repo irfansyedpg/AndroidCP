@@ -88,6 +88,14 @@
                     android:layout_marginTop="3dp"
                     android:padding="15dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/wadvpdmaup"
+                        android:textSize="17sp"
+
+                        android:layout_marginTop="5dp" />
 
                     <ImageView
 
@@ -102,7 +110,9 @@
 
                         android:text="@string/wadvpdma"
                         android:textSize="17sp"
+                        android:textColor="@color/white"
 
+                        android:background="@color/red"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
@@ -123,6 +133,18 @@
                     android:padding="15dp">
 
 
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/wadvpmdup"
+                        android:textSize="17sp"
+                        android:layout_marginTop="5dp"
+
+
+                        />
+
                     <ImageView
 
                         android:layout_width="60dp"
@@ -139,7 +161,9 @@
                         android:text="@string/wadvpmd"
                         android:textSize="17sp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/white"
 
+                        android:background="@color/colorPrimaryDark"
 
                         />
 
