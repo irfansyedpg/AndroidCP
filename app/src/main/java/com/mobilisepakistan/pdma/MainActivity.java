@@ -20,6 +20,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.mobilisepakistan.WeatherAdvisOption;
+import com.mobilisepakistan.pdma.global.GetDistrictServer;
 import com.mobilisepakistan.pdma.global.MyPref;
 
 import com.mobilisepakistan.pdma.global.MyReceiver;
@@ -32,6 +33,7 @@ import com.mobilisepakistan.pdma.report.DemagesLosses;
 import com.mobilisepakistan.pdma.report.EarlyWarning;
 import com.mobilisepakistan.pdma.report.EmergencyContact;
 import com.mobilisepakistan.pdma.report.EvacuationCenter;
+
 import com.mobilisepakistan.pdma.report.QuickLink;
 import com.mobilisepakistan.pdma.report.RapidNeedAssessment;
 
@@ -288,6 +290,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 //        }
 
+
+
+
+        new GetDistrictServer(MainActivity.this, "http://175.107.63.39/newm/api/values/GetDistrictsAction").execute();
 
 
 
@@ -566,10 +572,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 new weatherTask().execute();
 
+
+
             }
         }
 
     }
+
+
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
 

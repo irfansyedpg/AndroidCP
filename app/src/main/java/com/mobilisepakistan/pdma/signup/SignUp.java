@@ -33,7 +33,7 @@ public class SignUp extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.signup );
 
         listDistrict=new ArrayList<>();
-        listDistrict= District.getDistricts();
+        listDistrict= District.listDistrict;
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override

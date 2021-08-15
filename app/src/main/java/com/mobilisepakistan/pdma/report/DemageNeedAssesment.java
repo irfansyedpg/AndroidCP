@@ -41,7 +41,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.demgneedassesment );
-        listDistrict= District.getDistricts();
+        listDistrict= District.listDistrict;
 
         TurnOnGPS.turnGPSOn(this);
 

@@ -40,7 +40,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
         binding = DataBindingUtil.setContentView(this, R.layout.rapidneedassesment);
         listDisaster=new ArrayList<>();
         listDistrict=new ArrayList<>();
-        listDistrict= District.getDistricts();
+        listDistrict= District.listDistrict;
         listDisaster= TypeDisaster.getDisaster();
         UploadFailur=false;
 
