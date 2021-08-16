@@ -26,6 +26,7 @@ import com.mobilisepakistan.PMDwebView;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +67,7 @@ public class QuickLink extends AppCompatActivity {
         binding.header.setText(sHeader);
 
 
-        new GetDataServerQuickLink(QuickLink.this, "http://175.107.63.39/newm/api/values/GetQuickLinksAction",binding.recycleview).execute();
+        new GetDataServerQuickLink(QuickLink.this, ServerConfiguration.ServerURL+ "GetQuickLinksAction",binding.recycleview).execute();
 
 
 

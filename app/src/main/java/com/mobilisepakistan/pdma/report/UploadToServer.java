@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.global.testVolleyMultipartRequest;
 
 import org.json.JSONException;
@@ -35,7 +36,7 @@ import java.util.Map;
 public class UploadToServer extends AppCompatActivity {
 
 
-    private static final String ROOT_URL = "http://175.107.63.39/newm/api/values/InsertResponseMedia";
+    private static final String ROOT_URL = ServerConfiguration.ServerURL+ "InsertResponseMedia";
 
     private static final int PICK_IMAGE_REQUEST =1 ;
     private Bitmap bitmap;

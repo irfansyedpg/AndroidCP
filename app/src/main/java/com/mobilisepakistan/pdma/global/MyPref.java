@@ -3,6 +3,9 @@ package com.mobilisepakistan.pdma.global;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyPref {
 
     SharedPreferences sharedPreferences;
@@ -12,6 +15,11 @@ public class MyPref {
     final public static String  Language  = "Language";
     final public static String  Country  = "Country";
     final public static int  applunch  = 0;
+
+
+    public  static   ArrayList<String> listDistrict=new  ArrayList<String>();
+
+    public  static   ArrayList<Integer> listDistrictid=new  ArrayList<Integer>();
 
 
 
@@ -88,5 +96,17 @@ public class MyPref {
         return lattti;
     }
 
+    //  districts from server
+
+
+//    public void setDistrict(ArrayList<String> distlst) {
+//        editor.putString(listDistrict, distlst);
+//        editor.apply();
+//    }
+//
+//    public int getDistrict() {
+//        int lattti = sharedPreferences.getInt(String.valueOf(applunch), 0);
+//        return lattti;
+//    }
 
 }

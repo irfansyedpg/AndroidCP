@@ -28,6 +28,7 @@ import com.mobilisepakistan.pdma.MapsMarkerActivity;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.global.emrConacts;
 import com.mobilisepakistan.pdma.global.evacCenters;
 
@@ -72,7 +73,7 @@ public class EvacuationCenter extends AppCompatActivity {
         binding.header.setText(sHeader);
 
 
-        new GetDataServeEvaCenterContact(EvacuationCenter.this, "http://175.107.63.39/newm/api/values/GetEvacuationCenterAction",binding.recycleview).execute();
+        new GetDataServeEvaCenterContact(EvacuationCenter.this, ServerConfiguration.ServerURL+ "GetEvacuationCenterAction",binding.recycleview).execute();
 
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
@@ -373,11 +374,27 @@ class  GetDataServeEvaCenterContact extends AsyncTask {
 
 
 
+                if(i>0 )
+                {
+                    if(!district.equals(contacts.getJSONObject(i-1).getString("district")))
+                    {
+                        listCnterName.add(centerName);
+                        listLatitude.add(latitude);
+                        listLongitude.add(longitude);
+                        listDistrict.add(district);
 
-                listCnterName.add(centerName);
-                listLatitude.add(latitude);
-                listLongitude.add(longitude);
-                listDistrict.add(district);
+                    }
+
+                }
+                else
+                {
+                    listCnterName.add(centerName);
+                    listLatitude.add(latitude);
+                    listLongitude.add(longitude);
+                    listDistrict.add(district);
+                }
+
+
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);

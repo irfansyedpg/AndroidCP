@@ -14,6 +14,9 @@ import com.mobilisepakistan.pdma.MainActivity;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 class NetworkUtil {
+
+
+
     public static String getConnectivityStatusString(Context context) {
         String status = null;
         ConnectivityManager cm = (ConnectivityManager)           context.getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.EarlywarningBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 
 import org.json.JSONArray;
@@ -68,7 +69,7 @@ public class EarlyWarning extends AppCompatActivity  {
 
 
 
-        new GetDataServerB(EarlyWarning.this, "http://175.107.63.39/newm/api/values/GetAdvisories",binding.recycleviewR).execute();
+        new GetDataServerB(EarlyWarning.this, ServerConfiguration.ServerURL+ "GetAdvisories",binding.recycleviewR).execute();
 
     }
 

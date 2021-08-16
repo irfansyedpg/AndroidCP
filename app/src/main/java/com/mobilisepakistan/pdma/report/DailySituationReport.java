@@ -27,6 +27,7 @@ import com.mobilisepakistan.pdma.databinding.DailysituationBinding;
 import com.mobilisepakistan.pdma.R;
 
 import com.mobilisepakistan.pdma.global.JsonArray;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 
 import org.json.JSONArray;
@@ -69,7 +70,7 @@ public class DailySituationReport extends AppCompatActivity  {
         });
 
         //"http://175.107.63.137/PEOCMIS/api/values/getDSR"
-        new GetDataServer(DailySituationReport.this, "http://175.107.63.39/newm/api/values/getDSR",binding.recycleviewR).execute();
+        new GetDataServer(DailySituationReport.this, ServerConfiguration.ServerURL+ "getDSR",binding.recycleviewR).execute();
         binding.btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +87,7 @@ public class DailySituationReport extends AppCompatActivity  {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 binding.btnDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                                String url="http://175.107.63.39/newm/api/values/getDSR?Cdate="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
+                                String url=ServerConfiguration.ServerURL+ "getDSR?Cdate="+dayOfMonth+"-"+(monthOfYear + 1)+"-"+year;
 
 
                                 new GetDataServer(DailySituationReport.this, url,binding.recycleviewR).execute();

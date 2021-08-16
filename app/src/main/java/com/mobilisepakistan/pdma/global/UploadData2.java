@@ -28,7 +28,7 @@ public class UploadData2
     public static  boolean volleyPost(Context contx, JSONObject Jobj, final String type){
 
 
-        String postUrl = "http://175.107.63.39/newm/api/values/InsertResponse";
+        String postUrl = ServerConfiguration.ServerURL+ "InsertResponse";
         final Context mContext=contx;
         final   ProgressDialog pd;
         pd = new ProgressDialog(mContext);

@@ -35,6 +35,13 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(LocalDataManager.getCreateQueryLogTable());
         db.setTransactionSuccessful();
         db.endTransaction();
+
+
+        db.beginTransaction();
+
+        db.execSQL(LocalDataManager.getCreateDistrictTehsil());
+        db.setTransactionSuccessful();
+        db.endTransaction();
     }
 
     @Override
@@ -48,6 +55,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(query);
 
         query = "DROP TABLE IF EXISTS " + LocalDataManager.Table1;
+        db.execSQL(query);
+
+        query = "DROP TABLE IF EXISTS " + "DistrictTehsil";
         db.execSQL(query);
 
         db.setTransactionSuccessful();

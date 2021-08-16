@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.mobilisepakistan.pdma.MapsMarkerActivity;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,7 +73,7 @@ public class EvacuationCenterFurth extends AppCompatActivity {
         binding.header.setText(sHeader);
 
 
-        new GetDataServeEvaCenterContactFurth(EvacuationCenterFurth.this, "http://175.107.63.39/newm/api/values/GetEvacuationCenterAction",binding.recycleview,mDistrict).execute();
+        new GetDataServeEvaCenterContactFurth(EvacuationCenterFurth.this, ServerConfiguration.ServerURL+ "GetEvacuationCenterAction",binding.recycleview,mDistrict).execute();
 
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
@@ -245,7 +247,7 @@ class  EvacuationCenterFurthCustomAdapter extends RecyclerView.Adapter {
         public TextView txtgps;
 
        // public ImageButton lv;
-        public LinearLayout lv;
+        public ImageButton lv;
 
         public ViewHolder(View v) {
             super(v);
@@ -253,7 +255,7 @@ class  EvacuationCenterFurthCustomAdapter extends RecyclerView.Adapter {
             txthdist = (TextView) v.findViewById(R.id.txthdist);
             txtCntrName = (TextView) v.findViewById(R.id.txtCntrName);
             txtgps = (TextView) v.findViewById(R.id.txtgps);
-            lv=(LinearLayout) v.findViewById(R.id.img2);
+            lv=(ImageButton) v.findViewById(R.id.img);
 
 
         }

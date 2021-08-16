@@ -1,7 +1,6 @@
 package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,18 +8,14 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.R;
 
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.DemgneedassesmentBinding;
-import com.mobilisepakistan.pdma.global.District;
 import com.mobilisepakistan.pdma.global.MyPref;
-import com.mobilisepakistan.pdma.global.Tehsil;
 import com.mobilisepakistan.pdma.global.UploadData2;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
@@ -37,15 +32,17 @@ public class DemageNeedAssesment extends AppCompatActivity  {
     String sTehsil="";
     String Logpk="";
     MyPref preferences;
+    int UserID=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.demgneedassesment );
-        listDistrict= District.listDistrict;
+        listDistrict= LocalDataManager.GetDistricts(this);
 
         TurnOnGPS.turnGPSOn(this);
 
         preferences = new MyPref(this);
+        UserID=preferences.getUserId();
 
         UploadFailur=false;
 
@@ -72,7 +69,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
                 }
 
                 Intent  intent = new Intent(DemageNeedAssesment.this, RecyclerViewA.class);
-                listTehsil= Tehsil.get(sDistrict);
+                listTehsil= LocalDataManager.GetTehsils(sDistrict,getBaseContext());
                 intent.putExtra("mylist",listTehsil);
                 intent.putExtra("header",getString(R.string.s_g_h_select_tesh));
                 startActivityForResult(intent,12);
@@ -231,15 +228,18 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
 
 
+        int DistrictId=LocalDataManager.GetDistrictId(binding.dna1Tv.getText().toString().trim(),this);
 
         if (UploadFailur==false) {
-            Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "DNA", this);
+            Logpk = LocalDataManager.InsertLogTable(Integer.toString(UserID), binding.latitude.getText().toString(), binding.longitude.getText().toString(), "DNA", this);
             new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "DNA");
         }
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,1111,"DNA"),"DNA");
+
+
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA");
 
 //        if(uploadStatus==true)
 //        {

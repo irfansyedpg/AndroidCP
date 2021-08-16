@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -53,6 +54,137 @@ public class LocalDataManager {
                 LogTable.Status+"  TEXT "+
                 ")";
         return query;
+    }
+
+    public static String getCreateDistrictTehsil() {
+        String query;
+        query = "CREATE TABLE '" + "DistrictTehsil" + "' ( District TEXT,  "+
+                "DistrictId "+"  TEXT,"+
+                "Tehsil"+"  TEXT"+
+                ")";
+        return query;
+    }
+
+
+
+    public  static  void  InsertDistrictTehsil(ArrayList<String> lDistrict, ArrayList<String> lTehsil,ArrayList<String> lDistrictId,Context context )
+    {
+
+        database = new DBHelper(context).getWritableDatabase();
+
+        if(lDistrictId.size()>0)
+        {
+            DeleteDistrictTehsil();
+        }
+
+        for(int i=0; i<lDistrict.size();i++) {
+
+            String distrt=lDistrict.get(i);
+            String tehsil=lTehsil.get(i);
+            String id=lDistrictId.get(i);
+
+            String query = "insert into DistrictTehsil(District,DistrictId,Tehsil)" + " values('%s', '%s', '%s') ";
+
+            query = String.format(query, distrt, id, tehsil);
+            database.execSQL(query);
+
+        }
+
+    }
+
+
+    public  static  void  DeleteDistrictTehsil()
+    {
+        String query="delete from DistrictTehsil";
+
+        query = String.format(query);
+        database.execSQL(query);
+
+
+    }
+
+
+
+
+
+
+        public  static ArrayList<String> GetDistricts(Context context )
+        {
+
+            database = new DBHelper(context).getWritableDatabase();
+            ArrayList<String> district=new ArrayList();
+            String  query1 = "select distinct District from DistrictTehsil";
+            Cursor c1 = database.rawQuery(query1, null);
+            if (c1 != null) {
+                while (c1.moveToNext()) {
+
+
+
+                    district.add(c1.getString(0));
+
+
+
+
+                }
+
+
+            }
+            return  district;
+        //  return  Gdata;
+    }
+
+    public  static ArrayList<String> GetTehsils(String district,Context context)
+    {
+
+        database = new DBHelper(context).getWritableDatabase();
+
+        ArrayList<String> Tehsil=new ArrayList();
+        String  query1 = "select  Tehsil from DistrictTehsil where District='"+district+"'";
+        Cursor c1 = database.rawQuery(query1, null);
+        if (c1 != null) {
+            while (c1.moveToNext()) {
+
+
+
+                Tehsil.add(c1.getString(0));
+
+
+
+
+            }
+
+
+        }
+        return  Tehsil;
+        //  return  Gdata;
+    }
+
+
+
+    public static  int GetDistrictId(String district,Context context)
+    {
+
+        database = new DBHelper(context).getWritableDatabase();
+
+        int districid=0;
+        String  query1 = "select  distinct DistrictId from DistrictTehsil where District='"+district+"'";
+        Cursor c1 = database.rawQuery(query1, null);
+        if (c1 != null) {
+            while (c1.moveToNext()) {
+
+
+
+                  districid=Integer.parseInt(c1.getString(0));
+
+
+
+
+            }
+
+
+        }
+        return  districid;
+        //  return  Gdata;
     }
 
     public  static  void  InsertRespnoseTable(int FK, HashMap<String, String> Data, String Section )

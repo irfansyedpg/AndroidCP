@@ -10,9 +10,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.SignupBinding;
-import com.mobilisepakistan.pdma.global.District;
-import com.mobilisepakistan.pdma.global.Tehsil;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.RecyclerViewA;
 
@@ -33,7 +32,7 @@ public class SignUp extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.signup );
 
         listDistrict=new ArrayList<>();
-        listDistrict= District.listDistrict;
+        listDistrict= LocalDataManager.GetDistricts(this);
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +63,7 @@ public class SignUp extends AppCompatActivity {
                 }
 
                 Intent  intent = new Intent(SignUp.this, RecyclerViewA.class);
-                listTehsil= Tehsil.get(sDistrict);
+                listTehsil= LocalDataManager.GetTehsils(sDistrict,SignUp.this);
                 intent.putExtra("mylist",listTehsil);
                 intent.putExtra("header","Select Tehsil");
                 startActivityForResult(intent,12);

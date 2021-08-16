@@ -5,6 +5,11 @@
 
 
 
+    <item
+
+
+        android:title="@string/action_settings" />
+
 
     <item android:title="@string/s_h_lang">
         <menu>
@@ -43,6 +48,12 @@
         android:id="@+id/nav_about"
         android:icon="@drawable/information"
         android:title="@string/about_App" />
+
+
+    <item
+        android:id="@+id/nav_getdate"
+        android:icon="@drawable/information"
+        android:title="@string/nav_getdata" />
 
 
 

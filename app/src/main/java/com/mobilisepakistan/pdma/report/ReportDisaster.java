@@ -21,9 +21,7 @@ import androidx.databinding.DataBindingUtil;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.ReportdisasterBinding;
-import com.mobilisepakistan.pdma.global.District;
 import com.mobilisepakistan.pdma.global.MyPref;
-import com.mobilisepakistan.pdma.global.Tehsil;
 import com.mobilisepakistan.pdma.global.TypeDisaster;
 
 import com.mobilisepakistan.pdma.global.UploadData2;
@@ -46,18 +44,20 @@ public class ReportDisaster extends AppCompatActivity  {
     String sDisasterType="";
     String Logpk="";
     MyPref preferences;
+    int UserID=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.reportdisaster);
         listDisaster=new ArrayList<>();
         listDistrict=new ArrayList<>();
-        listDistrict= District.listDistrict;
+        listDistrict= LocalDataManager.GetDistricts(this);
         listDisaster= TypeDisaster.getDisaster();
 
         UploadFailur=false;
        // TurnOnGPS.turnGPSOn(this);
         preferences = new MyPref(this);
+        UserID=preferences.getUserId();
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +89,7 @@ public class ReportDisaster extends AppCompatActivity  {
                 }
 
                 Intent  intent = new Intent(ReportDisaster.this, RecyclerViewA.class);
-                listTehsil= Tehsil.get(sDistrict);
+                listTehsil=LocalDataManager.GetTehsils(sDistrict,getBaseContext());
                 intent.putExtra("mylist",listTehsil);
                 intent.putExtra("header",getString(R.string.s_g_h_select_tesh));
                 startActivityForResult(intent,12);
@@ -308,15 +308,19 @@ public class ReportDisaster extends AppCompatActivity  {
         HashData.put("Pic2","Pic2");
         HashData.put("Pic3","Pic3");
 
+        int DistrictId=LocalDataManager.GetDistrictId(binding.rd1Tv.getText().toString().trim(),this);
+
 
         if (UploadFailur==false) {
-             Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RD", this);
+             Logpk = LocalDataManager.InsertLogTable(Integer.toString(UserID), binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RD", this);
+
             new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "RD");
         }
 
+
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,1111,binding.rd4Tv.getText().toString().trim()),"RD");
+       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rd4Tv.getText().toString().trim()),"RD");
 
 
 

@@ -176,11 +176,12 @@
 
 <!--    About app-->
 
+    <string name="nav_getdata">Update Data</string>
     <string name="about_App">About App</string>
     <string name="about_App_text_h"> PDMA Madadgar App</string>
     <string name="about_App_text">
-        A Collaborative Disaster Risk Reduction System for Communities in Khyber Pakhtunkhwa
-PDMA, Khyber Pakhtunkhwa Madadgar App is an integrated system to enhance collaboration between communities across the province and disaster management authorities. The App empowers the general public to report incidents of disasters, receive and disseminate real-time early warning messages, get access to the Daily Situation Reports (DSR), register themselves as volunteers with PDMA as well as be part of the PDMA community outreach programme. The App enables government officials and local communities to immediately conduct Rapid and Damage Need Assessment and share results with the disaster management authorities both at the district and provincial level for rehabilitation and recovery initiatives. The App has been jointly developed by Mobilise Project Researchers at the Centre for Disaster Preparedness and Management, University of Peshawar, and Provincial Disaster Management Authority, Khyber Pakhtunkhwa technical team.
+
+PDMA Madadgar App is an integrated system to enhance collaboration between communities across the province and disaster management authorities. The App empowers the general public to report incidents of disasters, receive and disseminate real-time early warning messages, get access to the Daily Situation Reports (DSR), register themselves as volunteers with PDMA as well as be part of the PDMA community outreach programme. The App enables government officials and local communities to immediately conduct Rapid and Damage Need Assessment and share results with the disaster management authorities both at the district and provincial level for rehabilitation and recovery initiatives. The App has been jointly developed by Mobilise Project Researchers at the Centre for Disaster Preparedness and Management, University of Peshawar, and Provincial Disaster Management Authority, Khyber Pakhtunkhwa technical team.
 
     </string>
 
@@ -189,7 +190,7 @@ PDMA, Khyber Pakhtunkhwa Madadgar App is an integrated system to enhance collabo
 
 
 
-    <string name="contact_us_uop"><u>Mobilise Team, University of Peshawar Contacts</u></string>
+    <string name="contact_us_uop"><u>Mobilise Team, University of Peshawar</u></string>
 
 
 
@@ -201,7 +202,7 @@ PDMA, Khyber Pakhtunkhwa Madadgar App is an integrated system to enhance collabo
     <string name="contact_us_irf"> Mr.Irfan Syed, Senior Software Engineer, Mobilise Project, CDPM, University of Peshawar, irfansyed.pg@gmail.com</string>
 
 
-    <string name="contact_us_pdma"><u>PDMA, Khyber Pakhtunkhwa Contacts</u></string>
+    <string name="contact_us_pdma"><u>PDMA, Khyber Pakhtunkhwa </u></string>
 
 
 

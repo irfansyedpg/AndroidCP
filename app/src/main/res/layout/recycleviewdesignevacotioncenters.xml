@@ -12,8 +12,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/img2"
-            android:layout_weight="100">
+
+            android:layout_weight="85">
 
             <TextView
                 style="@style/SResponce"
@@ -46,26 +46,26 @@ android:visibility="gone"
         </LinearLayout>
 
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="15"-->
-<!--            android:id="@+id/phone"-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
 
+            android:id="@+id/img2"
 
-<!--            >-->
+            >
 
-<!--            <ImageButton-->
-<!--                android:id="@+id/img"-->
-<!--                android:layout_width="25dp"-->
-<!--                android:layout_height="25dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:background="@drawable/ic_location"-->
+            <ImageButton
+                android:id="@+id/img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_location"
 
-<!--                />-->
+                />
 
-<!--        </LinearLayout>-->
+        </LinearLayout>
 
 
     </LinearLayout>

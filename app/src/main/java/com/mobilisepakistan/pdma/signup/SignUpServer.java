@@ -14,6 +14,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.global.MyPref;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,7 +28,7 @@ public class SignUpServer
     public static  boolean SignUpServer(Context contx, JSONObject Jobj){
 
 
-        String postUrl = "http://175.107.63.39/newm/api/values/Signup";
+        String postUrl = ServerConfiguration.ServerURL+ "Signup";
         final Context mContext=contx;
         SignUpServer.status=false;
         SignUpServer.ServerUserID="0";

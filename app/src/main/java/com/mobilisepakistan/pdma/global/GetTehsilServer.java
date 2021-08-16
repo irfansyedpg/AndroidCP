@@ -1,12 +1,11 @@
 package com.mobilisepakistan.pdma.global;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.mobilisepakistan.pdma.data.LocalDataManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,27 +22,27 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class  GetDistrictServer extends AsyncTask {
+public class GetTehsilServer extends AsyncTask {
 
 
     Context mContext;
-    ProgressDialog mDialog;
+  //  ProgressDialog mDialog;
     String mUserMsg, URL;
 
-    public GetDistrictServer(Context context, String URL) {
+    public GetTehsilServer(Context context, String URL) {
         this.mContext = context;
         this.URL = URL;
 
-        mDialog = new ProgressDialog(context);
+    //    mDialog = new ProgressDialog(context);
 
 
     }
 
     @Override
     protected void onPreExecute() {
-   //     mDialog.setMessage("Loading Data...");
-    //    mDialog.setCancelable(false);
-     //   mDialog.show();
+       // mDialog.setMessage("Loading Data...");
+       // mDialog.setCancelable(false);
+       // mDialog.show();
 
         super.onPreExecute();
     }
@@ -106,13 +105,31 @@ public class  GetDistrictServer extends AsyncTask {
             // Getting JSON Array node
             JSONArray contacts = jsonObj.getJSONArray("result");
 
+           // District.listDistrict.clear();
+           // District.listDistrictid.clear();
 
+            ArrayList<String> lstdistrict=new ArrayList<>();
+            ArrayList<String> lstTehsil=new ArrayList<>();
+            ArrayList<String> lstDistriid=new ArrayList<>();
             for (int i = 0; i < contacts.length(); i++) {
 
                 JSONObject c = contacts.getJSONObject(i);
 
+               lstdistrict.add(c.getString("district"));
+                lstTehsil.add(c.getString("tehsil"));
+                lstDistriid.add(c.getString("districtid"));
+
+
+
+
+
 
             }
+
+
+             LocalDataManager.InsertDistrictTehsil(lstdistrict,lstTehsil,lstDistriid,mContext);
+
+            Toast.makeText(mContext,"Application data has been updated",Toast.LENGTH_LONG).show();
 
 
 
@@ -142,7 +159,7 @@ public class  GetDistrictServer extends AsyncTask {
                 Toast.makeText(mContext, mUserMsg, Toast.LENGTH_SHORT).show();
         }
         // hide the progressDialog
-        mDialog.hide();
+      //  mDialog.hide();
 
         super.onPostExecute(o);
     }

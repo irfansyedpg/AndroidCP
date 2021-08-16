@@ -3,7 +3,6 @@ package com.mobilisepakistan.pdma.report;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -16,12 +15,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +28,7 @@ import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
 import com.mobilisepakistan.pdma.global.ServerConfiguration;
-import com.mobilisepakistan.pdma.global.emrConacts;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,10 +49,10 @@ import java.util.Date;
 import java.util.List;
 
 
-public class EmergencyContact extends AppCompatActivity {
+public class RiskAssesment extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    EmergencyContactCustomAdapter mAdapter;
+    RiskAssesmentCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
     String sHeader;
@@ -74,7 +71,7 @@ public class EmergencyContact extends AppCompatActivity {
         sHeader=getString(R.string.s_erc);
         binding.header.setText(sHeader);
 
-        new GetDataServerEmrContact(EmergencyContact.this, ServerConfiguration.ServerURL+ "GetEmergencyContact",binding.recycleview).execute();
+        new GetDataServerRiskAssesment(RiskAssesment.this, ServerConfiguration.ServerURL+ "GetReiskassesmentAction",binding.recycleview).execute();
 
 
 
@@ -83,82 +80,41 @@ public class EmergencyContact extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) EmergencyContact.this).finish();
+                ((Activity) RiskAssesment.this).finish();
             }
         });
 
 
 
 
-        // RecycleView Text Search View Filter
-
-        ((EditText) findViewById(R.id.ed_search)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
-            }
-        });
-
 
     }
-
-    // filter method
-
-    private void filter(String text) {
-        //new array list that will hold the filtered data
-        ArrayList<String> filterdNames = new ArrayList<>();
-
-        //looping through existing elements
-//        for (String s : arrayListall) {
-//            //if the existing elements contains the search input
-//            if (s.toLowerCase().contains(text.toLowerCase())) {
-//                //adding the element to filtered list
-//                filterdNames.add(s);
-//            }
-     //   }
-
-        //calling a method of the adapter class and passing the filtered list
-   //     mAdapter.filterList(filterdNames);
-    }
-
 
 
 
 }
 
-class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
+class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
-    List<String> ListDistrict;
-    List<String> ListDept;
-    List<String> ListCnt;
+    List<String> Listitle;
+    List<String> Listdetial;
+    List<String> Listimg;
 
-    public EmergencyContactCustomAdapter(Context context,List<String> LDist,List<String> LDpt,List<String> LCnt ){
+    public RiskAssesmentCustomAdapter(Context context,List<String> title,List<String> detial,List<String> img ){
         mContext = context;
-        ListDistrict = LDist;
-        ListDept = LDpt;
-        ListCnt = LCnt;
+        Listitle = title;
+        Listdetial = detial;
+        Listimg = img;
 
     }
 
     // filter
 
-    public void filterList(ArrayList<String> filterdNames) {
-       // this.arylistall = filterdNames;
-        notifyDataSetChanged();
-    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycleviewdesignec, parent, false);
+                .inflate(R.layout.riskassesment, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -177,9 +133,17 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
 
         try {
-            vh.txtdst.setText(ListDistrict.get(position));
-            vh.txtdpt.setText(ListDept.get(position));
-            vh.txtcnt.setText(ListCnt.get(position));
+            vh.txttitle.setText(Listitle.get(position));
+            vh.txtdetial.setText(Listdetial.get(position));
+
+            String imurl="http://175.107.63.39/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+
+        //    String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
+
+            Picasso.get().load(imurl).into(vh.lv);
+
+         //   vh.lv.setImageBitmap(Listimg.get(position));
+
         }
         catch (IndexOutOfBoundsException e)
         {
@@ -188,13 +152,13 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txtrcv = vh.txtcnt.getText().toString();
+          /*      String txtrcv = vh.txtcnt.getText().toString();
 
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:"+txtrcv));
             //    callIntent.setData(Uri.parse(txtrcv));
-                mContext.startActivity(intent);
+                mContext.startActivity(intent);*/
 
 
 
@@ -206,21 +170,20 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return ListDistrict.size();
+        return Listitle.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtdst,txtdpt,txtcnt;
+        public TextView txtdetial,txttitle;
 
-        public ImageButton lv;
+        public ImageView lv;
 
         public ViewHolder(View v) {
             super(v);
-            txtdst = (TextView) v.findViewById(R.id.txtdst);
-            txtdpt = (TextView) v.findViewById(R.id.txtdpt);
-            txtcnt = (TextView) v.findViewById(R.id.txtcnt);
+            txtdetial = (TextView) v.findViewById(R.id.detial);
+            txttitle = (TextView) v.findViewById(R.id.title);
 
-            lv = (ImageButton) v.findViewById(R.id.img);
+            lv = (ImageView) v.findViewById(R.id.img);
         }
     }
 
@@ -234,15 +197,15 @@ class  EmergencyContactCustomAdapter extends RecyclerView.Adapter {
 }
 
 
-class  GetDataServerEmrContact extends AsyncTask {
-    EmergencyContactCustomAdapter mAdapter;
+class  GetDataServerRiskAssesment extends AsyncTask {
+    RiskAssesmentCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView recycleviewR;
     Context mContext;
     ProgressDialog mDialog;
     String mUserMsg, URL;
 
-    public GetDataServerEmrContact(Context context, String URL,RecyclerView RV) {
+    public GetDataServerRiskAssesment(Context context, String URL,RecyclerView RV) {
         this.mContext = context;
         this.URL = URL;
         this.recycleviewR=RV;
@@ -317,28 +280,29 @@ class  GetDataServerEmrContact extends AsyncTask {
 
             // Getting JSON Array node
             JSONArray contacts = jsonObj.getJSONArray("result");
-            ArrayList<String> listDpt=new ArrayList<String>();
-            ArrayList<String> listCnt=new ArrayList<String>();
-            ArrayList<String> listDst=new ArrayList<String>();
+            ArrayList<String> listtitl=new ArrayList<String>();
+            ArrayList<String> listdetial=new ArrayList<String>();
+            ArrayList<String> listimg=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
-                String department = c.getString("department");
-
-                String contact = c.getString("contact");
-                String district = c.getString("district");
 
 
+                String title = c.getString("title");
+                String detail = c.getString("detail");
+                String img = c.getString("imageName");
 
 
-                listDpt.add(department);
-                listCnt.add(contact);
-                listDst.add(district);
+
+
+                listtitl.add(title);
+                listdetial.add(detail);
+                listimg.add(img);
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new EmergencyContactCustomAdapter(mContext,listDst,listDpt,listCnt);
+            mAdapter = new RiskAssesmentCustomAdapter(mContext,listtitl,listdetial,listimg);
             recycleviewR.setAdapter(mAdapter);
 
 
@@ -374,9 +338,5 @@ class  GetDataServerEmrContact extends AsyncTask {
 
         super.onPostExecute(o);
     }
-    private Date parseDate(String date, String format) throws ParseException
-    {
-        SimpleDateFormat formatter = new SimpleDateFormat(format);
-        return formatter.parse(date);
-    }
+
 }

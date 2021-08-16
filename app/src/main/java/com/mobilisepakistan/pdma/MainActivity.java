@@ -21,9 +21,12 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.mobilisepakistan.WeatherAdvisOption;
 import com.mobilisepakistan.pdma.global.GetDistrictServer;
+import com.mobilisepakistan.pdma.global.GetTehsilServer;
 import com.mobilisepakistan.pdma.global.MyPref;
 
 import com.mobilisepakistan.pdma.global.MyReceiver;
+
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.ShowlocaitonActivityNew;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
@@ -39,6 +42,7 @@ import com.mobilisepakistan.pdma.report.RapidNeedAssessment;
 
 import com.mobilisepakistan.pdma.report.ReportDisaster;
 
+import com.mobilisepakistan.pdma.report.RiskAssesment;
 import com.mobilisepakistan.pdma.report.WeatherForecast;
 import com.mobilisepakistan.pdma.signup.LogIn;
 
@@ -293,9 +297,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-        new GetDistrictServer(MainActivity.this, "http://175.107.63.39/newm/api/values/GetDistrictsAction").execute();
+       // new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL+ "GetDistrictsAction").execute();
 
+        if(preferences.getappcount()==0) {
+            new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute();
 
+        }
 
     }
     // get location new
@@ -377,6 +384,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 return true;
 
+
+            case R.id.nav_getdate:
+
+                new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute();
+
+
+                return true;
+
             case R.id.st_logout:
 
                 MyPref prefs = new MyPref(this);
@@ -447,6 +462,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.nav_wf) {
             intent = new Intent(this, WeatherForecast.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.nav_risk) {
+            intent = new Intent(this, RiskAssesment.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_RNA) {

@@ -195,13 +195,13 @@
 
 
 
-
+    <string name="nav_getdata">ڈیٹا کو اپ ڈیٹ کریں۔</string>
     <!--    About app-->
 
     <string name="about_App">ایپ کے بارے میں</string>
     <string name="about_App_text_h"> پی ڈی ایم اے مدد گار  ایپ</string>
     <string name="about_App_text">
-      خیبر پختونخوا میں عوام کیلئے آفات کے ممکنہ خطرات میں کمی لانے کا اشتراکی نظام
+
 
 
 پی ڈی ایم اے ، مد د گار ایپ  خیبر پختونخواہ میں ڈیزاسٹر مینجمنٹ اتھاریٹیز اور عوام کے مابین باہمی تعاون بڑھانے کا ایک مربوط نظام ہےـ
@@ -218,7 +218,7 @@
 
 
 
-    <string name="contact_us_uop"><u>پشاور یونیورسٹی کے رابطے</u></string>
+    <string name="contact_us_uop"><u>پشاور یونیورسٹی </u></string>
 
 
 
@@ -230,7 +230,7 @@
     <string name="contact_us_irf"> عرفان سید ، سینئر سافٹ ویئر انجینئر ، موبلائز پروجیکٹ ، سی ڈی پی ایم ، پشاور یونیورسٹی۔, irfansyed.pg@gmail.com</string>
 
 
-    <string name="contact_us_pdma"><u>پی ڈی ایم اے ، خیبر پختونخوا رابطہ</u></string>
+    <string name="contact_us_pdma"><u>پی ڈی ایم اے ، خیبر پختونخوا </u></string>
 
 
 

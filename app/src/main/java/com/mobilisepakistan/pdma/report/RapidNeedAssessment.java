@@ -1,6 +1,5 @@
 package com.mobilisepakistan.pdma.report;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,15 +7,12 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.RapidneedassesmentBinding;
-import com.mobilisepakistan.pdma.global.District;
 import com.mobilisepakistan.pdma.global.MyPref;
-import com.mobilisepakistan.pdma.global.Tehsil;
 import com.mobilisepakistan.pdma.global.TypeDisaster;
 import com.mobilisepakistan.pdma.global.UploadData2;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
@@ -34,19 +30,20 @@ public class RapidNeedAssessment extends AppCompatActivity  {
     String sTehsil="";
     String sDisasterType="";
     MyPref preferences;
+    int UserID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.rapidneedassesment);
         listDisaster=new ArrayList<>();
         listDistrict=new ArrayList<>();
-        listDistrict= District.listDistrict;
+        listDistrict= LocalDataManager.GetDistricts(this);
         listDisaster= TypeDisaster.getDisaster();
         UploadFailur=false;
 
         TurnOnGPS.turnGPSOn(this);
         preferences = new MyPref(this);
-
+        UserID=preferences.getUserId();
         // when clicked on District will open new Activity for District Selection
         binding.rna1LV.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -70,7 +67,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
                 }
 
                 Intent  intent = new Intent(RapidNeedAssessment.this, RecyclerViewA.class);
-                listTehsil= Tehsil.get(sDistrict);
+                listTehsil= LocalDataManager.GetTehsils(sDistrict,RapidNeedAssessment.this);
                 intent.putExtra("mylist",listTehsil);
                 intent.putExtra("header",getString(R.string.s_g_h_select_tesh));
                 startActivityForResult(intent,12);
@@ -221,15 +218,17 @@ public class RapidNeedAssessment extends AppCompatActivity  {
 
         //((Activity) RapidNeedAssessment.this).finish();
 
+        int DistrictId=LocalDataManager.GetDistrictId(binding.rna1Tv.getText().toString().trim(),this);
+
 
         if (UploadFailur==false) {
-            Logpk = LocalDataManager.InsertLogTable("1", binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RNA", this);
+            Logpk = LocalDataManager.InsertLogTable(Integer.toString(UserID), binding.latitude.getText().toString(), binding.longitude.getText().toString(), "RNA", this);
             new LocalDataManager(this).InsertRespnoseTable(Integer.parseInt(Logpk), HashData, "RNA");
         }
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,1111,binding.rna4Tv.getText().toString().trim()),"RNA");
+        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rna4Tv.getText().toString().trim()),"RNA");
 
 //        if(uploadStatus==true)
 //        {

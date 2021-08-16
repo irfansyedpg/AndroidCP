@@ -12,9 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.DemageloseBinding;
-import com.mobilisepakistan.pdma.databinding.RapidneedassesmentBinding;
-import com.mobilisepakistan.pdma.global.District;
 import com.mobilisepakistan.pdma.global.TypeDisaster;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 
@@ -36,7 +35,7 @@ public class DemagesLosses extends AppCompatActivity  {
         binding = DataBindingUtil.setContentView(this, R.layout.demagelose);
         listDisaster=new ArrayList<>();
         listDistrict=new ArrayList<>();
-        listDistrict= District.listDistrict;
+        listDistrict= LocalDataManager.GetDistricts(this);
         listDisaster= TypeDisaster.getDisaster();
 
 
