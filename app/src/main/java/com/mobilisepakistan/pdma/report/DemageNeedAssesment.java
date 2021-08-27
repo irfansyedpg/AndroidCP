@@ -2,6 +2,7 @@ package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -238,8 +239,9 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
 
+        ArrayList<Bitmap> bimarry=new ArrayList<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA");
+         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA",bimarry);
 
 //        if(uploadStatus==true)
 //        {

@@ -1,8 +1,10 @@
 
 package com.mobilisepakistan.pdma.report;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -28,7 +31,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +41,7 @@ import java.util.Map;
 public class UploadToServer extends AppCompatActivity {
 
 
-    private static final String ROOT_URL = ServerConfiguration.ServerURL+ "InsertResponseMedia";
+    private static final String ROOT_URL = ServerConfiguration.ServerURL+ "RDImageAction";
 
     private static final int PICK_IMAGE_REQUEST =1 ;
     private Bitmap bitmap;
@@ -87,38 +92,69 @@ public class UploadToServer extends AppCompatActivity {
 
     private void showFileChooser() {
 
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose your picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
+
+                } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     //    String filpath=android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                     startActivityForResult(pickPhoto , 1);
 
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+
+
+
 
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    //    super.onActivityResult(requestCode, resultCode, data);
 
 
 
+        switch (requestCode) {
+            case 0:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                    imageView.setImageBitmap(selectedImage);
+                }
 
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-                Uri picUri = data.getData();
-         //       filePath = getPath(picUri);
-
+                break;
+            case 1:
+                if (resultCode == RESULT_OK && data != null) {
                     try {
+                        final Uri imageUri = data.getData();
+                     //   String Pathtesting=getRealPathFromURI(imageUri);
 
-                  //      textView.setText("File Selected");
-                     //   Log.d("filePath", String.valueOf(filePath));
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), picUri);
-                    //    uploadBitmap(bitmap);
-                        imageView.setImageBitmap(bitmap);
-                    } catch (IOException e) {
+                        final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                        bitmap=selectedImage;
+                        imageView.setImageBitmap(selectedImage);
+                    } catch (FileNotFoundException e) {
                         e.printStackTrace();
+                        Toast.makeText(this, "Something went wrong, Unable to select the immage ", Toast.LENGTH_LONG).show();
                     }
 
-            }
+                }
 
+                break;
         }
 
     }
@@ -168,7 +204,8 @@ public class UploadToServer extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("FK", "67");
+                params.put("LogId", "2127");
+                params.put("Path", "Path");
                 return params;
             }
 
@@ -179,7 +216,7 @@ public class UploadToServer extends AppCompatActivity {
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
             //    long imagename = System.currentTimeMillis();
-                params.put("Response", new DataPart("imagename" + ".png", getFileDataFromDrawable(bitmap)));
+                params.put("ImageFile", new DataPart("imagename" + ".png", getFileDataFromDrawable(bitmap)));
                 return params;
             }
         };

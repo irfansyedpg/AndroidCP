@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
+import com.mobilisepakistan.pdma.report.NewUPloadImage;
+import com.mobilisepakistan.pdma.report.UploadToServer;
 
 import java.util.Locale;
 
@@ -99,7 +101,9 @@ public class Splash extends AppCompatActivity {
                 {
                     preferences.setappcount(preferences.getappcount()+1);
 
-                    Intent intt=new Intent(Splash.this,MainActivity.class);
+                   Intent intt=new Intent(Splash.this,MainActivity.class);
+                //    Intent intt=new Intent(Splash.this, UploadToServer.class);
+
                      startActivity(intt);
 
                     Splash.this.finish();

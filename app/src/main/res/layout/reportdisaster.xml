@@ -64,23 +64,21 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        style="@style/IconLinLayout"
                         android:id="@+id/rd1LV"
+                        style="@style/IconLinLayout"
 
                         >
 
                         <TextView
+                            android:id="@+id/rd1Tv"
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/rd1"
                             android:layout_weight="100"
-                            android:id="@+id/rd1Tv"
+                            android:hint="@string/rd1"
 
                             />
 
-                        <ImageView
-                            style="@style/DownImageView"
-                            />
+                        <ImageView style="@style/DownImageView" />
 
                     </LinearLayout>
 
@@ -101,17 +99,17 @@
 
 
                     <LinearLayout
-                        style="@style/IconLinLayout"
                         android:id="@+id/rd2LV"
+                        style="@style/IconLinLayout"
 
                         >
 
                         <TextView
+                            android:id="@+id/rd2Tv"
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/rd2"
                             android:layout_weight="100"
-                            android:id="@+id/rd2Tv"
+                            android:hint="@string/rd2"
 
                             />
 
@@ -132,10 +130,10 @@
                         />
 
                     <EditText
+                        android:id="@+id/rd3Tv"
                         style="@style/SResponce"
                         android:hint="@string/rd3"
                         android:lines="4"
-                        android:id="@+id/rd3Tv"
 
                         />
 
@@ -156,17 +154,17 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        style="@style/IconLinLayout"
                         android:id="@+id/rd4LV"
+                        style="@style/IconLinLayout"
 
                         >
 
                         <TextView
+                            android:id="@+id/rd4Tv"
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/rd4"
                             android:layout_weight="100"
-                            android:id="@+id/rd4Tv"
+                            android:hint="@string/rd4"
 
                             />
 
@@ -187,10 +185,10 @@
                         />
 
                     <EditText
+                        android:id="@+id/rd5Tv"
                         style="@style/SResponce"
                         android:hint="@string/rd5"
-                        android:lines="4"
-                        android:id="@+id/rd5Tv" />
+                        android:lines="4" />
 
                     <View style="@style/nView" />
 
@@ -216,8 +214,8 @@
                         >
 
                         <LinearLayout
-                            style="@style/UploadImageLV"
                             android:id="@+id/rd6LV1"
+                            style="@style/UploadImageLV"
 
                             >
 
@@ -232,29 +230,29 @@
 
 
                         <LinearLayout
-                            style="@style/UploadImageLV"
                             android:id="@+id/rd6LV2"
+                            style="@style/UploadImageLV"
 
                             >
 
                             <ImageView
+                                android:id="@+id/rd6Imgv2"
                                 style="@style/DownImageView"
-                                android:src="@drawable/ic_add_black_24dp"
                                 android:adjustViewBounds="true"
-                                android:id="@+id/rd6Imgv2" />
+                                android:src="@drawable/ic_add_black_24dp" />
                         </LinearLayout>
 
                         <LinearLayout
-                            style="@style/UploadImageLV"
                             android:id="@+id/rd6LV3"
+                            style="@style/UploadImageLV"
 
                             >
 
                             <ImageView
+                                android:id="@+id/rd6Imgv3"
                                 style="@style/DownImageView"
-                                android:src="@drawable/ic_add_black_24dp"
                                 android:adjustViewBounds="true"
-                                android:id="@+id/rd6Imgv3" />
+                                android:src="@drawable/ic_add_black_24dp" />
                         </LinearLayout>
 
 
@@ -280,10 +278,10 @@
                     </LinearLayout>
 
                     <CheckBox
-                        style="@style/Undertaking"
-
-                        android:text="@string/undertakingGPS"
                         android:id="@+id/checkboxGps"
+
+                        style="@style/Undertaking"
+                        android:text="@string/undertakingGPS"
 
                         />
 
@@ -295,14 +293,14 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/s_g_lat"
-                            android:layout_weight="30" />
+                            android:layout_weight="30"
+                            android:hint="@string/s_g_lat" />
 
                         <TextView
-                            style="@style/SResponce"
-                            android:layout_width="0dp"
-
                             android:id="@+id/latitude"
+                            style="@style/SResponce"
+
+                            android:layout_width="0dp"
                             android:layout_weight="70" />
 
 
@@ -315,18 +313,18 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/s_g_lon"
                             android:layout_weight="30"
+                            android:hint="@string/s_g_lon"
 
                             />
 
                         <TextView
-                            style="@style/SResponce"
-                            android:layout_width="0dp"
-
                             android:id="@+id/longitude"
-                            android:layout_weight="70"
-                            android:layout_gravity="start" />
+                            style="@style/SResponce"
+
+                            android:layout_width="0dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="70" />
 
 
                     </LinearLayout>
@@ -350,9 +348,9 @@
                     </LinearLayout>
 
                     <CheckBox
-                        style="@style/Undertaking"
-
                         android:id="@+id/checkbox"
+
+                        style="@style/Undertaking"
 
                         />
 

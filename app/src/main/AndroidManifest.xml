@@ -139,6 +139,13 @@
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.report.NewUPloadImage"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
 
         <activity
             android:noHistory="false"
@@ -164,7 +171,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:noHistory="true"
+            android:noHistory="false"
             android:name="com.mobilisepakistan.pdma.report.UploadToServer"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />

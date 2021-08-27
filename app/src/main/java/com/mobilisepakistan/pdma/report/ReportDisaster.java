@@ -1,11 +1,13 @@
 package com.mobilisepakistan.pdma.report;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,21 +20,35 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.ReportdisasterBinding;
 import com.mobilisepakistan.pdma.global.MyPref;
+import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.global.TypeDisaster;
 
 import com.mobilisepakistan.pdma.global.UploadData2;
+import com.mobilisepakistan.pdma.global.testVolleyMultipartRequest;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ReportDisaster extends AppCompatActivity  {
     ReportdisasterBinding binding ;
@@ -45,6 +61,9 @@ public class ReportDisaster extends AppCompatActivity  {
     String Logpk="";
     MyPref preferences;
     int UserID=0;
+    private Bitmap bitmapimag1=null;
+    private Bitmap bitmapimag2=null;
+    private Bitmap bitmapimag3=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -229,6 +248,19 @@ public class ReportDisaster extends AppCompatActivity  {
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         ImgView.setImageBitmap(selectedImage);
+
+                        if(ImgView==binding.rd6Imgv1)
+                        {
+                            bitmapimag1=selectedImage;
+                        }
+                        else if(ImgView==binding.rd6Imgv2)
+                        {
+                            bitmapimag2=selectedImage;
+                        }
+                        else if(ImgView==binding.rd6Imgv3)
+                        {
+                            bitmapimag3=selectedImage;
+                        }
                     }
 
                     break;
@@ -239,8 +271,23 @@ public class ReportDisaster extends AppCompatActivity  {
                             String Pathtesting=getRealPathFromURI(imageUri);
 
                             final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+
                             final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                             ImgView.setImageBitmap(selectedImage);
+
+                            if(ImgView==binding.rd6Imgv1)
+                            {
+                                bitmapimag1=selectedImage;
+                            }
+                            else if(ImgView==binding.rd6Imgv2)
+                            {
+                                bitmapimag2=selectedImage;
+                            }
+                            else if(ImgView==binding.rd6Imgv3)
+                            {
+                                bitmapimag3=selectedImage;
+                            }
+
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                             Toast.makeText(this, "Something went wrong, Unable to select the immage ", Toast.LENGTH_LONG).show();
@@ -304,9 +351,9 @@ public class ReportDisaster extends AppCompatActivity  {
         HashData.put("Address",binding.rd3Tv.getText().toString().trim());
         HashData.put("Disaster Type",binding.rd4Tv.getText().toString().trim());
         HashData.put("Disaster Detail",binding.rd5Tv.getText().toString().trim());
-        HashData.put("Pic1","Pic1");
-        HashData.put("Pic2","Pic2");
-        HashData.put("Pic3","Pic3");
+     //   HashData.put("Pic1","Pic1");
+      //  HashData.put("Pic2","Pic2");
+      //  HashData.put("Pic3","Pic3");
 
         int DistrictId=LocalDataManager.GetDistrictId(binding.rd1Tv.getText().toString().trim(),this);
 
@@ -318,33 +365,58 @@ public class ReportDisaster extends AppCompatActivity  {
         }
 
 
-//        HashMap<String,List<String>> MpUplod=new HashMap<>();
-
-       boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rd4Tv.getText().toString().trim()),"RD");
+        ArrayList<Bitmap> bitmapparr=new ArrayList<>();
 
 
+        try {
 
-        // from here
 
-//       if(uploadStatus==true)
-//       {
-//           LocalDataManager.UpdateLOgtable(Logpk);
-//          // ((Activity) ReportDisaster.this).finish();
-//       }
-//       else
-//       {
-//           UploadFailur=true;
-//           new AlertDialog.Builder(this).
-//                   setMessage("Unable to Upload Data to Server Due to Internet Connection Would you like to try again or you will upload it latter .").
-//                   setPositiveButton("I will Upload Letter", new DialogInterface.OnClickListener() {
-//                       @Override
-//                       public void onClick(DialogInterface dialogInterface, int i) {
-//                           ((Activity) ReportDisaster.this).finish();
-//                       }
-//                   }).setNegativeButton("Try Again", null).create().show();
-//       }
+            if (!bitmapimag1.equals(null) || !bitmapimag1.equals("")) {
 
-// to here
+                bitmapparr.add(bitmapimag1);
+
+
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        try {
+
+
+            if (!bitmapimag2.equals(null) || !bitmapimag2.equals("")) {
+
+                bitmapparr.add(bitmapimag2);
+
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        try {
+            if (!bitmapimag3.equals(null) || !bitmapimag3.equals("")) {
+
+                bitmapparr.add(bitmapimag3);
+
+            }
+        }
+        catch (Exception e)
+        {
+            
+        }
+
+
+       String LastLogId= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rd4Tv.getText().toString().trim()),"RD",bitmapparr);
+
+
+
+
+
+
 
     }
 
@@ -414,7 +486,77 @@ public class ReportDisaster extends AppCompatActivity  {
         return cursor.getString(column_index);
     }
 
+
+
+
+    // upload pictures to server
+    private static final String ROOT_URL = ServerConfiguration.ServerURL+ "RDImageAction";
+
+    private void uploadBitmap(final Bitmap bitmap,final String logid) {
+
+        //getting the tag from the edittext
+        //   final String tags = editTextTags.getText().toString().trim();
+
+        //our custom volley request
+        testVolleyMultipartRequest testVolleyMultipartRequest = new testVolleyMultipartRequest(Request.Method.POST, ROOT_URL,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+                            JSONObject obj = new JSONObject(new String(response.data));
+                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            /*
+             * If you want to add more parameters with the image
+             * you can do it here
+             * here we have only one parameter with the image
+             * which is tags
+             * */
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("LogId", logid);
+                params.put("Path", "Path");
+                return params;
+            }
+
+            /*
+             * Here we are passing image by renaming it with a unique name
+             * */
+            @Override
+            protected Map<String, DataPart> getByteData() {
+                Map<String, DataPart> params = new HashMap<>();
+                //    long imagename = System.currentTimeMillis();
+                params.put("ImageFile", new DataPart("imagename" + ".png", getFileDataFromDrawable(bitmap)));
+                return params;
+            }
+        };
+
+        //adding the request to volley
+        Volley.newRequestQueue(this).add(testVolleyMultipartRequest);
     }
+
+    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
+    }
+
+
+
+
+}
 
 
 

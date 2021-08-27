@@ -1,6 +1,7 @@
 package com.mobilisepakistan.pdma.report;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -228,7 +229,8 @@ public class RapidNeedAssessment extends AppCompatActivity  {
 
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
-        boolean uploadStatus= UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rna4Tv.getText().toString().trim()),"RNA");
+        ArrayList<Bitmap> bimarry=new ArrayList<>();
+         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rna4Tv.getText().toString().trim()),"RNA",bimarry);
 
 //        if(uploadStatus==true)
 //        {
