@@ -147,7 +147,7 @@
     <string name="s_g_h_note">	Note	</string>
     <string name="s_g_h_select_dist">	Select District	</string>
     <string name="s_g_h_select_tesh">	Select Tehsil	</string>
-    <string name="s_g_submite"> Submite		</string>
+    <string name="s_g_submite"> Submit		</string>
 
 
 
@@ -170,7 +170,7 @@
     <string name="pdma_official_twitter_page">PDMA Official Twitter Account</string>
     <string name="pdma_official_youtube_page">PDMA Official Youtube Channel</string>
     <string name="pdma_official_linkdin_page">PDMA Official Linkedin Account</string>
-    <string name="pdma_official_website_page">PDMA Official Website</string>
+    <string name="pdma_official_website_page">Public Awareness</string>
 
 
 
@@ -246,6 +246,14 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="su_su">	Signup	</string>
 
 
+
+
+<!--     Complaint-->
+
+
+    <string name="s_complaint">	Register Complaint 	</string>
+    <string name="s_ctitle">	Title 	</string>
+    <string name="s_cdetail">	Detail 	</string>
 
 
 </resources>

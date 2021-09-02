@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.SignupBinding;
+import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.RecyclerViewA;
 
@@ -26,6 +27,7 @@ public class SignUp extends AppCompatActivity {
     String sTehsil="";
     ArrayList<String> listDistrict;
     ArrayList<String> listTehsil;
+    MyPref preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +35,13 @@ public class SignUp extends AppCompatActivity {
 
         listDistrict=new ArrayList<>();
         listDistrict= LocalDataManager.GetDistricts(this);
-
+        preferences = new MyPref(this);
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) SignUp.this).finish();
+               // ((Activity) SignUp.this).finish();
+
+                TurnOnGPS.CloseActivityalerd(SignUp.this);
             }
         });
 
@@ -236,6 +240,8 @@ public class SignUp extends AppCompatActivity {
             log .put("District", binding.rd1Tv.getText().toString().trim());
             log .put("Tehsil", binding.rd2Tv.getText().toString().trim());
             log .put("Address", binding.rd3Tv.getText().toString().trim());
+            log .put("Latt", preferences.getlat());
+            log .put("Longg", preferences.getlong());
             if(binding.rd1.isChecked()) {
                 log.put("Type",
                         "1");
@@ -260,7 +266,7 @@ public class SignUp extends AppCompatActivity {
     public void onBackPressed() {
 
 
-        TurnOnGPS.CloseActivityalerd(this);
+        TurnOnGPS.CloseActivityalerd(SignUp.this);
 
     }
 

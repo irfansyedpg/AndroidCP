@@ -4,16 +4,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,22 +37,20 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
-public class RiskAssesment extends AppCompatActivity {
+public class Flyers extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    RiskAssesmentCustomAdapter mAdapter;
+    FlyersCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
     String sHeader;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
@@ -68,10 +61,10 @@ public class RiskAssesment extends AppCompatActivity {
 
 
 
-        sHeader=getString(R.string.s_rar);
+        sHeader=getString(R.string.pdma_official_website_page);
         binding.header.setText(sHeader);
 
-        new GetDataServerRiskAssesment(RiskAssesment.this, ServerConfiguration.ServerURL+ "GetReiskassesmentAction",binding.recycleview).execute();
+        new GetDataServerFlyers(Flyers.this, ServerConfiguration.ServerURL+ "GetFlyersAction",binding.recycleview).execute();
 
 
 
@@ -80,7 +73,7 @@ public class RiskAssesment extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RiskAssesment.this).finish();
+                ((Activity) Flyers.this).finish();
             }
         });
 
@@ -94,17 +87,17 @@ public class RiskAssesment extends AppCompatActivity {
 
 }
 
-class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
+class  FlyersCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> Listitle;
-    List<String> Listdetial;
+
     List<String> Listimg;
 
-    public RiskAssesmentCustomAdapter(Context context,List<String> title,List<String> detial,List<String> img ){
+    public FlyersCustomAdapter(Context context,List<String> title,List<String> img ){
         mContext = context;
         Listitle = title;
-        Listdetial = detial;
+
         Listimg = img;
 
     }
@@ -114,7 +107,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.riskassesment, parent, false);
+                .inflate(R.layout.flyers, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -134,9 +127,9 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
 
         try {
             vh.txttitle.setText(Listitle.get(position));
-            vh.txtdetial.setText(Listdetial.get(position));
 
-            String imurl="http://175.107.63.39/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+
+            String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
 
         //    String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
 
@@ -174,13 +167,13 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtdetial,txttitle;
+        public TextView txttitle;
 
         public ImageView lv;
 
         public ViewHolder(View v) {
             super(v);
-            txtdetial = (TextView) v.findViewById(R.id.detial);
+
             txttitle = (TextView) v.findViewById(R.id.title);
 
             lv = (ImageView) v.findViewById(R.id.img);
@@ -197,15 +190,15 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
 }
 
 
-class  GetDataServerRiskAssesment extends AsyncTask {
-    RiskAssesmentCustomAdapter mAdapter;
+class  GetDataServerFlyers extends AsyncTask {
+    FlyersCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView recycleviewR;
     Context mContext;
     ProgressDialog mDialog;
     String mUserMsg, URL;
 
-    public GetDataServerRiskAssesment(Context context, String URL,RecyclerView RV) {
+    public GetDataServerFlyers(Context context, String URL,RecyclerView RV) {
         this.mContext = context;
         this.URL = URL;
         this.recycleviewR=RV;
@@ -281,7 +274,7 @@ class  GetDataServerRiskAssesment extends AsyncTask {
             // Getting JSON Array node
             JSONArray contacts = jsonObj.getJSONArray("result");
             ArrayList<String> listtitl=new ArrayList<String>();
-            ArrayList<String> listdetial=new ArrayList<String>();
+
             ArrayList<String> listimg=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
@@ -289,20 +282,20 @@ class  GetDataServerRiskAssesment extends AsyncTask {
 
 
                 String title = c.getString("title");
-                String detail = c.getString("detail");
+
                 String img = c.getString("imageName");
 
 
 
 
                 listtitl.add(title);
-                listdetial.add(detail);
+
                 listimg.add(img);
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new RiskAssesmentCustomAdapter(mContext,listtitl,listdetial,listimg);
+            mAdapter = new FlyersCustomAdapter(mContext,listtitl,listimg);
             recycleviewR.setAdapter(mAdapter);
 
 

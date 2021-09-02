@@ -2,6 +2,9 @@ package com.mobilisepakistan.pdma.gps;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -25,6 +29,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.mobilisepakistan.pdma.global.MyPref;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -46,6 +51,8 @@ public class ShowLocationActivity2 extends AppCompatActivity
     // integer for permissions results request
     private static final int ALL_PERMISSIONS_RESULT = 1011;
 
+    MyPref preferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +68,25 @@ public class ShowLocationActivity2 extends AppCompatActivity
 
         permissionsToRequest = permissionsToRequest(permissions);
 
+
+        preferences = new MyPref(ShowLocationActivity2.this);
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (permissionsToRequest.size() > 0) {
                 requestPermissions(permissionsToRequest.toArray(
                         new String[permissionsToRequest.size()]), ALL_PERMISSIONS_RESULT);
+
+
+                // GPS issue on first lunch
+
+
+
             }
         }
+
+
+
 
         // we build google api client
         googleApiClient = new GoogleApiClient.Builder(this).
@@ -122,6 +142,9 @@ public class ShowLocationActivity2 extends AppCompatActivity
         if (googleApiClient != null  &&  googleApiClient.isConnected()) {
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
             googleApiClient.disconnect();
+
+
+
         }
     }
 
@@ -148,6 +171,18 @@ public class ShowLocationActivity2 extends AppCompatActivity
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 &&  ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+
+
+
+//                    Intent mStartActivity = new Intent(this, MainActivity.class);
+//                    int mPendingIntentId = 123456;
+//                    PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+//                    AlarmManager mgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+//                    mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+//                    System.exit(0);
+
+
             return;
         }
 
@@ -246,7 +281,16 @@ public class ShowLocationActivity2 extends AppCompatActivity
                     }
                 } else {
                     if (googleApiClient != null) {
-                        googleApiClient.connect();
+
+
+
+                    Intent mStartActivity = new Intent(this, MainActivity.class);
+                    int mPendingIntentId = 123456;
+                    PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+                    AlarmManager mgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+                    mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+                    System.exit(0);
+                       googleApiClient.connect();
                     }
                 }
 

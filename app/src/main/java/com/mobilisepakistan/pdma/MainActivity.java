@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.androdocs.httprequest.HttpRequest;
@@ -30,6 +31,7 @@ import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.ShowlocaitonActivityNew;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
+import com.mobilisepakistan.pdma.report.Complaints;
 import com.mobilisepakistan.pdma.report.DailySituationReport;
 import com.mobilisepakistan.pdma.report.DemageNeedAssesment;
 import com.mobilisepakistan.pdma.report.DemagesLosses;
@@ -76,6 +78,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -94,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout lnwa,lnew,lnds,lnrd,lnercon,lnqevc;
     int userId;
 
+
+
     private BroadcastReceiver MyReceiver = null;
 
     MyPref preferences;
@@ -106,8 +111,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
         preferences = new MyPref(MainActivity.this);
+
 
 
 
@@ -129,20 +134,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // call intenet check
         MyReceiver = new MyReceiver();
         broadcastIntent();
-
-
-        // test
-
-
-
-
-
-
-
-
-
-        // new way to check GPS
-
 
 
 
@@ -288,7 +279,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(GpsStatus == false) {
                 TurnOnGPS.turnGPSOn(MainActivity.this);
             }
+
             else {
+
                 Intent intentt = new Intent(MainActivity.this, ShowLocationActivity2.class);
                 startActivityForResult(intentt, 22);
             }
@@ -303,6 +296,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute();
 
         }
+
+        preferences.setappcount(preferences.getappcount()+1);
 
     }
     // get location new
@@ -329,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 intent = new Intent(this, AboutApp.class);
                 startActivity(intent);
-                this.finish();
+               // this.finish();
 
                 return true;
 
@@ -373,14 +368,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 intent = new Intent(this, LogIn.class);
                 startActivity(intent);
-                this.finish();
+               // this.finish();
 
                 return true;
             case R.id.st_sigup:
 
                 intent = new Intent(this, SignUp.class);
                 startActivity(intent);
-                this.finish();
+             //   this.finish();
 
                 return true;
 
@@ -399,7 +394,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             prefs.setUserId(0);
             intent = new Intent(this, LogIn.class);
             startActivity(intent);
-            this.finish();
+       //     this.finish();
 
                 return true;
 
@@ -467,6 +462,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.nav_risk) {
             intent = new Intent(this, RiskAssesment.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.nav_complaint) {
+            intent = new Intent(this, Complaints.class);
             startActivity(intent);
         }
         else if (id == R.id.nav_RNA) {
@@ -718,5 +718,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onPause();
     //    unregisterReceiver(MyReceiver);
     }
+
+
+    // GPS
+
 
 }

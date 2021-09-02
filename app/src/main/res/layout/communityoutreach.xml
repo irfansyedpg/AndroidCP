@@ -55,6 +55,41 @@
                 android:orientation="vertical"
                 android:weightSum="100">
 
+
+                <!-- child  layout starts website -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:id="@+id/llweb"
+                    android:layout_weight="20"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/liner_round"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="3dp"
+                    android:padding="15dp">
+
+
+                    <ImageView
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/web"
+                        android:background="@drawable/pdma"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/pdma_official_website_page"
+                        android:textSize="17sp"
+
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+                <!-- child  layout ends website -->
+
                 <!-- child  layout starts Facebook -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,39 +231,7 @@
                 <!-- child  layout ends linkdin -->
 
 
-                <!-- child  layout starts website -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:id="@+id/llweb"
-                    android:layout_weight="20"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:background="@drawable/liner_round"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="3dp"
-                    android:padding="15dp">
 
-
-                    <ImageView
-
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:id="@+id/web"
-                        android:background="@drawable/pdma"></ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="@string/pdma_official_website_page"
-                        android:textSize="17sp"
-
-                        android:layout_marginTop="5dp" />
-
-                </LinearLayout>
-                <!-- child  layout ends website -->
 
             </LinearLayout>
 

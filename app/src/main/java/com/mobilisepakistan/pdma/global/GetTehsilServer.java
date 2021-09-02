@@ -1,10 +1,14 @@
 package com.mobilisepakistan.pdma.global;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
+import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 
 import org.json.JSONArray;
@@ -28,10 +32,11 @@ public class GetTehsilServer extends AsyncTask {
     Context mContext;
   //  ProgressDialog mDialog;
     String mUserMsg, URL;
-
+    MyPref preferences;
     public GetTehsilServer(Context context, String URL) {
         this.mContext = context;
         this.URL = URL;
+        preferences = new MyPref(context);
 
     //    mDialog = new ProgressDialog(context);
 
@@ -126,10 +131,16 @@ public class GetTehsilServer extends AsyncTask {
 
             }
 
+            preferences.setappcount(preferences.getappcount()+1);
 
              LocalDataManager.InsertDistrictTehsil(lstdistrict,lstTehsil,lstDistriid,mContext);
 
             Toast.makeText(mContext,"Application data has been updated",Toast.LENGTH_LONG).show();
+
+            // restart app due to GPS first time installition issue
+
+
+            //
 
 
 

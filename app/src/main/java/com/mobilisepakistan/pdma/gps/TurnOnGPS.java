@@ -150,7 +150,7 @@ public class TurnOnGPS {
         AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
         builder1.setTitle(mContex.getString(R.string.s_h_lang));
         builder1.setMessage(mContex.getString(R.string.app_lang_header));
-        builder1.setCancelable(true);
+        builder1.setCancelable(false);
         final  MyPref preferences;
 
         preferences = new MyPref(mContex);

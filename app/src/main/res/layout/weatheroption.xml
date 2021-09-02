@@ -55,31 +55,13 @@
                 android:orientation="vertical"
                 android:weightSum="100">
 
-                <!-- child  layout starts Facebook -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:id="@+id/llfbk"
-                    android:layout_weight="25"
-                    android:orientation="vertical"
-                    android:gravity="center"
 
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="3dp"
-                    android:padding="15dp">
-
-
-
-
-                </LinearLayout>
-                <!-- child  layout ends youtube -->
                 <!-- child  layout starts twitter -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:id="@+id/lltwter"
-                    android:layout_weight="25"
+                    android:layout_weight="50"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
@@ -109,7 +91,7 @@
                         android:layout_height="wrap_content"
 
                         android:text="@string/wadvpdma"
-                        android:textSize="17sp"
+                        android:textSize="18sp"
                         android:textColor="@color/white"
 
                         android:background="@color/red"
@@ -123,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:id="@+id/llyoutube"
-                    android:layout_weight="25"
+                    android:layout_weight="50"
                     android:orientation="vertical"
                     android:gravity="center"
                     android:background="@drawable/liner_round"
@@ -159,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/temp"
                         android:text="@string/wadvpmd"
-                        android:textSize="17sp"
+                        android:textSize="18sp"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/white"
 
@@ -171,23 +153,6 @@
                 <!-- child  layout ends youtube -->
 
 
-                <!-- child  layout starts linkdin -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:id="@+id/lllnk"
-                    android:layout_weight="25"
-                    android:orientation="vertical"
-                    android:gravity="center"
-
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="3dp"
-                    android:padding="15dp">
-
-
-                </LinearLayout>
-                <!-- child  layout ends linkdin -->
 
 
                 <!-- child  layout starts website -->

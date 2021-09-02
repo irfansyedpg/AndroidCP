@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.mobilisepakistan.pdma.databinding.CommunityoutreachBinding;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
+import com.mobilisepakistan.pdma.report.Flyers;
 
 public class CommunityOutreach extends AppCompatActivity {
     CommunityoutreachBinding binding;
@@ -64,7 +65,7 @@ public class CommunityOutreach extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.pdma.gov.pk/"));
+                Intent browserIntent = new Intent(CommunityOutreach.this, Flyers.class);
                 startActivity(browserIntent);
             }
         });
