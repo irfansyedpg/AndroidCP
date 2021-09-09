@@ -21,6 +21,10 @@
             android:id="@+id/nav_wf"
             android:icon="@drawable/wf"
             android:title="@string/S_dw" />
+        <item
+            android:id="@+id/nav_new"
+            android:icon="@drawable/news"
+            android:title="@string/S_News" />
 
     </group>
 
@@ -46,7 +50,7 @@
 
             <item
                 android:id="@+id/nav_complaint"
-                android:icon="@drawable/risk"
+                android:icon="@drawable/complaint"
                 android:title="@string/s_complaint" />
         </menu>
     </item>
@@ -54,10 +58,7 @@
 
     <item android:title="@string/s_h_ps">
         <menu>
-            <item
-                android:id="@+id/emgncyContact"
-                android:icon="@drawable/ec"
-                android:title="@string/s_erc" />
+
             <item
                 android:id="@+id/evactioncenter"
                 android:icon="@drawable/ee"
@@ -66,6 +67,10 @@
                 android:id="@+id/nav_co"
                 android:icon="@drawable/cou"
                 android:title="@string/s_co" />
+            <item
+                android:id="@+id/emgncyContact"
+                android:icon="@drawable/ec"
+                android:title="@string/s_erc" />
 
             <item
                 android:id="@+id/nav_quick_links"

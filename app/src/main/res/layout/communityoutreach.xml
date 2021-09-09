@@ -76,7 +76,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:id="@+id/web"
-                        android:background="@drawable/pdma"></ImageView>
+                        android:background="@drawable/marketing"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"

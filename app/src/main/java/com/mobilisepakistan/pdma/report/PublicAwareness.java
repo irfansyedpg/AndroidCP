@@ -41,10 +41,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Flyers extends AppCompatActivity {
+public class PublicAwareness extends AppCompatActivity {
 
     RecycleviewBinding binding ;
-    FlyersCustomAdapter mAdapter;
+    PublicAwarenessCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
     String sHeader;
@@ -64,7 +64,7 @@ public class Flyers extends AppCompatActivity {
         sHeader=getString(R.string.pdma_official_website_page);
         binding.header.setText(sHeader);
 
-        new GetDataServerFlyers(Flyers.this, ServerConfiguration.ServerURL+ "GetFlyersAction",binding.recycleview).execute();
+        new GetDataServerPublicAwareness(PublicAwareness.this, ServerConfiguration.ServerURL+ "GetFlyersAction",binding.recycleview).execute();
 
 
 
@@ -73,7 +73,7 @@ public class Flyers extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) Flyers.this).finish();
+                ((Activity) PublicAwareness.this).finish();
             }
         });
 
@@ -87,14 +87,14 @@ public class Flyers extends AppCompatActivity {
 
 }
 
-class  FlyersCustomAdapter extends RecyclerView.Adapter {
+class  PublicAwarenessCustomAdapter extends RecyclerView.Adapter {
 
     Context mContext;
     List<String> Listitle;
 
     List<String> Listimg;
 
-    public FlyersCustomAdapter(Context context,List<String> title,List<String> img ){
+    public PublicAwarenessCustomAdapter(Context context,List<String> title,List<String> img ){
         mContext = context;
         Listitle = title;
 
@@ -126,16 +126,13 @@ class  FlyersCustomAdapter extends RecyclerView.Adapter {
 
 
         try {
+
+
             vh.txttitle.setText(Listitle.get(position));
-
-
             String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
-
-        //    String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
-
             Picasso.get().load(imurl).into(vh.lv);
 
-         //   vh.lv.setImageBitmap(Listimg.get(position));
+
 
         }
         catch (IndexOutOfBoundsException e)
@@ -190,15 +187,15 @@ class  FlyersCustomAdapter extends RecyclerView.Adapter {
 }
 
 
-class  GetDataServerFlyers extends AsyncTask {
-    FlyersCustomAdapter mAdapter;
+class  GetDataServerPublicAwareness extends AsyncTask {
+    PublicAwarenessCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView recycleviewR;
     Context mContext;
     ProgressDialog mDialog;
     String mUserMsg, URL;
 
-    public GetDataServerFlyers(Context context, String URL,RecyclerView RV) {
+    public GetDataServerPublicAwareness(Context context, String URL,RecyclerView RV) {
         this.mContext = context;
         this.URL = URL;
         this.recycleviewR=RV;
@@ -281,21 +278,23 @@ class  GetDataServerFlyers extends AsyncTask {
                 JSONObject c = contacts.getJSONObject(i);
 
 
-                String title = c.getString("title");
 
-                String img = c.getString("imageName");
+                String Typee=c.getString("typee");
+
+                if(Typee.equals("1")) {
+                    String title = c.getString("title");
+                    String img = c.getString("imageName");
 
 
+                    listtitl.add(title);
 
-
-                listtitl.add(title);
-
-                listimg.add(img);
+                    listimg.add(img);
+                }
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new FlyersCustomAdapter(mContext,listtitl,listimg);
+            mAdapter = new PublicAwarenessCustomAdapter(mContext,listtitl,listimg);
             recycleviewR.setAdapter(mAdapter);
 
 

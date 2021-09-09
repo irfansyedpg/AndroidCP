@@ -39,6 +39,7 @@ import com.mobilisepakistan.pdma.report.EarlyWarning;
 import com.mobilisepakistan.pdma.report.EmergencyContact;
 import com.mobilisepakistan.pdma.report.EvacuationCenter;
 
+import com.mobilisepakistan.pdma.report.News;
 import com.mobilisepakistan.pdma.report.QuickLink;
 import com.mobilisepakistan.pdma.report.RapidNeedAssessment;
 
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         lnwa.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        intent = new Intent(MainActivity.this, WeatherForecast.class);
+                                        intent = new Intent(MainActivity.this, News.class);
                                        startActivity(intent);
 
 
@@ -438,6 +439,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, DailySituationReport.class);
             startActivity(intent);
         }
+        else if (id == R.id.nav_new) {
+            intent = new Intent(this, News.class);
+            startActivity(intent);
+        }
         else if (id == R.id.emgncyContact) {
             intent = new Intent(this, EmergencyContact.class);
             startActivity(intent);
@@ -466,8 +471,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if (id == R.id.nav_complaint) {
-            intent = new Intent(this, Complaints.class);
-            startActivity(intent);
+
+
+            if(userId==0)
+            {
+                //mainIntent=new Intent(Splash.this, LogIn.class);
+
+                TurnOnGPS.LoginActivityalert(MainActivity.this);
+
+            }
+            else {
+                intent = new Intent(this, Complaints.class);
+                startActivity(intent);
+            }
         }
         else if (id == R.id.nav_RNA) {
 
@@ -667,7 +683,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // SET ALL VALUES IN TEXTBOX :
 
-                tLocaiton.setText(city_name+", "+countryname);
+             //  tLocaiton.setText(city_name+", "+countryname);
+               tLocaiton.setText("");
 
 
 

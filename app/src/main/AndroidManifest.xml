@@ -184,7 +184,13 @@
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.Flyers"
+            android:name="com.mobilisepakistan.pdma.report.PublicAwareness"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.report.News"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 

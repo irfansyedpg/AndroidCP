@@ -130,7 +130,7 @@ public class Complaints extends AppCompatActivity  {
             log .put("Title", Title);
             log .put("Detail", Detail);
             log .put("UserId", UserID);
-            log .put("dated", Currentdate);
+            log .put("Dated", "0");
 
         } catch (JSONException e) {
             e.printStackTrace();

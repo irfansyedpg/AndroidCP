@@ -105,6 +105,8 @@
     <!--    Menue Drawwer-->
 
 
+    <string name="S_News">	PDMA News 	</string>
+
     <string name="S_dw">	Daily Weather 	</string>
     <string name="s_ew">	Early Warning 	</string>
     <string name="s_dsr">	Daily Situation Report	</string>

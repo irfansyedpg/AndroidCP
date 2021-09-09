@@ -33,7 +33,7 @@ public class UploadComplaint
    public static  boolean status;
    public static  String LastId;
 
-    public static  String volleyPost(Context contx, JSONObject Jobj){
+   public static  String volleyPost(Context contx, JSONObject Jobj){
 
 
         String postUrl = ServerConfiguration.ServerURL+ "InsertComplaintAction";
@@ -55,16 +55,9 @@ public class UploadComplaint
                 pd.cancel();
                 System.out.println(response);
 
-
-                try {
-                     LastId=response.getString("lastId");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                UploadComplaint.status=true;
+                UploadData2.status=true;
 
                 String Dilogtext = mContext.getString(R.string.s_g_subnote);
-
 
 
                     AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.s_g_h_subnote)).setMessage(Dilogtext);
@@ -74,11 +67,10 @@ public class UploadComplaint
                     dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton) {
-                               ((Activity) mContext).finish();
+                            ((Activity) mContext).finish();
                         }
                     });
-                       dialog.create().show();
-
+                    dialog.create().show();
 
 
 
@@ -93,7 +85,7 @@ public class UploadComplaint
                 error.printStackTrace();
                 pd.cancel();
                 Toast.makeText(mContext,"Error, please check your network connection. Currently unable to brows the app due to net conncectivity",Toast.LENGTH_LONG).show();
-                UploadComplaint.status=false;
+                UploadData2.status=false;
             }
         });
 
@@ -101,6 +93,7 @@ public class UploadComplaint
 
         return  LastId;
     }
+
 
 
 }

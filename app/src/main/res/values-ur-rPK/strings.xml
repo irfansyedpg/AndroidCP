@@ -22,6 +22,9 @@
 
     <string name="menu_home">ہوم ڈیش بورڈ</string>
     <string name="S_dw">	 آج کا موسم	</string>
+
+    <string name="S_News">	پی ڈی ایم اے نیوز 	</string>
+
     <string name="s_ew">	 ارلی وارننگ /پیشگی اطلاع	</string>
     <string name="s_dsr">	رزمرہ صورتحال کی رپورٹ	</string>
     <string name="s_rd">	آفت کے بارے میں رپورٹ کریں	</string>
@@ -31,7 +34,7 @@
     <string name="s_rar">	رسک اسسمنٹ کے نتایج	</string>
     <string name="s_erc">	ايمرجنسی رابطہ نمبر	</string>
     <string name="s_lec">	محفوظ پناگاہ  تلاش کریں	</string>
-    <string name="s_co">	کمیونٹی آوٹریچ	</string>
+    <string name="s_co">	کمیونٹی تک رسائی	</string>
     <string name="s_ql">	کارآمد لنک	</string>
     <string name="s_logout">	لاگ آوٹ کریں	</string>
     <string name="s_login">	لاگ ان کریں	</string>
@@ -158,7 +161,7 @@
     <string name="pdma_official_twitter_page">پی ڈی ایم اے آفیشل ٹویٹر اکاؤنٹ</string>
     <string name="pdma_official_youtube_page">پی ڈی ایم اے آفیشل یوٹیوب چینل</string>
     <string name="pdma_official_linkdin_page">پی ڈی ایم اے آفیشل لنکڈن اکاؤنٹ</string>
-    <string name="pdma_official_website_page">عوامی بیداری</string>
+    <string name="pdma_official_website_page">عوامی اگاہی</string>
 
 
     <!--    About app-->
