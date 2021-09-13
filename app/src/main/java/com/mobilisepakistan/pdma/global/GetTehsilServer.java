@@ -131,7 +131,8 @@ public class GetTehsilServer extends AsyncTask {
 
             }
 
-            preferences.setappcount(preferences.getappcount()+1);
+            int ccc=preferences.getappcount()+1;
+            preferences.setappcount(ccc);
 
              LocalDataManager.InsertDistrictTehsil(lstdistrict,lstTehsil,lstDistriid,mContext);
 

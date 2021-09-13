@@ -24,7 +24,9 @@
             <TextView
                 style="@style/SResponce"
                 android:id="@+id/detial"
+                android:layout_gravity="center_vertical|end"
 
+                android:justificationMode="inter_word"
                 android:text="Detail"
                 android:textColor="@color/blacklight" />
 

@@ -93,9 +93,10 @@ public class Splash extends AppCompatActivity {
               //  Splash.this.startActivity(mainIntent);
 
 
-                if(preferences.getappcount()==0) {
+                if(preferences.getLanguageDilage()==false) {
 
 
+                    preferences.setlanguaDialge(true);
                     TurnOnGPS.Languagealert(Splash.this);
 
                //     preferences.setappcount(preferences.getappcount()+1);

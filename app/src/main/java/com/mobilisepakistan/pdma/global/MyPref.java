@@ -14,7 +14,8 @@ public class MyPref {
     final public static String  USER_ID  = "userId";
     final public static String  Language  = "Language";
     final public static String  Country  = "Country";
-    final public static int  applunch  = 0;
+    final public static String  applunch  = "applunch";
+    final public static String  LanguageDailuge  = "LanguageDailuge";
 
 
     public  static   ArrayList<String> listDistrict=new  ArrayList<String>();
@@ -43,6 +44,18 @@ public class MyPref {
 
     public String  getLanguage() {
         String id = sharedPreferences.getString(Language, "en");
+        return id;
+    }
+
+
+
+    public void setlanguaDialge(Boolean lang) {
+        editor.putBoolean(LanguageDailuge, lang);
+        editor.apply();
+    }
+
+    public Boolean  getLanguageDilage() {
+        Boolean id = sharedPreferences.getBoolean(LanguageDailuge, false);
         return id;
     }
 
@@ -87,12 +100,12 @@ public class MyPref {
 
 
     public void setappcount(int count) {
-        editor.putInt(String.valueOf(applunch), count);
+        editor.putInt(applunch, count);
         editor.apply();
     }
 
     public int getappcount() {
-        int lattti = sharedPreferences.getInt(String.valueOf(applunch), 0);
+        int lattti = sharedPreferences.getInt(applunch, 0);
         return lattti;
     }
 

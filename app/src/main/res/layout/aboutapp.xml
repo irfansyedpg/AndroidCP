@@ -100,10 +100,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+
+                        android:layout_gravity="center_vertical|end"
+
+                        android:justificationMode="inter_word"
                         android:text="@string/about_App_text"
                         android:textSize="15sp"
                         android:textColor="@color/black"
-                        android:gravity="fill"
+
                         android:layout_marginTop="15dp" />
 
                     <TextView
@@ -120,7 +124,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/contact_us_uop"
                         android:textSize="14sp"
-                        android:textColor="@color/Lable"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+
                         android:layout_marginTop="2dp" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -151,7 +157,11 @@
                         android:layout_height="wrap_content"
                         android:text="@string/contact_us_pdma"
                         android:textSize="14sp"
-                        android:textColor="@color/Lable"
+
+
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+
                         android:layout_marginTop="10dp" />
                     <TextView
                         android:layout_width="wrap_content"
