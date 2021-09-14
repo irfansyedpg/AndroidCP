@@ -67,7 +67,7 @@ public class PublicAwareness extends AppCompatActivity {
         new GetDataServerPublicAwareness(PublicAwareness.this, ServerConfiguration.ServerURL+ "GetFlyersAction",binding.recycleview).execute();
 
 
-
+        binding.edSearch.setVisibility(View.GONE);
 
 
         binding.lvback.setOnClickListener(new View.OnClickListener() {

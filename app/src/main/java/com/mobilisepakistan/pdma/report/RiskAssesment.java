@@ -70,7 +70,7 @@ public class RiskAssesment extends AppCompatActivity {
 
         sHeader=getString(R.string.s_rar);
         binding.header.setText(sHeader);
-
+        binding.edSearch.setVisibility(View.GONE);
         new GetDataServerRiskAssesment(RiskAssesment.this, ServerConfiguration.ServerURL+ "GetReiskassesmentAction",binding.recycleview).execute();
 
 

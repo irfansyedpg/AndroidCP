@@ -63,7 +63,7 @@ public class News extends AppCompatActivity {
 
         sHeader=getString(R.string.S_News);
         binding.header.setText(sHeader);
-
+        binding.edSearch.setVisibility(View.GONE);
         new GetDataServerNews(News.this, ServerConfiguration.ServerURL+ "GetFlyersAction",binding.recycleview).execute();
 
 

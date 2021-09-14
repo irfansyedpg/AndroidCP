@@ -72,6 +72,7 @@ public class EvacuationCenterFurth extends AppCompatActivity {
         sHeader=getString(R.string.s_ec);
         binding.header.setText(sHeader);
 
+        binding.edSearch.setVisibility(View.GONE);
 
         new GetDataServeEvaCenterContactFurth(EvacuationCenterFurth.this, ServerConfiguration.ServerURL+ "GetEvacuationCenterAction",binding.recycleview,mDistrict).execute();
 

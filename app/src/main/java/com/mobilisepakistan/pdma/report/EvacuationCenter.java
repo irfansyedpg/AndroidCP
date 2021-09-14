@@ -85,6 +85,7 @@ public class EvacuationCenter extends AppCompatActivity {
 
 
 
+        binding.edSearch.setVisibility(View.GONE);
 
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -128,7 +129,8 @@ public class EvacuationCenter extends AppCompatActivity {
 //        }
 
         //calling a method of the adapter class and passing the filtered district
-        mAdapter.filterList(filterdNames);
+   //
+        //     mAdapter.filterList(filterdNames);
     }
 
     @Override

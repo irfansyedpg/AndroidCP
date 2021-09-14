@@ -66,6 +66,7 @@ public class QuickLink extends AppCompatActivity {
         sHeader=getString(R.string.s_ql);
         binding.header.setText(sHeader);
 
+        binding.edSearch.setVisibility(View.GONE);
 
         new GetDataServerQuickLink(QuickLink.this, ServerConfiguration.ServerURL+ "GetQuickLinksAction",binding.recycleview).execute();
 

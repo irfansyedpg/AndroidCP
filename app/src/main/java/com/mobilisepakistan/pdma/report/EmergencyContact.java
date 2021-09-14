@@ -73,7 +73,7 @@ public class EmergencyContact extends AppCompatActivity {
 
         sHeader=getString(R.string.s_erc);
         binding.header.setText(sHeader);
-
+        binding.edSearch.setVisibility(View.GONE);
         new GetDataServerEmrContact(EmergencyContact.this, ServerConfiguration.ServerURL+ "GetEmergencyContact",binding.recycleview).execute();
 
 

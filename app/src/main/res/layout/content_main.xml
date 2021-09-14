@@ -61,6 +61,7 @@
 
                     android:background="@drawable/liner_round"
 
+                    android:padding="2dp"
 
                     >
 

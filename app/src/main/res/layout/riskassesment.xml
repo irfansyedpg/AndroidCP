@@ -7,6 +7,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp"
+        android:background="@drawable/liner_round"
         >
 
 
@@ -43,15 +44,9 @@
 
 
 
-
-
-
-
-
-
     </LinearLayout>
 
-    <View style="@style/nView" />
+
 </LinearLayout>
 
 
