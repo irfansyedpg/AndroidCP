@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
 
@@ -76,7 +78,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:noHistory="true"
+            android:noHistory="false"
             android:name="com.mobilisepakistan.WeatherAdvisOption"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -112,7 +114,7 @@
             android:label="EarlyWarnings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:noHistory="true"
+            android:noHistory="false"
             android:name="com.mobilisepakistan.pdma.report.DailySituationReport"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />

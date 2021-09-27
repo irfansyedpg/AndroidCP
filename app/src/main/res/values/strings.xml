@@ -1,7 +1,7 @@
 <resources>
 
     <string name="UnderlineView"><u>View</u></string>
-    <string name="app_name">Civil Protection</string>
+    <string name="app_name">Madadgar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -29,7 +29,7 @@
     <string name="rd3">Enter Complete Address</string>
     <string name="rd4">Type of Disaster</string>
     <string name="rd5">Detail of Disaster</string>
-    <string name="rd6">Upload Picture</string>
+    <string name="rd6">Upload Pictures</string>
     <string name="rd6a">from Gallery</string>
     <string name="rd6b">Camera</string>
 
@@ -83,9 +83,9 @@
 
     <string name="dna12">Livelihood </string>
     <string name="dna12a">Damages to Agriculture Crops</string>
-    <string name="dna12b">Horticulture </string>
-    <string name="dna12c">Communal Forest</string>
-    <string name="dna12d">Livestock </string>
+    <string name="dna12b">Damages to Horticulture </string>
+    <string name="dna12c">Damages to Communal Forest</string>
+    <string name="dna12d">Damages to Livestock </string>
     <string name="dna12e">Any Other </string>
 
     <string name="dna13">Business </string>
@@ -111,14 +111,14 @@
     <string name="s_ew">	Early Warning 	</string>
     <string name="s_dsr">	Daily Situation Report	</string>
     <string name="s_rd">	Report Disaster 	</string>
-    <string name="s_ec">	Evacuation Centre 	</string>
+    <string name="s_ec">	Evacuation Centres 	</string>
     <string name="s_rna">	Rapid Need Assessment 	</string>
     <string name="s_dna">	Damage Need Assessment 	</string>
     <string name="s_rar">	Risk Assessment Results 	</string>
     <string name="s_erc">	Emergency Contacts 	</string>
-    <string name="s_lec">	Locate Evacuation Centre 	</string>
+    <string name="s_lec">	Locate Evacuation Centres 	</string>
     <string name="s_co">	Community Outreach 	</string>
-    <string name="s_ql">	Qucik Links 	</string>
+    <string name="s_ql">	Quick Links 	</string>
     <string name="s_logout">	Logout 	</string>
     <string name="s_login">	Login 	</string>
     <string name="s_urdu">	Urdu	</string>
@@ -159,9 +159,8 @@
 
 
 
-    <string name="wadvpdma"> Early Warning   </string>
-    <string name="wadvpdmaup">  PDMA Khyber Pakhtunkhwa </string>
-
+    <string name="wadvpdma"> Early Warning </string>
+    <string name="wadvpdmaup">  PDMA Khyber Pakhtunkhwa</string>
     <string name="wadvpmd">  Weather Forecast	</string>
     <string name="wadvpmdup">  Pakistan Meteorological Department	</string>
 
@@ -254,8 +253,23 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
 
 
     <string name="s_complaint">	Register Complaint 	</string>
-    <string name="s_ctitle">	Title 	</string>
-    <string name="s_cdetail">	Detail 	</string>
+    <string name="s_ctitle">	Subject 	</string>
+    <string name="s_cdetail">	Details of Complaint 	</string>
+    <string name="download">Download</string>
+    <string name="close">Close</string>
 
+    <string name="EvacationLbleText">In consultation with district governments, PDMA Khyber Pakhtunkhwa has identified safe evacuation centers in each district of the province. During an emergency/disaster, these evacuation centers are activated to evacuate people at the time of receipt of early warning/prior to actual impact of disasters or after the onset of disaster. In normal circumstances, these evacuation centers are used for public services as per their working domain</string>
+    <string name="signupmessage">To use this feature please login or get registered by clicking the right side icon and select sign up</string>
+    <string name="complaintheadertext">you can file complaint to PDMA any disaster realted problems delayed compression or delayed in any sort of assistance following a disaster</string>
+
+    <string name="Morning">Morning</string>
+    <string name="Evening">Evening</string>
+    <string name="glof_alert">GLOF Alert</string>
+    <string name="earthquake">Earthquake Alert</string>
+    <string name="national_center">National Seismic Monitoring Center</string>
+    <string name="nationaldrogucenter">National Drought Monitoring Center</string>
+    <string name="drought_alert">Drought Alert</string>
+    <string name="flood_alert">Flood Alert</string>
+    <string name="flood_forcasting_division">Flood Forcasting Division</string>
 
 </resources>

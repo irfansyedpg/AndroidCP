@@ -109,7 +109,7 @@ public class TurnOnGPS {
     public static void LoginActivityalert(final Context mContex){
 
         AlertDialog.Builder builder1 = new AlertDialog.Builder(mContex);
-        builder1.setMessage("To use this feature, please longin if you have an account or create an account");
+        builder1.setMessage(R.string.signupmessage);
         builder1.setCancelable(true);
 
         builder1.setPositiveButton(

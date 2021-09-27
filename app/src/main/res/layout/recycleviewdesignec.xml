@@ -12,7 +12,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="80">
+            android:layout_weight="70">
 
             <TextView
                 style="@style/SResponce"
@@ -41,17 +41,20 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="20"
+            android:layout_weight="30"
             android:id="@+id/phone"
+            android:gravity="center"
 
             >
 
             <ImageButton
                 android:id="@+id/img"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
+
                 android:background="@drawable/phone"
+              
 
                 />
 

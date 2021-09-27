@@ -26,10 +26,10 @@
     <string name="S_News">	پی ڈی ایم اے نیوز 	</string>
 
     <string name="s_ew">	 ارلی وارننگ /پیشگی اطلاع	</string>
-    <string name="s_dsr">	رزمرہ صورتحال کی رپورٹ	</string>
+    <string name="s_dsr">	روزمرہ صورتحال کی رپورٹ	</string>
     <string name="s_rd">	آفت کے بارے میں رپورٹ کریں	</string>
     <string name="s_ec">	محفوظ پناگاہیں	</string>
-    <string name="s_rna">	آفت کے فوری بعد بنیادی ضروریات کا تعین	</string>
+    <string name="s_rna">	آفت کے بعد بنیادی ضروریات کا تعین	</string>
     <string name="s_dna">	نقصانات کا تعین اور تخمینہ	</string>
     <string name="s_rar">	رسک اسسمنٹ کے نتایج	</string>
     <string name="s_erc">	ايمرجنسی رابطہ نمبر	</string>
@@ -51,7 +51,7 @@
 <!--    Popups messaged and genral notes -->
 
 
-    <string name="s_g_dec">	 میں حلفیہ اقرار کرتا​​/کرتی ہوں کہ مندرجہ معلومات مستند معلومات ہیں- میں مزید اقرار کرتا​​/کرتی ہوں کہ میں صوبائی ڈیزاسٹر مینجمنٹ اتھارٹی  خیبر پختونخواہ کو غلط معلومات رپورٹ   نہیں کر رہا-	</string>
+    <string name="s_g_dec">	 میں حلفیہ اقرار کرتا​​/کرتی ہوں کہ مندرجہ  بالا معلومات مستند معلومات ہیں- میں مزید اقرار کرتا​​/کرتی ہوں کہ میں صوبائی ڈیزاسٹر مینجمنٹ اتھارٹی  خیبر پختونخواہ کو غلط معلومات رپورٹ   نہیں کر رہا-	</string>
     <string name="s_g_note">	غلط رپورٹنگ کی صورت میں متعلقہ اتھارٹی نیشنل ڈیزاسٹر مینجمنٹ ایکٹ2010  کے تحت آپ پر سزا عائد کرسکتی ہے-	</string>
     <string name="s_g_rna">	یہ حصہ عملی طور پر آفات کے پوری بعد بنیادی ضروریات کی تعین کے لئے وقف ہے۔ براہ کرم متاثرہ لوگوں کی ضرورت کے مطابق درست مطالبات مہیا کرنا یقینی بنائیں۔	</string>
     <string name="s_g_subnote">	آپ کی رپورٹ  پی ڈی ایم اے ایمرجنسی آپریشن سنٹر کو موصول ہویی- شکریہ	</string>
@@ -92,13 +92,13 @@
     <string name="dna9a">	کوئی نقصان نہیں	</string>
     <string name="dna9b">	جزوی نقصان 	</string>
     <string name="dna10">	مکان کی تعمیر کی قسم	</string>
-    <string name="dna10a">	کچا مکان 	</string>
+    <string name="dna10a">	کچا مکان	</string>
     <string name="dna11">	مکان کی ملکیت	</string>
     <string name="dna11a">	   ذاتی ملکیت	</string>
     <string name="dna12a">	زراعتی فصلوں کو نقصان	</string>
-    <string name="dna12b">	باغات	</string>
-    <string name="dna12c">	مشترکہ جنگل	</string>
-    <string name="dna12d">	مال مویشی	</string>
+    <string name="dna12b">	باغات کو نقصان	</string>
+    <string name="dna12c">	مشترکہ جنگل کو نقصان	</string>
+    <string name="dna12d">	مال مویشی کو نقصان	</string>
     <string name="dna12e">	 دیگر (درج کریں)	</string>
     <string name="dna13a">	دکان/دکانات	</string>
     <string name="dna13b">	ہوٹل	</string>
@@ -110,9 +110,9 @@
     <string name="dna15">	کوئی اور تبصرہ​​ یاکمنٹس	</string>
     <string name="dna8">حادثات</string>
     <string name="dna9L">املاک کو نقصانات</string>
-    <string name="dna9c">مکمل طور پر</string>
-    <string name="dna10b">معمار / پاکھا</string>
-    <string name="dna11b">کرائے پر لیا</string>
+    <string name="dna9c">مکمل طور پر تباہ ہوا</string>
+    <string name="dna10b">پکامکان</string>
+    <string name="dna11b">کرائے کا مکان</string>
     <string name="dna12">ذریعہ معاش</string>
     <string name="dna13">کاروبار</string>
     <string name="dna14">روپے میں تخمینی نقصانات</string>
@@ -143,7 +143,7 @@
 
 
     <string name="wadvpdma"> ارلی وارننگ /پیشگی اطلاع    </string>
-    <string name="wadvpdmaup">  پی ڈی ایم اے  خیبر پختونخوا </string>
+    <string name="wadvpdmaup">  پی ڈی ایم اے  خیبر پختونخوا  </string>
     <string name="wadvpmd">    موسم کا حال</string>
     <string name="wadvpmdup">  محکمہ موسمیات  پاکستان </string>
 
@@ -247,8 +247,27 @@
 
 
     <string name="s_complaint">	شکایت درج کریں۔ 	</string>
-    <string name="s_ctitle">	عنوان۔ 	</string>
-    <string name="s_cdetail">	تفصیل 	</string>
+    <string name="s_ctitle">	مضمون۔ 	</string>
+    <string name="s_cdetail">	شکایت کی تفصیلات۔ 	</string>
 
+    <string name="download">ڈاؤن لوڈ کریں</string>
+    <string name="close">بند کریں</string>
+
+    <string name="EvacationLbleText">پی ڈی ایم اے خیبر پختونخوا نےضلعی حکومتوں کی مشاورت سے  صوبے کے تمام  اضلاع میں محفوظ پناہ گاہوں کی  نشاندہی کی ہے۔ایمرجنسی یا آفات کے دوران ، یہ پناہ گاہیں   شہریوں کی حفاظت  کیلیے  کھولے جاتے ہیں ـ  عام حالات میں ، یہ  مراکز عوامی خدمات کے لیے ان کےدائرہ کار کے مطابق استعمال ہوتے ہیں  </string>
+    <string name="signupmessage">اس فیچر کو استعمال کرنے کے لیے براہ کرم لاگ ان کریںـ  یا اندراج (رجسٹر یشن) کیلئے بائیں جانب
+تین نقطوں  پر کلک  کرکے سائن اپ کو منتخب کریں</string>
+    <string name="complaintheadertext">آپ پی ڈی ایم اے کو کسی بھی آفت سے متعلقہ پریشانی میں تاخیر یا کسی آفت کے بعد کسی بھی قسم کی امداد میں تاخیر کی شکایت درج کر سکتے ہیں۔</string>
+
+
+    <string name="Morning">صبح</string>
+    <string name="Evening">شام</string>
+    <string name="glof_alert">گلاف  کا انتباہ</string>
+    <string name="national_center">نیشنل سیزمک مانیٹرنگ سینٹر</string>
+    <string name="nationaldrogucenter">نیشنل ڈراوٹ مانیٹرنگ سینٹر</string>
+    <string name="drought_alert">خشک سالی کا انتباہ</string>
+    <string name="earthquake">زلزلے کا انتباہ</string>
+    <string name="flood_alert">سیلاب کا انتباہ
+</string>
+    <string name="flood_forcasting_division">سیلاب کی پیشن گوئی ڈویژن</string>
 
 </resources>

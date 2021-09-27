@@ -12,6 +12,7 @@ import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.CommunityoutreachBinding;
 import com.mobilisepakistan.pdma.databinding.WeatheroptionBinding;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
+import com.mobilisepakistan.pdma.report.DailySituationReport;
 import com.mobilisepakistan.pdma.report.EarlyWarning;
 
 public class WeatherAdvisOption extends AppCompatActivity {
@@ -36,7 +37,20 @@ public class WeatherAdvisOption extends AppCompatActivity {
         });
 
 
-        binding.llyoutube.setOnClickListener(new View.OnClickListener() {
+        binding.SDw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent  intt = new Intent(WeatherAdvisOption.this, DailySituationReport.class);
+                startActivity(intt);
+            }
+        });
+
+
+
+
+
+        binding.weatherforcast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
@@ -45,6 +59,56 @@ public class WeatherAdvisOption extends AppCompatActivity {
                 startActivity(intt);
             }
         });
+
+
+
+
+
+
+        binding.Glof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
+                intt.putExtra("header", getString(R.string.glof_alert));
+                intt.putExtra("link", "http://www.pmd.gov.pk/rnd/rndweb/rnd_new/glof_alerts.php");
+                startActivity(intt);
+            }
+        });
+
+
+        binding.earthqucik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
+                intt.putExtra("header", getString(R.string.earthquake));
+                intt.putExtra("link", "https://seismic.pmd.gov.pk/events.php");
+                startActivity(intt);
+            }
+        });
+
+
+        binding.drought.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
+                intt.putExtra("header", getString(R.string.drought_alert));
+                intt.putExtra("link", "https://ndmc.pmd.gov.pk/new/");
+                startActivity(intt);
+            }
+        });
+
+        binding.Flood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
+                intt.putExtra("header", getString(R.string.flood_alert));
+                intt.putExtra("link", "https://ffd.pmd.gov.pk/homepage/");
+                startActivity(intt);
+            }
+        });
+
+
+
 
     }
 

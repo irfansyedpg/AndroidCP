@@ -56,23 +56,19 @@
             android:padding="10dp"
             android:textSize="15sp"
             android:id="@+id/ed_search"
-            android:layout_gravity="center_vertical|end"
-
-            android:justificationMode="inter_word"
 
             >
 
         </EditText>
 
-
         <androidx.recyclerview.widget.RecyclerView
-            android:padding="10dp"
+            android:padding="5dp"
             android:id="@+id/recycleview"
             android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
 
-
+            android:background="@color/white3"
             >
 
         </androidx.recyclerview.widget.RecyclerView>

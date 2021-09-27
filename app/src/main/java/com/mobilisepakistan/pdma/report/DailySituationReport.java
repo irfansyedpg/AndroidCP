@@ -312,8 +312,22 @@ class  ViewCustomAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
+        final String Shift=mListShift.get(position);
+
         vh.txtdate.setText(mListDate.get(position));
-        vh.txtShift.setText(mListShift.get(position));
+
+
+        if(Shift.equals("Morning"))
+        {
+
+            vh.txtShift.setText(R.string.Morning);
+        }
+        else
+        {
+            vh.txtShift.setText(R.string.Evening);
+        }
+
+
 
 
         vh.txtView.setOnClickListener(new View.OnClickListener() {
@@ -322,7 +336,7 @@ class  ViewCustomAdapter extends RecyclerView.Adapter {
                 String txtdate = vh.txtdate.getText().toString();
                 String txtshift = vh.txtShift.getText().toString();
 
-                if(txtshift.equals("Morning"))
+                if(Shift.equals("Morning"))
                 {
                     txtshift="M";
                 }

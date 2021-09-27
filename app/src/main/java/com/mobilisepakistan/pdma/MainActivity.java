@@ -391,7 +391,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.st_logout:
 
                 MyPref prefs = new MyPref(this);
-
+                userId=0;
             prefs.setUserId(0);
             intent = new Intent(this, LogIn.class);
             startActivity(intent);

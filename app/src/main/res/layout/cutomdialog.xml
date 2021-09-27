@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/nLinerLayout"
+
+    android:background="@drawable/liner_round"
+    android:padding="0dp"
+    android:layout_margin="0dp"
+    android:layout_gravity="center"
+
+    >
+
+
+    <ImageView
+
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:layout_gravity="center"
+                android:src="@drawable/pdma"
+
+
+                />
+
+
+
+
+    <LinearLayout style="@style/nLinerLayout"
+
+        android:orientation="horizontal"
+        android:layout_margin="0dp"
+        android:padding="0dp"
+
+        >
+
+
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/SubmiteButt"
+            android:layout_weight="60"
+            android:text="@string/close"
+            android:background="@color/red"
+            android:textSize="12dp"
+            android:layout_margin="2dp"
+            />
+        <Button
+            android:id="@+id/downlad"
+            style="@style/SubmiteButt"
+            android:text="@string/download"
+            android:layout_weight="40"
+
+            android:textSize="12dp"
+            android:layout_margin="2dp"
+
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+

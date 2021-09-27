@@ -1,15 +1,29 @@
 package com.mobilisepakistan.pdma.report;
 
+import android.animation.Animator;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +35,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
+import com.mobilisepakistan.pdma.databinding.RecycleviewbackgroundBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
 import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.squareup.picasso.Picasso;
@@ -31,6 +46,9 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -43,7 +61,7 @@ import java.util.List;
 
 public class News extends AppCompatActivity {
 
-    RecycleviewBinding binding ;
+    RecycleviewbackgroundBinding binding ;
     NewsCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
@@ -53,7 +71,7 @@ public class News extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
+        binding = DataBindingUtil.setContentView(this, R.layout.recycleviewbackground);
 
 
 
@@ -117,7 +135,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
 
     Intent data = new Intent();
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         final ViewHolder vh = (ViewHolder) holder;
 
 //        vh.txtrcv.setText(mList.get(position));
@@ -142,19 +160,91 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
         vh.lv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-          /*      String txtrcv = vh.txtcnt.getText().toString();
 
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+txtrcv));
-            //    callIntent.setData(Uri.parse(txtrcv));
-                mContext.startActivity(intent);*/
 
 
+                //////////////////////
+
+
+                final    Dialog builder = new Dialog(mContext);
+                builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                builder.setContentView(R.layout.cutomdialog);
+                builder.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+
+                builder.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                final ImageView imageView =(ImageView)builder.findViewById(R.id.img) ;
+                Button btndown =(Button) builder.findViewById(R.id.downlad) ;
+                Button btncls =(Button)builder.findViewById(R.id.cancel) ;
+
+
+                final String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
+                Picasso.get().load(imurl).into(imageView);
+
+
+
+
+                btncls.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        builder.dismiss();
+                    }
+                });
+
+                btndown.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        imageView.buildDrawingCache();
+
+                        Bitmap bmp = imageView.getDrawingCache();
+                        File storageLoc = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES); //context.getExternalFilesDir(null);
+
+                        int random = (int)(Math.random() * 50 + 1);
+
+                        String filename="PDMAmadagar"+random;
+                        File file = new File(storageLoc, filename + ".jpg");
+
+                        try{
+                            FileOutputStream fos = new FileOutputStream(file);
+                            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                            fos.close();
+
+
+
+                            Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                            scanIntent.setData(Uri.fromFile(file));
+                            mContext.sendBroadcast(scanIntent);
+
+                            Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                            intent.setData(Uri.fromFile(file));
+                            mContext.sendBroadcast(intent);
+
+                            builder.dismiss();
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+
+
+                builder.show();
 
             }
         });
     }
+
+
+
+
+
+
 
 
 
@@ -176,9 +266,6 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
             lv = (ImageView) v.findViewById(R.id.img);
         }
     }
-
-
-
 
 
 

@@ -85,7 +85,9 @@ public class EvacuationCenter extends AppCompatActivity {
 
 
 
-        binding.edSearch.setVisibility(View.GONE);
+        binding.edSearch.setText(R.string.EvacationLbleText);
+        binding.edSearch.setFocusableInTouchMode(false);
+        binding.edSearch.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 
 
         mLayoutManager = new LinearLayoutManager(this);

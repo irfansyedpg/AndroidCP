@@ -77,10 +77,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/red</item>
-        <item name="android:textStyle">italic</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:padding">5dp</item>
         <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_gravity">center_vertical|end</item>
+        <item name="android:justificationMode">inter_word</item>
     </style>
 
     <style name="Undertaking">
@@ -96,6 +98,10 @@
         <item name="android:button">@null</item>
         <item name="android:drawableEnd">?android:attr/listChoiceIndicatorMultiple</item>
         <item name="android:text">@string/s_g_dec</item>
+
+
+        <item name="android:layout_gravity">center_vertical|end</item>
+        <item name="android:justificationMode">inter_word</item>
     </style>
 
 
@@ -234,4 +240,7 @@
 
         <item name="android:padding">5dp</item>
     </style>
+
+
+
 </resources>

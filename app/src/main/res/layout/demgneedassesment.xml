@@ -62,17 +62,17 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        style="@style/IconLinLayout"
                         android:id="@+id/dna1LV"
+                        style="@style/IconLinLayout"
 
                         >
 
                         <TextView
+                            android:id="@+id/dna1Tv"
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/dna1"
                             android:layout_weight="100"
-                            android:id="@+id/dna1Tv"
+                            android:hint="@string/dna1"
 
                             />
 
@@ -97,17 +97,17 @@
 
 
                     <LinearLayout
-                        style="@style/IconLinLayout"
                         android:id="@+id/dna2LV"
+                        style="@style/IconLinLayout"
 
                         >
 
                         <TextView
+                            android:id="@+id/dna2Tv"
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/dna2"
                             android:layout_weight="100"
-                            android:id="@+id/dna2Tv"
+                            android:hint="@string/dna2"
 
                             />
 
@@ -128,10 +128,10 @@
                         />
 
                     <EditText
+                        android:id="@+id/dna3Tv"
                         style="@style/SResponce"
                         android:hint="@string/dna3"
-                        android:lines="4"
-                        android:id="@+id/dna3Tv" />
+                        android:lines="4" />
 
                     <View style="@style/nView" />
 
@@ -150,9 +150,9 @@
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/dna4Tv"
                         style="@style/SResponce"
                         android:hint="@string/dna4"
-                        android:id="@+id/dna4Tv"
                         android:inputType="textPersonName" />
 
                     <View style="@style/nView" />
@@ -171,9 +171,9 @@
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/dna5Tv"
                         style="@style/SResponce"
                         android:hint="@string/dna5"
-                        android:id="@+id/dna5Tv"
                         android:inputType="textPersonName" />
 
                     <View style="@style/nView" />
@@ -193,9 +193,9 @@
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/dna6Tv"
                         style="@style/SResponce"
                         android:hint="@string/dna6"
-                        android:id="@+id/dna6Tv"
                         android:inputType="number" />
 
                     <View style="@style/nView" />
@@ -214,10 +214,10 @@
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/dna7Tv"
                         style="@style/SResponce"
                         android:hint="@string/dna7"
-                        android:inputType="phone"
-                        android:id="@+id/dna7Tv" />
+                        android:inputType="phone" />
 
                     <View style="@style/nView" />
 
@@ -232,17 +232,17 @@
                         />
 
                     <EditText
+                        android:id="@+id/dna8aTv"
                         style="@style/SResponce"
                         android:hint="@string/dna8a"
-                        android:id="@+id/dna8aTv"
                         android:inputType="number" />
 
                     <View style="@style/EView" />
 
                     <EditText
+                        android:id="@+id/dna8bTv"
                         style="@style/SResponce"
                         android:hint="@string/dna8b"
-                        android:id="@+id/dna8bTv"
                         android:inputType="number" />
 
                     <View style="@style/EView" />
@@ -277,19 +277,19 @@
                             android:layout_height="wrap_content">
 
                             <RadioButton
+                                android:id="@+id/dna9a"
                                 style="@style/SResponce"
-                                android:text="@string/dna9a"
-                                android:id="@+id/dna9a" />
+                                android:text="@string/dna9a" />
 
                             <RadioButton
+                                android:id="@+id/dna9b"
                                 style="@style/SResponce"
-                                android:text="@string/dna9b"
-                                android:id="@+id/dna9b" />
+                                android:text="@string/dna9b" />
 
                             <RadioButton
+                                android:id="@+id/dna9c"
                                 style="@style/SResponce"
-                                android:text="@string/dna9c"
-                                android:id="@+id/dna9c" />
+                                android:text="@string/dna9c" />
 
                         </RadioGroup>
 
@@ -309,14 +309,14 @@
                             android:layout_height="wrap_content">
 
                             <RadioButton
+                                android:id="@+id/dna10a"
                                 style="@style/SResponce"
-                                android:text="@string/dna10a"
-                                android:id="@+id/dna10a" />
+                                android:text="@string/dna10a" />
 
                             <RadioButton
+                                android:id="@+id/dna10b"
                                 style="@style/SResponce"
-                                android:text="@string/dna10b"
-                                android:id="@+id/dna10b" />
+                                android:text="@string/dna10b" />
 
                         </RadioGroup>
 
@@ -337,16 +337,16 @@
                             android:layout_height="wrap_content">
 
                             <RadioButton
+                                android:id="@+id/dna11a"
                                 style="@style/SResponce"
-                                android:text="@string/dna11a"
 
-                                android:id="@+id/dna11a" />
+                                android:text="@string/dna11a" />
 
                             <RadioButton
+                                android:id="@+id/dna11b"
                                 style="@style/SResponce"
                                 android:layout_height="wrap_content"
-                                android:text="@string/dna11b"
-                                android:id="@+id/dna11b" />
+                                android:text="@string/dna11b" />
 
                         </RadioGroup>
 
@@ -365,43 +365,43 @@
 
 
                         <CheckBox
+                            android:id="@+id/dna12a"
                             style="@style/SResponce"
                             android:text="@string/dna12a"
-                            android:id="@+id/dna12a"
 
                             />
 
                         <CheckBox
+                            android:id="@+id/dna12b"
                             style="@style/SResponce"
-                            android:text="@string/dna12b"
-                            android:id="@+id/dna12b" />
+                            android:text="@string/dna12b" />
 
                         <CheckBox
+                            android:id="@+id/dna12c"
                             style="@style/SResponce"
-                            android:text="@string/dna12c"
-                            android:id="@+id/dna12c" />
+                            android:text="@string/dna12c" />
 
                         <CheckBox
+                            android:id="@+id/dna12d"
                             style="@style/SResponce"
-                            android:text="@string/dna12d"
-                            android:id="@+id/dna12d" />
+                            android:text="@string/dna12d" />
 
                         <EditText
-                            style="@style/EResponce"
-                            android:hint="@string/dna12e"
-
                             android:id="@+id/dna12e"
+                            style="@style/EResponce"
+
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
+                            android:hint="@string/dna12e"
 
                             />
 
                         <View
                             style="@style/nView"
 
-                            android:layout_marginBottom="15dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="15dp"
 
 
                             />
@@ -423,36 +423,36 @@
 
 
                         <CheckBox
+                            android:id="@+id/dna13a"
                             style="@style/SResponce"
-                            android:text="@string/dna13a"
-                            android:id="@+id/dna13a" />
+                            android:text="@string/dna13a" />
 
                         <CheckBox
+                            android:id="@+id/dna13b"
                             style="@style/SResponce"
-                            android:text="@string/dna13b"
-                            android:id="@+id/dna13b" />
+                            android:text="@string/dna13b" />
 
                         <CheckBox
+                            android:id="@+id/dna13c"
                             style="@style/SResponce"
-                            android:text="@string/dna13c"
-                            android:id="@+id/dna13c" />
+                            android:text="@string/dna13c" />
 
                         <EditText
-                            style="@style/EResponce"
-                            android:hint="@string/dna13d"
                             android:id="@+id/dna13d"
-
+                            style="@style/EResponce"
                             android:layout_marginStart="10dp"
+
                             android:layout_marginEnd="10dp"
+                            android:hint="@string/dna13d"
 
                             />
 
                         <View
                             style="@style/nView"
 
-                            android:layout_marginBottom="15dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="15dp"
 
 
                             />
@@ -472,26 +472,26 @@
                             />
 
                         <EditText
+                            android:id="@+id/dna14a"
                             style="@style/SResponce"
                             android:hint="@string/dna14a"
-                            android:id="@+id/dna14a"
                             android:inputType="number" />
 
                         <View style="@style/EView" />
 
                         <EditText
+                            android:id="@+id/dna14b"
                             style="@style/SResponce"
                             android:hint="@string/dna14b"
-                            android:id="@+id/dna14b"
                             android:inputType="number" />
 
                         <View style="@style/EView" />
 
                         <EditText
+                            android:id="@+id/dna14c"
                             style="@style/SResponce"
                             android:hint="@string/dna14c"
-                            android:inputType="number"
-                            android:id="@+id/dna14c" />
+                            android:inputType="number" />
 
 
                         <View style="@style/EView" />
@@ -511,23 +511,23 @@
                         />
 
                     <EditText
-                        style="@style/EResponce"
-                        android:hint="@string/dna15"
-                        android:lines="3"
                         android:id="@+id/dna15"
-                        android:inputType="text"
-
+                        style="@style/EResponce"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
+                        android:hint="@string/dna15"
+
+                        android:inputType="text"
+                        android:lines="3"
 
                         />
 
                     <View
                         style="@style/nView"
 
-                        android:layout_marginBottom="15dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="15dp"
 
 
                         />
@@ -553,10 +553,10 @@
                     </LinearLayout>
 
                     <CheckBox
-                        style="@style/Undertaking"
-
-                        android:text="@string/undertakingGPS"
                         android:id="@+id/checkboxGps"
+
+                        style="@style/Undertaking"
+                        android:text="@string/undertakingGPS"
 
                         />
 
@@ -568,14 +568,14 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/s_g_lat"
-                            android:layout_weight="30" />
+                            android:layout_weight="30"
+                            android:hint="@string/s_g_lat" />
 
                         <TextView
-                            style="@style/SResponce"
-                            android:layout_width="0dp"
-
                             android:id="@+id/latitude"
+                            style="@style/SResponce"
+
+                            android:layout_width="0dp"
                             android:layout_weight="70" />
 
 
@@ -588,18 +588,18 @@
                         <TextView
                             style="@style/SResponce"
                             android:layout_width="0dp"
-                            android:hint="@string/s_g_lon"
                             android:layout_weight="30"
+                            android:hint="@string/s_g_lon"
 
                             />
 
                         <TextView
-                            style="@style/SResponce"
-                            android:layout_width="0dp"
-
                             android:id="@+id/longitude"
-                            android:layout_weight="70"
-                            android:layout_gravity="start" />
+                            style="@style/SResponce"
+
+                            android:layout_width="0dp"
+                            android:layout_gravity="start"
+                            android:layout_weight="70" />
 
 
                     </LinearLayout>
@@ -623,8 +623,8 @@
                     </LinearLayout>
 
                     <CheckBox
-                        style="@style/Undertaking"
-                        android:id="@+id/checkbox" />
+                        android:id="@+id/checkbox"
+                        style="@style/Undertaking" />
 
                     <View style="@style/nView" />
 
