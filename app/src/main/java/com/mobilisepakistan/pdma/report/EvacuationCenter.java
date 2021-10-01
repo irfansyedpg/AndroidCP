@@ -27,6 +27,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mobilisepakistan.pdma.MapsMarkerActivity;
 import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
+
+import com.mobilisepakistan.pdma.databinding.RecycleviewevacationBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
 import com.mobilisepakistan.pdma.global.ServerConfiguration;
 import com.mobilisepakistan.pdma.global.emrConacts;
@@ -53,7 +55,7 @@ import java.util.List;
 
 public class EvacuationCenter extends AppCompatActivity {
 
-    RecycleviewBinding binding ;
+    RecycleviewevacationBinding binding ;
     EvacuationCenterCustomAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
@@ -62,7 +64,7 @@ public class EvacuationCenter extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.recycleview);
+        binding = DataBindingUtil.setContentView(this, R.layout.recycleviewevacation);
 
 
 
@@ -86,8 +88,6 @@ public class EvacuationCenter extends AppCompatActivity {
 
 
         binding.edSearch.setText(R.string.EvacationLbleText);
-        binding.edSearch.setFocusableInTouchMode(false);
-        binding.edSearch.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -97,20 +97,7 @@ public class EvacuationCenter extends AppCompatActivity {
 
 
 
-        ((EditText) findViewById(R.id.ed_search)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
 
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
-            }
-        });
 
 
     }

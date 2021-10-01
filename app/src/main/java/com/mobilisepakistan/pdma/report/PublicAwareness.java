@@ -108,12 +108,14 @@ class  PublicAwarenessCustomAdapter extends RecyclerView.Adapter {
     List<String> Listitle;
 
     List<String> Listimg;
+    List<String> Listdate;
 
-    public PublicAwarenessCustomAdapter(Context context,List<String> title,List<String> img ){
+    public PublicAwarenessCustomAdapter(Context context,List<String> title,List<String> img,List<String> datee  ){
         mContext = context;
         Listitle = title;
 
         Listimg = img;
+        Listdate = datee;
 
     }
 
@@ -144,6 +146,7 @@ class  PublicAwarenessCustomAdapter extends RecyclerView.Adapter {
 
 
             vh.txttitle.setText(Listitle.get(position));
+            vh.txtdatee.setText(Listdate.get(position));
             String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
             Picasso.get().load(imurl).into(vh.lv);
 
@@ -248,7 +251,7 @@ class  PublicAwarenessCustomAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txttitle;
+        public TextView txttitle,txtdatee;
 
         public ImageView lv;
 
@@ -256,6 +259,7 @@ class  PublicAwarenessCustomAdapter extends RecyclerView.Adapter {
             super(v);
 
             txttitle = (TextView) v.findViewById(R.id.title);
+            txtdatee = (TextView) v.findViewById(R.id.dated);
 
             lv = (ImageView) v.findViewById(R.id.img);
         }
@@ -357,6 +361,7 @@ class  GetDataServerPublicAwareness extends AsyncTask {
             ArrayList<String> listtitl=new ArrayList<String>();
 
             ArrayList<String> listimg=new ArrayList<String>();
+            ArrayList<String> listdate=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
@@ -368,17 +373,19 @@ class  GetDataServerPublicAwareness extends AsyncTask {
                 if(Typee.equals("1")) {
                     String title = c.getString("title");
                     String img = c.getString("imageName");
+                    String datee = c.getString("datee");
 
 
                     listtitl.add(title);
 
                     listimg.add(img);
+                    listdate.add(datee);
                 }
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new PublicAwarenessCustomAdapter(mContext,listtitl,listimg);
+            mAdapter = new PublicAwarenessCustomAdapter(mContext,listtitl,listimg,listdate);
             recycleviewR.setAdapter(mAdapter);
 
 

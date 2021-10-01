@@ -31,9 +31,9 @@
             </LinearLayout>
 
             <TextView
-                android:layout_weight="80"
                 style="@style/TopHeader_text"
-                android:text="@string/wfheader" />
+                android:layout_weight="80"
+                android:text="@string/S_dw" />
 
 
         </LinearLayout>

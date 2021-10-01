@@ -14,6 +14,7 @@ import com.mobilisepakistan.pdma.databinding.WeatheroptionBinding;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.DailySituationReport;
 import com.mobilisepakistan.pdma.report.EarlyWarning;
+import com.mobilisepakistan.pdma.report.WeatherForecast;
 
 public class WeatherAdvisOption extends AppCompatActivity {
     WeatheroptionBinding binding;
@@ -41,7 +42,7 @@ public class WeatherAdvisOption extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent  intt = new Intent(WeatherAdvisOption.this, DailySituationReport.class);
+                Intent  intt = new Intent(WeatherAdvisOption.this, WeatherForecast.class);
                 startActivity(intt);
             }
         });

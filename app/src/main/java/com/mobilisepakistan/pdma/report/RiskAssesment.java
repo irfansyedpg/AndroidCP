@@ -117,10 +117,12 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
     List<String> Listitle;
     List<String> Listdetial;
     List<String> Listimg;
+    List<String> Listdate;
 
-    public RiskAssesmentCustomAdapter(Context context,List<String> title,List<String> detial,List<String> img ){
+    public RiskAssesmentCustomAdapter(Context context,List<String> title,List<String> detial,List<String> img,List<String> date ){
         mContext = context;
         Listitle = title;
+        Listdate = date;
         Listdetial = detial;
         Listimg = img;
 
@@ -152,6 +154,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
         try {
             vh.txttitle.setText(Listitle.get(position));
             vh.txtdetial.setText(Listdetial.get(position));
+            vh.txttdate.setText(Listdate.get(position));
 
             String imurl="http://175.107.63.39/pdmamadadgar/DisasterImages/"+Listimg.get(position);
 
@@ -253,7 +256,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txtdetial,txttitle;
+        public TextView txtdetial,txttitle,txttdate;
 
         public ImageView lv;
 
@@ -261,6 +264,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
             super(v);
             txtdetial = (TextView) v.findViewById(R.id.detial);
             txttitle = (TextView) v.findViewById(R.id.title);
+            txttdate = (TextView) v.findViewById(R.id.dated);
 
             lv = (ImageView) v.findViewById(R.id.img);
         }
@@ -362,6 +366,7 @@ class  GetDataServerRiskAssesment extends AsyncTask {
             ArrayList<String> listtitl=new ArrayList<String>();
             ArrayList<String> listdetial=new ArrayList<String>();
             ArrayList<String> listimg=new ArrayList<String>();
+            ArrayList<String> listdate=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
@@ -370,6 +375,7 @@ class  GetDataServerRiskAssesment extends AsyncTask {
                 String title = c.getString("title");
                 String detail = c.getString("detail");
                 String img = c.getString("imageName");
+                String date = c.getString("datee");
 
 
 
@@ -377,11 +383,12 @@ class  GetDataServerRiskAssesment extends AsyncTask {
                 listtitl.add(title);
                 listdetial.add(detail);
                 listimg.add(img);
+                listdate.add(date);
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new RiskAssesmentCustomAdapter(mContext,listtitl,listdetial,listimg);
+            mAdapter = new RiskAssesmentCustomAdapter(mContext,listtitl,listdetial,listimg,listdate);
             recycleviewR.setAdapter(mAdapter);
 
 

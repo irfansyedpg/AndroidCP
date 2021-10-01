@@ -73,7 +73,7 @@ public class UploadData2
 
 
 
-                if(type=="RD" || bitmapPic.size()!=0) {
+                if(bitmapPic.size()!=0) {
 
                     for (Bitmap img:bitmapPic
                          ) {

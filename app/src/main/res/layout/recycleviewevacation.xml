@@ -44,16 +44,16 @@
 
         <View style="@style/TopLine_View" />
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="12dp"
+
+
+            android:layout_margin="5dp"
             android:background="@drawable/roundedtxview"
-            android:drawableStart="@drawable/ic_search_black_21dp"
-            android:hint="@string/Search"
-            android:padding="10dp"
+
+
+            android:padding="5dp"
             android:textSize="15sp"
             android:id="@+id/ed_search"
             android:layout_gravity="center_vertical|end"

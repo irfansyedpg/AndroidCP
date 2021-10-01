@@ -56,6 +56,10 @@ public class Complaints extends AppCompatActivity  {
     ComplaintsBinding binding ;
     int UserID=0;
     MyPref preferences;
+
+    private Bitmap bitmapimag1=null;
+    private Bitmap bitmapimag2=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,13 +83,164 @@ public class Complaints extends AppCompatActivity  {
                     return;
                 }
 
+
+
                 UploadComplaint.volleyPost(Complaints.this,UploadDate());
+
+                // upload picture
+
+                ArrayList<Bitmap> bitmapparr=new ArrayList<>();
+
+
+                try {
+
+
+                    if (!bitmapimag1.equals(null) || !bitmapimag1.equals("")) {
+
+                        bitmapparr.add(bitmapimag1);
+
+
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+
+                try {
+
+
+                    if (!bitmapimag2.equals(null) || !bitmapimag2.equals("")) {
+
+                        bitmapparr.add(bitmapimag2);
+
+                    }
+                }
+                catch (Exception e)
+                {
+
+                }
+
+
+
+
+            }
+        });
+
+
+        binding.rd6LV1.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                ImgView=binding.rd6Imgv1;
+                selectImage(Complaints.this);
+
+            }
+        });
+        binding.rd6LV2.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                ImgView=binding.rd6Imgv2;
+
+                selectImage(Complaints.this);
 
             }
         });
 
     }
 
+
+    // upload image
+    private void selectImage(Context context) {
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
+
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    //    String filpath=android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                    startActivityForResult(pickPhoto , 1);
+
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }else
+                {
+                    ImgView.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                }
+            }
+        });
+        builder.show();
+    }
+
+
+
+
+    ImageView ImgView;
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
+        // upload image starts
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        ImgView.setImageBitmap(selectedImage);
+
+                        if (ImgView == binding.rd6Imgv1) {
+                            bitmapimag1 = selectedImage;
+                        } else if (ImgView == binding.rd6Imgv2) {
+                            bitmapimag2 = selectedImage;
+                        }
+
+                    }
+
+                    break;
+                case 1:
+                    if (resultCode == RESULT_OK && data != null) {
+                        try {
+                            final Uri imageUri = data.getData();
+
+
+                            final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+
+                            final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                            ImgView.setImageBitmap(selectedImage);
+
+                            if (ImgView == binding.rd6Imgv1) {
+                                bitmapimag1 = selectedImage;
+                            } else if (ImgView == binding.rd6Imgv2) {
+                                bitmapimag2 = selectedImage;
+                            }
+
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                            Toast.makeText(this, "Something went wrong, Unable to select the immage ", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    break;
+            }
+        }
+
+
+        // upload image Ends
+
+    }
 
 
 

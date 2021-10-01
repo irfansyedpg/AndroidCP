@@ -57,18 +57,20 @@
                 <LinearLayout style="@style/nLinerLayout">
 
 
-                    <EditText
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
+                        android:layout_marginStart="5dp"
                         android:layout_marginBottom="15dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginEnd="5dp"
                         android:background="@drawable/roundedtxview"
                        android:text="@string/complaintheadertext"
                         android:padding="15dp"
                         android:textSize="15sp"
                         android:id="@+id/ed_search"
-                        android:focusable="false"
+                        android:layout_gravity="center_vertical|end"
+
+                        android:justificationMode="inter_word"
                         />
 
 
@@ -122,6 +124,62 @@
 
 
 
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <TextView
+                        style="@style/SLable"
+                        android:text="@string/rd6"
+
+                        />
+
+                    <LinearLayout
+                        style="@style/IconLinLayout"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:orientation="horizontal"
+                        android:weightSum="0"
+
+
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/rd6LV1"
+                            style="@style/UploadImageLV"
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/rd6Imgv1"
+                                style="@style/DownImageView"
+                                android:src="@drawable/ic_add_black_24dp"
+
+
+                                />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/rd6LV2"
+                            style="@style/UploadImageLV"
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/rd6Imgv2"
+                                style="@style/DownImageView"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/ic_add_black_24dp" />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
 
 
 

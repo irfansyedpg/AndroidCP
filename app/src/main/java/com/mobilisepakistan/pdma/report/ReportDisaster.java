@@ -150,7 +150,9 @@ public class ReportDisaster extends AppCompatActivity  {
                 selectImage(ReportDisaster.this);
 
             }
-        });      binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
+        });
+
+        binding.btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

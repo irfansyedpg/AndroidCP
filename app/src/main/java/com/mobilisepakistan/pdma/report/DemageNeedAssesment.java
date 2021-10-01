@@ -1,14 +1,19 @@
 package com.mobilisepakistan.pdma.report;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -21,6 +26,8 @@ import com.mobilisepakistan.pdma.global.UploadData2;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -92,6 +99,30 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             }
         });
 
+        binding.rd6LV1.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                ImgView=binding.rd6Imgv1;
+                selectImage(DemageNeedAssesment.this);
+
+            }
+        });
+        binding.rd6LV2.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                ImgView=binding.rd6Imgv2;
+                selectImage(DemageNeedAssesment.this);
+
+            }
+        });
+        binding.rd6LV3.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                ImgView=binding.rd6Imgv3;
+                selectImage(DemageNeedAssesment.this);
+
+            }
+        });
 
         binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
 
@@ -159,6 +190,69 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
             }
         }
+
+
+        // upload image starts
+
+        if(resultCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        ImgView.setImageBitmap(selectedImage);
+
+                        if(ImgView==binding.rd6Imgv1)
+                        {
+                            bitmapimag1=selectedImage;
+                        }
+                        else if(ImgView==binding.rd6Imgv2)
+                        {
+                            bitmapimag2=selectedImage;
+                        }
+                        else if(ImgView==binding.rd6Imgv3)
+                        {
+                            bitmapimag3=selectedImage;
+                        }
+                    }
+
+                    break;
+                case 1:
+                    if (resultCode == RESULT_OK && data != null) {
+                        try {
+                            final Uri imageUri = data.getData();
+
+
+                            final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+
+                            final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                            ImgView.setImageBitmap(selectedImage);
+
+                            if(ImgView==binding.rd6Imgv1)
+                            {
+                                bitmapimag1=selectedImage;
+                            }
+                            else if(ImgView==binding.rd6Imgv2)
+                            {
+                                bitmapimag2=selectedImage;
+                            }
+                            else if(ImgView==binding.rd6Imgv3)
+                            {
+                                bitmapimag3=selectedImage;
+                            }
+
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                            Toast.makeText(this, "Something went wrong, Unable to select the immage ", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    break;
+            }
+        }
+
+
+        // upload image Ends
 
 
         }
@@ -239,9 +333,53 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 //        HashMap<String,List<String>> MpUplod=new HashMap<>();
 
 
-        ArrayList<Bitmap> bimarry=new ArrayList<>();
 
-         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA",bimarry);
+        // Upload Picture
+        ArrayList<Bitmap> bitmapparr=new ArrayList<>();
+
+
+        try {
+
+
+            if (!bitmapimag1.equals(null) || !bitmapimag1.equals("")) {
+
+                bitmapparr.add(bitmapimag1);
+
+
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        try {
+
+
+            if (!bitmapimag2.equals(null) || !bitmapimag2.equals("")) {
+
+                bitmapparr.add(bitmapimag2);
+
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        try {
+            if (!bitmapimag3.equals(null) || !bitmapimag3.equals("")) {
+
+                bitmapparr.add(bitmapimag3);
+
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+
+         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA",bitmapparr);
 
 //        if(uploadStatus==true)
 //        {
@@ -372,7 +510,50 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         TurnOnGPS.CloseActivityalerd(this);
     }
 
+
+    // Upload Picture
+
+    // upload image
+
+    private Bitmap bitmapimag1=null;
+    private Bitmap bitmapimag2=null;
+    private Bitmap bitmapimag3=null;
+
+    private void selectImage(Context context) {
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePicture, 0);
+
+                } else if (options[item].equals("Choose from Gallery")) {
+                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    //    String filpath=android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                    startActivityForResult(pickPhoto , 1);
+
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }else
+                {
+                    ImgView.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_black_24dp));
+                }
+            }
+        });
+        builder.show();
     }
+
+
+
+
+}
 
 
 

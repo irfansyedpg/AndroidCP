@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getBaseContext().getResources().getDisplayMetrics());
 
 
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -335,7 +336,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 preferences.setlanguage("en");
                 preferences.setcountry("US");
 
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, Splash.class);
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
 
 
@@ -351,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 preferences.setlanguage("ur");
                 preferences.setcountry("PK");
 
-                 intent = new Intent(this, MainActivity.class);
+                 intent = new Intent(this, Splash.class);
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
 
 
@@ -460,10 +461,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             intent = new Intent(this, QuickLink.class);
             startActivity(intent);
         }
-        else if (id == R.id.nav_wf) {
-            intent = new Intent(this, WeatherForecast.class);
-            startActivity(intent);
-        }
+//        else if (id == R.id.nav_wf) {
+//            intent = new Intent(this, WeatherForecast.class);
+//            startActivity(intent);
+//        }
 
         else if (id == R.id.nav_risk) {
             intent = new Intent(this, RiskAssesment.class);

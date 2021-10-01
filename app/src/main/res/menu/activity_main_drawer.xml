@@ -17,10 +17,11 @@
             android:id="@+id/nav_ds"
             android:icon="@drawable/dna"
             android:title="@string/s_dsr" />
-        <item
-            android:id="@+id/nav_wf"
-            android:icon="@drawable/wf"
-            android:title="@string/S_dw" />
+<!--        <item-->
+<!--            -->
+<!--            android:id="@+id/nav_wf"-->
+<!--            android:icon="@drawable/wf"-->
+<!--            android:title="@string/S_dw" />-->
         <item
             android:id="@+id/nav_new"
             android:icon="@drawable/news"

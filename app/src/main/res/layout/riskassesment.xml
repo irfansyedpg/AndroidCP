@@ -30,6 +30,14 @@
                 android:justificationMode="inter_word"
                 android:text="Detail"
                 android:textColor="@color/blacklight" />
+        <TextView
+            style="@style/SResponce"
+            android:id="@+id/dated"
+            android:gravity="end"
+
+            android:justificationMode="inter_word"
+            android:text="date"
+            android:textColor="@color/blacklight" />
 
             <ImageView
                 android:layout_marginTop="15dp"

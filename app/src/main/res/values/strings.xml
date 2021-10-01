@@ -260,7 +260,7 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
 
     <string name="EvacationLbleText">In consultation with district governments, PDMA Khyber Pakhtunkhwa has identified safe evacuation centers in each district of the province. During an emergency/disaster, these evacuation centers are activated to evacuate people at the time of receipt of early warning/prior to actual impact of disasters or after the onset of disaster. In normal circumstances, these evacuation centers are used for public services as per their working domain</string>
     <string name="signupmessage">To use this feature please login or get registered by clicking the right side icon and select sign up</string>
-    <string name="complaintheadertext">you can file complaint to PDMA any disaster realted problems delayed compression or delayed in any sort of assistance following a disaster</string>
+    <string name="complaintheadertext"> This section is dedicated to report complaints to PDMA, Khyber Pakhtunkhwa regarding issues pertaining to risk assessment, post disaster damage need assessment, delayed receipt of relief items and compensation against damages caused by natural hazards etc. Please mention title of complaint and write details below.  </string>
 
     <string name="Morning">Morning</string>
     <string name="Evening">Evening</string>

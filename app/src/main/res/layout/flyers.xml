@@ -24,9 +24,19 @@
                 android:text="Title"
                 android:textColor="@color/blacklight"
                 android:textStyle="bold"
+                android:layout_gravity="center_vertical|end"
 
+                android:justificationMode="inter_word"
                 />
+        <TextView
+            style="@style/SResponce"
+            android:id="@+id/dated"
 
+            android:text="Dated"
+            android:textColor="@color/blacklight"
+
+
+            android:gravity="right"         />
 
 
             <ImageView

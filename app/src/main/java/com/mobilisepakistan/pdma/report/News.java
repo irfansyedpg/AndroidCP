@@ -111,12 +111,15 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
     List<String> Listitle;
 
     List<String> Listimg;
+    List<String> Listdatee;
 
-    public NewsCustomAdapter(Context context,List<String> title,List<String> img ){
+    public NewsCustomAdapter(Context context,List<String> title,List<String> img, List<String> datee ){
         mContext = context;
         Listitle = title;
 
         Listimg = img;
+
+        Listdatee = datee;
 
     }
 
@@ -147,6 +150,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
 
 
             vh.txttitle.setText(Listitle.get(position));
+            vh.textdated.setText(Listdatee.get(position));
             String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
             Picasso.get().load(imurl).into(vh.lv);
 
@@ -254,7 +258,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView txttitle;
+        public TextView txttitle,textdated;
 
         public ImageView lv;
 
@@ -262,6 +266,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
             super(v);
 
             txttitle = (TextView) v.findViewById(R.id.title);
+            textdated = (TextView) v.findViewById(R.id.dated);
 
             lv = (ImageView) v.findViewById(R.id.img);
         }
@@ -360,6 +365,7 @@ class  GetDataServerNews extends AsyncTask {
             ArrayList<String> listtitl=new ArrayList<String>();
 
             ArrayList<String> listimg=new ArrayList<String>();
+            ArrayList<String> listdate=new ArrayList<String>();
 
             for (int i = 0; i < contacts.length(); i++) {
                 JSONObject c = contacts.getJSONObject(i);
@@ -371,17 +377,19 @@ class  GetDataServerNews extends AsyncTask {
                 if(Typee.equals("2")) {
                     String title = c.getString("title");
                     String img = c.getString("imageName");
+                    String datee = c.getString("datee");
 
 
                     listtitl.add(title);
 
                     listimg.add(img);
+                    listdate.add(datee);
                 }
             }
 
             mLayoutManager = new LinearLayoutManager(mContext);
             recycleviewR.setLayoutManager(mLayoutManager);
-            mAdapter = new NewsCustomAdapter(mContext,listtitl,listimg);
+            mAdapter = new NewsCustomAdapter(mContext,listtitl,listimg,listdate);
             recycleviewR.setAdapter(mAdapter);
 
 
