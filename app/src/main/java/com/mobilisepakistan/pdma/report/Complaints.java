@@ -85,7 +85,7 @@ public class Complaints extends AppCompatActivity  {
 
 
 
-                UploadComplaint.volleyPost(Complaints.this,UploadDate());
+
 
                 // upload picture
 
@@ -122,7 +122,7 @@ public class Complaints extends AppCompatActivity  {
                 }
 
 
-
+                UploadComplaint.volleyPost(Complaints.this,UploadDate(),bitmapparr);
 
             }
         });

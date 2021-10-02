@@ -129,7 +129,7 @@
 
                     <TextView
                         style="@style/SLable"
-                        android:text="@string/rd6"
+                        android:text="@string/attach_any_evidence"
 
                         />
 

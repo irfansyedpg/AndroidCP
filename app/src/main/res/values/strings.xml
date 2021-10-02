@@ -271,5 +271,6 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="drought_alert">Drought Alert</string>
     <string name="flood_alert">Flood Alert</string>
     <string name="flood_forcasting_division">Flood Forcasting Division</string>
+    <string name="attach_any_evidence">Attach Any Evidence</string>
 
 </resources>
