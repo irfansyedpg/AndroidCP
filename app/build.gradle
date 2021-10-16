@@ -1,9 +1,17 @@
-plugins {
-    id 'com.android.application'
-//    id 'com.google.secrets_gradle_plugin' version '0.5'
-}
+
+
+
+apply plugin: 'com.android.application'
+
+apply plugin: 'com.google.gms.google-services'
 
 android {
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -34,7 +42,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation group: 'com.google.guava', name: 'guava', version: '15.0'
+
     implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'androidx.work:work-runtime:2.3.4'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
@@ -54,6 +64,20 @@ dependencies {
 
     implementation 'com.github.androdocs:Simple-HTTP-Request:v1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    // firebase
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.4.2')
+
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+
 
 
 }

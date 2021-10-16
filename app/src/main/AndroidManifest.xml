@@ -32,6 +32,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSNUzCDjt1SEhbn6EvYtyRL4TK-0m_BN8" />
 
+
+
+
+
+
+
         <activity
 
             android:noHistory="false"
@@ -185,6 +191,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:noHistory="false"
+            android:name="com.mobilisepakistan.pdma.signup.Test"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
             android:noHistory="true"
             android:name="com.mobilisepakistan.pdma.report.PublicAwareness"
             android:label="SingnUP"
@@ -202,6 +215,22 @@
                 <action android:name = "android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+
+        <service android:name="com.mobilisepakistan.pdma.firebase.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE"/>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:noHistory="true"
+            android:name="com.mobilisepakistan.pdma.firebase.MainActivityFCM"
+            android:label="SingnUP"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
     </application>
 
 </manifest>

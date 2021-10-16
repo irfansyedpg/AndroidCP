@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.signup.Test;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -89,6 +90,9 @@ public class UploadData2
                     dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton) {
+
+
+                            PushNotificaionUpload(mContext,type);
                             ((Activity) mContext).finish();
                         }
                     });
@@ -106,6 +110,8 @@ public class UploadData2
                     dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton) {
+
+                            PushNotificaionUpload(mContext,type);
                                ((Activity) mContext).finish();
                         }
                     });
@@ -132,6 +138,44 @@ public class UploadData2
         requestQueue.add(jsonObjectRequest);
 
         return  LastId;
+    }
+
+
+    public static void PushNotificaionUpload(Context mcontext,String reportype)
+    {
+            JSONObject log = new JSONObject();
+
+            JSONObject log2 = new JSONObject();
+
+
+
+
+            if(reportype.equals("RD"))
+            {
+                reportype="Report Disaster";
+            }
+            else  if(reportype.equals("DNA"))
+            {
+                reportype="Damage Need Assessment";
+            }
+            else if(reportype.equals("RNA"))
+            {
+                reportype="Rapid Need Assessment";
+            }
+          
+
+
+            try {
+                log2.put("title",reportype);
+
+                log .put("to", "/topics/report");
+                log .put("notification", log2);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        PushNotificaionSenddata.PushNotificaionSenddata(mcontext,log);
     }
 
 

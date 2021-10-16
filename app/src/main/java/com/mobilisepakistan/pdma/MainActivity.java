@@ -2,6 +2,8 @@ package com.mobilisepakistan.pdma;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +23,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.mobilisepakistan.WeatherAdvisOption;
+import com.mobilisepakistan.pdma.firebase.FirebasePushNotificationClass;
 import com.mobilisepakistan.pdma.global.GetDistrictServer;
 import com.mobilisepakistan.pdma.global.GetTehsilServer;
 import com.mobilisepakistan.pdma.global.MyPref;
@@ -49,6 +52,7 @@ import com.mobilisepakistan.pdma.report.RiskAssesment;
 import com.mobilisepakistan.pdma.report.WeatherForecast;
 import com.mobilisepakistan.pdma.signup.LogIn;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -114,6 +118,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         preferences = new MyPref(MainActivity.this);
 
+
+
+
+
+        // Firebase Notifcaiton
+
+        Intent intentBackgroundService = new Intent(this, FirebasePushNotificationClass.class);
+        startService(intentBackgroundService);
+
+
+
+
+
+        // Firbase Notificaiont Ends
 
 
 

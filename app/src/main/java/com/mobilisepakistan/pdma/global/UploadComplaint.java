@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.mobilisepakistan.pdma.global.UploadData2.PushNotificaionUpload;
+
 
 public class UploadComplaint
 {
@@ -83,6 +85,8 @@ public class UploadComplaint
                     dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton) {
+
+                            PushNotificaionUpload(mContext,"User Complaint");
                             ((Activity) mContext).finish();
                         }
                     });
@@ -100,6 +104,8 @@ public class UploadComplaint
                     dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int whichButton) {
+
+                            PushNotificaionUpload(mContext,"User Complaint");
                             ((Activity) mContext).finish();
                         }
                     });

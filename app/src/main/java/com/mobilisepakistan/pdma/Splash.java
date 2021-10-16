@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobilisepakistan.pdma.firebase.MainActivityFCM;
 import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.NewUPloadImage;
 import com.mobilisepakistan.pdma.report.UploadToServer;
+import com.mobilisepakistan.pdma.signup.Test;
 
 import java.util.Locale;
 
@@ -105,8 +107,8 @@ public class Splash extends AppCompatActivity {
                 {
                //     preferences.setappcount(preferences.getappcount()+1);
 
-                  Intent intt=new Intent(Splash.this,MainActivity.class);
-                 //   Intent intt=new Intent(Splash.this, ShowLocationActivity2.class);
+                 Intent intt=new Intent(Splash.this,MainActivity.class);
+              //     Intent intt=new Intent(Splash.this, MainActivityFCM.class);
 
                      startActivity(intt);
 
