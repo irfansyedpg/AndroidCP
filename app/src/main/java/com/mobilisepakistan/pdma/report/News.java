@@ -33,7 +33,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mobilisepakistan.pdma.MainActivity;
 import com.mobilisepakistan.pdma.R;
+import com.mobilisepakistan.pdma.Splash;
 import com.mobilisepakistan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistan.pdma.databinding.RecycleviewbackgroundBinding;
 import com.mobilisepakistan.pdma.global.JsonArray;
@@ -91,7 +93,15 @@ public class News extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) News.this).finish();
+          
+
+                    Intent intt=new Intent(News.this, MainActivity.class);
+                    //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
+
+                    startActivity(intt);
+
+                    News.this.finish();
+
             }
         });
 
@@ -101,7 +111,19 @@ public class News extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+
+
+            Intent intt=new Intent(News.this, MainActivity.class);
+            //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
+
+            startActivity(intt);
+
+            News.this.finish();
+
+    }
 
 }
 

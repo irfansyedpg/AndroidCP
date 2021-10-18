@@ -3,8 +3,11 @@ package com.mobilisepakistan.pdma;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -16,6 +19,7 @@ import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.NewUPloadImage;
+import com.mobilisepakistan.pdma.report.News;
 import com.mobilisepakistan.pdma.report.UploadToServer;
 import com.mobilisepakistan.pdma.signup.Test;
 
@@ -105,10 +109,38 @@ public class Splash extends AppCompatActivity {
                 }
                 else
                 {
+
+                    // FCM  here on Splahs Screen
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        // Create channel to show notifications.
+                        String channelId  = getString(R.string.default_notification_channel_id);
+                        String channelName = getString(R.string.default_notification_channel_name);
+                        NotificationManager notificationManager =
+                                getSystemService(NotificationManager.class);
+                        notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                                channelName, NotificationManager.IMPORTANCE_LOW));
+                    }
+
+
+
+                    if (getIntent().getExtras() != null) {
+
+
+                        if(getIntent().getExtras().get("from").equals("/topics/news"))
+                        {
+                            Intent   intent = new Intent(Splash.this, News.class);
+                            startActivity(intent);
+
+                            Splash.this.finish();
+                            return;
+                        }
+                    }
+
                //     preferences.setappcount(preferences.getappcount()+1);
 
                  Intent intt=new Intent(Splash.this,MainActivity.class);
-              //     Intent intt=new Intent(Splash.this, MainActivityFCM.class);
+             //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
 
                      startActivity(intt);
 

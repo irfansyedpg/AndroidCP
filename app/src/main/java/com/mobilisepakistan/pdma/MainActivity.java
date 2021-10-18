@@ -22,8 +22,10 @@ import com.androdocs.httprequest.HttpRequest;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.mobilisepakistan.WeatherAdvisOption;
-import com.mobilisepakistan.pdma.firebase.FirebasePushNotificationClass;
+
+import com.mobilisepakistan.pdma.firebase.MyFirebaseMessagingService;
 import com.mobilisepakistan.pdma.global.GetDistrictServer;
 import com.mobilisepakistan.pdma.global.GetTehsilServer;
 import com.mobilisepakistan.pdma.global.MyPref;
@@ -124,8 +126,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Firebase Notifcaiton
 
-        Intent intentBackgroundService = new Intent(this, FirebasePushNotificationClass.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Create channel to show notifications.
+            String channelId  = getString(R.string.default_notification_channel_id);
+            String channelName = getString(R.string.default_notification_channel_name);
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(new NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW));
+        }
+
+
+        Log.d("Irfan", "From: " +"this is testing logd");
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("news");
+
+        Intent intentBackgroundService = new Intent(this, MyFirebaseMessagingService.class);
         startService(intentBackgroundService);
+
 
 
 
