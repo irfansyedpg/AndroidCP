@@ -175,7 +175,7 @@
 <!--    Sigup-->
 
 
-    <string name="lg_email">	ای میل	</string>
+    <string name="lg_email">	ای میل یا فون نمبر۔	</string>
     <string name="lg_pass">	پاس ورڈ	</string>
     <string name="lg_login">	لاگ ان کریں	</string>
     <string name="lg_sign">	سائن اپ	</string>

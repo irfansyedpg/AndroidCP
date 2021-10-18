@@ -11,6 +11,17 @@
 
     <string name="menu_home">Home</string>
     <string name="activyt_close">Do you want to close this activity</string>
+
+
+
+    <string name="VolanteerAlertMsg"> This is Emergency Alert Press Yes, Complete Message Here</string>
+    <string name="Active"> Yes, I Am Acitve</string>
+
+    <string name="UnActive"> No, I Am Acitve</string>
+
+
+
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="menu_gallery">Gallery</string>
@@ -225,7 +236,7 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
 <!--    Signup-->
 
 
-    <string name="lg_email">	Email	</string>
+    <string name="lg_email">	Email Or PhoneNo	</string>
     <string name="lg_pass">	Password 	</string>
     <string name="lg_login">	Login	</string>
     <string name="lg_sign">	Signup	</string>

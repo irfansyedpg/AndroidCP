@@ -1,10 +1,12 @@
 package com.mobilisepakistan.pdma;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.mobilisepakistan.pdma.firebase.MainActivityFCM;
 import com.mobilisepakistan.pdma.global.MyPref;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
@@ -124,6 +127,15 @@ public class Splash extends AppCompatActivity {
 
 
 
+                    FirebaseMessaging.getInstance().subscribeToTopic("news");
+
+                    String district=preferences.getUserDistrict();
+
+                    if(!district.equals(""))
+                    {
+                        FirebaseMessaging.getInstance().subscribeToTopic(district);
+                    }
+
                     if (getIntent().getExtras() != null) {
 
 
@@ -135,6 +147,49 @@ public class Splash extends AppCompatActivity {
                             Splash.this.finish();
                             return;
                         }
+
+
+
+                        if(getIntent().getExtras().get("from").equals("/topics/"+district))
+                        {
+
+
+                            AlertDialog.Builder builder1 = new AlertDialog.Builder(Splash.this);
+                            builder1.setMessage(Splash.this.getString(R.string.VolanteerAlertMsg));
+                            builder1.setCancelable(true);
+
+                            builder1.setPositiveButton(
+                                    Splash.this.getString(R.string.Active),
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                            ((Activity) Splash.this).finish();
+
+
+
+
+                                            dialog.cancel();
+                                        }
+                                    });
+                            builder1.setNegativeButton(
+                                    Splash.this.getString(R.string.UnActive),
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                            dialog.cancel();
+
+                                            Splash.this.finish();
+                                        }
+                                    });
+
+
+                            AlertDialog alert11 = builder1.create();
+                            alert11.show();
+
+
+                            return;
+                        }
+
                     }
 
                //     preferences.setappcount(preferences.getappcount()+1);

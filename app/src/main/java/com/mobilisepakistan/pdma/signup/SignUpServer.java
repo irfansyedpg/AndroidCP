@@ -24,14 +24,16 @@ public class SignUpServer
 {
    public static  boolean status;
    public static  String ServerUserID ;
+   public static  String Userdistrict ;
 
-    public static  boolean SignUpServer(Context contx, JSONObject Jobj){
+    public static  boolean SignUpServer(Context contx, JSONObject Jobj,String district){
 
 
         String postUrl = ServerConfiguration.ServerURL+ "Signup";
         final Context mContext=contx;
         SignUpServer.status=false;
         SignUpServer.ServerUserID="0";
+        Userdistrict=district;
 
         final   ProgressDialog pd;
         pd = new ProgressDialog(mContext);
@@ -59,9 +61,12 @@ public class SignUpServer
 
                 if(!Userid.equals("0")) {
 
+
                     MyPref prefs = new MyPref(mContext);
 
                     prefs.setUserId(Integer.parseInt(Userid));
+                    prefs.setUserDistrict(Userdistrict);
+
 
                     Intent mainIntent = new Intent(mContext, MainActivity.class);
                     mContext.startActivity(mainIntent);

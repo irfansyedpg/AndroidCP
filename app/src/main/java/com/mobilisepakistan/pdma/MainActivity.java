@@ -140,10 +140,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Log.d("Irfan", "From: " +"this is testing logd");
 
 
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+     //   FirebaseMessaging.getInstance().subscribeToTopic("news");
 
-        Intent intentBackgroundService = new Intent(this, MyFirebaseMessagingService.class);
-        startService(intentBackgroundService);
+      //  Intent intentBackgroundService = new Intent(this, MyFirebaseMessagingService.class);
+      //  startService(intentBackgroundService);
 
 
 
@@ -431,6 +431,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 MyPref prefs = new MyPref(this);
                 userId=0;
             prefs.setUserId(0);
+            prefs.setUserDistrict("");
             intent = new Intent(this, LogIn.class);
             startActivity(intent);
        //     this.finish();

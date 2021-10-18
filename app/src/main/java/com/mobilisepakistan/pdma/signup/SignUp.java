@@ -85,7 +85,7 @@ public class SignUp extends AppCompatActivity {
                 {
                     return;
                 }
-                boolean uploadStatus= SignUpServer.SignUpServer(SignUp.this, UploadDate());
+                boolean uploadStatus= SignUpServer.SignUpServer(SignUp.this, UploadDate(), binding.rd1Tv.getText().toString().trim());
 
 
 

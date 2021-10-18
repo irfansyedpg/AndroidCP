@@ -2,6 +2,7 @@ package com.mobilisepakistan.pdma.global;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.wifi.hotspot2.pps.Credential;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class MyPref {
     SharedPreferences.Editor editor;
 
     final public static String  USER_ID  = "userId";
+    final public static String  USER_District  = "USERDistrict";
     final public static String  Language  = "Language";
     final public static String  Country  = "Country";
     final public static String  applunch  = "applunch";
@@ -32,6 +34,11 @@ public class MyPref {
         editor = sharedPreferences.edit();
     }
 
+
+    public void setUserDistrict(String district) {
+        editor.putString(USER_District, district);
+        editor.apply();
+    }
     public void setUserId(int id) {
         editor.putInt(USER_ID, id);
         editor.apply();
@@ -71,6 +78,12 @@ public class MyPref {
     }
 
 
+
+
+    public String getUserDistrict() {
+        String district = sharedPreferences.getString(USER_District, "");
+        return district;
+    }
 
     public int getUserId() {
         int id = sharedPreferences.getInt(USER_ID, 0);

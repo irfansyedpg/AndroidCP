@@ -51,8 +51,10 @@ public class LoginUpServer
                 System.out.println(response);
                 LoginUpServer.status=true;
                 String Userid="0";
+                String District="";
                 try {
                      Userid=response.getString("id");
+                     District=response.getString("district");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -62,6 +64,7 @@ public class LoginUpServer
                     MyPref prefs = new MyPref(mContext);
 
                     prefs.setUserId(Integer.parseInt(Userid));
+                    prefs.setUserDistrict(District);
 
                     Intent mainIntent = new Intent(mContext, MainActivity.class);
                     mContext.startActivity(mainIntent);
