@@ -14,6 +14,10 @@ public class MyPref {
 
     final public static String  USER_ID  = "userId";
     final public static String  USER_District  = "USERDistrict";
+
+    final public static String  FRBS_NEWS  = "FRBSNEWS";
+    final public static String  FRBS_VOLNT  = "FRBSVOLNT";
+
     final public static String  Language  = "Language";
     final public static String  Country  = "Country";
     final public static String  applunch  = "applunch";
@@ -37,6 +41,18 @@ public class MyPref {
 
     public void setUserDistrict(String district) {
         editor.putString(USER_District, district);
+        editor.apply();
+    }
+
+
+    public void setFirbaseNew(String News) {
+        editor.putString(FRBS_NEWS, News);
+        editor.apply();
+    }
+
+
+    public void setFirebaseVolnt(String Volnt) {
+        editor.putString(FRBS_VOLNT, Volnt);
         editor.apply();
     }
     public void setUserId(int id) {
@@ -84,6 +100,19 @@ public class MyPref {
         String district = sharedPreferences.getString(USER_District, "");
         return district;
     }
+
+
+    public String getFrbsNews() {
+        String news = sharedPreferences.getString(FRBS_NEWS, "0");
+        return news;
+    }
+
+    public String getFrbsVolnt() {
+        String Volnt = sharedPreferences.getString(FRBS_VOLNT, "0");
+        return Volnt;
+    }
+
+
 
     public int getUserId() {
         int id = sharedPreferences.getInt(USER_ID, 0);

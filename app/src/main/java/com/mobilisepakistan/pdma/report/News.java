@@ -111,19 +111,7 @@ public class News extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
 
-
-
-            Intent intt=new Intent(News.this, MainActivity.class);
-            //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
-
-            startActivity(intt);
-
-            News.this.finish();
-
-    }
 
 }
 

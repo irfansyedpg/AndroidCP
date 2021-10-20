@@ -119,6 +119,42 @@
 
                 </LinearLayout>
 
+
+                <LinearLayout style="@style/nLinerLayout">
+
+                    <LinearLayout style="@style/StaricLinLayout">
+
+                        <TextView
+                            style="@style/SLable"
+                            android:text="@string/rd4" />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rd4LV"
+                        style="@style/IconLinLayout"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/rd4Tv"
+                            style="@style/SResponce"
+                            android:layout_width="0dp"
+                            android:layout_weight="100"
+                            android:hint="@string/rd4"
+
+                            />
+
+                        <ImageView style="@style/DownImageView" />
+
+                    </LinearLayout>
+
+                    <View style="@style/nView" />
+
+                </LinearLayout>
+
+
                 <LinearLayout style="@style/nLinerLayout">
 
                     <TextView
@@ -136,6 +172,8 @@
                     <View style="@style/nView" />
 
                 </LinearLayout>
+
+
 
 
                 <LinearLayout style="@style/nLinerLayout">

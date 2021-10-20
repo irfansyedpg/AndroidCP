@@ -432,6 +432,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 userId=0;
             prefs.setUserId(0);
             prefs.setUserDistrict("");
+            prefs.setFirebaseVolnt("0");
             intent = new Intent(this, LogIn.class);
             startActivity(intent);
        //     this.finish();

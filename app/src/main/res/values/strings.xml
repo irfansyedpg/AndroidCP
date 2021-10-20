@@ -14,10 +14,11 @@
 
 
 
-    <string name="VolanteerAlertMsg"> This is Emergency Alert Press Yes, Complete Message Here</string>
-    <string name="Active"> Yes, I Am Acitve</string>
+    <string name="VolanteerAlertMsg"> Dear Volunteer,
+This is an emergency alert for your area. If you are in your district, willing to help and can reach the disaster affected site, please click:</string>
+    <string name="Active"> Yes, Available</string>
 
-    <string name="UnActive"> No, I Am Acitve</string>
+    <string name="UnActive"> No, out of station</string>
 
 
 

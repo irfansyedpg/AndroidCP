@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.mobilisepakistan.pdma.firebase.MainActivityFCM;
@@ -24,9 +25,17 @@ import com.mobilisepakistan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistan.pdma.report.NewUPloadImage;
 import com.mobilisepakistan.pdma.report.News;
 import com.mobilisepakistan.pdma.report.UploadToServer;
+import com.mobilisepakistan.pdma.signup.LogIn;
+import com.mobilisepakistan.pdma.signup.LoginUpServer;
 import com.mobilisepakistan.pdma.signup.Test;
+import com.mobilisepakistan.pdma.utilities.VolunterEngServer;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Locale;
+
+import static com.mobilisepakistan.pdma.utilities.VolunterEngServer.VolunterEngServer;
 
 
 public class Splash extends AppCompatActivity {
@@ -127,70 +136,103 @@ public class Splash extends AppCompatActivity {
 
 
 
-                    FirebaseMessaging.getInstance().subscribeToTopic("news");
+                     // put shared prefrence concept here to checked if subscibed no need to subscibe again
+
+                    if(preferences.getFrbsNews().equals("0")) {
+                        FirebaseMessaging.getInstance().subscribeToTopic("news");
+                        preferences.setFirbaseNew("1");
+                    }
 
                     String district=preferences.getUserDistrict();
 
                     if(!district.equals(""))
                     {
-                        FirebaseMessaging.getInstance().subscribeToTopic(district);
+                        String volnt=preferences.getFrbsVolnt();
+                        if(volnt.equals("0")) {
+                            FirebaseMessaging.getInstance().subscribeToTopic(district);
+                            preferences.setFirebaseVolnt("1");
+                        }
                     }
 
-                    if (getIntent().getExtras() != null) {
 
 
-                        if(getIntent().getExtras().get("from").equals("/topics/news"))
-                        {
-                            Intent   intent = new Intent(Splash.this, News.class);
-                            startActivity(intent);
 
-                            Splash.this.finish();
-                            return;
+                    try {
+
+
+                        if (getIntent().getExtras() != null) {
+
+
+                            if (getIntent().getExtras().get("from").equals("/topics/news")) {
+                                Intent intent = new Intent(Splash.this, News.class);
+                                startActivity(intent);
+
+                                Splash.this.finish();
+                                return;
+                            }
+
+
+                            String topics = "/topics/" + district;
+
+
+                            if (getIntent().getExtras().get("from").equals(topics)) {
+
+
+                                AlertDialog.Builder builder1 = new AlertDialog.Builder(Splash.this);
+                                builder1.setMessage(Splash.this.getString(R.string.VolanteerAlertMsg));
+                                builder1.setCancelable(true);
+
+                                builder1.setPositiveButton(
+                                        Splash.this.getString(R.string.Active),
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+
+                                             //   ((Activity) Splash.this).finish();
+
+
+                                                VolunterEngServer.VolunterEngServer(Splash.this, UploadDate(preferences.getUserId(), 1));
+
+
+                                                dialog.cancel();
+                                            }
+                                        });
+                                builder1.setNegativeButton(
+                                        Splash.this.getString(R.string.UnActive),
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+
+
+                                                VolunterEngServer.VolunterEngServer(Splash.this, UploadDate(preferences.getUserId(), 2));
+
+
+                                                dialog.cancel();
+
+                                          //      Splash.this.finish();
+                                            }
+                                        });
+
+
+                                AlertDialog alert11 = builder1.create();
+                                alert11.show();
+
+
+                                return;
+                            }
+
+
                         }
 
 
-
-                        if(getIntent().getExtras().get("from").equals("/topics/"+district))
-                        {
-
-
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(Splash.this);
-                            builder1.setMessage(Splash.this.getString(R.string.VolanteerAlertMsg));
-                            builder1.setCancelable(true);
-
-                            builder1.setPositiveButton(
-                                    Splash.this.getString(R.string.Active),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-
-                                            ((Activity) Splash.this).finish();
-
-
-
-
-                                            dialog.cancel();
-                                        }
-                                    });
-                            builder1.setNegativeButton(
-                                    Splash.this.getString(R.string.UnActive),
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-
-                                            dialog.cancel();
-
-                                            Splash.this.finish();
-                                        }
-                                    });
-
-
-                            AlertDialog alert11 = builder1.create();
-                            alert11.show();
-
-
-                            return;
-                        }
-
                     }
+                    catch (Exception e)
+                    {
+                      //  Toast.makeText(Splash.this,e.toString(),Toast.LENGTH_LONG).show();
+
+                        //
+                    }
+
+
+
 
                //     preferences.setappcount(preferences.getappcount()+1);
 
@@ -206,5 +248,20 @@ public class Splash extends AppCompatActivity {
             }
         }, 5300);
 
+    }
+
+    public JSONObject UploadDate(int Userid,int Status)
+    {
+
+        JSONObject log = new JSONObject();
+        try {
+            log .put("UserId", Userid);
+            log .put("Status", Status);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return  log;
     }
 }

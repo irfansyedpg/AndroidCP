@@ -68,6 +68,7 @@ public class SignUpServer
                     prefs.setUserDistrict(Userdistrict);
 
 
+
                     Intent mainIntent = new Intent(mContext, MainActivity.class);
                     mContext.startActivity(mainIntent);
                     ((Activity) mContext).finish();

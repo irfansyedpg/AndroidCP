@@ -22,6 +22,7 @@ import com.mobilisepakistan.pdma.R;
 import com.mobilisepakistan.pdma.data.LocalDataManager;
 import com.mobilisepakistan.pdma.databinding.DemgneedassesmentBinding;
 import com.mobilisepakistan.pdma.global.MyPref;
+import com.mobilisepakistan.pdma.global.TypeDisaster;
 import com.mobilisepakistan.pdma.global.UploadData2;
 import com.mobilisepakistan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistan.pdma.gps.TurnOnGPS;
@@ -35,17 +36,22 @@ public class DemageNeedAssesment extends AppCompatActivity  {
     DemgneedassesmentBinding binding ;
     ArrayList<String> listDistrict;
     ArrayList<String> listTehsil;
+    ArrayList<String> listDisaster;
 
     String sDistrict="";
     String sTehsil="";
     String Logpk="";
     MyPref preferences;
     int UserID=0;
+    String sDisasterType="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.demgneedassesment );
         listDistrict= LocalDataManager.GetDistricts(this);
+        listDisaster=new ArrayList<>();
+
+        listDisaster= TypeDisaster.getDisaster();
 
         TurnOnGPS.turnGPSOn(this);
 
@@ -124,6 +130,18 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             }
         });
 
+
+        binding.rd4LV.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+                Intent  intent = new Intent(DemageNeedAssesment.this, RecyclerViewA.class);
+                intent.putExtra("mylist",listDisaster);
+                intent.putExtra("header",getString(R.string.s_h_type_disaster));
+                startActivityForResult(intent,13);
+
+            }
+        });
+
         binding.checkboxGps.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -177,6 +195,14 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             if (resultCode == Activity.RESULT_OK) {
                 sTehsil = data.getStringExtra("data");
                 binding.dna2Tv.setText(sTehsil);
+
+            }
+        }
+
+        else if(requestCode == 13 ) {
+            if (resultCode == Activity.RESULT_OK) {
+                sDisasterType = data.getStringExtra("data");
+                binding.rd4Tv.setText(sDisasterType);
 
             }
         }
@@ -267,6 +293,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         }
         HashData.put("District",binding.dna1Tv.getText().toString().trim());
         HashData.put("Tehsil",binding.dna2Tv.getText().toString().trim());
+        HashData.put("Disaster Type",binding.rd4Tv.getText().toString().trim());
         HashData.put("Address",binding.dna3Tv.getText().toString().trim());
         HashData.put("Name",binding.dna4Tv.getText().toString().trim());
         HashData.put("Father Name",binding.dna5Tv.getText().toString().trim());
@@ -379,7 +406,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
         }
 
-         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,"DNA"),"DNA",bitmapparr);
+         UploadData2.volleyPost(this,LocalDataManager.GetData(Logpk,DistrictId,binding.rd4Tv.getText().toString().trim()),"DNA",bitmapparr);
 
 //        if(uploadStatus==true)
 //        {
@@ -413,6 +440,13 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             {      Toast.makeText(this,"Please Enter Select Tehsil",Toast.LENGTH_SHORT).show();
                 return  false;
             }
+
+            if(binding.rd4Tv.getText().equals(""))
+            {
+                Toast.makeText(this,getString(R.string.s_h_type_disaster),Toast.LENGTH_SHORT).show();
+                return  false;
+            }
+
             if(binding.dna3Tv.getText().toString().trim().equals("") || binding.dna3Tv.getText().toString().trim().isEmpty())
             {
                 Toast.makeText(this,"Please Enter Complete Address",Toast.LENGTH_SHORT).show();

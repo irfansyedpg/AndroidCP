@@ -272,4 +272,18 @@
     <string name="flood_forcasting_division">سیلاب کی پیشن گوئی ڈویژن</string>
     <string name="attach_any_evidence">شواہد منسلک کریں۔</string>
 
+
+
+
+
+
+    <string name="VolanteerAlertMsg"> محترم رضاکا،
+
+یہ آپ کے علاقے کے لیے ہنگامی انتباہ ہے۔ اگر آپ اپنے ضلع میں ہیں اور آفت زدہ  لوگوں کی مدد کیلیے تیار ہے تو براہ کرم کلک کریں:</string>
+    <string name="Active"> ہاں، میں تیار ہوں
+</string>
+
+    <string name="UnActive"> نہیں، اسٹیشن سے باہرہوں</string>
+
+
 </resources>
