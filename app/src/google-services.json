@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "231389258164",
+    "project_id": "pdmamadadgar-1d65a",
+    "storage_bucket": "pdmamadadgar-1d65a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231389258164:android:da76ea53b526155eac92e1",
+        "android_client_info": {
+          "package_name": "com.mobilisepakistanirfan.pdma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231389258164-14n79k3u44tifolvhjv5h43rvdspnlcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLR4p8I1QTsv8bwSak2cvqEogxqT3V2Xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231389258164-14n79k3u44tifolvhjv5h43rvdspnlcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

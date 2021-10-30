@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobilisepakistan.pdma">
+    package="com.mobilisepakistanirfan.pdma">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -42,9 +42,9 @@
         <activity
 
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.signup.LogIn"></activity>
+            android:name="com.mobilisepakistanirfan.pdma.signup.LogIn"></activity>
         <activity
-            android:name="com.mobilisepakistan.pdma.Splash"
+            android:name="com.mobilisepakistanirfan.pdma.Splash"
             android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -54,103 +54,103 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mobilisepakistan.pdma.MainActivity"
+            android:name="com.mobilisepakistanirfan.pdma.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.ReportDisaster"
+            android:name="com.mobilisepakistanirfan.pdma.report.ReportDisaster"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.pdma.gps.ShowLocationActivity2"
+            android:name="com.mobilisepakistanirfan.pdma.gps.ShowLocationActivity2"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.gps.ShowlocaitonActivityNew"
+            android:name="com.mobilisepakistanirfan.pdma.gps.ShowlocaitonActivityNew"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.RiskAssesment"
+            android:name="com.mobilisepakistanirfan.pdma.report.RiskAssesment"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.AboutApp"
+            android:name="com.mobilisepakistanirfan.pdma.AboutApp"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.WeatherAdvisOption"
+            android:name="com.mobilisepakistanirfan.WeatherAdvisOption"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.PMDwebView"
+            android:name="com.mobilisepakistanirfan.PMDwebView"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.RecyclerViewA"
+            android:name="com.mobilisepakistanirfan.pdma.report.RecyclerViewA"
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.RapidNeedAssessment"
+            android:name="com.mobilisepakistanirfan.pdma.report.RapidNeedAssessment"
             android:label="Rapid Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.DemageNeedAssesment"
+            android:name="com.mobilisepakistanirfan.pdma.report.DemageNeedAssesment"
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.DemagesLosses"
+            android:name="com.mobilisepakistanirfan.pdma.report.DemagesLosses"
             android:label="Demage Need Assessment "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.EarlyWarning"
+            android:name="com.mobilisepakistanirfan.pdma.report.EarlyWarning"
             android:label="EarlyWarnings"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.DailySituationReport"
+            android:name="com.mobilisepakistanirfan.pdma.report.DailySituationReport"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.mobilisepakistan.pdma.report.WeatherForecast"
+            android:name="com.mobilisepakistanirfan.pdma.report.WeatherForecast"
             android:label="Daily Situation Report "
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.signup.SignUp"
+            android:name="com.mobilisepakistanirfan.pdma.signup.SignUp"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.EmergencyContact"
+            android:name="com.mobilisepakistanirfan.pdma.report.EmergencyContact"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.EvacuationCenter"
+            android:name="com.mobilisepakistanirfan.pdma.report.EvacuationCenter"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.NewUPloadImage"
+            android:name="com.mobilisepakistanirfan.pdma.report.NewUPloadImage"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -158,55 +158,55 @@
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.EvacuationCenterFurth"
+            android:name="com.mobilisepakistanirfan.pdma.report.EvacuationCenterFurth"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.MapsMarkerActivity"
+            android:name="com.mobilisepakistanirfan.pdma.MapsMarkerActivity"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.CommunityOutreach"
+            android:name="com.mobilisepakistanirfan.pdma.CommunityOutreach"
             android:label="CommunityOutreach"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.QuickLink"
+            android:name="com.mobilisepakistanirfan.pdma.report.QuickLink"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.UploadToServer"
+            android:name="com.mobilisepakistanirfan.pdma.report.UploadToServer"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.report.Complaints"
+            android:name="com.mobilisepakistanirfan.pdma.report.Complaints"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="false"
-            android:name="com.mobilisepakistan.pdma.signup.Test"
+            android:name="com.mobilisepakistanirfan.pdma.signup.Test"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.PublicAwareness"
+            android:name="com.mobilisepakistanirfan.pdma.report.PublicAwareness"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.report.News"
+            android:name="com.mobilisepakistanirfan.pdma.report.News"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -221,7 +221,7 @@
 
         <activity
             android:noHistory="true"
-            android:name="com.mobilisepakistan.pdma.firebase.MainActivityFCM"
+            android:name="com.mobilisepakistanirfan.pdma.firebase.MainActivityFCM"
             android:label="SingnUP"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -229,7 +229,7 @@
 
 <!--        Firebae-->
 
-        <service android:name="com.mobilisepakistan.pdma.firebase.MyFirebaseMessagingService">
+        <service android:name="com.mobilisepakistanirfan.pdma.firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="android.intent.action.MESSAGING_EVENT"/>
             </intent-filter>

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.mobilisepakistan.pdma.ui.home.HomeFragment"
+        android:name="com.mobilisepakistanirfan.pdma.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"
 
