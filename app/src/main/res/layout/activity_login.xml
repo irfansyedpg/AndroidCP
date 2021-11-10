@@ -52,12 +52,15 @@
                 style="@style/SResponce"
                 android:hint="@string/lg_email"
                 android:inputType="text|textEmailAddress"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+
                 android:backgroundTint="@color/white"
                 android:textAlignment="center"
                 android:textSize="17sp"
                 android:layout_marginTop="25dp"
+                android:textColorHint="@color/hitnscolor"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:padding="9dp"
 
                 />
 
@@ -67,13 +70,16 @@
                 style="@style/SResponce"
                 android:hint="@string/lg_pass"
                 android:inputType="textPassword"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:textAlignment="center"
 
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/hitnscolor"
-                android:textSize="17sp" />
+                android:textColorHint="@color/hitnscolor"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:textSize="17sp"
+                android:padding="9dp"
+
+                />
 
 
             <Button
@@ -87,39 +93,37 @@
                 android:textColor="@color/white"
                 android:stateListAnimator="@null" />
 
+
             <Button
                 android:id="@+id/signup_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/lg_sign"
-                android:textSize="16sp"
-                android:background="@drawable/cricl_lb"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/cricl_lb_signup"
+                android:stateListAnimator="@null"
+                android:text="@string/lg_sign_dnt"
                 android:textColor="@color/white"
-                android:stateListAnimator="@null" />
+                android:textSize="14sp"
+                android:textAllCaps="false"
 
-
+                />
         </LinearLayout>
+
+
+
+
+
+
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
 
             >
 
-            <TextView
-                style="@style/SLable"
 
-                android:text=""
-                android:layout_width="wrap_content"
-
-                android:textColor="@color/hitnscolor"
-                android:textSize="16sp"
-                android:layout_marginStart="40dp"
-                android:layout_marginBottom="3dp"
-
-                />
 
             <TextView
                 style="@style/SLable"
@@ -130,12 +134,12 @@
                 android:text="@string/lg_crp"
 
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="3dp"
-                android:layout_gravity="end"
+                android:gravity="center"
                 android:clickable="true"
-                android:layout_alignParentEnd="true"
+
                 android:textStyle="normal" />
 
         </RelativeLayout>

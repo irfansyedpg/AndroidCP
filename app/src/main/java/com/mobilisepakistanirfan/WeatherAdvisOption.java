@@ -54,7 +54,7 @@ public class WeatherAdvisOption extends AppCompatActivity {
             public void onClick(View view) {
                 Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
                 intt.putExtra("header", getString(R.string.wadvpmd));
-                intt.putExtra("link", "https://nwfc.pmd.gov.pk/new/press-releases-urdu.php");
+                intt.putExtra("link", "https://rmckpk.pmd.gov.pk/Kp-W-W.html");
                 startActivity(intt);
             }
         });
@@ -69,7 +69,7 @@ public class WeatherAdvisOption extends AppCompatActivity {
             public void onClick(View view) {
                 Intent  intt = new Intent(WeatherAdvisOption.this, PMDwebView.class);
                 intt.putExtra("header", getString(R.string.glof_alert));
-                intt.putExtra("link", "http://www.pmd.gov.pk/rnd/rndweb/rnd_new/glof_alerts.php");
+                intt.putExtra("link", "http://www.pmd.gov.pk/rnd/rndweb/rnd_new/glof_alerts_advisories.php");
                 startActivity(intt);
             }
         });

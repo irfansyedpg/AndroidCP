@@ -19,9 +19,9 @@
 
 
     <!--    Menue Drawwer-->
-
+    <string name="lg_sign_dnt">	 کیا آپ کا اکاؤنٹ نہیں ہے؟ براہ کرم   <b> سائن اپ کریں </b> </string>
     <string name="menu_home">ہوم ڈیش بورڈ</string>
-    <string name="S_dw">	 آج کا موسم	</string>
+    <string name="S_dw">	 موسم کا حال	</string>
 
     <string name="S_News">	پی ڈی ایم اے نیوز 	</string>
 
@@ -144,7 +144,7 @@
 
     <string name="wadvpdma"> ارلی وارننگ /پیشگی اطلاع    </string>
     <string name="wadvpdmaup">  پی ڈی ایم اے  خیبر پختونخوا  </string>
-    <string name="wadvpmd">    موسم کا حال</string>
+    <string name="wadvpmd">موسم کی ایڈوائزری</string>
     <string name="wadvpmdup">  محکمہ موسمیات  پاکستان </string>
 
 
@@ -265,9 +265,9 @@
     <string name="glof_alert">گلاف  کا انتباہ</string>
     <string name="national_center">نیشنل سیزمک مانیٹرنگ سینٹر</string>
     <string name="nationaldrogucenter">نیشنل ڈراوٹ مانیٹرنگ سینٹر</string>
-    <string name="drought_alert">خشک سالی کا انتباہ</string>
-    <string name="earthquake">زلزلے کا انتباہ</string>
-    <string name="flood_alert">سیلاب کا انتباہ
+    <string name="drought_alert">خشک سالی کی معلومات</string>
+    <string name="earthquake">زلزلے کے واقعات</string>
+    <string name="flood_alert">فلڈ بلیٹن
 </string>
     <string name="flood_forcasting_division">سیلاب کی پیشن گوئی ڈویژن</string>
     <string name="attach_any_evidence">شواہد منسلک کریں۔</string>

@@ -144,11 +144,18 @@
 
                 <LinearLayout style="@style/nLinerLayout">
 
-                    <TextView
-                        style="@style/SLablelogin"
-                        android:text="@string/rd3"
+                    <LinearLayout style="@style/StaricLinLayout">
 
-                        />
+                        <TextView
+                            style="@style/SLablelogin"
+                            android:text="@string/rd3"
+
+                            />
+
+                        <TextView style="@style/StaricTextview" />
+                    </LinearLayout>
+
+
 
                     <EditText
                         android:id="@+id/rd3Tv"

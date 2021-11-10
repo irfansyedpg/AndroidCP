@@ -119,7 +119,7 @@ This is an emergency alert for your area. If you are in your district, willing t
 
     <string name="S_News">	PDMA News 	</string>
 
-    <string name="S_dw">	Daily Weather 	</string>
+    <string name="S_dw">	Weather Forecast 	</string>
     <string name="s_ew">	Early Warning 	</string>
     <string name="s_dsr">	Daily Situation Report	</string>
     <string name="s_rd">	Report Disaster 	</string>
@@ -173,7 +173,7 @@ This is an emergency alert for your area. If you are in your district, willing t
 
     <string name="wadvpdma"> Early Warning </string>
     <string name="wadvpdmaup">  PDMA Khyber Pakhtunkhwa</string>
-    <string name="wadvpmd">  Weather Forecast	</string>
+    <string name="wadvpmd">  Weather Advisory	</string>
     <string name="wadvpmdup">  Pakistan Meteorological Department	</string>
 
     <string name="wfheader"> Weather Forecast	</string>
@@ -237,11 +237,13 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
 <!--    Signup-->
 
 
-    <string name="lg_email">	Email Or PhoneNo	</string>
+    <string name="lg_email">	Email Or Phone No	</string>
     <string name="lg_pass">	Password 	</string>
     <string name="lg_login">	Login	</string>
+
+    <string name="lg_sign_dnt">	Don\'t have an account?  <b> Signup </b>	</string>
     <string name="lg_sign">	Signup	</string>
-    <string name="lg_crp">	© Mobilise-CDPM, Pakistan	</string>
+    <string name="lg_crp">	© Mobilise, Pakistan	</string>
     <string name="su_ca">	Create Account	</string>
     <string name="su_name">	Name	</string>
     <string name="su_cnic">	CNIC #	</string>
@@ -277,11 +279,11 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="Morning">Morning</string>
     <string name="Evening">Evening</string>
     <string name="glof_alert">GLOF Alert</string>
-    <string name="earthquake">Earthquake Alert</string>
+    <string name="earthquake">Latest Earthquake Events</string>
     <string name="national_center">National Seismic Monitoring Center</string>
     <string name="nationaldrogucenter">National Drought Monitoring Center</string>
-    <string name="drought_alert">Drought Alert</string>
-    <string name="flood_alert">Flood Alert</string>
+    <string name="drought_alert">Drought Information</string>
+    <string name="flood_alert">Flood Bulletin</string>
     <string name="flood_forcasting_division">Flood Forcasting Division</string>
     <string name="attach_any_evidence">Attach Any Evidence</string>
     <string name="default_notification_channel_id">firebasenotificainoidirfan</string>
