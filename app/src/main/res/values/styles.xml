@@ -8,18 +8,12 @@
         <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
 
-    <style name="CustomCardView" parent="Widget.MaterialComponents.CardView">
-        <item name="cardBackgroundColor">@color/colorPrimaryDark</item>
-    </style>
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
     <style name="nLinerLayout">
@@ -166,14 +160,6 @@
     </style>
 
 
-    <style name="LocationImage">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:src">@drawable/ic_placeholder</item>
-        <item name="android:layout_marginEnd">10dp</item>
-
-    </style>
-
     <style name="SubmiteButt">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -231,16 +217,6 @@
 
 
     <!--    floating action button -->
-
-
-    <style name="menu_labels_style">
-        <item name="android:background">@color/white</item>
-        <item name="android:textColor">@color/blacklight</item>
-        <item name="android:textSize">15sp</item>
-
-        <item name="android:padding">5dp</item>
-    </style>
-
 
 
 </resources>

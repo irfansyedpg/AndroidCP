@@ -91,7 +91,7 @@ public class RapidNeedAssessment extends AppCompatActivity  {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RapidNeedAssessment.this).finish();
+                TurnOnGPS.CloseActivityalerd(RapidNeedAssessment.this);
             }
         });
 

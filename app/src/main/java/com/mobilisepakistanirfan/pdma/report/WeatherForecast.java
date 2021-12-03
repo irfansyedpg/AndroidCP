@@ -21,6 +21,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mobilisepakistanirfan.WeatherAdvisOption;
 import com.mobilisepakistanirfan.pdma.R;
 import com.mobilisepakistanirfan.pdma.databinding.DailysituationBinding;
 import com.mobilisepakistanirfan.pdma.databinding.WeatherforecastBinding;
@@ -107,7 +108,17 @@ public class WeatherForecast extends AppCompatActivity  {
 
 
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+
+
+                WeatherForecast.this.finish();
+
+            }
+        });
 
     }
 
@@ -121,7 +132,8 @@ public class WeatherForecast extends AppCompatActivity  {
     public void onBackPressed() {
 
 
-        TurnOnGPS.CloseActivityalerd(this);
+        WeatherForecast.this.finish();
+       // TurnOnGPS.CloseActivityalerd(this);
 
     }
 }
@@ -324,7 +336,8 @@ class  ViewCustomAdapterWF extends RecyclerView.Adapter {
 
                 //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
 
-                String url="http://175.107.63.39/DWRs/DWR%20";
+
+                String url="https://rms.pdma.gov.pk/DWRs/DWR%20";
                 url=url+txtdate+".pdf";
 
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

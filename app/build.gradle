@@ -18,8 +18,8 @@ android {
         applicationId "com.mobilisepakistanirfan.pdma"
         minSdkVersion 17
         targetSdkVersion 30
-        versionCode 10
-        versionName "10"
+        versionCode 16
+        versionName "16"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,6 +30,12 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
     }
 }
 

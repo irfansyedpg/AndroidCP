@@ -7,7 +7,6 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="hitnscolor">#AFB3B5</color>
-    <color name="black_overlay">#AFB3B5</color>
     <color name="hintoverly">#e5e7e7</color>
     <color name="hintoverlyheavy">#cecfcf</color>
     <color name="hintoverlyverylight">#f2f3f3</color>
@@ -20,17 +19,11 @@
 
     <!--    Floaitn aciton button -->
 
-    <color name="black_semi_transparent">#B2000000</color>
-    <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>
     <color name="white">#ffffff</color>
     <color name="white2">#fafafa</color>
     <color name="white3">#ededed</color>
 
     <color name="white_pressed">#f1f1f1</color>
-    <color name="pink">#e91e63</color>
 
-    <color name="pink_pressed">#ec407a</color>
-    <color name="blue_semi_transparent">#805677fc</color>
-    <color name="blue_semi_transparent_pressed">#80738ffe</color>
 </resources>

@@ -71,13 +71,27 @@ public class EarlyWarning extends AppCompatActivity  {
 
         new GetDataServerB(EarlyWarning.this, ServerConfiguration.ServerURL+ "GetAdvisories",binding.recycleviewR).execute();
 
+
+
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                EarlyWarning.this.finish();
+
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
 
+        EarlyWarning.this.finish();
 
-        TurnOnGPS.CloseActivityalerd(this);
+      //  TurnOnGPS.CloseActivityalerd(this);
 
     }
 }
@@ -121,7 +135,7 @@ class  ViewCustomAdapterB extends RecyclerView.Adapter {
 
                 //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
 
-                String url="http://175.107.63.39/Advisories/";
+                String url="https://rms.pdma.gov.pk/Advisories/";
                 url=url+txtshift;
 
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

@@ -2,9 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:title="@string/s_h_set">
+        <menu>
+
+            <item
+                android:id="@+id/st_sigup"
+
+                android:title="@string/lg_sign" />
+            <item
+                android:id="@+id/st_login"
+
+                android:title="@string/s_login" />
 
 
 
+            <item
+                android:id="@+id/st_logout"
+
+                android:title="@string/s_logout" />
+
+
+        </menu>
+    </item>
 
 
 
@@ -25,21 +44,11 @@
 
 
 
-            <item
-                android:id="@+id/st_sigup"
-                android:icon="@drawable/logout"
-                android:title="@string/lg_sign" />
-            <item
-                android:id="@+id/st_login"
-                android:icon="@drawable/enter"
-                android:title="@string/s_login" />
 
 
 
-    <item
-        android:id="@+id/st_logout"
-        android:icon="@drawable/information"
-        android:title="@string/s_logout" />
+
+
 
     <item
         android:id="@+id/nav_about"

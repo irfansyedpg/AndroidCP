@@ -94,7 +94,7 @@ public class DemageNeedAssesment extends AppCompatActivity  {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) DemageNeedAssesment.this).finish();
+                TurnOnGPS.CloseActivityalerd(DemageNeedAssesment.this);
             }
         });
 

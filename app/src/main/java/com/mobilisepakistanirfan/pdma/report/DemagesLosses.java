@@ -137,6 +137,19 @@ public class DemagesLosses extends AppCompatActivity  {
 
             }
         });
+
+
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                DemagesLosses.this.finish();
+
+            }
+        });
     }
 
     ImageView ImgView;
@@ -175,7 +188,8 @@ public class DemagesLosses extends AppCompatActivity  {
     public  void onBackPressed()
     {
 
-        TurnOnGPS.CloseActivityalerd(this);
+        DemagesLosses.this.finish();
+      //  TurnOnGPS.CloseActivityalerd(this);
     }
 
 

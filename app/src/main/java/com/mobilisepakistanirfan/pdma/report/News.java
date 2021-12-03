@@ -1,14 +1,18 @@
 package com.mobilisepakistanirfan.pdma.report;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -23,6 +27,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -88,10 +94,7 @@ public class News extends AppCompatActivity {
             public void onClick(View v) {
           
 
-                    Intent intt=new Intent(News.this, MainActivity.class);
-                    //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
 
-                    startActivity(intt);
 
                     News.this.finish();
 
@@ -154,7 +157,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
 
             vh.txttitle.setText(Listitle.get(position));
             vh.textdated.setText(Listdatee.get(position));
-            String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
+            String imurl="https://rms.pdma.gov.pk/pdmamadadgar/Flyers/"+Listimg.get(position);
             Picasso.get().load(imurl).into(vh.lv);
 
 
@@ -187,7 +190,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
                 Button btncls =(Button)builder.findViewById(R.id.cancel) ;
 
 
-                final String imurl="http://175.107.63.39/pdmamadadgar/Flyers/"+Listimg.get(position);
+                final String imurl="https://rms.pdma.gov.pk/pdmamadadgar/Flyers/"+Listimg.get(position);
                 Picasso.get().load(imurl).into(imageView);
 
 
@@ -203,6 +206,14 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
                 btndown.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+                        if (Build.VERSION.SDK_INT >= 23) {
+                            int permissionCheck = ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions((Activity) mContext, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                            }
+                        }
 
                         imageView.buildDrawingCache();
 
@@ -229,6 +240,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
                             intent.setData(Uri.fromFile(file));
                             mContext.sendBroadcast(intent);
 
+                            Toast.makeText(mContext,"Image Downloaded",Toast.LENGTH_SHORT).show();
                             builder.dismiss();
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();

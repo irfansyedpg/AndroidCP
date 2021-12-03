@@ -21,6 +21,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.mobilisepakistanirfan.pdma.CommunityOutreach;
 import com.mobilisepakistanirfan.pdma.databinding.DailysituationBinding;
 
 //import com.example.myapplication.databinding.DailysituationBinding;
@@ -107,7 +108,17 @@ public class DailySituationReport extends AppCompatActivity  {
 
 
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+
+
+                DailySituationReport.this.finish();
+
+            }
+        });
     }
 
     public void clearData() {
@@ -119,8 +130,8 @@ public class DailySituationReport extends AppCompatActivity  {
     @Override
     public void onBackPressed() {
 
-
-        TurnOnGPS.CloseActivityalerd(this);
+        DailySituationReport.this.finish();
+     //   TurnOnGPS.CloseActivityalerd(this);
 
     }
 }
@@ -347,7 +358,7 @@ class  ViewCustomAdapter extends RecyclerView.Adapter {
 
             //    Toast.makeText(mContext,txtdate,Toast.LENGTH_SHORT).show();
 
-                String url="http://175.107.63.39/DSRs/DSR%20";
+                String url="https://rms.pdma.gov.pk/DSRs/DSR%20";
                 url=url+txtdate+"%20("+txtshift+").pdf";
 
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

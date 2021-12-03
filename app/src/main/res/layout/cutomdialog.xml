@@ -37,19 +37,24 @@
             android:id="@+id/cancel"
             style="@style/SubmiteButt"
             android:layout_weight="60"
+
             android:text="@string/close"
-            android:background="@color/red"
-            android:textSize="12dp"
-            android:layout_margin="2dp"
+            android:background="@color/white"
+            android:textColor="@color/red"
+            android:textSize="11dp"
+            android:layout_margin="5dp"
             />
         <Button
             android:id="@+id/downlad"
             style="@style/SubmiteButt"
             android:text="@string/download"
             android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textColor="@color/blacklight"
+            android:textSize="11dp"
+            android:layout_margin="5dp"
 
-            android:textSize="12dp"
-            android:layout_margin="2dp"
 
             />
 

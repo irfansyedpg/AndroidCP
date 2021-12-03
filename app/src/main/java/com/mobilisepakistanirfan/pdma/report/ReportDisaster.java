@@ -78,7 +78,9 @@ public class ReportDisaster extends AppCompatActivity  {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) ReportDisaster.this).finish();
+
+                TurnOnGPS.CloseActivityalerd(ReportDisaster.this);
+
             }
         });
 

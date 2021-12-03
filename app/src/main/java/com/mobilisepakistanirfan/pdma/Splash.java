@@ -137,10 +137,10 @@ public class Splash extends AppCompatActivity {
                     if(!district.equals(""))
                     {
                         String volnt=preferences.getFrbsVolnt();
-                        if(volnt.equals("0")) {
+                      //  if(volnt.equals("0")) {
                             FirebaseMessaging.getInstance().subscribeToTopic(district);
                             preferences.setFirebaseVolnt("1");
-                        }
+                       // }
                     }
 
 

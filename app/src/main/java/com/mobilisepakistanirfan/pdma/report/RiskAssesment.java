@@ -33,6 +33,7 @@ import com.mobilisepakistanirfan.pdma.databinding.RecycleviewBinding;
 import com.mobilisepakistanirfan.pdma.databinding.RecycleviewbackgroundBinding;
 import com.mobilisepakistanirfan.pdma.global.JsonArray;
 import com.mobilisepakistanirfan.pdma.global.ServerConfiguration;
+import com.mobilisepakistanirfan.pdma.gps.TurnOnGPS;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -85,7 +86,8 @@ public class RiskAssesment extends AppCompatActivity {
         binding.lvback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Activity) RiskAssesment.this).finish();
+
+                TurnOnGPS.CloseActivityalerd(RiskAssesment.this);
             }
         });
 
@@ -144,7 +146,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
             vh.txtdetial.setText(Listdetial.get(position));
             vh.txttdate.setText(Listdate.get(position));
 
-            String imurl="http://175.107.63.39/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+            String imurl="https://rms.pdma.gov.pk/pdmamadadgar/DisasterImages/"+Listimg.get(position);
 
         //    String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
 
@@ -175,7 +177,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
                 Button btncls =(Button)builder.findViewById(R.id.cancel) ;
 
 
-               final String imurl="http://175.107.63.39/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+               final String imurl="https://rms.pdma.gov.pk/pdmamadadgar/DisasterImages/"+Listimg.get(position);
                 Picasso.get().load(imurl).into(imageView);
 
 

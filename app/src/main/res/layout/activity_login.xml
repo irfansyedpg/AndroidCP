@@ -87,12 +87,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="@string/lg_login"
-                android:textSize="16sp"
                 android:background="@drawable/cricl_lb"
+                android:stateListAnimator="@null"
+                android:text="@string/lg_login"
                 android:textColor="@color/white"
-                android:stateListAnimator="@null" />
-
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/signup_btn"

@@ -86,6 +86,8 @@ public class UploadToServer extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void showFileChooser() {

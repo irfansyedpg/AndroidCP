@@ -107,7 +107,17 @@ public class WeatherAdvisOption extends AppCompatActivity {
         });
 
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+
+
+                WeatherAdvisOption.this.finish();
+
+            }
+        });
 
     }
 
@@ -115,7 +125,8 @@ public class WeatherAdvisOption extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        TurnOnGPS.CloseActivityalerd(this);
+        WeatherAdvisOption.this.finish();
+
     }
 
 

@@ -122,23 +122,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        Log.d("Irfan", "From: " +"this is testing logd");
-
-
-     //   FirebaseMessaging.getInstance().subscribeToTopic("news");
-
-      //  Intent intentBackgroundService = new Intent(this, MyFirebaseMessagingService.class);
-      //  startService(intentBackgroundService);
-
-
-
-
-
-
-        // Firbase Notificaiont Ends
-
-
-
         country=preferences.getCountry();
         language=preferences.getLanguage();
 
@@ -326,17 +309,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intentt = new Intent(MainActivity.this, ShowLocationActivity2.class);
                 startActivityForResult(intentt, 22);
             }
-//        }
 
-
-
-
-       // new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL+ "GetDistrictsAction").execute();
-
-      //  preferences.setappcount(preferences.getappcount()+1);
 
     }
-    // get location new
+
+
+
+
 
 
 

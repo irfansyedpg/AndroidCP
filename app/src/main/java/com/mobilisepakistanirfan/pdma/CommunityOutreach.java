@@ -70,13 +70,26 @@ public class CommunityOutreach extends AppCompatActivity {
             }
         });
 
+        binding.lvback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                CommunityOutreach.this.finish();
+
+            }
+        });
+
     }
 
 
     @Override
     public void onBackPressed() {
 
-        TurnOnGPS.CloseActivityalerd(this);
+        CommunityOutreach.this.finish();
+      //  TurnOnGPS.CloseActivityalerd(this);
     }
 
 
