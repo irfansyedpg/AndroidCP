@@ -15,6 +15,7 @@ import com.android.volley.toolbox.Volley;
 import com.mobilisepakistanirfan.pdma.MainActivity;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
 import com.mobilisepakistanirfan.pdma.global.ServerConfiguration;
+import com.mobilisepakistanirfan.pdma.global.UserPref;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,9 +53,21 @@ public class LoginUpServer
                 LoginUpServer.status=true;
                 String Userid="0";
                 String District="";
+                String MobileNo="";
+                String Email="";
+                String UserType="";
+                String UserStatus="";
                 try {
                      Userid=response.getString("id");
                      District=response.getString("district");
+
+                    MobileNo=response.getString("mobileno");
+                    Email=response.getString("email");
+                    UserType=response.getString("usertype");
+                    UserStatus=response.getString("userstatus");
+
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -62,6 +75,22 @@ public class LoginUpServer
                 if(!Userid.equals("-1")) {
 
                     MyPref prefs = new MyPref(mContext);
+
+                    UserPref upref=new UserPref(mContext);
+
+                    upref.setUserMobileNo(MobileNo);
+                    upref.setUserEmail(Email);
+                    upref.setUserTypel(UserType);
+
+                    if(UserStatus.equals("1")) {
+                        upref.setUserUserStatus("Active");
+                    }
+                    else
+                    {
+                        upref.setUserUserStatus("Not Active");
+
+                    }
+
 
                     prefs.setUserId(Integer.parseInt(Userid));
                     prefs.setUserDistrict(District);

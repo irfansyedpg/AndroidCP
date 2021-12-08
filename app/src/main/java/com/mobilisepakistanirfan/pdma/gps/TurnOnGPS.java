@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.mobilisepakistanirfan.pdma.MainActivity;
 import com.mobilisepakistanirfan.pdma.R;
+import com.mobilisepakistanirfan.pdma.Splash;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
 import com.mobilisepakistanirfan.pdma.signup.LogIn;
 
@@ -140,6 +141,32 @@ public class TurnOnGPS {
 
         AlertDialog alert11 = builder1.create();
         alert11.show(   );
+
+
+
+    }
+
+    public static void PDMAStaffLoginalret(final Context mContext){
+
+        String Dilogtext = mContext.getString(R.string.su_PDMAUSER);
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.s_g_h_subnote)).setMessage(Dilogtext);
+
+        dialog.setCancelable(false);
+
+        dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+
+
+
+
+
+
+            }
+        });
+        dialog.create().show();
 
 
 

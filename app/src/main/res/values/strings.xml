@@ -236,10 +236,13 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="su_pdm">	PDMA Staff	</string>
     <string name="su_su">	Signup	</string>
 
+    <string name="su_PDMAUSER">	  Thanks for registering as a PDMA Staff member. Please be informed that this type of user requires authentication from PDMA. As soon as PDMA approves your registration as PDMA staff, you will be able to use interactive features of the App.	</string>
 
 
 
-<!--     Complaint-->
+
+
+    <!--     Complaint-->
 
 
     <string name="s_complaint">	Register Complaint 	</string>
@@ -267,6 +270,22 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="default_notification_channel_name">NotificainoChealeNameirfan</string>
     <string name="msg_subscribed">messageirfan</string>
     <string name="msg_subscribe_failed">subscribpifailedmessage</string>
+
+
+    <!--     UserProfile -->
+
+    <string name="sp_header">	User Profile	</string>
+    <string name="sp_district">	District	</string>
+    <string name="sp_usertype">	User Type	</string>
+    <string name="sp_userstatus">	User Status	</string>
+
+
+
+
+
+
+
+
 
 
 </resources>

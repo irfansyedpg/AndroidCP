@@ -85,8 +85,7 @@ public class SignUp extends AppCompatActivity {
                 {
                     return;
                 }
-                boolean uploadStatus= SignUpServer.SignUpServer(SignUp.this, UploadDate(), binding.rd1Tv.getText().toString().trim());
-
+                boolean uploadStatus= SignUpServer.SignUpServer(SignUp.this, UploadDate(), binding.rd1Tv.getText().toString().trim(),binding.mobileno.getText().toString().trim(),binding.email.getText().toString().trim(),PDMAUSER);
 
 
 
@@ -229,11 +228,18 @@ public class SignUp extends AppCompatActivity {
 
         return  true;
     }
+
+    String PDMAUSER;
     public  JSONObject UploadDate()
     {
 
+
         JSONObject log = new JSONObject();
         try {
+
+
+
+
             log .put("Name", binding.name.getText().toString().trim());
             log .put("ContactNo", binding.mobileno.getText().toString().trim());
             log .put("Email", binding.email.getText().toString().trim());
@@ -245,12 +251,17 @@ public class SignUp extends AppCompatActivity {
             if(binding.rd1.isChecked()) {
                 log.put("Type",
                         "1");
+
+                PDMAUSER="1";
+
             }
             else if(binding.rd2.isChecked()) {
                 log.put("Type", "2");
+                PDMAUSER="2";
             }
             else if(binding.rd3.isChecked()) {
                 log.put("Type", "3");
+                PDMAUSER="3";
             }
 
             log .put("Password", binding.pass1.getText().toString().trim());

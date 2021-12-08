@@ -24,6 +24,7 @@ import com.mobilisepakistanirfan.pdma.global.MyPref;
 import com.mobilisepakistanirfan.pdma.global.MyReceiver;
 
 import com.mobilisepakistanirfan.pdma.global.ServerConfiguration;
+import com.mobilisepakistanirfan.pdma.global.UserPref;
 import com.mobilisepakistanirfan.pdma.gps.ShowLocationActivity2;
 import com.mobilisepakistanirfan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistanirfan.pdma.report.Complaints;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private BroadcastReceiver MyReceiver = null;
 
     MyPref preferences;
+    UserPref userpref2;
     String language;
     String country;
     @Override
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         preferences = new MyPref(MainActivity.this);
+        userpref2 = new UserPref(MainActivity.this);
 
 
 
@@ -230,10 +233,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else
                 {
+
                   //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                    intent = new Intent(MainActivity.this, ReportDisaster.class);
-                    startActivity(intent);
+                    if(userpref2.getUserStatus().equals("Active")) {
+                        intent = new Intent(MainActivity.this, ReportDisaster.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
+                    }
 
 
                 }
@@ -345,6 +355,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 return true;
 
+            case R.id.nav_userprofile:
+
+                intent = new Intent(this, UserProfile.class);
+                startActivity(intent);
+                // this.finish();
+
+                return true;
 
             case R.id.nav_english:
 
@@ -407,10 +424,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.st_logout:
 
                 MyPref prefs = new MyPref(this);
+                UserPref userpre=new UserPref(this);
                 userId=0;
             prefs.setUserId(0);
             prefs.setUserDistrict("");
             prefs.setFirebaseVolnt("0");
+
+            userpre.setUserUserStatus("");
+            userpre.setUserTypel("");
+            userpre.setUserEmail("");
+            userpre.setUserMobileNo("");
+
             intent = new Intent(this, LogIn.class);
             startActivity(intent);
        //     this.finish();
@@ -442,8 +466,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                intent = new Intent(MainActivity.this, ReportDisaster.class);
-                startActivity(intent);
+                if(userpref2.getUserStatus().equals("Active")) {
+                    intent = new Intent(MainActivity.this, ReportDisaster.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
+                }
 
 
             }
@@ -499,8 +529,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
             else {
+
+
                 intent = new Intent(this, Complaints.class);
                 startActivity(intent);
+
+
             }
         }
         else if (id == R.id.nav_RNA) {
@@ -515,8 +549,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
-                startActivity(intent);
+
+
+                if(userpref2.getUserStatus().equals("Active")) {
+                    intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
+                }
 
 
             }
@@ -532,8 +574,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
-                startActivity(intent);
+
+
+
+                if(userpref2.getUserStatus().equals("Active")) {
+                    intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
+                }
 
 
             }

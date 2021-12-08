@@ -1,10 +1,15 @@
 package com.mobilisepakistanirfan.pdma.signup;
 
+import static com.mobilisepakistanirfan.pdma.global.UploadData2.PushNotificaionUpload;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,8 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.mobilisepakistanirfan.pdma.MainActivity;
+import com.mobilisepakistanirfan.pdma.R;
+import com.mobilisepakistanirfan.pdma.Splash;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
 import com.mobilisepakistanirfan.pdma.global.ServerConfiguration;
+import com.mobilisepakistanirfan.pdma.global.UserPref;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +34,9 @@ public class SignUpServer
    public static  String ServerUserID ;
    public static  String Userdistrict ;
 
-    public static  boolean SignUpServer(Context contx, JSONObject Jobj,String district){
+
+    public static  boolean SignUpServer(Context contx, JSONObject Jobj,String district,String MobileNumber,String Email,String Usertype){
+
 
 
         String postUrl = ServerConfiguration.ServerURL+ "Signup";
@@ -34,6 +44,7 @@ public class SignUpServer
         SignUpServer.status=false;
         SignUpServer.ServerUserID="0";
         Userdistrict=district;
+
 
         final   ProgressDialog pd;
         pd = new ProgressDialog(mContext);
@@ -60,18 +71,55 @@ public class SignUpServer
                 }
 
                 if(!Userid.equals("0")) {
-
-
                     MyPref prefs = new MyPref(mContext);
+                    UserPref userpref=new UserPref(mContext);
 
-                    prefs.setUserId(Integer.parseInt(Userid));
                     prefs.setUserDistrict(Userdistrict);
+                    userpref.setUserEmail(Email);
+                    userpref.setUserMobileNo(MobileNumber);
+                    userpref.setUserTypel(Usertype);
+                    prefs.setUserId(Integer.parseInt(Userid));
+
+                    if(Usertype.equals("3"))
+                    {
+
+                        String Dilogtext = mContext.getString(R.string.su_PDMAUSER);
+
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.s_g_h_subnote)).setMessage(Dilogtext);
+
+                        dialog.setCancelable(false);
+
+                        dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                userpref.setUserUserStatus("Not Active");
+
+                                Intent mainIntent = new Intent(mContext, Splash.class);
+                                mContext.startActivity(mainIntent);
+                                ((Activity) mContext).finish();
 
 
 
-                    Intent mainIntent = new Intent(mContext, MainActivity.class);
-                    mContext.startActivity(mainIntent);
-                    ((Activity) mContext).finish();
+
+                            }
+                        });
+                        dialog.create().show();
+
+                    }
+
+                    else {
+
+
+
+
+                        userpref.setUserUserStatus("Active");
+
+
+                        Intent mainIntent = new Intent(mContext, Splash.class);
+                        mContext.startActivity(mainIntent);
+                        ((Activity) mContext).finish();
+                    }
                 }
                 else
                 {

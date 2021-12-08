@@ -273,5 +273,18 @@
 
     <string name="UnActive"> نہیں، اسٹیشن سے باہرہوں</string>
 
+    <string name="su_PDMAUSER">	 PDMA سٹاف ممبر کے طور پر رجسٹر ہونے کا شکریہ۔ براہ کرم مطلع کیا جائے کہ اس قسم کے صارف کو PDMA سے تصدیق کی ضرورت ہوتی ہے۔ جیسے ہی  PDMA عملے کے طور پر آپ کی رجسٹریشن کی منظوری دے گا، آپ ایپ کی انٹرایکٹو خصوصیات کو استعمال کرنے کے قابل ہو جائیں گے۔.	</string>
+
+
+
+    <!--     UserProfile -->
+
+    <string name="sp_header">	پروفائل	</string>
+    <string name="sp_district">	ضلع	</string>
+    <string name="sp_usertype">	صارف کی قسم	</string>
+    <string name="sp_userstatus">	صارف کی حیثیت	</string>
+
+
+
 
 </resources>

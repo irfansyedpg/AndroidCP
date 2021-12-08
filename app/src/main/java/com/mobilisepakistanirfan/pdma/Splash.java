@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
+import com.mobilisepakistanirfan.pdma.global.UserPref;
 import com.mobilisepakistanirfan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistanirfan.pdma.report.News;
 import com.mobilisepakistanirfan.pdma.utilities.VolunterEngServer;
@@ -34,6 +35,7 @@ public class Splash extends AppCompatActivity {
     ImageView LotAview,pdma;
 
     MyPref preferences;
+    UserPref userpref;
     String language;
     String country;
     @Override
@@ -42,6 +44,7 @@ public class Splash extends AppCompatActivity {
 
 
         preferences = new MyPref(Splash.this);
+        userpref = new UserPref(Splash.this);
 
 
 
@@ -134,19 +137,23 @@ public class Splash extends AppCompatActivity {
 
                     String district=preferences.getUserDistrict();
 
-                    if(!district.equals(""))
+                    if(!district.equals("") && userpref.getUserType().equals("2"))
                     {
                         String volnt=preferences.getFrbsVolnt();
-                      //  if(volnt.equals("0")) {
+
 
                         district=district.replaceAll(" ", "_");
-
                             FirebaseMessaging.getInstance().subscribeToTopic(district);
 
                             preferences.setFirebaseVolnt("1");
-                         // for all
-                        FirebaseMessaging.getInstance().subscribeToTopic("All");
-                       // }
+                             FirebaseMessaging.getInstance().subscribeToTopic("All");
+
+                    }
+
+                    if(userpref.getUserType().equals("3"))
+                    {
+                        String uusid=Integer.toString(preferences.getUserId());
+                        FirebaseMessaging.getInstance().subscribeToTopic(uusid);
                     }
 
 
@@ -165,6 +172,33 @@ public class Splash extends AppCompatActivity {
                                 Splash.this.finish();
                                 return;
                             }
+
+
+
+                            String userid=Integer.toString(preferences.getUserId());
+                            if (getIntent().getExtras().get("from").equals("/topics/"+userid)) {
+
+
+                                if(userpref.getUserStatus().equals("Active"))
+                                {
+                                    userpref.setUserUserStatus("Not Active");
+                                }
+                                else
+                                {
+                                    userpref.setUserUserStatus("Active");
+                                }
+
+
+
+
+                                Intent intent = new Intent(Splash.this, MainActivity.class);
+                                startActivity(intent);
+                                Splash.this.finish();
+                                return;
+                            }
+
+
+
 
 
                             String topics = "/topics/" + district;

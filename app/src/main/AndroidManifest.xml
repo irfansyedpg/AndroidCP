@@ -90,6 +90,12 @@
             android:label="Report A Disaster"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity    android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:name="com.mobilisepakistanirfan.pdma.UserProfile"
+            android:label="Report A Disaster"
+            android:theme="@style/AppTheme.NoActionBar" />
+
          <activity    android:screenOrientation="portrait"
             android:noHistory="false"
             android:name="com.mobilisepakistanirfan.WeatherAdvisOption"

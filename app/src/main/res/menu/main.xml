@@ -55,6 +55,11 @@
         android:icon="@drawable/information"
         android:title="@string/about_App" />
 
+    <item
+        android:id="@+id/nav_userprofile"
+        android:icon="@drawable/information"
+        android:title="@string/sp_header" />
+
 
     <item
         android:id="@+id/nav_getdate"
