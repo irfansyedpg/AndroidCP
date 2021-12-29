@@ -215,7 +215,15 @@
                         style="@style/SResponce"
                         android:id="@+id/rna5g"
                         android:text="@string/rna5g" />
+                    <EditText
+                        android:id="@+id/dna12e"
+                        style="@style/EResponce"
 
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="@string/dna12e"
+
+                        />
 
                     <View style="@style/nView" />
 

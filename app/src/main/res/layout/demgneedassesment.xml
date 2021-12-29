@@ -50,6 +50,35 @@
                 android:orientation="vertical">
 
 
+
+
+                <LinearLayout style="@style/nLinerLayout">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/roundedtxview"
+                        android:text="@string/DNA_alert"
+                        android:padding="15dp"
+                        android:textSize="15sp"
+                        android:id="@+id/ed_search"
+                        android:layout_gravity="center_vertical|end"
+
+                        android:justificationMode="inter_word"
+                        />
+
+
+
+
+
+                </LinearLayout>
+
+
+
                 <LinearLayout style="@style/nLinerLayout">
 
                     <LinearLayout style="@style/StaricLinLayout">

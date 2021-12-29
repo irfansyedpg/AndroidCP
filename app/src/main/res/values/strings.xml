@@ -69,7 +69,7 @@ This is an emergency alert for your area. If you are in your district, willing t
     <string name="dna10b">Masonry/Pakha</string>
 
     <string name="dna11">Ownership Status of House</string>
-    <string name="dna11a">Owen</string>
+    <string name="dna11a">Own</string>
     <string name="dna11b">Rented</string>
 
 
@@ -278,6 +278,9 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="sp_district">	District	</string>
     <string name="sp_usertype">	User Type	</string>
     <string name="sp_userstatus">	User Status	</string>
+
+
+    <string name="DNA_alert">This is a dedicated section for reporting damages caused by different disasters. As per Khyber Pakhtunkhwa Government Gazette dated July 12, 2019 damages caused by disasters must be reported within the specified period of time. Following is the timeline for submission\n-Loss of Life-Not more than 45 days\n-Major Injury-Not more than 15 days\n-Loss of Houses-Not more than 30 days\n-Loss of Livestock-Not More than 15 days\n-Loss of Crops and Orchards- Not more than 30 day\t</string>
 
 
 

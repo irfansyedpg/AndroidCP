@@ -60,6 +60,10 @@ public class DemageNeedAssesment extends AppCompatActivity  {
 
         UploadFailur=false;
 
+
+        // show alert
+
+       // fun_alert(this);
         // when clicked on District will open new Activity for District Selection
         binding.dna1LV.setOnClickListener(new View.OnClickListener() {
             //@Override
@@ -177,6 +181,32 @@ public class DemageNeedAssesment extends AppCompatActivity  {
             }
         });
 
+
+    }
+
+
+
+    public  void fun_alert(Context mContext)
+    {
+        String Dilogtext = mContext.getString(R.string.DNA_alert);
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(mContext).setTitle(mContext.getString(R.string.s_g_h_subnote)).setMessage(Dilogtext);
+
+        dialog.setCancelable(false);
+
+        dialog.setPositiveButton(mContext.getString(R.string.s_g_h_subnote_ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+
+
+
+
+
+
+            }
+        });
+        dialog.create().show();
 
     }
 
