@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="20"
+                android:layout_weight="21"
                 android:focusable="true"
                 android:clickable="true"
 
@@ -193,7 +193,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="V 20.0"
+                    android:text="V 22.0"
                     android:textSize="14sp"
                     android:textColor="@color/colorLogo"
                     android:layout_margin="3dp"

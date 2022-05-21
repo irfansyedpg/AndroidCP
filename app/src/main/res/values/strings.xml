@@ -212,6 +212,8 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
 
 
 
+    <!-- Privecy and Plicy  -->
+    <string name="policy_App"> Privacy Policy </string>
 <!--    Signup-->
 
 
@@ -280,7 +282,7 @@ PDMA Madadgar App is an integrated system to enhance collaboration between commu
     <string name="sp_userstatus">	User Status	</string>
 
 
-    <string name="DNA_alert">This is a dedicated section for reporting damages caused by different disasters. As per Khyber Pakhtunkhwa Government Gazette dated July 12, 2019 damages caused by disasters must be reported within the specified period of time. Following is the timeline for submission\n-Loss of Life-Not more than 45 days\n-Major Injury-Not more than 15 days\n-Loss of Houses-Not more than 30 days\n-Loss of Livestock-Not More than 15 days\n-Loss of Crops and Orchards- Not more than 30 day\t</string>
+    <string name="DNA_alert">This tab can be used for reporting damages caused by different disasters. Please note that this is not a direct claim for payment compensation. After receipt of disaster related damages reported via Madadgar, PDMA will forward your case to the district government for physical verification and subsequent decision to recommend the reported damages for compensation or not. As per Khyber Pakhtunkhwa Government Gazette dated July 12, 2019,  damages caused by disasters must be reported within the specified period of time. Following is the timeline for submission:\n-Loss of Life-Not more than 45 days\n-Major Injury-Not more than 15 days\n-Loss of Houses-Not more than 30 days\n-Loss of Livestock-Not More than 15 days\n-Loss of Crops and Orchards- Not more than 30 day\t</string>
 
 
 

@@ -54,6 +54,22 @@
     </style>
 
 
+
+    <style name="PResponce">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/Responce</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:justificationMode">inter_word</item>
+
+        <item name="android:background">@android:color/transparent</item>
+
+        <item name="android:padding">7dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+
     <style name="EResponce">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

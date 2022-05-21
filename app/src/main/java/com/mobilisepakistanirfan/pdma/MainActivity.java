@@ -55,6 +55,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mobilisepakistanirfan.pdma.signup.SignUp;
+import com.mobilisepakistanirfan.pdma.utilities.Policy;
 import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -355,6 +356,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 return true;
 
+
+
             case R.id.nav_userprofile:
 
                 intent = new Intent(this, UserProfile.class);
@@ -506,6 +509,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.nav_quick_links) {
             intent = new Intent(this, QuickLink.class);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.nav_policy_links) {
+            intent = new Intent(this, Policy.class);
             startActivity(intent);
         }
 //        else if (id == R.id.nav_wf) {

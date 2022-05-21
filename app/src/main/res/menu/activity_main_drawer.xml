@@ -78,6 +78,11 @@
                 android:icon="@drawable/link"
                 android:title="@string/s_ql" />
 
+            <item
+                android:id="@+id/nav_policy_links"
+                android:icon="@drawable/privacy"
+                android:title="@string/policy_App" />
+
 
         </menu>
     </item>
