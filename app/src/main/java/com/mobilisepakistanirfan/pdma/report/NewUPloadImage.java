@@ -34,7 +34,7 @@ import java.util.Map;
 public class NewUPloadImage extends AppCompatActivity {
 
 
-        private static final String ROOT_URL = "https://rms.pdma.gov.pk/pdmamadadgar/api/values/RDImageAction";
+        private static final String ROOT_URL = "https://madadgar.pdma.gov.pk/api/values/RDImageAction";
         private static final int REQUEST_PERMISSIONS = 100;
         private static final int PICK_IMAGE_REQUEST =1 ;
         private Bitmap bitmap;

@@ -157,7 +157,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
 
             vh.txttitle.setText(Listitle.get(position));
             vh.textdated.setText(Listdatee.get(position));
-            String imurl="https://rms.pdma.gov.pk/pdmamadadgar/Flyers/"+Listimg.get(position);
+            String imurl="https://madadgar.pdma.gov.pk/Flyers/"+Listimg.get(position);
             Picasso.get().load(imurl).into(vh.lv);
 
 
@@ -190,7 +190,7 @@ class  NewsCustomAdapter extends RecyclerView.Adapter {
                 Button btncls =(Button)builder.findViewById(R.id.cancel) ;
 
 
-                final String imurl="https://rms.pdma.gov.pk/pdmamadadgar/Flyers/"+Listimg.get(position);
+                final String imurl="https://madadgar.pdma.gov.pk/Flyers/"+Listimg.get(position);
                 Picasso.get().load(imurl).into(imageView);
 
 

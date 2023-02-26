@@ -18,6 +18,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.mobilisepakistanirfan.WeatherAdvisOption;
 
+import com.mobilisepakistanirfan.pdma.global.GetDistrictServer;
 import com.mobilisepakistanirfan.pdma.global.GetTehsilServer;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
 
@@ -291,11 +292,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(preferences.getappcount()==0) {
             try {
                 new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute().get();
+                new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL + "GetDistrictsAction").execute();
+
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
 
         }
 
@@ -420,6 +425,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_getdate:
 
                 new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute();
+
+                new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL + "GetDistrictsAction").execute();
+
 
 
                 return true;

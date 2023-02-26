@@ -145,7 +145,7 @@ public class UploadData2
 
             JSONObject log2 = new JSONObject();
 
-            String link="https://rms.pdma.gov.pk/pdmamadadgar/Home/ComplaintsAsmnt";
+            String link="https://madadgar.pdma.gov.pk/pdmamadadgar/Home/ComplaintsAsmnt";
 
 
 
@@ -153,17 +153,17 @@ public class UploadData2
             if(reportype.equals("RD"))
             {
                 reportype="Report Disaster";
-                link="https://rms.pdma.gov.pk/pdmamadadgar/Home/index";
+                link="https://madadgar.pdma.gov.pk/pdmamadadgar/Home/index";
             }
             else  if(reportype.equals("DNA"))
             {
                 reportype="Damage Need Assessment";
-                link="https://rms.pdma.gov.pk/pdmamadadgar/Home/index";
+                link="https://madadgar.pdma.gov.pk/pdmamadadgar/Home/index";
             }
             else if(reportype.equals("RNA"))
             {
                 reportype="Rapid Need Assessment";
-                link="https://rms.pdma.gov.pk/pdmamadadgar/Home/index";
+                link="https://madadgar.pdma.gov.pk/pdmamadadgar/Home/index";
             }
 
 

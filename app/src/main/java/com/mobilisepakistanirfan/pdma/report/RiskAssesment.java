@@ -146,7 +146,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
             vh.txtdetial.setText(Listdetial.get(position));
             vh.txttdate.setText(Listdate.get(position));
 
-            String imurl="https://rms.pdma.gov.pk/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+            String imurl="https://madadgar.pdma.gov.pk/DisasterImages/"+Listimg.get(position);
 
         //    String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
 
@@ -177,7 +177,7 @@ class  RiskAssesmentCustomAdapter extends RecyclerView.Adapter {
                 Button btncls =(Button)builder.findViewById(R.id.cancel) ;
 
 
-               final String imurl="https://rms.pdma.gov.pk/pdmamadadgar/DisasterImages/"+Listimg.get(position);
+               final String imurl="https://madadgar.pdma.gov.pk/DisasterImages/"+Listimg.get(position);
                 Picasso.get().load(imurl).into(imageView);
 
 
