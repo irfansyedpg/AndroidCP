@@ -1,74 +1,72 @@
 package com.mobilisepakistanirfan.pdma;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.androdocs.httprequest.HttpRequest;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.navigation.NavigationView;
 import com.mobilisepakistanirfan.WeatherAdvisOption;
-
+import com.mobilisepakistanirfan.pdma.global.GetComplaintCategoriesServer;
+import com.mobilisepakistanirfan.pdma.global.GetComplaintDamageTypeServer;
 import com.mobilisepakistanirfan.pdma.global.GetDistrictServer;
+import com.mobilisepakistanirfan.pdma.global.GetIncidentNatureServer;
 import com.mobilisepakistanirfan.pdma.global.GetTehsilServer;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
-
 import com.mobilisepakistanirfan.pdma.global.MyReceiver;
-
 import com.mobilisepakistanirfan.pdma.global.ServerConfiguration;
 import com.mobilisepakistanirfan.pdma.global.UserPref;
 import com.mobilisepakistanirfan.pdma.gps.ShowLocationActivity2;
+import com.mobilisepakistanirfan.pdma.gps.ShowlocaitonActivityNew;
 import com.mobilisepakistanirfan.pdma.gps.TurnOnGPS;
 import com.mobilisepakistanirfan.pdma.report.Complaints;
 import com.mobilisepakistanirfan.pdma.report.DailySituationReport;
 import com.mobilisepakistanirfan.pdma.report.DemageNeedAssesment;
 import com.mobilisepakistanirfan.pdma.report.EmergencyContact;
 import com.mobilisepakistanirfan.pdma.report.EvacuationCenter;
-
 import com.mobilisepakistanirfan.pdma.report.News;
 import com.mobilisepakistanirfan.pdma.report.QuickLink;
 import com.mobilisepakistanirfan.pdma.report.RapidNeedAssessment;
-
 import com.mobilisepakistanirfan.pdma.report.ReportDisaster;
-
 import com.mobilisepakistanirfan.pdma.report.RiskAssesment;
 import com.mobilisepakistanirfan.pdma.signup.LogIn;
-
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
 import com.mobilisepakistanirfan.pdma.signup.SignUp;
 import com.mobilisepakistanirfan.pdma.utilities.Policy;
 import com.squareup.picasso.Picasso;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -77,9 +75,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, LocationListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     String CITY;
@@ -87,12 +83,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String lon;
     private FusedLocationProviderClient fusedLocationClient;
     String API = "55e1d7a613263d5aea5ff2bceda55d4a";
-    TextView tTemp,tHuminty,tLocaiton,tDisciption;
+    TextView tTemp, tHuminty, tLocaiton, tDisciption;
     ImageView img;
-    LinearLayout lnwa,lnew,lnds,lnrd,lnercon,lnqevc;
+    LinearLayout lnwa, lnew, lnds, lnrd, lnercon, lnqevc;
     int userId;
-
-
 
     private BroadcastReceiver MyReceiver = null;
 
@@ -100,25 +94,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     UserPref userpref2;
     String language;
     String country;
+
+    LocationManager locationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
         preferences = new MyPref(MainActivity.this);
         userpref2 = new UserPref(MainActivity.this);
-
-
-
-
 
         // Firebase Notifcaiton
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Create channel to show notifications.
-            String channelId  = getString(R.string.default_notification_channel_id);
+            String channelId = getString(R.string.default_notification_channel_id);
             String channelName = getString(R.string.default_notification_channel_name);
             NotificationManager notificationManager =
                     getSystemService(NotificationManager.class);
@@ -127,17 +117,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-        country=preferences.getCountry();
-        language=preferences.getLanguage();
+        country = preferences.getCountry();
+        language = preferences.getLanguage();
 
-        Locale locale = new Locale(language,country);
+        Locale locale = new Locale(language, country);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
-
-
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -147,38 +135,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MyReceiver = new MyReceiver();
         broadcastIntent();
 
+        userId = preferences.getUserId();
 
+        lnwa = findViewById(R.id.lnwa);
+        lnew = findViewById(R.id.lnew);
+        lnds = findViewById(R.id.lnds);
+        lnrd = findViewById(R.id.lnrd);
 
-        userId=preferences.getUserId();
-
-
-
-        lnwa=findViewById(R.id.lnwa);
-        lnew=findViewById(R.id.lnew);
-        lnds=findViewById(R.id.lnds);
-        lnrd=findViewById(R.id.lnrd);
-
-        lnercon=findViewById(R.id.lnercon);
-        lnqevc=findViewById(R.id.lnqevc);
+        lnercon = findViewById(R.id.lnercon);
+        lnqevc = findViewById(R.id.lnqevc);
         lnwa.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        intent = new Intent(MainActivity.this, News.class);
-                                       startActivity(intent);
-
-
-
-                                    }
-                                });
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(MainActivity.this, News.class);
+                startActivity(intent);
+            }
+        });
 
         lnew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 //                intent = new Intent(MainActivity.this, EarlyWarning.class);
-            intent = new Intent(MainActivity.this, WeatherAdvisOption.class);
+                intent = new Intent(MainActivity.this, WeatherAdvisOption.class);
                 startActivity(intent);
-
 
 
             }
@@ -192,10 +172,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
 
 
-
             }
         });
-
 
         lnercon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 intent = new Intent(MainActivity.this, EmergencyContact.class);
                 startActivity(intent);
-
 
 
             }
@@ -216,48 +193,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
 
 
-
             }
         });
-
-
 
         lnrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(userId==0)
-                {
-                   //mainIntent=new Intent(Splash.this, LogIn.class);
+                if (userId == 0) {
+                    //mainIntent=new Intent(Splash.this, LogIn.class);
 
                     TurnOnGPS.LoginActivityalert(MainActivity.this);
 
-                }
-                else
-                {
+                } else {
 
-                  //  mainIntent=new Intent(Splash.this,MainActivity.class);
+                    //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                    if(userpref2.getUserStatus().equals("Active")) {
+                    if (userpref2.getUserStatus().equals("Active")) {
                         intent = new Intent(MainActivity.this, ReportDisaster.class);
                         startActivity(intent);
-                    }
-                    else
-                    {
+                    } else {
                         TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
                     }
-
-
                 }
-
-
-
-
             }
         });
-
-
-
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -279,21 +239,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // weather info
 
 
-        tTemp=findViewById(R.id.temp);
+        tTemp = findViewById(R.id.temp);
 
 
-        tHuminty=findViewById(R.id.humidity);
-        tLocaiton=findViewById(R.id.city);
+        tHuminty = findViewById(R.id.humidity);
+        tLocaiton = findViewById(R.id.city);
 
-        tDisciption=findViewById(R.id.discp);
-        img=findViewById(R.id.img);
+        tDisciption = findViewById(R.id.discp);
+        img = findViewById(R.id.img);
 
 
-        if(preferences.getappcount()==0) {
+        if (preferences.getappcount() == 0) {
             try {
                 new GetTehsilServer(MainActivity.this, ServerConfiguration.ServerURL + "GetTehsilAction").execute().get();
                 new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL + "GetDistrictsAction").execute();
-
+                new GetComplaintCategoriesServer(MainActivity.this, ServerConfiguration.ServerURL + "GetComplaintCategoriesAction").execute().get();
+                new GetIncidentNatureServer(MainActivity.this, ServerConfiguration.ServerURL + "GetIncidentNatureAction").execute().get();
+                new GetComplaintDamageTypeServer(MainActivity.this, ServerConfiguration.ServerURL + "GetComplaintDamageTypeAction").execute().get();
 
             } catch (ExecutionException e) {
                 e.printStackTrace();
@@ -306,36 +268,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        boolean GpsStatus;
+        locationManager = (LocationManager) MainActivity.this.getSystemService(MainActivity.this.LOCATION_SERVICE);
+        assert locationManager != null;
+        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (GpsStatus == false) {
+            TurnOnGPS.turnGPSOn(MainActivity.this);
+        }
 
-            LocationManager locationManager ;
-            boolean GpsStatus ;
-            locationManager = (LocationManager)MainActivity.this.getSystemService(MainActivity.this.LOCATION_SERVICE);
-            assert locationManager != null;
-            GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            if(GpsStatus == false) {
-                TurnOnGPS.turnGPSOn(MainActivity.this);
-            }
+        getLocation();
 
-            else {
-
-                Intent intentt = new Intent(MainActivity.this, ShowLocationActivity2.class);
-                startActivityForResult(intentt, 22);
-            }
+//        else {
+//
+//            Intent intentt = new Intent(MainActivity.this, ShowlocaitonActivityNew.class);
+//            startActivityForResult(intentt, 22);
+//        }
 
 
     }
-
-
-
-
-
-
-
-
 
 
     @Override
@@ -351,17 +303,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Handle item selection
         switch (item.getItemId()) {
-
-
             case R.id.nav_about:
 
                 intent = new Intent(this, AboutApp.class);
                 startActivity(intent);
-               // this.finish();
+                // this.finish();
 
                 return true;
-
-
 
             case R.id.nav_userprofile:
 
@@ -380,7 +328,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
 
 
-
                 this.startActivity(intent);
                 if (this instanceof Activity) {
                     ((Activity) this).finish();
@@ -392,9 +339,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 preferences.setlanguage("ur");
                 preferences.setcountry("PK");
 
-                 intent = new Intent(this, Splash.class);
+                intent = new Intent(this, Splash.class);
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
-
 
 
                 this.startActivity(intent);
@@ -410,14 +356,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 intent = new Intent(this, LogIn.class);
                 startActivity(intent);
-               // this.finish();
+                // this.finish();
 
                 return true;
             case R.id.st_sigup:
 
                 intent = new Intent(this, SignUp.class);
                 startActivity(intent);
-             //   this.finish();
+                //   this.finish();
 
                 return true;
 
@@ -428,27 +374,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 new GetDistrictServer(MainActivity.this, ServerConfiguration.ServerURL + "GetDistrictsAction").execute();
 
-
-
                 return true;
 
             case R.id.st_logout:
 
                 MyPref prefs = new MyPref(this);
-                UserPref userpre=new UserPref(this);
-                userId=0;
-            prefs.setUserId(0);
-            prefs.setUserDistrict("");
-            prefs.setFirebaseVolnt("0");
+                UserPref userpre = new UserPref(this);
+                userId = 0;
+                prefs.setUserId(0);
+                prefs.setUserDistrict("");
+                prefs.setFirebaseVolnt("0");
 
-            userpre.setUserUserStatus("");
-            userpre.setUserTypel("");
-            userpre.setUserEmail("");
-            userpre.setUserMobileNo("");
+                userpre.setUserUserStatus("");
+                userpre.setUserTypel("");
+                userpre.setUserEmail("");
+                userpre.setUserMobileNo("");
 
-            intent = new Intent(this, LogIn.class);
-            startActivity(intent);
-       //     this.finish();
+                intent = new Intent(this, LogIn.class);
+                startActivity(intent);
+                //     this.finish();
 
                 return true;
 
@@ -456,71 +400,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return super.onOptionsItemSelected(item);
         }
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
     Intent intent = null;
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         int id = menuItem.getItemId();
         if (id == R.id.nav_RD) {
-            if(userId==0)
-            {
+            if (userId == 0) {
                 TurnOnGPS.LoginActivityalert(MainActivity.this);
 
-            }
-            else
-            {
+            } else {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
-                if(userpref2.getUserStatus().equals("Active")) {
+                if (userpref2.getUserStatus().equals("Active")) {
                     intent = new Intent(MainActivity.this, ReportDisaster.class);
                     startActivity(intent);
-                }
-                else
-                {
+                } else {
                     TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
                 }
 
 
             }
-        }
-        else if (id == R.id.nav_ew) {
-          //  intent = new Intent(this, EarlyWarning.class);
+        } else if (id == R.id.nav_ew) {
+            //  intent = new Intent(this, EarlyWarning.class);
             intent = new Intent(this, WeatherAdvisOption.class);
             startActivity(intent);
-        }
-        else if (id == R.id.nav_ds) {
+        } else if (id == R.id.nav_ds) {
             intent = new Intent(this, DailySituationReport.class);
             startActivity(intent);
-        }
-        else if (id == R.id.nav_new) {
+        } else if (id == R.id.nav_new) {
             intent = new Intent(this, News.class);
             startActivity(intent);
-        }
-        else if (id == R.id.emgncyContact) {
+        } else if (id == R.id.emgncyContact) {
             intent = new Intent(this, EmergencyContact.class);
             startActivity(intent);
-        }     else if (id == R.id.nav_co) {
+        } else if (id == R.id.nav_co) {
             intent = new Intent(this, CommunityOutreach.class);
             startActivity(intent);
-        }
-
-        else if (id == R.id.evactioncenter) {
+        } else if (id == R.id.evactioncenter) {
             intent = new Intent(this, EvacuationCenter.class);
             startActivity(intent);
-        }
-
-        else if (id == R.id.nav_quick_links) {
+        } else if (id == R.id.nav_quick_links) {
             intent = new Intent(this, QuickLink.class);
             startActivity(intent);
-        }
-
-        else if (id == R.id.nav_policy_links) {
+        } else if (id == R.id.nav_policy_links) {
             intent = new Intent(this, Policy.class);
             startActivity(intent);
         }
@@ -532,19 +464,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id == R.id.nav_risk) {
             intent = new Intent(this, RiskAssesment.class);
             startActivity(intent);
-        }
-
-        else if (id == R.id.nav_complaint) {
+        } else if (id == R.id.nav_complaint) {
 
 
-            if(userId==0)
-            {
+            if (userId == 0) {
                 //mainIntent=new Intent(Splash.this, LogIn.class);
 
                 TurnOnGPS.LoginActivityalert(MainActivity.this);
 
-            }
-            else {
+            } else {
 
 
                 intent = new Intent(this, Complaints.class);
@@ -552,53 +480,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             }
-        }
-        else if (id == R.id.nav_RNA) {
+        } else if (id == R.id.nav_RNA) {
 
 
-            if(userId==0)
-            {
+            if (userId == 0) {
                 TurnOnGPS.LoginActivityalert(MainActivity.this);
 
-            }
-            else
-            {
+            } else {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
 
-
-                if(userpref2.getUserStatus().equals("Active")) {
+                if (userpref2.getUserStatus().equals("Active")) {
                     intent = new Intent(MainActivity.this, RapidNeedAssessment.class);
                     startActivity(intent);
-                }
-                else
-                {
+                } else {
                     TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
                 }
 
 
             }
-        }
-        else if (id == R.id.nav_DNA) {
+        } else if (id == R.id.nav_DNA) {
 
-            if(userId==0)
-            {
+            if (userId == 0) {
                 TurnOnGPS.LoginActivityalert(MainActivity.this);
 
-            }
-            else
-            {
+            } else {
                 //  mainIntent=new Intent(Splash.this,MainActivity.class);
 
 
-
-
-                if(userpref2.getUserStatus().equals("Active")) {
+                if (userpref2.getUserStatus().equals("Active")) {
                     intent = new Intent(MainActivity.this, DemageNeedAssesment.class);
                     startActivity(intent);
-                }
-                else
-                {
+                } else {
                     TurnOnGPS.PDMAStaffLoginalret(MainActivity.this);
                 }
 
@@ -669,7 +582,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return false;
@@ -678,26 +590,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(requestCode == 22 ) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 22) {
             if (resultCode == Activity.RESULT_OK) {
                 String Lat = data.getStringExtra("Lat");
                 String Long = data.getStringExtra("Long");
 
-
-                lat=Lat;
-                lon=Long;
-
+                lat = Lat;
+                lon = Long;
 
                 preferences.setlat(lat);
                 preferences.setlong(lon);
 
                 new weatherTask().execute();
-
-
-
             }
         }
 
+    }
+
+    void getLocation() {
+        try {
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
+        }
+        catch(SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+
+        Log.e("latitude", "Latitude:" + location.getLatitude());
+        Log.e("Longitude", "Longitude:" + location.getLongitude());
+
+        lat = String.valueOf(location.getLatitude());
+        lon = String.valueOf(location.getLongitude());
+
+        preferences.setlat(lat);
+        preferences.setlong(lon);
+
+        new weatherTask().execute();
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+        LocationListener.super.onProviderEnabled(provider);
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+        LocationListener.super.onProviderDisabled(provider);
     }
 
 
@@ -705,18 +648,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
 
         protected void onPreExecute() {
-
             super.onPreExecute();
-
         }
 
         @Override
         protected String doInBackground(String... args) {
             //String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
-            String url="https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=" + API;
+            String url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&appid=" + API;
             String response = HttpRequest.excuteGet(url);
-
-
 
             return response;
         }
@@ -768,25 +707,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // SET ALL VALUES IN TEXTBOX :
 
-             //  tLocaiton.setText(city_name+", "+countryname);
-               tLocaiton.setText("");
-
-
+                //  tLocaiton.setText(city_name+", "+countryname);
+                tLocaiton.setText("");
 
 
                 tTemp.setText(temperature + "°C");
 
 
-
-                tHuminty.setText("Humidity "+humi_dity);
+                tHuminty.setText("Humidity " + humi_dity);
 
 
                 tDisciption.setText(cast.toUpperCase());
 
 
-
-
-                String img_url= "http://openweathermap.org/img/wn/"+icon+"@2x.png";
+                String img_url = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
                 Picasso.get().load(img_url).into(img);
 
@@ -796,17 +730,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this, "Error:" + e.toString(), Toast.LENGTH_SHORT).show();
 
             }
-
         }
-
     }
 
     @Override
     public void onBackPressed() {
-
-
         TurnOnGPS.CloseActivityalerd(this);
-
     }
 
 
@@ -815,14 +744,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void broadcastIntent() {
         registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
+
     @Override
     protected void onPause() {
         super.onPause();
-    //    unregisterReceiver(MyReceiver);
+        //    unregisterReceiver(MyReceiver);
     }
-
-
-    // GPS
-
 
 }

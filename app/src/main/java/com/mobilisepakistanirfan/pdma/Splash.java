@@ -1,8 +1,5 @@
 package com.mobilisepakistanirfan.pdma;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
@@ -14,6 +11,9 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.mobilisepakistanirfan.pdma.global.MyPref;
@@ -32,26 +32,24 @@ public class Splash extends AppCompatActivity {
 
     TextView appnam;
     View splashImage;
-    ImageView LotAview,pdma;
+    ImageView LotAview, pdma;
 
     MyPref preferences;
     UserPref userpref;
     String language;
     String country;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         preferences = new MyPref(Splash.this);
         userpref = new UserPref(Splash.this);
 
+        country = preferences.getCountry();
+        language = preferences.getLanguage();
 
-
-        country=preferences.getCountry();
-        language=preferences.getLanguage();
-
-        Locale locale = new Locale(language,country);
+        Locale locale = new Locale(language, country);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
@@ -60,18 +58,16 @@ public class Splash extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
-
-        appnam=findViewById(R.id.appname);
-        splashImage=findViewById(R.id.img);
-        pdma=findViewById(R.id.pdma);
-        LotAview=findViewById(R.id.lottie);
+        appnam = findViewById(R.id.appname);
+        splashImage = findViewById(R.id.img);
+        pdma = findViewById(R.id.pdma);
+        LotAview = findViewById(R.id.lottie);
 
         splashImage.animate().translationY(-2700).setDuration(1000).setStartDelay(4200);
 
         appnam.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
         LotAview.animate().translationY(2000).setDuration(1000).setStartDelay(4000);
         pdma.animate().translationY(2000).setDuration(1000).setStartDelay(4000);
-
 
 
         new Handler().postDelayed(new Runnable() {
@@ -92,33 +88,29 @@ public class Splash extends AppCompatActivity {
 //
 //
 //                }
-         //       mainIntent=new Intent(Splash.this, UploadToServer.class);
-           // mainIntent=new Intent(Splash.this, ReportDisaster.class);
-            mainIntent=new Intent(Splash.this, MainActivity.class);
-              // mainIntent=new Intent(Splash.this, ShowlocaitonActivityNew.class);
+                //       mainIntent=new Intent(Splash.this, UploadToServer.class);
+                // mainIntent=new Intent(Splash.this, ReportDisaster.class);
+                mainIntent = new Intent(Splash.this, MainActivity.class);
+                // mainIntent=new Intent(Splash.this, ShowlocaitonActivityNew.class);
                 // mainIntent=new Intent(Splash.this, newgps.class);
-            //     mainIntent=new Intent(Splash.this, newgpsuen.class);
+                //     mainIntent=new Intent(Splash.this, newgpsuen.class);
 
 
-              //  Splash.this.startActivity(mainIntent);
+                //  Splash.this.startActivity(mainIntent);
 
 
-                if(preferences.getLanguageDilage()==false) {
-
-
+                if (preferences.getLanguageDilage() == false) {
                     preferences.setlanguaDialge(true);
                     TurnOnGPS.Languagealert(Splash.this);
 
-               //     preferences.setappcount(preferences.getappcount()+1);
-                }
-                else
-                {
+                    //     preferences.setappcount(preferences.getappcount()+1);
+                } else {
 
                     // FCM  here on Splahs Screen
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         // Create channel to show notifications.
-                        String channelId  = getString(R.string.default_notification_channel_id);
+                        String channelId = getString(R.string.default_notification_channel_id);
                         String channelName = getString(R.string.default_notification_channel_name);
                         NotificationManager notificationManager =
                                 getSystemService(NotificationManager.class);
@@ -126,44 +118,36 @@ public class Splash extends AppCompatActivity {
                                 channelName, NotificationManager.IMPORTANCE_LOW));
                     }
 
+                    // put shared prefrence concept here to checked if subscibed no need to subscibe again
 
-
-                     // put shared prefrence concept here to checked if subscibed no need to subscibe again
-
-                    if(preferences.getFrbsNews().equals("0")) {
+                    if (preferences.getFrbsNews().equals("0")) {
                         FirebaseMessaging.getInstance().subscribeToTopic("news");
                         preferences.setFirbaseNew("1");
                     }
 
-                    String district=preferences.getUserDistrict();
+                    String district = preferences.getUserDistrict();
 
-                    if(!district.equals("") && userpref.getUserType().equals("2"))
-                    {
-                        String volnt=preferences.getFrbsVolnt();
+                    if (!district.equals("") && userpref.getUserType().equals("2")) {
+                        String volnt = preferences.getFrbsVolnt();
 
 
-                        district=district.replaceAll(" ", "_");
-                            FirebaseMessaging.getInstance().subscribeToTopic(district);
+                        district = district.replaceAll(" ", "_");
+                        FirebaseMessaging.getInstance().subscribeToTopic(district);
 
-                            preferences.setFirebaseVolnt("1");
-                             FirebaseMessaging.getInstance().subscribeToTopic("All");
+                        preferences.setFirebaseVolnt("1");
+                        FirebaseMessaging.getInstance().subscribeToTopic("All");
 
                     }
 
-                    if(userpref.getUserType().equals("3"))
-                    {
-                        String uusid=Integer.toString(preferences.getUserId());
+                    if (userpref.getUserType().equals("3")) {
+                        String uusid = Integer.toString(preferences.getUserId());
                         FirebaseMessaging.getInstance().subscribeToTopic(uusid);
                     }
 
 
-
-
                     try {
 
-
                         if (getIntent().getExtras() != null) {
-
 
                             if (getIntent().getExtras().get("from").equals("/topics/news")) {
                                 Intent intent = new Intent(Splash.this, News.class);
@@ -174,21 +158,15 @@ public class Splash extends AppCompatActivity {
                             }
 
 
+                            String userid = Integer.toString(preferences.getUserId());
+                            if (getIntent().getExtras().get("from").equals("/topics/" + userid)) {
 
-                            String userid=Integer.toString(preferences.getUserId());
-                            if (getIntent().getExtras().get("from").equals("/topics/"+userid)) {
 
-
-                                if(userpref.getUserStatus().equals("Active"))
-                                {
+                                if (userpref.getUserStatus().equals("Active")) {
                                     userpref.setUserUserStatus("Not Active");
-                                }
-                                else
-                                {
+                                } else {
                                     userpref.setUserUserStatus("Active");
                                 }
-
-
 
 
                                 Intent intent = new Intent(Splash.this, MainActivity.class);
@@ -196,9 +174,6 @@ public class Splash extends AppCompatActivity {
                                 Splash.this.finish();
                                 return;
                             }
-
-
-
 
 
                             String topics = "/topics/" + district;
@@ -216,7 +191,7 @@ public class Splash extends AppCompatActivity {
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
 
-                                             //   ((Activity) Splash.this).finish();
+                                                //   ((Activity) Splash.this).finish();
 
 
                                                 VolunterEngServer.VolunterEngServer(Splash.this, UploadDate(preferences.getUserId(), 1));
@@ -236,7 +211,7 @@ public class Splash extends AppCompatActivity {
 
                                                 dialog.cancel();
 
-                                          //      Splash.this.finish();
+                                                //      Splash.this.finish();
                                             }
                                         });
 
@@ -252,46 +227,41 @@ public class Splash extends AppCompatActivity {
                         }
 
 
-                    }
-                    catch (Exception e)
-                    {
-                      //  Toast.makeText(Splash.this,e.toString(),Toast.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        //  Toast.makeText(Splash.this,e.toString(),Toast.LENGTH_LONG).show();
 
                         //
 
                     }
 
 
+                    //     preferences.setappcount(preferences.getappcount()+1);
 
+                    Intent intt = new Intent(Splash.this, MainActivity.class);
+                    //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
 
-               //     preferences.setappcount(preferences.getappcount()+1);
-
-                 Intent intt=new Intent(Splash.this,MainActivity.class);
-             //      Intent intt=new Intent(Splash.this, MainActivityFCM.class);
-
-                     startActivity(intt);
+                    startActivity(intt);
 
                     Splash.this.finish();
                 }
 
-              //  Splash.this.finish();
+                //  Splash.this.finish();
             }
         }, 5300);
 
     }
 
-    public JSONObject UploadDate(int Userid,int Status)
-    {
+    public JSONObject UploadDate(int Userid, int Status) {
 
         JSONObject log = new JSONObject();
         try {
-            log .put("UserId", Userid);
-            log .put("Status", Status);
+            log.put("UserId", Userid);
+            log.put("Status", Status);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        return  log;
+        return log;
     }
 }

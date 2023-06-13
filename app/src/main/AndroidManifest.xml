@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobilisepakistanirfan.pdma">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,45 +11,29 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
-
     <application
-        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
-        android:theme="@style/AppTheme">
-
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.version"-->
-<!--            android:value="@integer/google_play_services_version" />-->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="${MAPS_API_KEY}" />-->
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCSNUzCDjt1SEhbn6EvYtyRL4TK-0m_BN8" />
 
-
-
-
-
-
-
         <activity
-
-            android:noHistory="false"
             android:name="com.mobilisepakistanirfan.pdma.signup.LogIn"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor" />
 
-            android:screenOrientation="portrait"
-            ></activity>
         <activity
-            android:screenOrientation="portrait"
             android:name="com.mobilisepakistanirfan.pdma.Splash"
+            android:exported="true"
             android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,203 +41,235 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
-            android:screenOrientation="portrait"
+
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.MainActivity"
-            android:label="@string/app_name"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity
-            android:screenOrientation="portrait"
-            android:noHistory="false"
+
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.ReportDisaster"
             android:label="Report A Disaster"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
+
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.gps.ShowLocationActivity2"
             android:label="Report A Disaster"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.gps.ShowlocaitonActivityNew"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.RiskAssesment"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.AboutApp"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.utilities.Policy"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.UserProfile"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.WeatherAdvisOption"
             android:label="Report A Disaster"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.PMDwebView"
             android:label="Report A Disaster"
-            android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
             android:noHistory="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.RecyclerViewA"
             android:label="Report A Disaster"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.RapidNeedAssessment"
             android:label="Rapid Need Assessment "
-            android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
             android:noHistory="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.DemageNeedAssesment"
             android:label="Demage Need Assessment "
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.DemagesLosses"
             android:label="Demage Need Assessment "
-            android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
             android:noHistory="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.EarlyWarning"
             android:label="EarlyWarnings"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.DailySituationReport"
             android:label="Daily Situation Report "
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.WeatherForecast"
             android:label="Daily Situation Report "
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.signup.SignUp"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.EmergencyContact"
             android:label="SingnUP"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.EvacuationCenter"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.NewUPloadImage"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.EvacuationCenterFurth"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.MapsMarkerActivity"
             android:label="SingnUP"
-            android:theme="@style/AppTheme.NoActionBar" />
-         <activity    android:screenOrientation="portrait"
             android:noHistory="true"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.CommunityOutreach"
             android:label="CommunityOutreach"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.QuickLink"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.UploadToServer"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.Complaints"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="false"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.signup.Test"
             android:label="SingnUP"
+            android:noHistory="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.PublicAwareness"
             android:label="SingnUP"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.report.News"
             android:label="SingnUP"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name = "MyReceiver">
+        <receiver
+            android:name=".global.MyReceiver"
+            android:exported="true"
+            tools:ignore="MissingClass">
             <intent-filter>
-                <action android:name = "android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name = "android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
 
-
-         <activity    android:screenOrientation="portrait"
-            android:noHistory="true"
+        <activity
             android:name="com.mobilisepakistanirfan.pdma.firebase.MainActivityFCM"
             android:label="SingnUP"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
+        <!--        Firebae-->
 
-<!--        Firebae-->
-
-        <service android:name="com.mobilisepakistanirfan.pdma.firebase.MyFirebaseMessagingService">
+        <service
+            android:name="com.mobilisepakistanirfan.pdma.firebase.MyFirebaseMessagingService"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MESSAGING_EVENT"/>
+                <action android:name="android.intent.action.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-
 
 
         <meta-data
