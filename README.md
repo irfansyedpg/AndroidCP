@@ -1,4 +1,4 @@
-# PDMA Madadgar App Backend
+# PDMA Madadgar Android App
 
 ## Table of Contents
 
@@ -8,165 +8,124 @@
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
 * [Configuration](#configuration)
-* [Running the Application](#running-the-application)
-* [API Endpoints](#api-endpoints)
-* [Push Notifications](#push-notifications)
-* [Integration](#integration)
+* [Running the App](#running-the-app)
+* [Project Structure](#project-structure)
 * [Contributing](#contributing)
 * [License & Citation](#license--citation)
 
 ## Introduction
 
-This repository contains the backend source code for the **PDMA Madadgar App**, a mobile application aimed at improving disaster preparedness, response, and risk reduction in Khyber Pakhtunkhwa, Pakistan. It is a collaborative initiative by:
+`AndroidCP` is the Android client for the **PDMA Madadgar App**, designed to empower citizens, volunteers, and officials in Khyber Pakhtunkhwa, Pakistan with real-time disaster preparedness, response, and risk reduction tools. Developed under the Mobilise Project at the Centre for Disaster Preparedness and Management, University of Peshawar, in collaboration with PDMA, KP.
 
-* Mobilise Project at the Centre for Disaster Preparedness and Management, University of Peshawar
-* Provincial Disaster Management Authority (PDMA), Khyber Pakhtunkhwa
+This mobile application interacts with the PDMA Madadgar backend to:
 
-The backend serves as the central engine of the PDMA Madadgar App. It manages data storage, exposes a RESTful API for the mobile client, and delivers critical real-time alerts and reports to users.
+* Allow users to submit and track incident reports
+* Receive early warning alerts and weather updates
+* View PDMA Daily Situation Reports
+* Register and manage volunteer activities
+* Synchronize damage & needs assessment data
+* Get push notifications for critical updates
 
 ## Features
 
-* **User Management**: Secure registration, authentication, and profile management
-* **Incident Reporting**: Submit, view, and track incident reports by citizens
-* **Early Warning Alerts**: Receive real-time weather updates and hazard warnings
-* **Daily Situation Reports**: Access PDMA’s daily situation summaries
-* **Volunteer Coordination**: Register and manage volunteers for disaster response
-* **Damage & Needs Assessment**: Synchronize assessment data collected by officials and communities
-* **Push Notifications**: Deliver timely alerts and updates to mobile app users
-* **Integration Hooks**: Interfaces for external systems or data sources as required
+* **User Authentication**: Secure login and registration
+* **Incident Reporting**: Capture location, photos, and descriptions
+* **Alert Center**: Display real-time alerts and weather warnings
+* **Daily Reports**: Browse PDMA’s official situation summaries
+* **Volunteer Dashboard**: Sign up and view volunteer assignments
+* **Assessment Sync**: Upload and review damage/needs assessment forms
+* **Push Notifications**: Receive FCM-based alerts and reminders
+* **Offline Support**: Cache critical data for low-connectivity scenarios
 
 ## Tech Stack
 
-* **Backend**: Java (e.g., Spring Boot), .NET (e.g., ASP.NET Core)
-* **Frontend / Scripting**: JavaScript (ES6+)
-* **Database**: Microsoft SQL Server
-* **Messaging & Notifications**: Firebase Cloud Messaging (FCM) or alternative
-* **Hosting & Deployment**: Docker, AWS (EC2, RDS, S3)
-* **CI/CD**: GitHub Actions / Bitbucket Pipelines
+* **Language**: Kotlin (or Java)
+* **Android SDK**: Minimum SDK 21 (Android 5.0 Lollipop)
+* **Architecture**: MVVM (ViewModel + LiveData)
+* **Networking**: Retrofit + OkHttp
+* **Local Persistence**: Room Database
+* **Dependency Injection**: Dagger Hilt
+* **Image Loading**: Glide
+* **Push Notifications**: Firebase Cloud Messaging (FCM)
+* **JSON Parsing**: Moshi or Gson
 
 ## Prerequisites
 
-* Python 3.8+
-* PostgreSQL 12+
-* Docker (optional but recommended)
-* AWS account with IAM role for S3 and RDS access (for production)
+* Android Studio Arctic Fox or later
+* JDK 11 or later
+* Android SDK Platform Tools and API 30+
+* A Google Firebase project with FCM enabled
 
 ## Installation
 
-1. **Clone the Repository**
+1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-org/pdma-madadgar-backend.git
-   cd pdma-madadgar-backend
+   git clone https://github.com/irfansyedpg/AndroidCP.git
+   cd AndroidCP
    ```
-2. **Create a Virtual Environment**
+2. **Open in Android Studio**
 
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate   # Linux/macOS
-   .\.venv\Scripts\activate    # Windows
-   ```
-3. **Install Dependencies**
+   * Launch Android Studio, select **Open**, and navigate to the cloned folder.
+3. **Sync Gradle**
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+   * Allow Android Studio to download and configure all dependencies.
 
 ## Configuration
 
-Create a `.env` file in the project root with the following variables:
+1. **API Base URL**
 
-```ini
-# Server
-DJANGO_SECRET_KEY=your_secret_key
-DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
+   * Edit `build.gradle` or `Constants.kt` to set `BASE_URL` pointing to your backend (e.g., `https://api.madadgar.example.com/`).
+2. **Firebase Setup**
 
-# Database
-DB_NAME=madadgar_db
-DB_USER=db_user
-DB_PASSWORD=db_password
-DB_HOST=127.0.0.1
-DB_PORT=5432
+   * Copy your `google-services.json` into `app/`.
+   * Ensure the `firebase-messaging` dependency is enabled in `app/build.gradle`.
+3. **Permissions**
 
-# AWS / S3 (for media and logs)
-AWS_ACCESS_KEY_ID=your_aws_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
-AWS_STORAGE_BUCKET_NAME=madadgar-backend-media
+   * Verify required permissions in `AndroidManifest.xml`: Internet, Location, Camera, Write Storage.
 
-# Push Notifications (FCM)
-FCM_SERVER_KEY=your_fcm_server_key
+## Running the App
+
+* **On Emulator**:
+
+  * Create/emulator running API ≥ 21.
+  * Click **Run** in Android Studio.
+
+* **On Physical Device**:
+
+  * Enable USB debugging.
+  * Connect device and select it in Android Studio before running.
+
+## Project Structure
+
 ```
-
-Adjust settings as needed for production environments.
-
-## Running the Application
-
-1. **Apply Migrations**
-
-   ```bash
-   python manage.py migrate
-   ```
-2. **Create a Superuser**
-
-   ```bash
-   python manage.py createsuperuser
-   ```
-3. **Start the Development Server**
-
-   ```bash
-   python manage.py runserver
-   ```
-
-Visit `http://127.0.0.1:8000/api/` to explore the API.
-
-## API Endpoints
-
-| Endpoint              | Method | Description                           |
-| --------------------- | ------ | ------------------------------------- |
-| `/api/auth/register/` | POST   | Register a new user                   |
-| `/api/auth/login/`    | POST   | User login                            |
-| `/api/incidents/`     | GET    | List all incidents                    |
-| `/api/incidents/`     | POST   | Submit new incident report            |
-| `/api/alerts/`        | GET    | Fetch latest warning alerts           |
-| `/api/reports/daily/` | GET    | Retrieve PDMA Daily Situation Reports |
-| `/api/volunteers/`    | GET    | List registered volunteers            |
-| `/api/volunteers/`    | POST   | Register as volunteer                 |
-| `/api/assessments/`   | GET    | List damage & needs assessments       |
-| `/api/assessments/`   | POST   | Submit new assessment data            |
-
-For full documentation, see [API Docs](docs/api.md).
-
-## Push Notifications
-
-Push alerts to users via FCM. Example usage in Django:
-
-```python
-from fcm_django.models import FCMDevice
-
-def send_alert(title, body):
-    devices = FCMDevice.objects.all()
-    devices.send_message(title=title, body=body)
+AndroidCP/
+├── app/
+│   ├── src/main/
+│   │   ├── java/...        # ViewModels, Activities, Adapters
+│   │   ├── data/           # Retrofit services, Room entities, DAOs
+│   │   ├── di/             # Hilt modules
+│   │   ├── ui/             # Fragments and UI components
+│   │   └── AndroidManifest.xml
+│   ├── res/                # Layouts, drawables, strings
+│   └── build.gradle
+├── build.gradle
+└── settings.gradle
 ```
-
-## Integration
-
-The backend can integrate with external warning systems or databases. Implement custom Django management commands or Celery tasks to fetch and synchronize external data sources.
 
 ## Contributing
 
-1. Fork the repository.
+1. Fork the repo.
 2. Create a feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m "Add YourFeature"`).
-4. Push to branch (`git push origin feature/YourFeature`).
+3. Commit (`git commit -m "Add YourFeature"`).
+4. Push (`git push origin feature/YourFeature`).
 5. Open a Pull Request.
 
-Please follow the existing code style and ensure all tests pass.
+Please write clean, well-documented code and add/update unit and UI tests where applicable.
 
 ## License & Citation
 
-This project is released under the [MIT License](LICENSE).
+Released under the MIT License.
+If you adapt this client, please cite:
 
-If you adapt or derive from this code, please cite the original developers in your application’s introduction:
-
-> “This application is based on the PDMA Madadgar App Backend developed by the Mobilise Project at the Centre for Disaster Preparedness and Management, University of Peshawar, and the Provincial Disaster Management Authority, Khyber Pakhtunkhwa.”
+> “Android Madadgar app for the PDMA Madadgar App developed by the Mobilise Project at the Centre for Disaster Preparedness and Management, University of Peshawar, and Provincial Disaster Management Authority, Khyber Pakhtunkhwa.”
