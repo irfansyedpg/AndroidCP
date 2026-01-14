@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-public class  GetDistrictServer extends AsyncTask {
+public class GetDistrictServer extends AsyncTask {
 
 
     Context mContext;
@@ -38,9 +37,9 @@ public class  GetDistrictServer extends AsyncTask {
 
     @Override
     protected void onPreExecute() {
-   //     mDialog.setMessage("Loading Data...");
-    //    mDialog.setCancelable(false);
-     //   mDialog.show();
+        //     mDialog.setMessage("Loading Data...");
+        //    mDialog.setCancelable(false);
+        //   mDialog.show();
 
         super.onPreExecute();
     }
@@ -60,7 +59,6 @@ public class  GetDistrictServer extends AsyncTask {
 
             OutputStream os = connection.getOutputStream();
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-
 
 
             bw.flush();
@@ -90,13 +88,13 @@ public class  GetDistrictServer extends AsyncTask {
         try {
 
             //connection isn't available or something is wrong with server address
-            if(mUserMsg != null)
-                throw  new IOException();
+            if (mUserMsg != null)
+                throw new IOException();
 
 
-            String resp = (String)o;
+            String resp = (String) o;
 
-            JsonArray.ArrayString=resp;
+            JsonArray.ArrayString = resp;
 
             JSONObject jsonObj = new JSONObject(resp);
 
@@ -112,10 +110,9 @@ public class  GetDistrictServer extends AsyncTask {
             }
 
 
-
-            if ( resp == null || resp.equals(""))
+            if (resp == null || resp.equals(""))
                 throw new NullPointerException("Server response is empty");
-            else if(resp.equals("-1")){
+            else if (resp.equals("-1")) {
                 mUserMsg = "Incorrect username or password";
             } else {
                 mUserMsg = null;
@@ -123,10 +120,10 @@ public class  GetDistrictServer extends AsyncTask {
 
             }
 
-        }  catch (IOException e) {
+        } catch (IOException e) {
             //if connection was available via connecting but
             //we can't get data from server..
-            if(mUserMsg == null)
+            if (mUserMsg == null)
                 mUserMsg = "Please check connection";
             e.printStackTrace();
         } catch (NullPointerException e) {

@@ -26,7 +26,6 @@ public class MainActivityFCM extends AppCompatActivity {
 
     ////////////////////////////////////////
 
-
     private static final String TAG = "TestTag";
     MainfcmBinding binding ;
     @Override
